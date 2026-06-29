@@ -26,31 +26,31 @@ const ways = [
 function Contribute() {
   return (
     <>
-      <section className="pt-40 pb-24 bg-cream border-b border-border">
+      <section className="pt-32 pb-20 md:pt-40 md:pb-24 bg-cream border-b border-border">
         <div className="container-editorial max-w-4xl">
           <Reveal><div className="eyebrow">Contribute</div></Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-6 font-display text-5xl md:text-7xl text-ink leading-[1.02]">
+            <h1 className="mt-6 font-display text-4xl sm:text-5xl md:text-7xl text-ink leading-[1.05] md:leading-[1.02]">
               A small gift goes a <em className="italic text-brass font-light">long way</em> in a classroom that's listening.
             </h1>
           </Reveal>
           <Reveal delay={240}>
-            <p className="mt-8 text-lg text-slate-body max-w-2xl leading-relaxed">
+            <p className="mt-6 md:mt-8 text-base md:text-lg text-slate-body max-w-2xl leading-relaxed">
               Bridges runs on partnerships — with the Ministry of Education, with municipalities, and with individuals and foundations who believe that language is opportunity. Your support translates directly into classroom hours.
             </p>
           </Reveal>
         </div>
       </section>
 
-      <section className="py-32">
+      <section className="py-20 md:py-32">
         <div className="container-editorial">
           <SectionHeader eyebrow="Ways to Give" title="Find the gift that fits." />
-          <div className="mt-16 grid gap-8 md:grid-cols-2">
+          <div className="mt-12 md:mt-16 grid gap-6 md:gap-8 md:grid-cols-2">
             {ways.map((w, i) => (
               <Reveal key={w.t} delay={i * 80}>
-                <article className="rounded-2xl bg-cream border border-border p-10 h-full hover:border-brass transition">
-                  <div className="flex items-start justify-between gap-6">
-                    <h3 className="font-display text-3xl text-ink leading-tight">{w.t}</h3>
+                <article className="rounded-2xl bg-cream border border-border p-7 md:p-10 h-full hover:border-brass transition">
+                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-6">
+                    <h3 className="font-display text-2xl md:text-3xl text-ink leading-tight">{w.t}</h3>
                     <span className="eyebrow text-brass shrink-0">{w.amt}</span>
                   </div>
                   <div className="hairline my-6 w-12" />
@@ -62,11 +62,11 @@ function Contribute() {
         </div>
       </section>
 
-      <section className="bg-ink text-ivory py-28">
+      <section className="bg-ink text-ivory py-20 md:py-28">
         <div className="container-editorial text-center max-w-3xl mx-auto">
           <Reveal><div className="eyebrow text-brass justify-center">Get In Touch</div></Reveal>
           <Reveal delay={120}>
-            <h2 className="mt-6 font-display text-4xl md:text-5xl text-ivory leading-tight">
+            <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl text-ivory leading-tight">
               Speak with our partnerships team.
             </h2>
           </Reveal>
@@ -76,7 +76,7 @@ function Contribute() {
             </p>
           </Reveal>
           <Reveal delay={320}>
-            <Link to="/contact" className="btn-ghost mt-10">Contact Us</Link>
+            <Link to="/contact" className="btn-ghost mt-8 md:mt-10">Contact Us</Link>
           </Reveal>
         </div>
       </section>

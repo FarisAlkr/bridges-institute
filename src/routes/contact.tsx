@@ -23,31 +23,31 @@ function Contact() {
 
   return (
     <>
-      <section className="pt-40 pb-20 bg-cream border-b border-border">
+      <section className="pt-32 pb-16 md:pt-40 md:pb-20 bg-cream border-b border-border">
         <div className="container-editorial max-w-4xl">
           <Reveal><div className="eyebrow">Contact & Partnerships</div></Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-6 font-display text-5xl md:text-7xl text-ink leading-[1.02]">
+            <h1 className="mt-6 font-display text-5xl sm:text-6xl md:text-7xl text-ink leading-[1.02]">
               Let's <em className="italic text-brass font-light">talk.</em>
             </h1>
           </Reveal>
           <Reveal delay={240}>
-            <p className="mt-8 text-lg text-slate-body max-w-2xl leading-relaxed">
+            <p className="mt-6 md:mt-8 text-base md:text-lg text-slate-body max-w-2xl leading-relaxed">
               Whether you're a school exploring a program, a partner exploring a collaboration, or simply curious — we'd love to hear from you.
             </p>
           </Reveal>
         </div>
       </section>
 
-      <section className="py-24">
-        <div className="container-editorial grid gap-16 lg:grid-cols-12">
-          <div className="lg:col-span-5 space-y-12">
+      <section className="py-16 md:py-24">
+        <div className="container-editorial grid gap-12 md:gap-16 lg:grid-cols-12">
+          <div className="lg:col-span-5 space-y-10 md:space-y-12">
             <Reveal>
               <div>
                 <div className="eyebrow">Visit</div>
                 <div className="mt-5 flex gap-4 items-start">
                   <MapPin className="text-brass mt-1 shrink-0" size={20} />
-                  <p className="font-display text-2xl text-ink leading-snug">
+                  <p className="font-display text-xl md:text-2xl text-ink leading-snug">
                     Yehuda HaNachtom 10<br />Be'er Sheva, Israel
                   </p>
                 </div>
@@ -58,7 +58,7 @@ function Contact() {
                 <div className="eyebrow">Email</div>
                 <div className="mt-5 flex gap-4 items-center">
                   <Mail className="text-brass shrink-0" size={20} />
-                  <a href="mailto:info@bridgesinstitute.org" className="link-underline font-display text-2xl text-ink">
+                  <a href="mailto:info@bridgesinstitute.org" className="link-underline font-display text-lg sm:text-xl md:text-2xl text-ink break-all">
                     info@bridgesinstitute.org
                   </a>
                 </div>
@@ -69,7 +69,7 @@ function Contact() {
                 <div className="eyebrow">Phone</div>
                 <div className="mt-5 flex gap-4 items-center">
                   <Phone className="text-brass shrink-0" size={20} />
-                  <a href="tel:+972000000000" className="link-underline font-display text-2xl text-ink">
+                  <a href="tel:+972000000000" className="link-underline font-display text-lg sm:text-xl md:text-2xl text-ink">
                     +972 (0) 00 000 0000
                   </a>
                 </div>
@@ -98,15 +98,15 @@ function Contact() {
 
           <div className="lg:col-span-7">
             <Reveal>
-              <div className="rounded-2xl border border-border bg-cream p-10">
+              <div className="rounded-2xl border border-border bg-cream p-6 sm:p-8 md:p-10">
                 <div className="eyebrow">Send a Message</div>
                 {sent ? (
                   <div className="mt-8 text-center py-10">
-                    <h3 className="font-display text-3xl text-ink">Thank you — message received.</h3>
+                    <h3 className="font-display text-2xl md:text-3xl text-ink">Thank you — message received.</h3>
                     <p className="mt-3 text-slate-body">We'll be in touch shortly.</p>
                   </div>
                 ) : (
-                  <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="mt-8 grid gap-6">
+                  <form onSubmit={(e) => { e.preventDefault(); setSent(true); }} className="mt-6 md:mt-8 grid gap-5 md:gap-6">
                     <div className="grid gap-6 md:grid-cols-2">
                       <Input label="Name" name="name" required />
                       <Input label="Email" name="email" type="email" required />
@@ -125,15 +125,15 @@ function Contact() {
         </div>
       </section>
 
-      <section className="pb-32">
+      <section className="pb-20 md:pb-32">
         <div className="container-editorial">
           <SectionHeader eyebrow="Find Us" title="In the heart of Be'er Sheva." />
           <Reveal delay={120}>
-            <div className="mt-12 overflow-hidden rounded-2xl border border-border">
+            <div className="mt-10 md:mt-12 overflow-hidden rounded-2xl border border-border">
               <iframe
                 title="Bridges Institute on the map"
                 src="https://www.google.com/maps?q=Yehuda+HaNachtom+10,+Be%27er+Sheva,+Israel&output=embed"
-                className="w-full h-[480px] grayscale-[0.4]"
+                className="w-full h-72 sm:h-96 md:h-[480px] grayscale-[0.4]"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />

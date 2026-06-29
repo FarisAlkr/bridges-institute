@@ -40,19 +40,19 @@ function Teach() {
 
   return (
     <>
-      <section className="relative min-h-[70svh] flex items-end overflow-hidden">
+      <section className="relative min-h-[60svh] md:min-h-[70svh] flex items-end overflow-hidden">
         <img src={teachHero} alt="A Bridges teacher" width={1600} height={1000}
              className="absolute inset-0 h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/40 via-ink/50 to-ink/95" />
-        <div className="container-editorial relative z-10 pb-20 pt-40 text-ivory">
+        <div className="container-editorial relative z-10 pb-16 pt-32 md:pb-20 md:pt-40 text-ivory">
           <Reveal><div className="eyebrow text-brass">Teach With Bridges</div></Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-6 font-display text-5xl md:text-7xl lg:text-[5rem] leading-[1.02] text-ivory max-w-4xl">
+            <h1 className="mt-6 font-display text-4xl sm:text-5xl md:text-6xl lg:text-[5rem] leading-[1.05] lg:leading-[1.02] text-ivory max-w-4xl">
               Make a difference <em className="italic text-brass font-light">through education.</em>
             </h1>
           </Reveal>
           <Reveal delay={240}>
-            <p className="mt-8 max-w-2xl text-lg text-ivory/80">
+            <p className="mt-6 md:mt-8 max-w-2xl text-base md:text-lg text-ivory/80">
               Bring your voice to a classroom where it matters. We're hiring native English-speaking educators across Southern Israel.
             </p>
           </Reveal>
@@ -60,15 +60,15 @@ function Teach() {
       </section>
 
       {/* Why teach */}
-      <section className="py-32">
+      <section className="py-20 md:py-32">
         <div className="container-editorial">
           <SectionHeader eyebrow="Why Teach Here" title="The work is real, and so is the support." />
-          <div className="mt-16 grid gap-px bg-border rounded-2xl overflow-hidden border border-border md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 md:mt-16 grid gap-px bg-border rounded-2xl overflow-hidden border border-border md:grid-cols-2 lg:grid-cols-3">
             {reasons.map(([t, d], i) => (
               <Reveal key={t} delay={i * 60} className="bg-cream">
-                <div className="p-10 h-full">
+                <div className="p-7 md:p-10 h-full">
                   <div className="font-display text-brass text-sm">0{i + 1}</div>
-                  <h3 className="mt-4 font-display text-2xl text-ink">{t}</h3>
+                  <h3 className="mt-4 font-display text-xl md:text-2xl text-ink">{t}</h3>
                   <p className="mt-4 text-slate-body leading-relaxed">{d}</p>
                 </div>
               </Reveal>
@@ -78,12 +78,12 @@ function Teach() {
       </section>
 
       {/* Requirements */}
-      <section className="bg-ink text-ivory py-28">
-        <div className="container-editorial grid gap-16 lg:grid-cols-12">
+      <section className="bg-ink text-ivory py-20 md:py-28">
+        <div className="container-editorial grid gap-10 md:gap-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
             <Reveal><div className="eyebrow text-brass">Minimum Requirements</div></Reveal>
             <Reveal delay={120}>
-              <h2 className="mt-5 font-display text-4xl md:text-5xl text-ivory leading-tight">
+              <h2 className="mt-5 font-display text-3xl sm:text-4xl md:text-5xl text-ivory leading-tight">
                 The bar is honest, not ornate.
               </h2>
             </Reveal>
@@ -104,22 +104,22 @@ function Teach() {
       </section>
 
       {/* Application */}
-      <section id="apply" className="py-32 bg-cream">
+      <section id="apply" className="py-20 md:py-32 bg-cream">
         <div className="container-editorial">
           <SectionHeader eyebrow="Apply Now" title="Tell us about you." intro="A few minutes here, and we'll be in touch." />
 
           {submitted ? (
             <Reveal>
-              <div className="mt-16 rounded-2xl border border-brass bg-ivory p-12 text-center">
+              <div className="mt-12 md:mt-16 rounded-2xl border border-brass bg-ivory p-8 md:p-12 text-center">
                 <div className="eyebrow justify-center">Thank you</div>
-                <h3 className="mt-4 font-display text-3xl text-ink">Your application is in.</h3>
+                <h3 className="mt-4 font-display text-2xl md:text-3xl text-ink">Your application is in.</h3>
                 <p className="mt-4 text-slate-body">We review every submission personally and will reach out within a few days.</p>
               </div>
             </Reveal>
           ) : (
             <form
               onSubmit={(e) => { e.preventDefault(); setSubmitted(true); window.scrollTo({ top: e.currentTarget.offsetTop - 100, behavior: "smooth" }); }}
-              className="mt-16 grid gap-8 md:grid-cols-2"
+              className="mt-12 md:mt-16 grid gap-6 md:gap-8 md:grid-cols-2"
             >
               <Field label="Full Name" name="name" required />
               <Field label="Email" name="email" type="email" required />

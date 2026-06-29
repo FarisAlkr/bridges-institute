@@ -29,19 +29,19 @@ const programs = [
 function Schools() {
   return (
     <>
-      <section className="relative pt-40 pb-24 bg-cream border-b border-border">
-        <div className="container-editorial grid gap-12 lg:grid-cols-12 items-end">
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-24 bg-cream border-b border-border">
+        <div className="container-editorial grid gap-10 md:gap-12 lg:grid-cols-12 items-end">
           <div className="lg:col-span-8">
             <Reveal><div className="eyebrow">Schools & Institutions</div></Reveal>
             <Reveal delay={120}>
-              <h1 className="mt-6 font-display text-5xl md:text-7xl lg:text-[5.5rem] text-ink leading-[1.02]">
+              <h1 className="mt-6 font-display text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] text-ink leading-[1.05] lg:leading-[1.02]">
                 Programs designed for the <em className="italic text-brass font-light">classrooms</em> you already have.
               </h1>
             </Reveal>
           </div>
           <div className="lg:col-span-4">
             <Reveal delay={200}>
-              <p className="text-lg text-slate-body leading-relaxed">
+              <p className="text-base md:text-lg text-slate-body leading-relaxed">
                 Whether you serve thirty students or three thousand, we shape our programs around your school's rhythm — not the other way around.
               </p>
             </Reveal>
@@ -50,15 +50,15 @@ function Schools() {
       </section>
 
       {/* Programs */}
-      <section className="py-32">
+      <section className="py-20 md:py-32">
         <div className="container-editorial">
           <SectionHeader eyebrow="Our Programs" title="Six ways to work together." />
-          <div className="mt-16 grid gap-px bg-border rounded-2xl overflow-hidden border border-border md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-12 md:mt-16 grid gap-px bg-border rounded-2xl overflow-hidden border border-border md:grid-cols-2 lg:grid-cols-3">
             {programs.map((p, i) => (
               <Reveal key={p.t} delay={i * 60} className="bg-cream">
-                <div className="p-10 h-full flex flex-col">
+                <div className="p-7 md:p-10 h-full flex flex-col">
                   <span className="font-display text-brass text-sm">0{i + 1}</span>
-                  <h3 className="mt-4 font-display text-2xl text-ink leading-tight">{p.t}</h3>
+                  <h3 className="mt-4 font-display text-xl md:text-2xl text-ink leading-tight">{p.t}</h3>
                   <p className="mt-4 text-slate-body leading-relaxed flex-1">{p.d}</p>
                   <div className="hairline my-6 w-12" />
                   <p className="text-xs uppercase tracking-[0.18em] text-ink/60">{p.scope}</p>
@@ -70,10 +70,10 @@ function Schools() {
       </section>
 
       {/* Process */}
-      <section className="bg-ink text-ivory py-28">
+      <section className="bg-ink text-ivory py-20 md:py-28">
         <div className="container-editorial">
           <SectionHeader eyebrow="How We Begin" title="A simple, considered process." />
-          <div className="mt-16 grid gap-10 md:grid-cols-4">
+          <div className="mt-12 md:mt-16 grid gap-10 sm:grid-cols-2 md:grid-cols-4">
             {[
               ["Discovery Call", "We listen first — your students, your goals, your constraints."],
               ["Program Design", "We propose a shape and pace tailored to your school."],
@@ -93,17 +93,17 @@ function Schools() {
         </div>
       </section>
 
-      <section className="relative py-32 overflow-hidden">
+      <section className="relative py-20 md:py-32 overflow-hidden">
         <img src={g2} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover opacity-30" loading="lazy" />
         <div className="absolute inset-0 bg-ivory/80" />
         <div className="container-editorial relative z-10 text-center">
           <Reveal>
-            <h2 className="font-display text-4xl md:text-6xl text-ink max-w-3xl mx-auto leading-tight">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-6xl text-ink max-w-3xl mx-auto leading-tight">
               Ready to bring Bridges into your classrooms?
             </h2>
           </Reveal>
           <Reveal delay={120}>
-            <Link to="/contact" className="btn-primary mt-10">Partner With Us</Link>
+            <Link to="/contact" className="btn-primary mt-8 md:mt-10">Partner With Us</Link>
           </Reveal>
         </div>
       </section>

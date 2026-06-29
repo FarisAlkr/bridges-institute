@@ -4,16 +4,16 @@ import { Facebook, Instagram } from "lucide-react";
 export function Footer() {
   return (
     <footer className="bg-ink text-ivory/80">
-      <div className="container-editorial py-20">
-        <div className="grid gap-14 lg:grid-cols-12">
-          <div className="lg:col-span-5">
+      <div className="container-editorial py-14 md:py-20">
+        <div className="grid gap-10 sm:gap-12 sm:grid-cols-2 lg:grid-cols-12">
+          <div className="sm:col-span-2 lg:col-span-5">
             <div className="flex items-center gap-3">
               <span className="inline-block h-9 w-9 rounded-full border border-ivory/40 relative">
                 <span className="absolute inset-1.5 rounded-full bg-brass" />
               </span>
               <span className="font-display text-2xl text-ivory">Bridges<span className="text-brass">.</span></span>
             </div>
-            <p className="mt-6 max-w-md font-display text-2xl leading-snug text-ivory">
+            <p className="mt-6 max-w-md font-display text-xl md:text-2xl leading-snug text-ivory">
               Building bridges through language, confidence, and connection.
             </p>
             <p className="mt-6 text-sm text-ivory/60 max-w-md">
@@ -72,8 +72,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="hairline mt-16 opacity-30" />
-        <div className="mt-8 flex flex-col md:flex-row justify-between gap-4 text-xs uppercase tracking-[0.18em] text-ivory/50">
+        <div className="hairline mt-12 md:mt-16 opacity-30" />
+        <div className="mt-6 md:mt-8 flex flex-col md:flex-row justify-between gap-3 md:gap-4 text-[0.65rem] sm:text-xs uppercase tracking-[0.18em] text-ivory/50">
           <span>© {new Date().getFullYear()} — All Rights Reserved to Bridges Institute by Mubadalah Group</span>
           <span>Be'er Sheva · Negev · Israel</span>
         </div>

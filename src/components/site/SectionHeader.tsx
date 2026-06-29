@@ -22,13 +22,13 @@ export function SectionHeader({
         </Reveal>
       )}
       <Reveal delay={80}>
-        <h2 className="mt-5 font-display text-4xl md:text-5xl lg:text-6xl text-ink leading-[1.05]">
+        <h2 className="mt-5 font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-ink leading-[1.05]">
           {title}
         </h2>
       </Reveal>
       {intro && (
         <Reveal delay={160}>
-          <p className="mt-6 text-lg text-slate-body max-w-2xl leading-relaxed">{intro}</p>
+          <p className="mt-5 md:mt-6 text-base md:text-lg text-slate-body max-w-2xl leading-relaxed">{intro}</p>
         </Reveal>
       )}
     </div>
