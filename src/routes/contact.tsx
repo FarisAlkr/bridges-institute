@@ -28,7 +28,7 @@ function Contact() {
           <Reveal><div className="eyebrow">Contact & Partnerships</div></Reveal>
           <Reveal delay={120}>
             <h1 className="mt-6 font-display text-5xl sm:text-6xl md:text-7xl text-ink leading-[1.02]">
-              Let's <em className="italic text-brass font-light">talk.</em>
+              Let's <em className="italic text-brass-deep font-light">talk.</em>
             </h1>
           </Reveal>
           <Reveal delay={240}>
@@ -46,7 +46,7 @@ function Contact() {
               <div>
                 <div className="eyebrow">Visit</div>
                 <div className="mt-5 flex gap-4 items-start">
-                  <MapPin className="text-brass mt-1 shrink-0" size={20} />
+                  <MapPin aria-hidden className="text-brass-deep mt-1 shrink-0" size={20} />
                   <p className="font-display text-xl md:text-2xl text-ink leading-snug">
                     Yehuda HaNachtom 10<br />Be'er Sheva, Israel
                   </p>
@@ -57,7 +57,7 @@ function Contact() {
               <div>
                 <div className="eyebrow">Email</div>
                 <div className="mt-5 flex gap-4 items-center">
-                  <Mail className="text-brass shrink-0" size={20} />
+                  <Mail aria-hidden className="text-brass-deep shrink-0" size={20} />
                   <a href="mailto:info@bridgesinstitute.org" className="link-underline font-display text-lg sm:text-xl md:text-2xl text-ink break-all">
                     info@bridgesinstitute.org
                   </a>
@@ -136,10 +136,10 @@ function Input({
   label: string; name: string; type?: string; required?: boolean;
   as?: "textarea" | "select"; options?: string[];
 }) {
-  const base = "mt-3 block w-full rounded-md border border-ink/15 bg-ivory px-4 py-3 text-ink placeholder:text-ink/40 focus:border-brass focus:outline-none focus:ring-1 focus:ring-brass transition";
+  const base = "mt-3 block w-full rounded-md border border-ink/15 bg-ivory px-4 py-3 text-ink placeholder:text-ink/40 focus:border-brass-deep focus:outline-none focus:ring-2 focus:ring-brass-deep transition";
   return (
     <div>
-      <label htmlFor={name} className="text-xs uppercase tracking-[0.18em] text-ink/60">{label}{required && <span className="text-brass"> *</span>}</label>
+      <label htmlFor={name} className="text-xs uppercase tracking-[0.18em] text-ink/60">{label}{required && <span className="text-brass-deep"> *</span>}</label>
       {as === "textarea" ? (
         <textarea id={name} name={name} rows={5} className={base} required={required} />
       ) : as === "select" ? (

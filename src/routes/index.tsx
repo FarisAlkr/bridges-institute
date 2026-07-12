@@ -164,10 +164,10 @@ function Home() {
                   color: "var(--ink)",
                 }}
               >
-                Apply to Teach <ArrowUpRight size={16} />
+                Apply to Teach <ArrowUpRight size={16} aria-hidden />
               </a>
               <a href="#method" className="btn-ghost">
-                See How We Teach <ArrowUpRight size={16} />
+                See How We Teach <ArrowUpRight size={16} aria-hidden />
               </a>
             </div>
           </Reveal>
@@ -225,7 +225,7 @@ function Home() {
               title="A lesson at Bridges, step by step."
             />
             <Reveal delay={160}>
-              <blockquote className="mt-8 border-l-2 border-brass pl-5 font-display text-xl italic leading-snug text-ink md:mt-10 md:text-2xl">
+              <blockquote className="mt-8 border-l-2 border-brass-deep pl-5 font-display text-xl italic leading-snug text-ink md:mt-10 md:text-2xl">
                 Confidence first. Accuracy follows. Students speak first; we polish later.
               </blockquote>
             </Reveal>
@@ -235,7 +235,7 @@ function Home() {
               {jobFlow.map((line, i) => (
                 <Reveal key={line} delay={i * 50}>
                   <li className="flex gap-4 border-b border-border pb-4 md:pb-5">
-                    <span className="font-display text-brass">
+                    <span className="font-display text-brass-deep">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="text-ink/90 leading-relaxed">{line}</span>
@@ -374,7 +374,7 @@ function Home() {
             {applySteps.map((step, i) => (
               <Reveal key={i} delay={i * 70}>
                 <li className="border-t border-border pt-4">
-                  <span className="font-display text-2xl text-brass">
+                  <span className="font-display text-2xl text-brass-deep">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="mt-3 text-slate-body leading-relaxed">{step}</p>
@@ -418,7 +418,7 @@ function Home() {
               </div>
               <div className="lg:col-span-4 lg:justify-self-end">
                 <Link to="/schools" className="btn-ghost">
-                  Bring Bridges to Your School <ArrowUpRight size={16} />
+                  Bring Bridges to Your School <ArrowUpRight size={16} aria-hidden />
                 </Link>
               </div>
             </div>

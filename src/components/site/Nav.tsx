@@ -26,6 +26,16 @@ export function Nav() {
 
   useEffect(() => { setOpen(false); }, [pathname]);
 
+  // Close the mobile menu on Escape (keyboard operability).
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
   const solid = scrolled || !isHome || open;
 
   return (
@@ -37,6 +47,7 @@ export function Nav() {
       <div className="container-editorial flex h-20 items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
           <span
+            aria-hidden
             className={`inline-block h-8 w-8 rounded-full border ${
               solid ? "border-ink" : "border-ivory"
             } relative`}
@@ -48,7 +59,7 @@ export function Nav() {
           </span>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-9">
+        <nav aria-label="Primary" className="hidden lg:flex items-center gap-9">
           {links.map((l) => {
             const active = pathname === l.to;
             return (
@@ -81,14 +92,16 @@ export function Nav() {
           onClick={() => setOpen((v) => !v)}
           className={`lg:hidden p-2 ${solid ? "text-ink" : "text-ivory"}`}
           aria-label={open ? "Close menu" : "Open menu"}
+          aria-expanded={open}
+          aria-controls="mobile-menu"
         >
-          {open ? <X size={22} /> : <Menu size={22} />}
+          {open ? <X size={22} aria-hidden /> : <Menu size={22} aria-hidden />}
         </button>
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border bg-ivory">
-          <nav className="container-editorial flex flex-col py-6 gap-1">
+        <div id="mobile-menu" className="lg:hidden border-t border-border bg-ivory">
+          <nav aria-label="Mobile" className="container-editorial flex flex-col py-6 gap-1">
             {links.map((l) => (
               <Link
                 key={l.to}
@@ -110,7 +123,7 @@ export function Nav() {
           hash="apply"
           className="lg:hidden fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-2 bg-brass px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-ink shadow-[0_-4px_20px_rgba(0,0,0,0.18)]"
         >
-          Apply to Teach <ArrowUpRight size={16} />
+          Apply to Teach <ArrowUpRight size={16} aria-hidden />
         </Link>
       )}
     </header>

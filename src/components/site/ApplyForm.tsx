@@ -15,7 +15,7 @@ export function ApplyForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-brass bg-ivory p-8 md:p-10 text-center">
+      <div className="rounded-2xl border border-brass-deep bg-ivory p-8 md:p-10 text-center">
         <div className="eyebrow justify-center">Thank you</div>
         <h3 className="mt-4 font-display text-2xl md:text-3xl text-ink">Your application is in.</h3>
         <p className="mt-4 mx-auto max-w-md text-slate-body leading-relaxed">
@@ -70,7 +70,7 @@ export function ApplyForm() {
           application.
         </p>
         <button type="submit" className="btn-primary">
-          Apply to Teach <ArrowUpRight size={16} />
+          Apply to Teach <ArrowUpRight size={16} aria-hidden />
         </button>
       </div>
     </form>
@@ -93,12 +93,12 @@ function ApplyField({
   autoComplete?: string;
 }) {
   const base =
-    "mt-3 block w-full border-0 border-b border-ink/25 bg-transparent px-0 py-3 text-ink placeholder:text-ink/40 focus:border-brass focus:outline-none focus:ring-0 transition";
+    "mt-3 block w-full border-0 border-b border-ink/25 bg-transparent px-0 py-3 text-ink placeholder:text-ink/40 focus:border-brass-deep focus:outline-none focus-visible:ring-2 focus-visible:ring-brass-deep focus-visible:ring-offset-2 focus-visible:ring-offset-ivory transition";
   return (
     <div>
       <label htmlFor={name} className="eyebrow block">
         {label}
-        {required && <span className="text-brass"> *</span>}
+        {required && <span className="text-brass-deep"> *</span>}
       </label>
       <input
         id={name}

@@ -38,6 +38,7 @@
   --color-ink-soft: var(--ink-soft);
   --color-brass: var(--brass);
   --color-brass-soft: var(--brass-soft);
+  --color-brass-deep: var(--brass-deep);
   --color-ivory: var(--ivory);
   --color-cream: var(--cream);
   --color-slate-body: var(--slate-body);
@@ -49,8 +50,9 @@
   /* Brand palette */
   --ink: oklch(0.22 0.04 256);          /* deep navy #0E1B2C */
   --ink-soft: oklch(0.32 0.04 256);
-  --brass: oklch(0.74 0.11 82);         /* warm brass #C8A24B */
+  --brass: oklch(0.74 0.11 82);         /* warm brass #C8A24B — gold on navy */
   --brass-soft: oklch(0.84 0.07 82);
+  --brass-deep: #836417;                /* AA-safe dark gold for text on light (≈5:1 on ivory) */
   --ivory: oklch(0.965 0.012 85);       /* #F7F4EC */
   --cream: oklch(0.985 0.008 85);
   --slate-body: oklch(0.42 0.02 256);
@@ -99,6 +101,25 @@
     letter-spacing: -0.02em;
   }
   ::selection { background: var(--brass); color: var(--ink); }
+
+  /* Visible keyboard focus on every interactive element (WCAG 2.4.7).
+     Deep gold reads on both light and dark backgrounds. */
+  :focus-visible {
+    outline: 2px solid var(--brass-deep);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+}
+
+/* Respect reduced-motion: no reveal/scroll animation, content shown immediately. */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal { opacity: 1 !important; }
 }
 
 @utility container-editorial {
@@ -122,7 +143,9 @@
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: var(--brass);
+  /* Deep gold so eyebrows meet AA on light backgrounds; on dark sections
+     add `text-brass` to switch back to the bright gold. */
+  color: var(--brass-deep);
 }
 
 @utility btn-primary {

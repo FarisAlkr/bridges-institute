@@ -75,7 +75,7 @@ function Teach() {
             {applySteps.map((step, i) => (
               <Reveal key={i} delay={i * 70}>
                 <li className="border-t border-border pt-4">
-                  <span className="font-display text-2xl text-brass">
+                  <span className="font-display text-2xl text-brass-deep">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="mt-3 text-slate-body leading-relaxed">{step}</p>
