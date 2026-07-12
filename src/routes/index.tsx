@@ -7,16 +7,25 @@ import g3 from "@/assets/gallery-3.jpg";
 import g4 from "@/assets/gallery-4.jpg";
 import g5 from "@/assets/gallery-5.jpg";
 import { Reveal } from "@/components/site/Reveal";
-import { StatCounter } from "@/components/site/StatCounter";
 import { SectionHeader } from "@/components/site/SectionHeader";
+import { ApplyForm } from "@/components/site/ApplyForm";
+import { TodoPlaceholder } from "@/components/site/TodoPlaceholder";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Bridges Institute — English through action, confidence & connection" },
-      { name: "description", content: "Authentic, immersive English programs led by native English-speaking educators. Serving Arab and Jewish communities across the Negev since 2014." },
-      { property: "og:title", content: "Bridges Institute" },
-      { property: "og:description", content: "Building bridges through language, confidence, and connection." },
+      { title: "Teach English in the Negev — Bridges Institute" },
+      {
+        name: "description",
+        content:
+          "Bridges Institute hires English-speaking teachers to lead active speaking lessons in schools across the Negev — movement, games, stories, role-play and real conversation. Apply to teach.",
+      },
+      { property: "og:title", content: "Teach English in the Negev — Bridges Institute" },
+      {
+        property: "og:description",
+        content:
+          "We hire English-speaking educators to help students in the Negev speak with confidence. See how we teach and apply.",
+      },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
@@ -24,240 +33,411 @@ export const Route = createFileRoute("/")({
   component: Home,
 });
 
-const method = [
-  { n: "01", t: "Communication First", d: "Language is a living act. We prioritize the courage to speak over the fear of getting it wrong." },
-  { n: "02", t: "Body Before Voice", d: "Understanding through action, rhythm, and repetition — sound comes after the body knows the shape of a word." },
-  { n: "03", t: "Confidence Before Perfection", d: "Fluency is built on willingness. We celebrate attempts long before we polish them." },
-  { n: "04", t: "Real-World Practice", d: "Every lesson opens a door to a native speaker, a real situation, a conversation that matters." },
+// §3 — Why teach with Bridges. Plain, not poetic; minimal/no icons.
+const whyPoints = [
+  {
+    t: "Real meaning",
+    d: "You help kids who freeze up in English actually open their mouths.",
+  },
+  {
+    t: "Active classrooms",
+    d: "You're on your feet: games, stories, role-play, movement. Not reading from a textbook.",
+  },
+  {
+    t: "Support and structure",
+    d: "Teachers get lesson frameworks, activities and routines. You bring the energy; we provide the structure.",
+  },
+  {
+    t: "Room for personality",
+    d: "Warmth, presence and reliability matter here. Teachers bring themselves into the room.",
+  },
 ];
 
-const approach = [
-  "Conversation", "Storytelling", "Games", "Role-play",
-  "Movement-Based Learning", "Cultural Exchange", "Authentic Communication", "Native Speakers",
+// §4 — What the job actually is. The single method section.
+const jobFlow = [
+  "Students first listen and respond with their bodies before they're asked to speak.",
+  "They repeat useful words and phrases out loud, together.",
+  "Then they play, act, choose, answer and talk.",
+  "Younger students: TPR, pictures, objects, rhythm, movement, stories.",
+  "Older students: opinions, role-play, interviews, real-life situations, conversation tasks.",
+  "Every student leaves the room having used English out loud.",
+];
+
+// §5 — Who we're looking for.
+const fitRows: [string, string][] = [
+  ["Confident, fluent or near-native English", "Wants quiet, textbook-only teaching"],
+  [
+    "Comfortable leading a room of children or teens",
+    "Dislikes movement, noise, games or group energy",
+  ],
+  ["Warm, responsible and reliable", "Uncomfortable leading and managing a class"],
+  [
+    "Enjoys active teaching — speaking, movement, games",
+    "Unreliable with schedule or communication",
+  ],
+  [
+    "Understands many students are nervous and need confidence first",
+    "Only wants to teach grammar from a book",
+  ],
+];
+
+// §8 — How to apply.
+const applySteps = [
+  "Fill in the short form below — name, phone or email, English background, location, and one line on why you want to teach with Bridges.",
+  "Have a short conversation with us.",
+  "If it's a good fit, join a Bridges teaching placement.",
+];
+
+// §7 — Real classroom photos. Captions are awaiting client confirmation (open-questions B1).
+const photos = [
+  {
+    src: g1,
+    span: "col-span-6 md:col-span-4 row-span-2 aspect-[3/4]",
+    alt: "Student smiling with a notebook in class",
+  },
+  {
+    src: g2,
+    span: "col-span-6 md:col-span-5 aspect-[4/3]",
+    alt: "Students standing in a circle during a role-play activity",
+  },
+  {
+    src: g3,
+    span: "col-span-12 md:col-span-3 aspect-square md:aspect-[3/4]",
+    alt: "Teacher working with students at a whiteboard",
+  },
+  {
+    src: g4,
+    span: "col-span-7 md:col-span-5 aspect-[4/3]",
+    alt: "Students playing an active game outdoors",
+  },
+  {
+    src: g5,
+    span: "col-span-5 md:col-span-3 aspect-square",
+    alt: "Hands pointing at words in a book",
+  },
 ];
 
 function Home() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative min-h-[100svh] flex items-end overflow-hidden">
+      {/* §1 — HERO (teacher-first) */}
+      <section className="relative flex min-h-[100svh] items-end overflow-hidden">
         <img
           src={heroImg}
-          alt="Native English-speaking teacher leading a conversation with students"
+          alt="A teacher leading an active English speaking lesson with students in the Negev"
           width={1920}
           height={1280}
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-ink/70 via-ink/40 to-ink/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/60 to-transparent" />
+        {/* Overlay tuned for AA text contrast over the photo. */}
+        <div className="absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/55 to-ink/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/70 to-transparent" />
 
-        <div className="container-editorial relative z-10 pb-16 pt-32 md:pb-24 md:pt-40 text-ivory">
+        <div className="container-editorial relative z-10 pb-24 pt-32 text-ivory md:pb-28 md:pt-40">
           <Reveal>
-            <div className="eyebrow text-brass flex items-center gap-3">
+            <div className="eyebrow flex items-center gap-3 text-brass">
               <span className="inline-block h-px w-10 bg-brass" />
-              Bridges Institute · Since 2014
+              Teach with Bridges · The Negev
             </div>
           </Reveal>
           <Reveal delay={120}>
-            <h1 className="mt-6 font-display text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[5.5rem] leading-[1.02] sm:leading-[0.98] text-ivory max-w-5xl">
-              Building Bridges Through{" "}
-              <em className="italic text-brass font-light">Language,</em>{" "}
-              <em className="italic text-brass font-light">Confidence,</em> and{" "}
-              <em className="italic text-brass font-light">Connection.</em>
+            <h1 className="mt-6 max-w-4xl font-display text-[2.25rem] leading-[1.05] text-ivory sm:text-5xl sm:leading-[1.02] md:text-6xl lg:text-[4.75rem]">
+              Teach English that students are finally{" "}
+              <em className="font-light italic text-brass">brave enough to speak.</em>
             </h1>
           </Reveal>
           <Reveal delay={240}>
-            <p className="mt-6 md:mt-8 max-w-2xl text-base md:text-xl text-ivory/80 leading-relaxed">
-              English learning through action, confidence, and real communication —
-              led by native English-speaking educators across the Negev.
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-ivory/85 md:mt-8 md:text-xl">
+              Bridges Institute brings English-speaking teachers into schools across the Negev to
+              lead active speaking lessons — movement, games, stories, role-play and real
+              conversation.
             </p>
           </Reveal>
           <Reveal delay={360}>
-            <div className="mt-8 md:mt-10 flex flex-wrap gap-3 md:gap-4">
-              <Link to="/contact" className="btn-primary" style={{ background: "var(--brass)", borderColor: "var(--brass)", color: "var(--ink)" }}>
-                Partner With Us <ArrowUpRight size={16} />
-              </Link>
-              <Link to="/teach" className="btn-ghost">
-                Teach With Bridges <ArrowUpRight size={16} />
-              </Link>
+            <div className="mt-8 flex flex-wrap gap-3 md:mt-10 md:gap-4">
+              <a
+                href="#apply"
+                className="btn-primary"
+                style={{
+                  background: "var(--brass)",
+                  borderColor: "var(--brass)",
+                  color: "var(--ink)",
+                }}
+              >
+                Apply to Teach <ArrowUpRight size={16} />
+              </a>
+              <a href="#method" className="btn-ghost">
+                See How We Teach <ArrowUpRight size={16} />
+              </a>
             </div>
           </Reveal>
         </div>
+      </section>
 
-        <div className="absolute bottom-8 right-8 z-10 hidden md:flex items-center gap-3 text-ivory/60 text-xs uppercase tracking-[0.22em]">
-          <span className="inline-block h-px w-10 bg-ivory/40" />
-          Scroll
+      {/* §2 — TRUST BAR */}
+      <section className="bg-ink text-ivory">
+        <div className="container-editorial py-6 md:py-7">
+          <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-center text-sm md:text-base">
+            <TrustItem>Serving the Negev since 2014</TrustItem>
+            <TrustItem>
+              Recognized by the Israeli Ministry of Education, GEFEN Program No. 9003
+            </TrustItem>
+            <TrustItem>
+              <strong className="font-semibold text-brass">11,000+</strong> students
+            </TrustItem>
+            <TrustItem>
+              <strong className="font-semibold text-brass">50+</strong> schools &amp; institutions
+            </TrustItem>
+            <TrustItem last>
+              <strong className="font-semibold text-brass">22</strong> native English-speaking
+              teachers
+            </TrustItem>
+          </ul>
         </div>
       </section>
 
-      {/* IMPACT BAND */}
-      <section className="bg-ink py-16 md:py-24">
-        <div className="container-editorial">
-          <Reveal>
-            <div className="eyebrow text-brass">Our Impact</div>
-          </Reveal>
-          <div className="mt-10 md:mt-12 grid gap-10 grid-cols-2 md:grid-cols-4">
-            <StatCounter value={11000} suffix="+" label="Students Reached" />
-            <StatCounter value={50} suffix="+" label="Schools & Institutions" />
-            <StatCounter value={22} label="Native English Teachers" />
-            <StatCounter value={2014} label="Operating Since" />
-          </div>
-        </div>
-      </section>
-
-      {/* METHOD */}
-      <section className="py-20 md:py-32">
+      {/* §3 — WHY TEACH WITH BRIDGES */}
+      <section className="py-16 md:py-24">
         <div className="container-editorial">
           <SectionHeader
-            eyebrow="The Bridges Method"
-            title="A pedagogy built on courage, not correctness."
-            intro="We don't teach English as a subject to be memorized. We build it as a living capability — through movement, story, and the simple act of being heard."
+            eyebrow="Why teach with Bridges"
+            title="Meaningful work, with real support behind it."
+          />
+          <div className="mt-10 grid gap-x-10 gap-y-8 md:mt-14 md:grid-cols-2">
+            {whyPoints.map((p, i) => (
+              <Reveal key={p.t} delay={i * 60}>
+                <div className="border-t border-border pt-5">
+                  <h3 className="font-display text-xl text-ink md:text-2xl">{p.t}</h3>
+                  <p className="mt-2 text-slate-body leading-relaxed">{p.d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* §4 — WHAT THE JOB ACTUALLY IS (the only method section) */}
+      <section id="method" className="scroll-mt-24 bg-cream py-16 md:py-24">
+        <div className="container-editorial grid gap-10 lg:grid-cols-12 lg:gap-16">
+          <div className="lg:col-span-5">
+            <SectionHeader
+              eyebrow="What the job actually is"
+              title="A lesson at Bridges, step by step."
+            />
+            <Reveal delay={160}>
+              <blockquote className="mt-8 border-l-2 border-brass pl-5 font-display text-xl italic leading-snug text-ink md:mt-10 md:text-2xl">
+                Confidence first. Accuracy follows. Students speak first; we polish later.
+              </blockquote>
+            </Reveal>
+          </div>
+          <div className="lg:col-span-7">
+            <ul className="space-y-4 md:space-y-5">
+              {jobFlow.map((line, i) => (
+                <Reveal key={line} delay={i * 50}>
+                  <li className="flex gap-4 border-b border-border pb-4 md:pb-5">
+                    <span className="font-display text-brass">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="text-ink/90 leading-relaxed">{line}</span>
+                  </li>
+                </Reveal>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* §5 — WHO WE'RE LOOKING FOR */}
+      <section className="py-16 md:py-24">
+        <div className="container-editorial">
+          <SectionHeader
+            eyebrow="Who we're looking for"
+            title="An honest picture — so you can tell if this is you."
+          />
+          <Reveal delay={120}>
+            <div className="mt-10 overflow-hidden rounded-2xl border border-border md:mt-14">
+              <table className="w-full border-collapse text-left">
+                <caption className="sr-only">
+                  Who is a good fit to teach with Bridges, and who is probably not.
+                </caption>
+                <thead>
+                  <tr className="bg-cream">
+                    <th
+                      scope="col"
+                      className="w-1/2 border-b border-border p-4 font-display text-base text-ink md:p-5 md:text-lg"
+                    >
+                      Good fit
+                    </th>
+                    <th
+                      scope="col"
+                      className="w-1/2 border-b border-l border-border p-4 font-display text-base text-slate-body md:p-5 md:text-lg"
+                    >
+                      Probably not the right fit
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {fitRows.map(([good, bad]) => (
+                    <tr key={good} className="align-top">
+                      <td className="border-b border-border p-4 text-sm text-ink/90 md:p-5 md:text-base">
+                        {good}
+                      </td>
+                      <td className="border-b border-l border-border p-4 text-sm text-slate-body md:p-5 md:text-base">
+                        {bad}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* §6 — WHAT YOU NEED TO APPLY (blocked — visible placeholders, nothing invented) */}
+      <section className="bg-cream py-16 md:py-24">
+        <div className="container-editorial">
+          <SectionHeader
+            eyebrow="What you need to apply"
+            title="The essentials — confirmed before we publish them."
+            intro="We'd rather leave these blank than guess. Details below are being confirmed with the school and will replace these notes before launch."
+          />
+          <div className="mt-10 grid gap-4 md:mt-12 md:grid-cols-2">
+            <TodoPlaceholder
+              label="Hebrew requirement"
+              note="Is Hebrew required, or do lessons run in English? If not required, this becomes a prominent “No Hebrew required.” (open-questions A1)"
+            />
+            <TodoPlaceholder
+              label="Qualifications"
+              note="Degree / teaching certificate, or fluent-capable-energetic welcome? (open-questions A2)"
+            />
+            <TodoPlaceholder
+              label="Schedule"
+              note="Part- or full-time, rough hours, school-year / summer / flexible? (open-questions A3)"
+            />
+            <TodoPlaceholder
+              label="Location"
+              note="Which Negev towns/areas, and is your own transport needed? (open-questions A4)"
+            />
+          </div>
+          <Reveal delay={120}>
+            <p className="mt-6 font-medium text-ink">This is paid work, not volunteering.</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* §7 — REAL CLASSROOM PHOTOS (captions awaiting client) */}
+      <section className="py-16 md:py-24">
+        <div className="container-editorial">
+          <SectionHeader
+            eyebrow="Inside the classroom"
+            title="Real lessons, in real Negev schools."
+          />
+          <div className="mt-10 grid grid-cols-12 gap-3 md:mt-14 md:gap-6">
+            {photos.map((img, i) => (
+              <Reveal key={i} delay={i * 60} className={img.span}>
+                <figure className="h-full w-full">
+                  <div className="h-full w-full overflow-hidden rounded-xl">
+                    <img
+                      src={img.src}
+                      alt={img.alt}
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                  <figcaption className="mt-2 text-xs text-slate-body">
+                    Caption to confirm with the client.
+                  </figcaption>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
+          <div className="mt-6 max-w-xl">
+            <TodoPlaceholder
+              label="Optional 30–60s classroom video"
+              note="If a real clip exists, embed it here with captions/transcript. Asset from client (open-questions B2)."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* §8 — HOW TO APPLY */}
+      <section id="apply" className="scroll-mt-24 bg-cream py-16 md:py-24">
+        <div className="container-editorial">
+          <SectionHeader
+            eyebrow="How to apply"
+            title="Three steps to teaching with Bridges."
+            intro="A short form beats emailing a CV into the void. Fill it in and we'll take it from there."
           />
 
-          <div className="mt-12 md:mt-20 grid gap-6 md:gap-8 md:grid-cols-2">
-            {method.map((m, i) => (
-              <Reveal key={m.n} delay={i * 80}>
-                <article className="group h-full rounded-2xl bg-cream border border-border p-7 md:p-10 transition hover:border-brass hover:-translate-y-1 duration-500">
-                  <div className="flex items-baseline justify-between">
-                    <span className="font-display text-brass text-2xl">{m.n}</span>
-                    <span className="hairline w-12" />
-                  </div>
-                  <h3 className="mt-6 md:mt-8 font-display text-2xl md:text-3xl text-ink leading-tight">{m.t}</h3>
-                  <p className="mt-4 md:mt-5 text-slate-body leading-relaxed">{m.d}</p>
-                </article>
+          <ol className="mt-10 grid gap-6 md:mt-12 md:grid-cols-3">
+            {applySteps.map((step, i) => (
+              <Reveal key={i} delay={i * 70}>
+                <li className="border-t border-border pt-4">
+                  <span className="font-display text-2xl text-brass">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="mt-3 text-slate-body leading-relaxed">{step}</p>
+                </li>
               </Reveal>
             ))}
-          </div>
-        </div>
-      </section>
+          </ol>
 
-      {/* MISSION STRIP */}
-      <section className="bg-cream border-y border-border">
-        <div className="container-editorial py-20 md:py-28 text-center">
-          <Reveal>
-            <div className="eyebrow justify-center">Mission</div>
-          </Reveal>
           <Reveal delay={120}>
-            <p className="mt-6 mx-auto max-w-4xl font-display italic text-2xl sm:text-3xl md:text-5xl leading-tight text-ink">
-              "Make English feel natural, useful, and possible for every student."
-            </p>
+            <div className="mt-12 rounded-2xl border border-border bg-ivory p-6 sm:p-8 md:mt-16 md:p-10">
+              <ApplyForm />
+            </div>
+          </Reveal>
+
+          <Reveal delay={160}>
+            <div className="mt-10 text-center">
+              <p className="mx-auto max-w-2xl font-display text-2xl leading-snug text-ink md:text-3xl">
+                Ready to teach with Bridges? Help students in the Negev find their voice in English.
+              </p>
+            </div>
           </Reveal>
         </div>
       </section>
 
-      {/* APPROACH GRID */}
-      <section className="py-20 md:py-32">
-        <div className="container-editorial grid gap-12 md:gap-16 lg:grid-cols-12">
-          <div className="lg:col-span-5">
-            <SectionHeader eyebrow="Our Approach" title="Eight ways into the language." />
-            <Reveal delay={200}>
-              <p className="mt-6 md:mt-8 text-slate-body leading-relaxed">
-                Our classrooms move. They tell stories, play games, ask questions, and try things on for size. Every method is a door — students walk through the one that feels open to them today.
-              </p>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-7 grid grid-cols-2 gap-px bg-border rounded-2xl overflow-hidden border border-border">
-            {approach.map((a, i) => (
-              <Reveal key={a} delay={i * 50} className="bg-cream">
-                <div className="p-5 sm:p-6 md:p-8 h-full flex flex-col justify-between min-h-32 sm:min-h-40 transition hover:bg-ivory">
-                  <span className="font-display text-brass text-xs">0{i + 1}</span>
-                  <span className="font-display text-lg sm:text-xl md:text-2xl text-ink mt-4 sm:mt-6 leading-tight">{a}</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CREDIBILITY */}
-      <section className="bg-ink text-ivory py-20 md:py-24">
-        <div className="container-editorial grid gap-10 md:gap-12 lg:grid-cols-12 items-center">
-          <div className="lg:col-span-7">
-            <Reveal>
-              <div className="eyebrow text-brass">Recognition</div>
-            </Reveal>
-            <Reveal delay={120}>
-              <h2 className="mt-5 font-display text-3xl sm:text-4xl md:text-5xl text-ivory leading-tight">
-                Recognized by the Israeli Ministry of Education under the GEFEN framework.
-              </h2>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="mt-6 text-ivory/70 max-w-xl leading-relaxed">
-                Program No. 9003 — proudly serving Arab and Jewish communities across the Negev and Southern Israel.
-              </p>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-5">
-            <Reveal delay={200}>
-              <div className="rounded-2xl border border-ivory/15 p-7 md:p-10 backdrop-blur">
-                <div className="flex items-baseline justify-between">
-                  <span className="eyebrow text-brass">GEFEN</span>
-                  <span className="font-display text-brass">№ 9003</span>
-                </div>
-                <div className="hairline my-6 md:my-8" />
-                <p className="font-display text-xl md:text-2xl text-ivory leading-snug">
-                  Ministry of Education — State of Israel
+      {/* §9 — FOR SCHOOLS (secondary path) */}
+      <section className="py-16 md:py-24">
+        <div className="container-editorial">
+          <div className="rounded-2xl border border-border bg-ink px-6 py-12 text-ivory md:px-12 md:py-16">
+            <div className="grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-12">
+              <div className="lg:col-span-8">
+                <div className="eyebrow text-brass">For schools</div>
+                <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ivory/85 md:text-xl">
+                  Bridges Institute brings English-speaking teachers into schools and learning
+                  centers across the Negev. Our programs help students build spoken English
+                  confidence through active, communication-based lessons.
                 </p>
-                <p className="mt-3 text-sm text-ivory/60">
-                  Authorized provider of English-language enrichment programs.
+                <p className="mt-4 text-sm text-ivory/60">
+                  Recognized under the Israeli Ministry of Education&apos;s GEFEN framework, Program
+                  No. 9003.
                 </p>
               </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      {/* GALLERY */}
-      <section className="py-20 md:py-32">
-        <div className="container-editorial">
-          <SectionHeader eyebrow="Recent Highlights" title="From the classrooms of the Negev." />
-
-          <div className="mt-12 md:mt-16 grid grid-cols-12 gap-3 md:gap-6">
-            {[
-              { src: g1, span: "col-span-6 md:col-span-4 row-span-2 aspect-[3/4]", alt: "Student smiling with notebook" },
-              { src: g2, span: "col-span-6 md:col-span-5 aspect-[4/3]", alt: "Students in a circle role-playing" },
-              { src: g3, span: "col-span-12 md:col-span-3 aspect-square md:aspect-[3/4]", alt: "Teacher at whiteboard" },
-              { src: g4, span: "col-span-7 md:col-span-5 aspect-[4/3]", alt: "Students playing outdoors" },
-              { src: g5, span: "col-span-5 md:col-span-3 aspect-square", alt: "Hands pointing at a book" },
-            ].map((img, i) => (
-              <Reveal key={i} delay={i * 80} className={img.span}>
-                <div className="group h-full w-full overflow-hidden rounded-xl">
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    loading="lazy"
-                    className="h-full w-full object-cover transition duration-[1200ms] group-hover:scale-105"
-                  />
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CLOSING CTA */}
-      <section className="relative overflow-hidden bg-cream">
-        <div className="container-editorial py-20 md:py-32 grid gap-10 md:gap-12 lg:grid-cols-12 items-end">
-          <div className="lg:col-span-8">
-            <Reveal>
-              <div className="eyebrow">Get Involved</div>
-            </Reveal>
-            <Reveal delay={120}>
-              <h2 className="mt-6 font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl text-ink leading-[1.05] lg:leading-[1.02]">
-                Bring Bridges to your school — or join the team that's building it.
-              </h2>
-            </Reveal>
-          </div>
-          <div className="lg:col-span-4 flex flex-col gap-3 md:gap-4">
-            <Link to="/contact" className="btn-primary justify-between">
-              Partner With Us <ArrowUpRight size={16} />
-            </Link>
-            <Link to="/teach" className="btn-primary justify-between" style={{ background: "transparent", color: "var(--ink)" }}>
-              Teach With Bridges <ArrowUpRight size={16} />
-            </Link>
+              <div className="lg:col-span-4 lg:justify-self-end">
+                <Link to="/schools" className="btn-ghost">
+                  Bring Bridges to Your School <ArrowUpRight size={16} />
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
       </section>
     </>
+  );
+}
+
+function TrustItem({ children, last }: { children: React.ReactNode; last?: boolean }) {
+  return (
+    <li className="flex items-center gap-x-5 text-ivory/85">
+      <span>{children}</span>
+      {!last && (
+        <span aria-hidden className="text-brass/60">
+          ·
+        </span>
+      )}
+    </li>
   );
 }
