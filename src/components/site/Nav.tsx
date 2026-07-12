@@ -1,6 +1,6 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 
 const links = [
   { to: "/", label: "Home" },
@@ -66,14 +66,15 @@ export function Nav() {
         </nav>
 
         <Link
-          to="/teach"
+          to="/"
+          hash="apply"
           className={`hidden lg:inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs uppercase tracking-[0.18em] transition ${
             solid
               ? "bg-ink text-ivory hover:bg-ink-soft"
               : "border border-ivory/60 text-ivory hover:bg-ivory hover:text-ink"
           }`}
         >
-          Apply Now
+          Apply to Teach
         </Link>
 
         <button
@@ -97,9 +98,20 @@ export function Nav() {
                 {l.label}
               </Link>
             ))}
-            <Link to="/teach" className="btn-primary mt-4 self-start">Apply Now</Link>
+            <Link to="/" hash="apply" className="btn-primary mt-4 self-start">Apply to Teach</Link>
           </nav>
         </div>
+      )}
+
+      {/* Sticky mobile Apply action — keeps "Apply to Teach" within reach on small screens. */}
+      {!open && (
+        <Link
+          to="/"
+          hash="apply"
+          className="lg:hidden fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-2 bg-brass px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-ink shadow-[0_-4px_20px_rgba(0,0,0,0.18)]"
+        >
+          Apply to Teach <ArrowUpRight size={16} />
+        </Link>
       )}
     </header>
   );

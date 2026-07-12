@@ -4,7 +4,7 @@ import { Facebook, Instagram } from "lucide-react";
 export function Footer() {
   return (
     <footer className="bg-ink text-ivory/80">
-      <div className="container-editorial py-14 md:py-20">
+      <div className="container-editorial pt-14 pb-28 md:py-20">
         <div className="grid gap-10 sm:gap-12 sm:grid-cols-2 lg:grid-cols-12">
           <div className="sm:col-span-2 lg:col-span-5">
             <div className="flex items-center gap-3">
@@ -62,11 +62,6 @@ export function Footer() {
                  aria-label="Instagram"
                  className="grid h-10 w-10 place-items-center rounded-full border border-ivory/30 hover:border-brass hover:text-brass transition">
                 <Instagram size={16} />
-              </a>
-              <a href="https://tiktok.com" target="_blank" rel="noreferrer"
-                 aria-label="TikTok"
-                 className="grid h-10 w-10 place-items-center rounded-full border border-ivory/30 hover:border-brass hover:text-brass transition text-xs font-semibold">
-                Tk
               </a>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Mail, MapPin, Phone, Facebook, Instagram } from "lucide-react";
+import { Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
 
@@ -66,17 +66,6 @@ function Contact() {
             </Reveal>
             <Reveal delay={200}>
               <div>
-                <div className="eyebrow">Phone</div>
-                <div className="mt-5 flex gap-4 items-center">
-                  <Phone className="text-brass shrink-0" size={20} />
-                  <a href="tel:+972000000000" className="link-underline font-display text-lg sm:text-xl md:text-2xl text-ink">
-                    +972 (0) 00 000 0000
-                  </a>
-                </div>
-              </div>
-            </Reveal>
-            <Reveal delay={300}>
-              <div>
                 <div className="eyebrow">Follow</div>
                 <div className="mt-5 flex gap-3">
                   <a href="https://facebook.com/BridgesEng" target="_blank" rel="noreferrer" aria-label="Facebook"
@@ -86,10 +75,6 @@ function Contact() {
                   <a href="https://instagram.com/Bridgesinst" target="_blank" rel="noreferrer" aria-label="Instagram"
                      className="grid h-11 w-11 place-items-center rounded-full border border-ink/20 hover:border-brass hover:text-brass transition">
                     <Instagram size={16} />
-                  </a>
-                  <a href="https://tiktok.com" target="_blank" rel="noreferrer" aria-label="TikTok"
-                     className="grid h-11 w-11 place-items-center rounded-full border border-ink/20 hover:border-brass hover:text-brass transition text-xs font-semibold">
-                    Tk
                   </a>
                 </div>
               </div>
