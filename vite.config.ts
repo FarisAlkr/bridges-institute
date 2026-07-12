@@ -18,6 +18,7 @@ export default defineConfig({
         { path: "/teach" },
         { path: "/contact" },
         { path: "/contribute" },
+        { path: "/accessibility" },
       ],
       prerender: {
         enabled: true,

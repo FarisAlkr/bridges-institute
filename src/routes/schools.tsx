@@ -35,7 +35,7 @@ function Schools() {
             <Reveal><div className="eyebrow">Schools & Institutions</div></Reveal>
             <Reveal delay={120}>
               <h1 className="mt-6 font-display text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] text-ink leading-[1.05] lg:leading-[1.02]">
-                Programs designed for the <em className="italic text-brass font-light">classrooms</em> you already have.
+                Programs designed for the <em className="italic text-brass-deep font-light">classrooms</em> you already have.
               </h1>
             </Reveal>
           </div>
@@ -57,7 +57,7 @@ function Schools() {
             {programs.map((p, i) => (
               <Reveal key={p.t} delay={i * 60} className="bg-cream">
                 <div className="p-7 md:p-10 h-full flex flex-col">
-                  <span className="font-display text-brass text-sm">0{i + 1}</span>
+                  <span className="font-display text-brass-deep text-sm">0{i + 1}</span>
                   <h3 className="mt-4 font-display text-xl md:text-2xl text-ink leading-tight">{p.t}</h3>
                   <p className="mt-4 text-slate-body leading-relaxed flex-1">{p.d}</p>
                   <div className="hairline my-6 w-12" />
@@ -72,7 +72,7 @@ function Schools() {
       {/* Process */}
       <section className="bg-ink text-ivory py-20 md:py-28">
         <div className="container-editorial">
-          <SectionHeader eyebrow="How We Begin" title="A simple, considered process." />
+          <SectionHeader eyebrow="How We Begin" title="A simple, considered process." onDark />
           <div className="mt-12 md:mt-16 grid gap-10 sm:grid-cols-2 md:grid-cols-4">
             {[
               ["Discovery Call", "We listen first — your students, your goals, your constraints."],

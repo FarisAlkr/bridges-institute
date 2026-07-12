@@ -6,9 +6,9 @@ export function TodoPlaceholder({ label, note }: { label: string; note?: string 
   return (
     <div
       role="note"
-      className="rounded-lg border border-dashed border-brass/70 bg-brass/5 px-4 py-3"
+      className="rounded-lg border border-dashed border-brass-deep/60 bg-brass/5 px-4 py-3"
     >
-      <span className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-brass">
+      <span className="text-[0.7rem] font-semibold uppercase tracking-[0.16em] text-brass-deep">
         To confirm
       </span>
       <p className="mt-1 font-medium text-ink">{label}</p>

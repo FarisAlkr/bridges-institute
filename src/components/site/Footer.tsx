@@ -68,9 +68,12 @@ export function Footer() {
         </div>
 
         <div className="hairline mt-12 md:mt-16 opacity-30" />
-        <div className="mt-6 md:mt-8 flex flex-col md:flex-row justify-between gap-3 md:gap-4 text-[0.65rem] sm:text-xs uppercase tracking-[0.18em] text-ivory/50">
+        <div className="mt-6 md:mt-8 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4 text-[0.65rem] sm:text-xs uppercase tracking-[0.18em] text-ivory/50">
           <span>© {new Date().getFullYear()} — All Rights Reserved to Bridges Institute by Mubadalah Group</span>
-          <span>Be'er Sheva · Negev · Israel</span>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <Link to="/accessibility" className="link-underline hover:text-ivory">Accessibility</Link>
+            <span>Be'er Sheva · Negev · Israel</span>
+          </div>
         </div>
       </div>
     </footer>

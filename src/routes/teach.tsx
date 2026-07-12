@@ -71,16 +71,16 @@ function Teach() {
             intro="A short form beats emailing a CV into the void. Fill it in and we'll take it from there."
           />
 
-          <ol className="mt-10 grid gap-6 md:mt-12 md:grid-cols-3">
+          <ol className="mt-10 grid list-none gap-6 md:mt-12 md:grid-cols-3">
             {applySteps.map((step, i) => (
-              <Reveal key={i} delay={i * 70}>
-                <li className="border-t border-border pt-4">
-                  <span className="font-display text-2xl text-brass">
+              <li key={i}>
+                <Reveal delay={i * 70} className="border-t border-border pt-4">
+                  <span className="font-display text-2xl text-brass-deep">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="mt-3 text-slate-body leading-relaxed">{step}</p>
-                </li>
-              </Reveal>
+                </Reveal>
+              </li>
             ))}
           </ol>
 

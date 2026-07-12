@@ -31,7 +31,7 @@ function Contribute() {
           <Reveal><div className="eyebrow">Contribute</div></Reveal>
           <Reveal delay={120}>
             <h1 className="mt-6 font-display text-4xl sm:text-5xl md:text-7xl text-ink leading-[1.05] md:leading-[1.02]">
-              A small gift goes a <em className="italic text-brass font-light">long way</em> in a classroom that's listening.
+              A small gift goes a <em className="italic text-brass-deep font-light">long way</em> in a classroom that's listening.
             </h1>
           </Reveal>
           <Reveal delay={240}>
@@ -48,10 +48,10 @@ function Contribute() {
           <div className="mt-12 md:mt-16 grid gap-6 md:gap-8 md:grid-cols-2">
             {ways.map((w, i) => (
               <Reveal key={w.t} delay={i * 80}>
-                <article className="rounded-2xl bg-cream border border-border p-7 md:p-10 h-full hover:border-brass transition">
+                <article className="rounded-2xl bg-cream border border-border p-7 md:p-10 h-full hover:border-brass-deep transition">
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 sm:gap-6">
                     <h3 className="font-display text-2xl md:text-3xl text-ink leading-tight">{w.t}</h3>
-                    <span className="eyebrow text-brass shrink-0">{w.amt}</span>
+                    <span className="eyebrow shrink-0">{w.amt}</span>
                   </div>
                   <div className="hairline my-6 w-12" />
                   <p className="text-slate-body leading-relaxed">{w.d}</p>
