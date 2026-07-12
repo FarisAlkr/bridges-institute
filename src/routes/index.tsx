@@ -231,16 +231,19 @@ function Home() {
             </Reveal>
           </div>
           <div className="lg:col-span-7">
-            <ul className="space-y-4 md:space-y-5">
+            <ul className="list-none space-y-4 md:space-y-5">
               {jobFlow.map((line, i) => (
-                <Reveal key={line} delay={i * 50}>
-                  <li className="flex gap-4 border-b border-border pb-4 md:pb-5">
+                <li key={line}>
+                  <Reveal
+                    delay={i * 50}
+                    className="flex gap-4 border-b border-border pb-4 md:pb-5"
+                  >
                     <span className="font-display text-brass-deep">
                       {String(i + 1).padStart(2, "0")}
                     </span>
                     <span className="text-ink/90 leading-relaxed">{line}</span>
-                  </li>
-                </Reveal>
+                  </Reveal>
+                </li>
               ))}
             </ul>
           </div>
@@ -370,16 +373,16 @@ function Home() {
             intro="A short form beats emailing a CV into the void. Fill it in and we'll take it from there."
           />
 
-          <ol className="mt-10 grid gap-6 md:mt-12 md:grid-cols-3">
+          <ol className="mt-10 grid list-none gap-6 md:mt-12 md:grid-cols-3">
             {applySteps.map((step, i) => (
-              <Reveal key={i} delay={i * 70}>
-                <li className="border-t border-border pt-4">
+              <li key={i}>
+                <Reveal delay={i * 70} className="border-t border-border pt-4">
                   <span className="font-display text-2xl text-brass-deep">
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="mt-3 text-slate-body leading-relaxed">{step}</p>
-                </li>
-              </Reveal>
+                </Reveal>
+              </li>
             ))}
           </ol>
 

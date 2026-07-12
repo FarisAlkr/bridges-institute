@@ -39,6 +39,7 @@
   --color-brass: var(--brass);
   --color-brass-soft: var(--brass-soft);
   --color-brass-deep: var(--brass-deep);
+  --color-error: var(--error);
   --color-ivory: var(--ivory);
   --color-cream: var(--cream);
   --color-slate-body: var(--slate-body);
@@ -53,6 +54,7 @@
   --brass: oklch(0.74 0.11 82);         /* warm brass #C8A24B — gold on navy */
   --brass-soft: oklch(0.84 0.07 82);
   --brass-deep: #836417;                /* AA-safe dark gold for text on light (≈5:1 on ivory) */
+  --error: #b3261e;                     /* AA-safe error red on light (≈6:1 on ivory) */
   --ivory: oklch(0.965 0.012 85);       /* #F7F4EC */
   --cream: oklch(0.985 0.008 85);
   --slate-body: oklch(0.42 0.02 256);
