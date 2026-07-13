@@ -1,32 +1,34 @@
 import { LOCALES, DEFAULT_LOCALE, localizePath, metaT, type Locale } from "./index";
 import { ogImageFor } from "./og-images";
+import { absoluteUrl } from "@/site-config";
 
 // Builds the <head> meta for a page in a given locale: localized title/description,
 // canonical, and reciprocal hreflang alternates (en/he/ar + x-default) so every
 // locale variant points at the whole set. Used by both the EN routes and the
 // /$locale routes, keeping SEO metadata identical across the two entry points.
 //
-// URLs are root-relative. Absolute hreflang would require the final production
-// domain, which is still open (open-questions C4) — swap in SITE_URL there.
+// canonical, og:url, og:image and hreflang are ABSOLUTE (built from SITE_URL) because
+// social/search scrapers require it (C4a). Change SITE_URL at go-live; these resolve
+// once DNS points the domain here (C4b).
 export function pageHead(pageNs: string, unprefixedPath: string, locale: Locale) {
   const t = metaT(locale, pageNs);
   const title = t("meta.title");
   const description = t("meta.description");
-  const canonical = localizePath(unprefixedPath, locale);
-  const image = ogImageFor(unprefixedPath);
+  const canonical = absoluteUrl(localizePath(unprefixedPath, locale));
+  const image = absoluteUrl(ogImageFor(unprefixedPath));
 
   // Lowercase `hreflang` for clean, unambiguous output (TanStack serializes head
   // link keys verbatim rather than through React's camelCase→attr normalization).
   const alternates: { rel: string; hreflang: string; href: string }[] = LOCALES.map((l) => ({
     rel: "alternate",
     hreflang: l,
-    href: localizePath(unprefixedPath, l),
+    href: absoluteUrl(localizePath(unprefixedPath, l)),
   }));
   // x-default points at the unprefixed EN URL.
   alternates.push({
     rel: "alternate",
     hreflang: "x-default",
-    href: localizePath(unprefixedPath, DEFAULT_LOCALE),
+    href: absoluteUrl(localizePath(unprefixedPath, DEFAULT_LOCALE)),
   });
 
   return {
