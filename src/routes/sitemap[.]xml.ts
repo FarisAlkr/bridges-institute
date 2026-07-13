@@ -2,10 +2,10 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { LOCALES, DEFAULT_LOCALE, localizePath } from "@/i18n";
 import { PAGES } from "@/i18n/pages";
+import { absoluteUrl } from "@/site-config";
 
-// Root-relative URLs. Absolute would require the final production domain
-// (open-questions C4); swap in a SITE_URL prefix there.
-const BASE_URL = "";
+// Absolute URLs (built from SITE_URL) — sitemaps require full URLs (C4a). They resolve
+// once DNS points the domain at this deployment (C4b).
 
 export const Route = createFileRoute("/sitemap.xml")({
   server: {
@@ -18,13 +18,13 @@ export const Route = createFileRoute("/sitemap.xml")({
             const alternates = [
               ...LOCALES.map(
                 (l) =>
-                  `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${localizePath(page.path, l)}" />`,
+                  `    <xhtml:link rel="alternate" hreflang="${l}" href="${absoluteUrl(localizePath(page.path, l))}" />`,
               ),
-              `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${localizePath(page.path, DEFAULT_LOCALE)}" />`,
+              `    <xhtml:link rel="alternate" hreflang="x-default" href="${absoluteUrl(localizePath(page.path, DEFAULT_LOCALE))}" />`,
             ];
             return [
               `  <url>`,
-              `    <loc>${BASE_URL}${localizePath(page.path, locale)}</loc>`,
+              `    <loc>${absoluteUrl(localizePath(page.path, locale))}</loc>`,
               ...alternates,
               `    <changefreq>${page.changefreq}</changefreq>`,
               `    <priority>${page.priority}</priority>`,

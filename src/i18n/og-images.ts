@@ -1,23 +1,24 @@
 // Per-page Open Graph images (C5/C5a). Assets are imported so Vite resolves them to
-// hashed, cacheable URLs. Pages without a specific image fall back to the default.
+// hashed, cacheable URLs; head.ts wraps the returned path with SITE_URL to make it the
+// absolute URL scrapers require (C4a).
 //
-// URLs are root-relative; social scrapers generally want ABSOLUTE og:image URLs, so
-// prefixing these with the production origin is part of the domain work (C4a). These
-// are real classroom photos — a purpose-built 1200×630 branded card would be an
-// improvement worth doing once brand assets exist (also C5a).
-import heroClassroom from "@/assets/hero-classroom.jpg";
-import teachHero from "@/assets/teach-hero.jpg";
-import aboutHero from "@/assets/about-hero.jpg";
-import gallery2 from "@/assets/gallery-2.jpg";
+// These are REAL Bridges classroom photos (from bridges-eng.com). Landscape shots are
+// used because previews crop to ~1.91:1 (1200×630). A purpose-built branded 1200×630
+// card would be a further improvement once brand assets exist (C5a).
+import speakingLesson from "@/assets/classroom-speaking-lesson.jpg";
+import oneToOne from "@/assets/classroom-one-to-one.jpg";
+import pictureCards from "@/assets/classroom-picture-cards.jpg";
 
-export const DEFAULT_OG_IMAGE = heroClassroom;
+// Default: a teacher leading an English speaking lesson at the board — a clear "what we
+// do" preview for any page without a more specific image.
+export const DEFAULT_OG_IMAGE = speakingLesson;
 
 const BY_PATH: Record<string, string> = {
-  "/": heroClassroom,
-  "/about": aboutHero,
-  "/teach": teachHero,
-  "/schools": gallery2,
-  // /contribute, /contact, /accessibility → default
+  "/": speakingLesson,
+  "/teach": oneToOne, // a teacher helping a student one-to-one
+  "/about": pictureCards, // small-group activity — community feel
+  "/schools": pictureCards,
+  // /contribute, /contact, /accessibility, /privacy → default
 };
 
 export const ogImageFor = (unprefixedPath: string): string =>
