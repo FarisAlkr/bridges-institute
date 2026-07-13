@@ -1,25 +1,26 @@
+import { Trans, useTranslation } from "react-i18next";
 import { Reveal } from "@/components/site/Reveal";
 import { TodoPlaceholder } from "@/components/site/TodoPlaceholder";
 
-
 export function AccessibilityStatement() {
+  const { t } = useTranslation(["accessibility", "common"]);
+  const doneItems = t("done.items", { returnObjects: true }) as string[];
+
   return (
     <>
       <section className="border-b border-border bg-cream pt-32 pb-16 md:pt-40 md:pb-20">
         <div className="container-editorial max-w-4xl">
           <Reveal>
-            <div className="eyebrow">Accessibility</div>
+            <div className="eyebrow">{t("hero.eyebrow")}</div>
           </Reveal>
           <Reveal delay={120}>
             <h1 className="mt-6 font-display text-4xl leading-[1.05] text-ink sm:text-5xl md:text-6xl">
-              Accessibility Statement
+              {t("hero.title")}
             </h1>
           </Reveal>
           <Reveal delay={240}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-body md:text-lg">
-              Bridges Institute is committed to making its website usable for everyone, including
-              people with disabilities. We treat accessibility as an ongoing responsibility, built
-              into the site itself rather than added on afterwards.
+              {t("hero.intro")}
             </p>
           </Reveal>
         </div>
@@ -28,84 +29,56 @@ export function AccessibilityStatement() {
       <section className="py-16 md:py-24">
         <div className="container-editorial max-w-3xl space-y-12">
           <div>
-            <h2 className="font-display text-2xl text-ink md:text-3xl">The standard we follow</h2>
+            <h2 className="font-display text-2xl text-ink md:text-3xl">{t("standard.title")}</h2>
             <p className="mt-4 text-slate-body leading-relaxed">
-              We aim to conform to <strong>Israeli Standard IS 5568</strong>, which is based on the
-              Web Content Accessibility Guidelines (<strong>WCAG 2.0</strong>) at{" "}
-              <strong>Level AA</strong>.
+              <Trans t={t} i18nKey="standard.body" components={{ b: <strong /> }} />
             </p>
           </div>
 
           <div>
-            <h2 className="font-display text-2xl text-ink md:text-3xl">What we have done</h2>
+            <h2 className="font-display text-2xl text-ink md:text-3xl">{t("done.title")}</h2>
             <ul className="mt-4 space-y-3 text-slate-body leading-relaxed">
-              <li>Semantic headings and landmark regions (header, navigation, main, footer).</li>
-              <li>
-                A “skip to content” link and full keyboard operability, with a visible focus
-                indicator on every interactive element.
-              </li>
-              <li>
-                Text alternatives for meaningful images; decorative images are hidden from screen
-                readers.
-              </li>
-              <li>Form fields with real, associated labels.</li>
-              <li>
-                Colour contrast checked against AA thresholds, including the brand gold on light
-                backgrounds.
-              </li>
-              <li>Respect for the operating system’s “reduce motion” preference.</li>
+              {doneItems.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h2 className="font-display text-2xl text-ink md:text-3xl">Ongoing work</h2>
-            <p className="mt-4 text-slate-body leading-relaxed">
-              Accessibility is never finished. We continue to test and improve, and this statement
-              will be published in Hebrew and Arabic as part of the site’s multilingual rollout.
-            </p>
+            <h2 className="font-display text-2xl text-ink md:text-3xl">{t("ongoing.title")}</h2>
+            <p className="mt-4 text-slate-body leading-relaxed">{t("ongoing.body")}</p>
             <div className="mt-6">
-              <TodoPlaceholder
-                label="Hebrew & Arabic versions of this statement"
-                note="To be published alongside the multilingual rollout — reviewed by a real speaker, not machine-translated."
-              />
+              <TodoPlaceholder label={t("ongoing.todoLabel")} note={t("ongoing.todoNote")} />
             </div>
           </div>
 
           <div>
-            <h2 className="font-display text-2xl text-ink md:text-3xl">
-              Reporting an accessibility problem
-            </h2>
-            <p className="mt-4 text-slate-body leading-relaxed">
-              If you come across a barrier on this site, please tell us and we will do our best to
-              put it right.
-            </p>
+            <h2 className="font-display text-2xl text-ink md:text-3xl">{t("report.title")}</h2>
+            <p className="mt-4 text-slate-body leading-relaxed">{t("report.body")}</p>
             <ul className="mt-4 space-y-2 text-slate-body leading-relaxed">
               <li>
-                Email:{" "}
+                {t("report.emailLabel")}{" "}
                 <a
                   href="mailto:info@bridgesinstitute.org"
                   className="link-underline font-medium text-ink"
                 >
-                  info@bridgesinstitute.org
+                  {t("common:contactEmail")}
                 </a>
               </li>
-              <li>Address: Yehuda HaNachtom 10, Be&apos;er Sheva, Israel.</li>
+              <li>{t("report.address")}</li>
             </ul>
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
               <TodoPlaceholder
-                label="Accessibility coordinator"
-                note="Name and role of the person responsible for accessibility — to confirm with the client."
+                label={t("report.coordinatorLabel")}
+                note={t("report.coordinatorNote")}
               />
-              <TodoPlaceholder
-                label="Phone for accessibility requests"
-                note="Direct phone number for accessibility enquiries — to confirm with the client."
-              />
+              <TodoPlaceholder label={t("report.phoneLabel")} note={t("report.phoneNote")} />
             </div>
           </div>
 
           <div>
-            <h2 className="font-display text-2xl text-ink md:text-3xl">Last reviewed</h2>
-            <p className="mt-4 text-slate-body leading-relaxed">12 July 2026.</p>
+            <h2 className="font-display text-2xl text-ink md:text-3xl">{t("reviewed.title")}</h2>
+            <p className="mt-4 text-slate-body leading-relaxed">{t("reviewed.date")}.</p>
           </div>
         </div>
       </section>

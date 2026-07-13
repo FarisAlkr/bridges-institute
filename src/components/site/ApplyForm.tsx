@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 // Single canonical application form used on the homepage (#apply) and /teach.
 // TODO(C1): wire a real submission endpoint + CV upload destination before launch.
@@ -8,15 +9,8 @@ import { ArrowUpRight } from "lucide-react";
 // Order matters: used to focus the first invalid field on submit.
 const REQUIRED = ["name", "contact", "english", "location", "why"] as const;
 
-const LABELS: Record<string, string> = {
-  name: "Name",
-  contact: "Phone or email",
-  english: "Your English background",
-  location: "Location",
-  why: "Why do you want to teach with Bridges",
-};
-
 export function ApplyForm() {
+  const { t } = useTranslation("common");
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -26,7 +20,7 @@ export function ApplyForm() {
     const next: Record<string, string> = {};
     for (const name of REQUIRED) {
       if (!String(data.get(name) ?? "").trim()) {
-        next[name] = `${LABELS[name]} is required.`;
+        next[name] = t("form.requiredError", { field: t(`applyForm.errorFields.${name}`) });
       }
     }
     setErrors(next);
@@ -50,11 +44,12 @@ export function ApplyForm() {
   if (submitted) {
     return (
       <div className="rounded-2xl border border-brass-deep bg-ivory p-8 md:p-10 text-center">
-        <div className="eyebrow justify-center">Thank you</div>
-        <h3 className="mt-4 font-display text-2xl md:text-3xl text-ink">Your application is in.</h3>
+        <div className="eyebrow justify-center">{t("applyForm.thankYou")}</div>
+        <h3 className="mt-4 font-display text-2xl md:text-3xl text-ink">
+          {t("applyForm.successTitle")}
+        </h3>
         <p className="mt-4 mx-auto max-w-md text-slate-body leading-relaxed">
-          We read every application ourselves. We&apos;ll be in touch to set up a short
-          conversation.
+          {t("applyForm.successBody")}
         </p>
       </div>
     );
@@ -63,7 +58,7 @@ export function ApplyForm() {
   return (
     <form onSubmit={handleSubmit} noValidate className="grid gap-6 md:grid-cols-2">
       <ApplyField
-        label="Name"
+        label={t("applyForm.labels.name")}
         name="name"
         autoComplete="name"
         required
@@ -71,7 +66,7 @@ export function ApplyForm() {
         onClear={clearError}
       />
       <ApplyField
-        label="Phone or email"
+        label={t("applyForm.labels.contact")}
         name="contact"
         autoComplete="email"
         required
@@ -79,26 +74,26 @@ export function ApplyForm() {
         onClear={clearError}
       />
       <ApplyField
-        label="Your English background"
+        label={t("applyForm.labels.english")}
         name="english"
-        placeholder="e.g. native speaker, near-native, studied/lived abroad…"
+        placeholder={t("applyForm.placeholders.english")}
         required
         error={errors.english}
         onClear={clearError}
       />
       <ApplyField
-        label="Location"
+        label={t("applyForm.labels.location")}
         name="location"
-        placeholder="Which Negev town or area?"
+        placeholder={t("applyForm.placeholders.location")}
         required
         error={errors.location}
         onClear={clearError}
       />
       <div className="md:col-span-2">
         <ApplyField
-          label="Why do you want to teach with Bridges?"
+          label={t("applyForm.labels.why")}
           name="why"
-          placeholder="One line is enough."
+          placeholder={t("applyForm.placeholders.why")}
           required
           error={errors.why}
           onClear={clearError}
@@ -107,7 +102,8 @@ export function ApplyForm() {
 
       <div className="md:col-span-2">
         <label htmlFor="cv" className="eyebrow block">
-          CV <span className="normal-case tracking-normal text-slate-body">(optional)</span>
+          {`${t("applyForm.cv")} `}
+          <span className="normal-case tracking-normal text-slate-body">{t("form.optional")}</span>
         </label>
         <input
           id="cv"
@@ -119,12 +115,10 @@ export function ApplyForm() {
       </div>
 
       <div className="md:col-span-2 flex flex-wrap items-center justify-between gap-4">
-        <p className="max-w-md text-sm text-slate-body leading-relaxed">
-          This is paid work, not volunteering. By applying, you agree to be contacted about your
-          application.
-        </p>
+        <p className="max-w-md text-sm text-slate-body leading-relaxed">{t("applyForm.consent")}</p>
         <button type="submit" className="btn-primary">
-          Apply to Teach <ArrowUpRight size={16} aria-hidden />
+          {`${t("cta.applyToTeach")} `}
+          <ArrowUpRight size={16} aria-hidden />
         </button>
       </div>
     </form>

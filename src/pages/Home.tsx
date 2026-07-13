@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import { Trans, useTranslation } from "react-i18next";
 import heroImg from "@/assets/hero-classroom.jpg";
 import g1 from "@/assets/gallery-1.jpg";
 import g2 from "@/assets/gallery-2.jpg";
@@ -11,99 +12,30 @@ import { SectionHeader } from "@/components/site/SectionHeader";
 import { ApplyForm } from "@/components/site/ApplyForm";
 import { TodoPlaceholder } from "@/components/site/TodoPlaceholder";
 
-
-// §3 — Why teach with Bridges. Plain, not poetic; minimal/no icons.
-const whyPoints = [
-  {
-    t: "Real meaning",
-    d: "You help kids who freeze up in English actually open their mouths.",
-  },
-  {
-    t: "Active classrooms",
-    d: "You're on your feet: games, stories, role-play, movement. Not reading from a textbook.",
-  },
-  {
-    t: "Support and structure",
-    d: "Teachers get lesson frameworks, activities and routines. You bring the energy; we provide the structure.",
-  },
-  {
-    t: "Room for personality",
-    d: "Warmth, presence and reliability matter here. Teachers bring themselves into the room.",
-  },
-];
-
-// §4 — What the job actually is. The single method section.
-const jobFlow = [
-  "Students first listen and respond with their bodies before they're asked to speak.",
-  "They repeat useful words and phrases out loud, together.",
-  "Then they play, act, choose, answer and talk.",
-  "Younger students: TPR, pictures, objects, rhythm, movement, stories.",
-  "Older students: opinions, role-play, interviews, real-life situations, conversation tasks.",
-  "Every student leaves the room having used English out loud.",
-];
-
-// §5 — Who we're looking for.
-const fitRows: [string, string][] = [
-  ["Confident, fluent or near-native English", "Wants quiet, textbook-only teaching"],
-  [
-    "Comfortable leading a room of children or teens",
-    "Dislikes movement, noise, games or group energy",
-  ],
-  ["Warm, responsible and reliable", "Uncomfortable leading and managing a class"],
-  [
-    "Enjoys active teaching — speaking, movement, games",
-    "Unreliable with schedule or communication",
-  ],
-  [
-    "Understands many students are nervous and need confidence first",
-    "Only wants to teach grammar from a book",
-  ],
-];
-
-// §8 — How to apply.
-const applySteps = [
-  "Fill in the short form below — name, phone or email, English background, location, and one line on why you want to teach with Bridges.",
-  "Have a short conversation with us.",
-  "If it's a good fit, join a Bridges teaching placement.",
-];
-
-// §7 — Real classroom photos. Captions are awaiting client confirmation (open-questions B1).
-const photos = [
-  {
-    src: g1,
-    span: "col-span-6 md:col-span-4 row-span-2 aspect-[3/4]",
-    alt: "Student smiling with a notebook in class",
-  },
-  {
-    src: g2,
-    span: "col-span-6 md:col-span-5 aspect-[4/3]",
-    alt: "Students standing in a circle during a role-play activity",
-  },
-  {
-    src: g3,
-    span: "col-span-12 md:col-span-3 aspect-square md:aspect-[3/4]",
-    alt: "Teacher working with students at a whiteboard",
-  },
-  {
-    src: g4,
-    span: "col-span-7 md:col-span-5 aspect-[4/3]",
-    alt: "Students playing an active game outdoors",
-  },
-  {
-    src: g5,
-    span: "col-span-5 md:col-span-3 aspect-square",
-    alt: "Hands pointing at words in a book",
-  },
+const whyKeys = ["meaning", "active", "support", "personality"] as const;
+const photoSrc = [g1, g2, g3, g4, g5];
+const photoSpan = [
+  "col-span-6 md:col-span-4 row-span-2 aspect-[3/4]",
+  "col-span-6 md:col-span-5 aspect-[4/3]",
+  "col-span-12 md:col-span-3 aspect-square md:aspect-[3/4]",
+  "col-span-7 md:col-span-5 aspect-[4/3]",
+  "col-span-5 md:col-span-3 aspect-square",
 ];
 
 export function Home() {
+  const { t } = useTranslation(["home", "common"]);
+  const jobFlow = t("job.flow", { returnObjects: true }) as string[];
+  const fitRows = t("fit.rows", { returnObjects: true }) as { good: string; bad: string }[];
+  const applySteps = t("common:applyHow.steps", { returnObjects: true }) as string[];
+  const photoAlts = t("photos.alt", { returnObjects: true }) as string[];
+
   return (
     <>
       {/* §1 — HERO (teacher-first) */}
       <section className="relative flex min-h-[100svh] items-end overflow-hidden">
         <img
           src={heroImg}
-          alt="A teacher leading an active English speaking lesson with students in the Negev"
+          alt={t("hero.imageAlt")}
           width={1920}
           height={1280}
           className="absolute inset-0 h-full w-full object-cover"
@@ -116,20 +48,21 @@ export function Home() {
           <Reveal>
             <div className="eyebrow flex items-center gap-3 text-brass">
               <span className="inline-block h-px w-10 bg-brass" />
-              Teach with Bridges · The Negev
+              {t("hero.eyebrow")}
             </div>
           </Reveal>
           <Reveal delay={120}>
             <h1 className="mt-6 max-w-4xl font-display text-[2.25rem] leading-[1.05] text-ivory sm:text-5xl sm:leading-[1.02] md:text-6xl lg:text-[4.75rem]">
-              Teach English that students are finally{" "}
-              <em className="font-light italic text-brass">brave enough to speak.</em>
+              <Trans
+                t={t}
+                i18nKey="hero.headline"
+                components={{ em: <em className="font-light italic text-brass" /> }}
+              />
             </h1>
           </Reveal>
           <Reveal delay={240}>
             <p className="mt-6 max-w-2xl text-base leading-relaxed text-ivory/85 md:mt-8 md:text-xl">
-              Bridges Institute brings English-speaking teachers into schools across the Negev to
-              lead active speaking lessons — movement, games, stories, role-play and real
-              conversation.
+              {t("hero.subheadline")}
             </p>
           </Reveal>
           <Reveal delay={360}>
@@ -143,10 +76,12 @@ export function Home() {
                   color: "var(--ink)",
                 }}
               >
-                Apply to Teach <ArrowUpRight size={16} aria-hidden />
+                {`${t("common:cta.applyToTeach")} `}
+                <ArrowUpRight size={16} aria-hidden />
               </a>
               <a href="#method" className="btn-ghost">
-                See How We Teach <ArrowUpRight size={16} aria-hidden />
+                {`${t("hero.seeHowWeTeach")} `}
+                <ArrowUpRight size={16} aria-hidden />
               </a>
             </div>
           </Reveal>
@@ -157,19 +92,31 @@ export function Home() {
       <section className="bg-ink text-ivory">
         <div className="container-editorial py-6 md:py-7">
           <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-center text-sm md:text-base">
-            <TrustItem>Serving the Negev since 2014</TrustItem>
+            <TrustItem>{t("trust.since", { year: 2014 })}</TrustItem>
+            <TrustItem>{t("trust.gefen", { program: "9003" })}</TrustItem>
             <TrustItem>
-              Recognized by the Israeli Ministry of Education, GEFEN Program No. 9003
+              <Trans
+                t={t}
+                i18nKey="trust.students"
+                count={11000}
+                components={{ b: <strong className="font-semibold text-brass" /> }}
+              />
             </TrustItem>
             <TrustItem>
-              <strong className="font-semibold text-brass">11,000+</strong> students
-            </TrustItem>
-            <TrustItem>
-              <strong className="font-semibold text-brass">50+</strong> schools &amp; institutions
+              <Trans
+                t={t}
+                i18nKey="trust.schools"
+                count={50}
+                components={{ b: <strong className="font-semibold text-brass" /> }}
+              />
             </TrustItem>
             <TrustItem last>
-              <strong className="font-semibold text-brass">22</strong> native English-speaking
-              teachers
+              <Trans
+                t={t}
+                i18nKey="trust.teachers"
+                count={22}
+                components={{ b: <strong className="font-semibold text-brass" /> }}
+              />
             </TrustItem>
           </ul>
         </div>
@@ -178,16 +125,17 @@ export function Home() {
       {/* §3 — WHY TEACH WITH BRIDGES */}
       <section className="py-16 md:py-24">
         <div className="container-editorial">
-          <SectionHeader
-            eyebrow="Why teach with Bridges"
-            title="Meaningful work, with real support behind it."
-          />
+          <SectionHeader eyebrow={t("why.eyebrow")} title={t("why.title")} />
           <div className="mt-10 grid gap-x-10 gap-y-8 md:mt-14 md:grid-cols-2">
-            {whyPoints.map((p, i) => (
-              <Reveal key={p.t} delay={i * 60}>
+            {whyKeys.map((k, i) => (
+              <Reveal key={k} delay={i * 60}>
                 <div className="border-t border-border pt-5">
-                  <h3 className="font-display text-xl text-ink md:text-2xl">{p.t}</h3>
-                  <p className="mt-2 text-slate-body leading-relaxed">{p.d}</p>
+                  <h3 className="font-display text-xl text-ink md:text-2xl">
+                    {t(`why.points.${k}.title`)}
+                  </h3>
+                  <p className="mt-2 text-slate-body leading-relaxed">
+                    {t(`why.points.${k}.body`)}
+                  </p>
                 </div>
               </Reveal>
             ))}
@@ -199,13 +147,10 @@ export function Home() {
       <section id="method" className="scroll-mt-24 bg-cream py-16 md:py-24">
         <div className="container-editorial grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <SectionHeader
-              eyebrow="What the job actually is"
-              title="A lesson at Bridges, step by step."
-            />
+            <SectionHeader eyebrow={t("job.eyebrow")} title={t("job.title")} />
             <Reveal delay={160}>
               <blockquote className="mt-8 border-l-2 border-brass-deep pl-5 font-display text-xl italic leading-snug text-ink md:mt-10 md:text-2xl">
-                Confidence first. Accuracy follows. Students speak first; we polish later.
+                {t("job.quote")}
               </blockquote>
             </Reveal>
           </div>
@@ -213,10 +158,7 @@ export function Home() {
             <ul className="list-none space-y-4 md:space-y-5">
               {jobFlow.map((line, i) => (
                 <li key={line}>
-                  <Reveal
-                    delay={i * 50}
-                    className="flex gap-4 border-b border-border pb-4 md:pb-5"
-                  >
+                  <Reveal delay={i * 50} className="flex gap-4 border-b border-border pb-4 md:pb-5">
                     <span className="font-display text-brass-deep">
                       {String(i + 1).padStart(2, "0")}
                     </span>
@@ -232,40 +174,35 @@ export function Home() {
       {/* §5 — WHO WE'RE LOOKING FOR */}
       <section className="py-16 md:py-24">
         <div className="container-editorial">
-          <SectionHeader
-            eyebrow="Who we're looking for"
-            title="An honest picture — so you can tell if this is you."
-          />
+          <SectionHeader eyebrow={t("fit.eyebrow")} title={t("fit.title")} />
           <Reveal delay={120}>
             <div className="mt-10 overflow-hidden rounded-2xl border border-border md:mt-14">
               <table className="w-full border-collapse text-left">
-                <caption className="sr-only">
-                  Who is a good fit to teach with Bridges, and who is probably not.
-                </caption>
+                <caption className="sr-only">{t("fit.caption")}</caption>
                 <thead>
                   <tr className="bg-cream">
                     <th
                       scope="col"
                       className="w-1/2 border-b border-border p-4 font-display text-base text-ink md:p-5 md:text-lg"
                     >
-                      Good fit
+                      {t("fit.goodHeading")}
                     </th>
                     <th
                       scope="col"
                       className="w-1/2 border-b border-l border-border p-4 font-display text-base text-slate-body md:p-5 md:text-lg"
                     >
-                      Probably not the right fit
+                      {t("fit.badHeading")}
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  {fitRows.map(([good, bad]) => (
-                    <tr key={good} className="align-top">
+                  {fitRows.map((row) => (
+                    <tr key={row.good} className="align-top">
                       <td className="border-b border-border p-4 text-sm text-ink/90 md:p-5 md:text-base">
-                        {good}
+                        {row.good}
                       </td>
                       <td className="border-b border-l border-border p-4 text-sm text-slate-body md:p-5 md:text-base">
-                        {bad}
+                        {row.bad}
                       </td>
                     </tr>
                   ))}
@@ -280,30 +217,30 @@ export function Home() {
       <section className="bg-cream py-16 md:py-24">
         <div className="container-editorial">
           <SectionHeader
-            eyebrow="What you need to apply"
-            title="The essentials — confirmed before we publish them."
-            intro="We'd rather leave these blank than guess. Details below are being confirmed with the school and will replace these notes before launch."
+            eyebrow={t("requirements.eyebrow")}
+            title={t("requirements.title")}
+            intro={t("requirements.intro")}
           />
           <div className="mt-10 grid gap-4 md:mt-12 md:grid-cols-2">
             <TodoPlaceholder
-              label="Hebrew requirement"
-              note="Is Hebrew required, or do lessons run in English? If not required, this becomes a prominent “No Hebrew required.” (open-questions A1)"
+              label={t("requirements.hebrewLabel")}
+              note={t("requirements.hebrewNote")}
             />
             <TodoPlaceholder
-              label="Qualifications"
-              note="Degree / teaching certificate, or fluent-capable-energetic welcome? (open-questions A2)"
+              label={t("requirements.qualificationsLabel")}
+              note={t("requirements.qualificationsNote")}
             />
             <TodoPlaceholder
-              label="Schedule"
-              note="Part- or full-time, rough hours, school-year / summer / flexible? (open-questions A3)"
+              label={t("requirements.scheduleLabel")}
+              note={t("requirements.scheduleNote")}
             />
             <TodoPlaceholder
-              label="Location"
-              note="Which Negev towns/areas, and is your own transport needed? (open-questions A4)"
+              label={t("requirements.locationLabel")}
+              note={t("requirements.locationNote")}
             />
           </div>
           <Reveal delay={120}>
-            <p className="mt-6 font-medium text-ink">This is paid work, not volunteering.</p>
+            <p className="mt-6 font-medium text-ink">{t("requirements.paid")}</p>
           </Reveal>
         </div>
       </section>
@@ -311,34 +248,28 @@ export function Home() {
       {/* §7 — REAL CLASSROOM PHOTOS (captions awaiting client) */}
       <section className="py-16 md:py-24">
         <div className="container-editorial">
-          <SectionHeader
-            eyebrow="Inside the classroom"
-            title="Real lessons, in real Negev schools."
-          />
+          <SectionHeader eyebrow={t("photos.eyebrow")} title={t("photos.title")} />
           <div className="mt-10 grid grid-cols-12 gap-3 md:mt-14 md:gap-6">
-            {photos.map((img, i) => (
-              <Reveal key={i} delay={i * 60} className={img.span}>
+            {photoSrc.map((src, i) => (
+              <Reveal key={i} delay={i * 60} className={photoSpan[i]}>
                 <figure className="h-full w-full">
                   <div className="h-full w-full overflow-hidden rounded-xl">
                     <img
-                      src={img.src}
-                      alt={img.alt}
+                      src={src}
+                      alt={photoAlts[i]}
                       loading="lazy"
                       className="h-full w-full object-cover"
                     />
                   </div>
                   <figcaption className="mt-2 text-xs text-slate-body">
-                    Caption to confirm with the client.
+                    {t("photos.caption")}
                   </figcaption>
                 </figure>
               </Reveal>
             ))}
           </div>
           <div className="mt-6 max-w-xl">
-            <TodoPlaceholder
-              label="Optional 30–60s classroom video"
-              note="If a real clip exists, embed it here with captions/transcript. Asset from client (open-questions B2)."
-            />
+            <TodoPlaceholder label={t("photos.videoLabel")} note={t("photos.videoNote")} />
           </div>
         </div>
       </section>
@@ -347,9 +278,9 @@ export function Home() {
       <section id="apply" className="scroll-mt-24 bg-cream py-16 md:py-24">
         <div className="container-editorial">
           <SectionHeader
-            eyebrow="How to apply"
-            title="Three steps to teaching with Bridges."
-            intro="A short form beats emailing a CV into the void. Fill it in and we'll take it from there."
+            eyebrow={t("common:applyHow.eyebrow")}
+            title={t("common:applyHow.title")}
+            intro={t("common:applyHow.intro")}
           />
 
           <ol className="mt-10 grid list-none gap-6 md:mt-12 md:grid-cols-3">
@@ -374,7 +305,7 @@ export function Home() {
           <Reveal delay={160}>
             <div className="mt-10 text-center">
               <p className="mx-auto max-w-2xl font-display text-2xl leading-snug text-ink md:text-3xl">
-                Ready to teach with Bridges? Help students in the Negev find their voice in English.
+                {t("apply.closing")}
               </p>
             </div>
           </Reveal>
@@ -387,20 +318,16 @@ export function Home() {
           <div className="rounded-2xl border border-border bg-ink px-6 py-12 text-ivory md:px-12 md:py-16">
             <div className="grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-12">
               <div className="lg:col-span-8">
-                <div className="eyebrow text-brass">For schools</div>
+                <div className="eyebrow text-brass">{t("schools.eyebrow")}</div>
                 <p className="mt-5 max-w-2xl text-lg leading-relaxed text-ivory/85 md:text-xl">
-                  Bridges Institute brings English-speaking teachers into schools and learning
-                  centers across the Negev. Our programs help students build spoken English
-                  confidence through active, communication-based lessons.
+                  {t("schools.body")}
                 </p>
-                <p className="mt-4 text-sm text-ivory/60">
-                  Recognized under the Israeli Ministry of Education&apos;s GEFEN framework, Program
-                  No. 9003.
-                </p>
+                <p className="mt-4 text-sm text-ivory/60">{t("schools.gefen")}</p>
               </div>
               <div className="lg:col-span-4 lg:justify-self-end">
                 <Link to="/schools" className="btn-ghost">
-                  Bring Bridges to Your School <ArrowUpRight size={16} aria-hidden />
+                  {`${t("schools.cta")} `}
+                  <ArrowUpRight size={16} aria-hidden />
                 </Link>
               </div>
             </div>
