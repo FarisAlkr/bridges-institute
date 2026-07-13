@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { LocaleLink } from "@/components/site/LocaleLink";
 import { Trans, useTranslation } from "react-i18next";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
@@ -71,9 +71,9 @@ export function Contribute() {
             <p className="mt-6 text-ivory/70 leading-relaxed">{t("cta.body")}</p>
           </Reveal>
           <Reveal delay={320}>
-            <Link to="/contact" className="btn-ghost mt-8 md:mt-10">
+            <LocaleLink to="/contact" className="btn-ghost mt-8 md:mt-10">
               {t("cta.button")}
-            </Link>
+            </LocaleLink>
           </Reveal>
         </div>
       </section>

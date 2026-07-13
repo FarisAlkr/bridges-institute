@@ -1,0 +1,121 @@
+{
+  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Hebrew. Do not machine-translate.",
+  "hero": {
+    "eyebrow": "Teach with Bridges · The Negev",
+    "headline": "Teach English that students are finally <em>brave enough to speak.</em>",
+    "subheadline": "Bridges Institute brings English-speaking teachers into schools across the Negev to lead active speaking lessons — movement, games, stories, role-play and real conversation.",
+    "imageAlt": "A teacher leading an active English speaking lesson with students in the Negev",
+    "seeHowWeTeach": "See How We Teach"
+  },
+  "trust": {
+    "since": "Serving the Negev since {{year}}",
+    "gefen": "Recognized by the Israeli Ministry of Education, GEFEN Program No. {{program}}",
+    "students_one": "<b>{{count, number}}</b> student",
+    "students_other": "<b>{{count, number}}+</b> students",
+    "schools_one": "<b>{{count, number}}</b> school & institution",
+    "schools_other": "<b>{{count, number}}+</b> schools & institutions",
+    "teachers_one": "<b>{{count, number}}</b> native English-speaking teacher",
+    "teachers_other": "<b>{{count, number}}</b> native English-speaking teachers"
+  },
+  "why": {
+    "eyebrow": "Why teach with Bridges",
+    "title": "Meaningful work, with real support behind it.",
+    "points": {
+      "meaning": {
+        "title": "Real meaning",
+        "body": "You help kids who freeze up in English actually open their mouths."
+      },
+      "active": {
+        "title": "Active classrooms",
+        "body": "You're on your feet: games, stories, role-play, movement. Not reading from a textbook."
+      },
+      "support": {
+        "title": "Support and structure",
+        "body": "Teachers get lesson frameworks, activities and routines. You bring the energy; we provide the structure."
+      },
+      "personality": {
+        "title": "Room for personality",
+        "body": "Warmth, presence and reliability matter here. Teachers bring themselves into the room."
+      }
+    }
+  },
+  "job": {
+    "eyebrow": "What the job actually is",
+    "title": "A lesson at Bridges, step by step.",
+    "quote": "Confidence first. Accuracy follows. Students speak first; we polish later.",
+    "flow": [
+      "Students first listen and respond with their bodies before they're asked to speak.",
+      "They repeat useful words and phrases out loud, together.",
+      "Then they play, act, choose, answer and talk.",
+      "Younger students: TPR, pictures, objects, rhythm, movement, stories.",
+      "Older students: opinions, role-play, interviews, real-life situations, conversation tasks.",
+      "Every student leaves the room having used English out loud."
+    ]
+  },
+  "fit": {
+    "eyebrow": "Who we're looking for",
+    "title": "An honest picture — so you can tell if this is you.",
+    "caption": "Who is a good fit to teach with Bridges, and who is probably not.",
+    "goodHeading": "Good fit",
+    "badHeading": "Probably not the right fit",
+    "rows": [
+      {
+        "good": "Confident, fluent or near-native English",
+        "bad": "Wants quiet, textbook-only teaching"
+      },
+      {
+        "good": "Comfortable leading a room of children or teens",
+        "bad": "Dislikes movement, noise, games or group energy"
+      },
+      {
+        "good": "Warm, responsible and reliable",
+        "bad": "Uncomfortable leading and managing a class"
+      },
+      {
+        "good": "Enjoys active teaching — speaking, movement, games",
+        "bad": "Unreliable with schedule or communication"
+      },
+      {
+        "good": "Understands many students are nervous and need confidence first",
+        "bad": "Only wants to teach grammar from a book"
+      }
+    ]
+  },
+  "requirements": {
+    "eyebrow": "What you need to apply",
+    "title": "The essentials — confirmed before we publish them.",
+    "intro": "We'd rather leave these blank than guess. Details below are being confirmed with the school and will replace these notes before launch.",
+    "hebrewLabel": "Hebrew requirement",
+    "hebrewNote": "Is Hebrew required, or do lessons run in English? If not required, this becomes a prominent “No Hebrew required.” (open-questions A1)",
+    "qualificationsLabel": "Qualifications",
+    "qualificationsNote": "Degree / teaching certificate, or fluent-capable-energetic welcome? (open-questions A2)",
+    "scheduleLabel": "Schedule",
+    "scheduleNote": "Part- or full-time, rough hours, school-year / summer / flexible? (open-questions A3)",
+    "locationLabel": "Location",
+    "locationNote": "Which Negev towns/areas, and is your own transport needed? (open-questions A4)",
+    "paid": "This is paid work, not volunteering."
+  },
+  "photos": {
+    "eyebrow": "Inside the classroom",
+    "title": "Real lessons, in real Negev schools.",
+    "caption": "Caption to confirm with the client.",
+    "alt": [
+      "Student smiling with a notebook in class",
+      "Students standing in a circle during a role-play activity",
+      "Teacher working with students at a whiteboard",
+      "Students playing an active game outdoors",
+      "Hands pointing at words in a book"
+    ],
+    "videoLabel": "Optional 30–60s classroom video",
+    "videoNote": "If a real clip exists, embed it here with captions/transcript. Asset from client (open-questions B2)."
+  },
+  "apply": {
+    "closing": "Ready to teach with Bridges? Help students in the Negev find their voice in English."
+  },
+  "schools": {
+    "eyebrow": "For schools",
+    "body": "Bridges Institute brings English-speaking teachers into schools and learning centers across the Negev. Our programs help students build spoken English confidence through active, communication-based lessons.",
+    "gefen": "Recognized under the Israeli Ministry of Education's GEFEN framework, Program No. 9003.",
+    "cta": "Bring Bridges to Your School"
+  }
+}

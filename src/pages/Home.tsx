@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { LocaleLink } from "@/components/site/LocaleLink";
 import { ArrowUpRight } from "lucide-react";
 import { Trans, useTranslation } from "react-i18next";
 import heroImg from "@/assets/hero-classroom.jpg";
@@ -149,7 +149,7 @@ export function Home() {
           <div className="lg:col-span-5">
             <SectionHeader eyebrow={t("job.eyebrow")} title={t("job.title")} />
             <Reveal delay={160}>
-              <blockquote className="mt-8 border-l-2 border-brass-deep pl-5 font-display text-xl italic leading-snug text-ink md:mt-10 md:text-2xl">
+              <blockquote className="mt-8 border-s-2 border-brass-deep ps-5 font-display text-xl italic leading-snug text-ink md:mt-10 md:text-2xl">
                 {t("job.quote")}
               </blockquote>
             </Reveal>
@@ -177,7 +177,7 @@ export function Home() {
           <SectionHeader eyebrow={t("fit.eyebrow")} title={t("fit.title")} />
           <Reveal delay={120}>
             <div className="mt-10 overflow-hidden rounded-2xl border border-border md:mt-14">
-              <table className="w-full border-collapse text-left">
+              <table className="w-full border-collapse text-start">
                 <caption className="sr-only">{t("fit.caption")}</caption>
                 <thead>
                   <tr className="bg-cream">
@@ -189,7 +189,7 @@ export function Home() {
                     </th>
                     <th
                       scope="col"
-                      className="w-1/2 border-b border-l border-border p-4 font-display text-base text-slate-body md:p-5 md:text-lg"
+                      className="w-1/2 border-b border-s border-border p-4 font-display text-base text-slate-body md:p-5 md:text-lg"
                     >
                       {t("fit.badHeading")}
                     </th>
@@ -201,7 +201,7 @@ export function Home() {
                       <td className="border-b border-border p-4 text-sm text-ink/90 md:p-5 md:text-base">
                         {row.good}
                       </td>
-                      <td className="border-b border-l border-border p-4 text-sm text-slate-body md:p-5 md:text-base">
+                      <td className="border-b border-s border-border p-4 text-sm text-slate-body md:p-5 md:text-base">
                         {row.bad}
                       </td>
                     </tr>
@@ -325,10 +325,10 @@ export function Home() {
                 <p className="mt-4 text-sm text-ivory/60">{t("schools.gefen")}</p>
               </div>
               <div className="lg:col-span-4 lg:justify-self-end">
-                <Link to="/schools" className="btn-ghost">
+                <LocaleLink to="/schools" className="btn-ghost">
                   {`${t("schools.cta")} `}
                   <ArrowUpRight size={16} aria-hidden />
-                </Link>
+                </LocaleLink>
               </div>
             </div>
           </div>

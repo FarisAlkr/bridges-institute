@@ -1,19 +1,12 @@
-import i18next, { type i18n as I18n } from "i18next";
+import i18next, { type i18n as I18n, type Resource } from "i18next";
 import { initReactI18next } from "react-i18next";
-
-import en_common from "./en/common.json";
-import en_home from "./en/home.json";
-import en_about from "./en/about.json";
-import en_schools from "./en/schools.json";
-import en_teach from "./en/teach.json";
-import en_contact from "./en/contact.json";
-import en_contribute from "./en/contribute.json";
-import en_accessibility from "./en/accessibility.json";
 
 export const LOCALES = ["en", "he", "ar"] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = "en";
 export const RTL_LOCALES: Locale[] = ["he", "ar"];
+export const isLocale = (v: string): v is Locale => (LOCALES as readonly string[]).includes(v);
+export const dirFor = (lng: Locale): "rtl" | "ltr" => (RTL_LOCALES.includes(lng) ? "rtl" : "ltr");
 
 export const NAMESPACES = [
   "common",
@@ -27,24 +20,25 @@ export const NAMESPACES = [
 ] as const;
 export const DEFAULT_NS = "common";
 
-// EN is the source of truth. HE/AR catalogs are added in a later phase; until then
-// i18next falls back to EN. Bundled synchronously so SSR/prerender is deterministic.
-export const resources = {
-  en: {
-    common: en_common,
-    home: en_home,
-    about: en_about,
-    schools: en_schools,
-    teach: en_teach,
-    contact: en_contact,
-    contribute: en_contribute,
-    accessibility: en_accessibility,
-  },
-} as const;
+// EN is the source of truth; HE/AR are NEEDS TRANSLATION stubs (English fallback
+// values) until real copy lands. Bundled synchronously so SSR/prerender is
+// deterministic (no async load race). New namespaces auto-register via the glob.
+const modules = import.meta.glob("./{en,he,ar}/*.json", {
+  eager: true,
+  import: "default",
+}) as Record<string, Record<string, unknown>>;
 
-// Factory — one instance per call. Commit 2 uses a single EN instance below;
-// Commit 3 calls this per request with the route's locale (no shared singleton
-// for rendering) to avoid SSR language leakage / hydration mismatch.
+export const resources: Resource = {};
+for (const [path, mod] of Object.entries(modules)) {
+  const m = path.match(/\.\/(en|he|ar)\/(.+)\.json$/);
+  if (!m) continue;
+  const [, lng, ns] = m;
+  (resources[lng] ??= {})[ns] = mod;
+}
+
+// Factory — one instance per call. On the server we call this PER REQUEST with the
+// route's locale (never a shared singleton for rendering) so concurrent /en, /he and
+// /ar renders can't leak language into one another or cause a hydration mismatch.
 export function createI18n(lng: Locale = DEFAULT_LOCALE): I18n {
   const instance = i18next.createInstance();
   instance.use(initReactI18next).init({
@@ -64,5 +58,3 @@ export function createI18n(lng: Locale = DEFAULT_LOCALE): I18n {
   });
   return instance;
 }
-
-export const i18n = createI18n(DEFAULT_LOCALE);

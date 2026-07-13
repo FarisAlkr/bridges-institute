@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { LocaleLink } from "@/components/site/LocaleLink";
 import { Trans, useTranslation } from "react-i18next";
 import aboutHero from "@/assets/about-hero.jpg";
 import g2 from "@/assets/gallery-2.jpg";
@@ -175,13 +175,13 @@ export function About() {
           <h2 className="font-display text-2xl sm:text-3xl md:text-5xl text-ivory max-w-2xl leading-tight">
             {t("cta.title")}
           </h2>
-          <Link
+          <LocaleLink
             to="/contact"
             className="btn-ghost self-start md:self-auto"
             style={{ color: "var(--ivory)" }}
           >
             {t("cta.button")}
-          </Link>
+          </LocaleLink>
         </div>
       </section>
     </>

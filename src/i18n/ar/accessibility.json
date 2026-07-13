@@ -1,0 +1,43 @@
+{
+  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Arabic. Do not machine-translate.",
+  "hero": {
+    "eyebrow": "Accessibility",
+    "title": "Accessibility Statement",
+    "intro": "Bridges Institute is committed to making its website usable for everyone, including people with disabilities. We treat accessibility as an ongoing responsibility, built into the site itself rather than added on afterwards."
+  },
+  "standard": {
+    "title": "The standard we follow",
+    "body": "We aim to conform to <b>Israeli Standard IS 5568</b>, which is based on the Web Content Accessibility Guidelines (<b>WCAG 2.0</b>) at <b>Level AA</b>."
+  },
+  "done": {
+    "title": "What we have done",
+    "items": [
+      "Semantic headings and landmark regions (header, navigation, main, footer).",
+      "A “skip to content” link and full keyboard operability, with a visible focus indicator on every interactive element.",
+      "Text alternatives for meaningful images; decorative images are hidden from screen readers.",
+      "Form fields with real, associated labels.",
+      "Colour contrast checked against AA thresholds, including the brand gold on light backgrounds.",
+      "Respect for the operating system’s “reduce motion” preference."
+    ]
+  },
+  "ongoing": {
+    "title": "Ongoing work",
+    "body": "Accessibility is never finished. We continue to test and improve, and this statement will be published in Hebrew and Arabic as part of the site’s multilingual rollout.",
+    "todoLabel": "Hebrew & Arabic versions of this statement",
+    "todoNote": "To be published alongside the multilingual rollout — reviewed by a real speaker, not machine-translated."
+  },
+  "report": {
+    "title": "Reporting an accessibility problem",
+    "body": "If you come across a barrier on this site, please tell us and we will do our best to put it right.",
+    "emailLabel": "Email:",
+    "address": "Address: Yehuda HaNachtom 10, Be'er Sheva, Israel.",
+    "coordinatorLabel": "Accessibility coordinator",
+    "coordinatorNote": "Name and role of the person responsible for accessibility — to confirm with the client.",
+    "phoneLabel": "Phone for accessibility requests",
+    "phoneNote": "Direct phone number for accessibility enquiries — to confirm with the client."
+  },
+  "reviewed": {
+    "title": "Last reviewed",
+    "date": "12 July 2026"
+  }
+}

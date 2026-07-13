@@ -110,7 +110,7 @@ export function ApplyForm() {
           name="cv"
           type="file"
           accept=".pdf,.doc,.docx"
-          className="mt-3 block w-full text-sm text-slate-body file:mr-4 file:rounded-full file:border-0 file:bg-ink file:px-6 file:py-3 file:text-xs file:uppercase file:tracking-[0.18em] file:text-ivory hover:file:bg-ink-soft"
+          className="mt-3 block w-full text-sm text-slate-body file:me-4 file:rounded-full file:border-0 file:bg-ink file:px-6 file:py-3 file:text-xs file:uppercase file:tracking-[0.18em] file:text-ivory hover:file:bg-ink-soft"
         />
       </div>
 

@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { LocaleLink } from "@/components/site/LocaleLink";
 import { Trans, useTranslation } from "react-i18next";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
@@ -101,9 +101,9 @@ export function Schools() {
             </h2>
           </Reveal>
           <Reveal delay={120}>
-            <Link to="/contact" className="btn-primary mt-8 md:mt-10">
+            <LocaleLink to="/contact" className="btn-primary mt-8 md:mt-10">
               {t("cta.button")}
-            </Link>
+            </LocaleLink>
           </Reveal>
         </div>
       </section>

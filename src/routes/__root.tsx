@@ -4,16 +4,18 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { type ReactNode } from "react";
+import { type ReactNode, useEffect, useState } from "react";
 import { I18nextProvider, useTranslation } from "react-i18next";
 
 import appCss from "../styles.css?url";
 import { Nav } from "../components/site/Nav";
 import { Footer } from "../components/site/Footer";
-import { i18n } from "../i18n";
+import { createI18n, dirFor } from "../i18n";
+import { localeFromPath } from "../i18n/routing";
 
 function NotFoundComponent() {
   return (
@@ -119,8 +121,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  // lang/dir are baked into each prerendered locale's HTML.
+  const locale = useRouterState({ select: (s) => localeFromPath(s.location.pathname) });
   return (
-    <html lang="en">
+    <html lang={locale} dir={dirFor(locale)}>
       <head>
         <HeadContent />
       </head>
@@ -134,6 +138,14 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const locale = useRouterState({ select: (s) => localeFromPath(s.location.pathname) });
+  // Fresh i18next instance per SSR request (never a shared singleton for rendering),
+  // so concurrent /en, /he and /ar renders can't leak language or mismatch on hydrate.
+  // Stable across the client session; changeLanguage handles client-side locale nav.
+  const [i18n] = useState(() => createI18n(locale));
+  useEffect(() => {
+    if (i18n.language !== locale) i18n.changeLanguage(locale);
+  }, [i18n, locale]);
   return (
     <QueryClientProvider client={queryClient}>
       <I18nextProvider i18n={i18n} defaultNS="common">
@@ -149,7 +161,7 @@ function AppShell() {
     <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-ivory"
+        className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-ivory"
       >
         {t("skipToContent")}
       </a>

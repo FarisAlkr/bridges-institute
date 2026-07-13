@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { LocaleLink } from "./LocaleLink";
 import { Facebook, Instagram } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -55,9 +55,9 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm">
               {exploreLinks.map((l) => (
                 <li key={l.to}>
-                  <Link to={l.to} className="link-underline text-ivory/80 hover:text-ivory">
+                  <LocaleLink to={l.to} className="link-underline text-ivory/80 hover:text-ivory">
                     {t(l.key)}
-                  </Link>
+                  </LocaleLink>
                 </li>
               ))}
             </ul>
@@ -92,9 +92,9 @@ export function Footer() {
         <div className="mt-6 md:mt-8 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4 text-[0.65rem] sm:text-xs uppercase tracking-[0.18em] text-ivory/50">
           <span>{t("footer.rights", { year: new Date().getFullYear() })}</span>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <Link to="/accessibility" className="link-underline hover:text-ivory">
+            <LocaleLink to="/accessibility" className="link-underline hover:text-ivory">
               {t("footer.accessibility")}
-            </Link>
+            </LocaleLink>
             <span>{t("footer.location")}</span>
           </div>
         </div>

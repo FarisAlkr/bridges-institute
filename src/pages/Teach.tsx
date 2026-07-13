@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { LocaleLink } from "@/components/site/LocaleLink";
 import { Trans, useTranslation } from "react-i18next";
 import teachHero from "@/assets/teach-hero.jpg";
 import { Reveal } from "@/components/site/Reveal";
@@ -74,7 +74,13 @@ export function Teach() {
                 t={t}
                 i18nKey="fullPicture"
                 components={{
-                  a: <Link to="/" hash="method" className="link-underline font-medium text-ink" />,
+                  a: (
+                    <LocaleLink
+                      to="/"
+                      hash="method"
+                      className="link-underline font-medium text-ink"
+                    />
+                  ),
                 }}
               />
             </p>
