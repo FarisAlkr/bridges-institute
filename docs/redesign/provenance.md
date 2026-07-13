@@ -38,7 +38,8 @@
 | §6 four "To confirm" blocks (Hebrew / Qualifications / Schedule / Location) | **[PLACEHOLDER]** — open-questions A1–A4 |
 | §6 "This is paid work, not volunteering." | **[BRIEF §6]** (the one confirmed line) |
 | §7 title "Real lessons, in real Negev schools." + five photo alt texts | **[FRAMING]** |
-| §7 "Caption to confirm with the client." (×5) + video block | **[PLACEHOLDER]** — open-questions B1, B2 |
+| §7 **the five photos themselves** | **REAL** — sourced from the client's site `bridges-eng.com` (client authorized data reuse), downsized into `src/assets/classroom-*.jpg`. Replaced the earlier stock-looking gallery images. Alt text describes the actual scenes. |
+| §7 "Caption to confirm with the client." (×5) + video block | **[PLACEHOLDER]** — captions/video still needed (open-questions B1, B2) |
 | §8 title/intro "Three steps…", "A short form beats emailing a CV into the void." | **[BRIEF §8]** |
 | §8 three apply steps | **[BRIEF §8]** |
 | §8 form field labels (Name · Phone or email · Your English background · Location · Why… · CV optional) | **[BRIEF §8]** |
@@ -94,8 +95,10 @@ each with Bridges Institute before launch.
 ### Accreditation / identity
 - "**Recognized by the Israeli Ministry of Education, GEFEN Program No. 9003**" — provided in the brief; confirm the program number and wording are current/correct.
 - "© … **by Mubadalah Group**" (footer) — inherited; confirm the operating entity.
-- Address "**Yehuda HaNachtom 10, Be'er Sheva**" and email "**info@bridgesinstitute.org**" — inherited; confirm.
-- Social profiles **facebook.com/BridgesEng**, **instagram.com/Bridgesinst** — inherited; confirm these are the real, current profiles (the generic TikTok link was already found wrong and removed — C3).
+- Address "**Yehuda HaNachtom 10, Be'er Sheva**" — **confirmed** against the client's site (typo'd there as "Yehodah HANHTOM 10, BeerSheva").
+- Email "**info@bridgesinstitute.org**" — **still unconfirmed**; the client's site publishes no email, and its domain (`bridges-eng.com`) differs from the repo email domain (`@bridgesinstitute.org`). Confirm which is correct (see C4).
+- **Phone** — the client's site has **no phone**; a real number must come from the client (C2).
+- Social profiles **facebook.com/BridgesEng**, **instagram.com/Bridgesinst** — **VERIFIED real** (resolved the profiles directly: "Bridges Institute / معهد جسور"). TikTok left out — no real account confirmed (C3).
 
 ### About page (inherited claims)
 - Founded **2014**, "from a single classroom in Be'er Sheva," "serving **thousands of students each year**."

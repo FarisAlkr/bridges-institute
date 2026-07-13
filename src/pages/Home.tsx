@@ -2,18 +2,20 @@ import { LocaleLink } from "@/components/site/LocaleLink";
 import { ArrowUpRight } from "lucide-react";
 import { Trans, useTranslation } from "react-i18next";
 import heroImg from "@/assets/hero-classroom.jpg";
-import g1 from "@/assets/gallery-1.jpg";
-import g2 from "@/assets/gallery-2.jpg";
-import g3 from "@/assets/gallery-3.jpg";
-import g4 from "@/assets/gallery-4.jpg";
-import g5 from "@/assets/gallery-5.jpg";
+// Real Bridges classroom photos (sourced from the client's site bridges-eng.com,
+// downsized). Order below is chosen to fit each gallery slot's aspect ratio.
+import photoYoungGame from "@/assets/classroom-young-game.jpg";
+import photoSpeaking from "@/assets/classroom-speaking-lesson.jpg";
+import photoSmallGroup from "@/assets/classroom-small-group.jpg";
+import photoPictureCards from "@/assets/classroom-picture-cards.jpg";
+import photoOneToOne from "@/assets/classroom-one-to-one.jpg";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { ApplyForm } from "@/components/site/ApplyForm";
 import { TodoPlaceholder } from "@/components/site/TodoPlaceholder";
 
 const whyKeys = ["meaning", "active", "support", "personality"] as const;
-const photoSrc = [g1, g2, g3, g4, g5];
+const photoSrc = [photoYoungGame, photoSpeaking, photoSmallGroup, photoPictureCards, photoOneToOne];
 const photoSpan = [
   "col-span-6 md:col-span-4 row-span-2 aspect-[3/4]",
   "col-span-6 md:col-span-5 aspect-[4/3]",
