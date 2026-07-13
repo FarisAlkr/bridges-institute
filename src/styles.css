@@ -166,6 +166,7 @@
   transition: all 0.3s ease;
   border: 1px solid var(--ink);
   &:hover { background: transparent; color: var(--ink); }
+  &:disabled { opacity: 0.6; pointer-events: none; }
 }
 
 @utility btn-ghost {

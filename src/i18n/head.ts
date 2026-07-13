@@ -1,4 +1,5 @@
 import { LOCALES, DEFAULT_LOCALE, localizePath, metaT, type Locale } from "./index";
+import { ogImageFor } from "./og-images";
 
 // Builds the <head> meta for a page in a given locale: localized title/description,
 // canonical, and reciprocal hreflang alternates (en/he/ar + x-default) so every
@@ -12,6 +13,7 @@ export function pageHead(pageNs: string, unprefixedPath: string, locale: Locale)
   const title = t("meta.title");
   const description = t("meta.description");
   const canonical = localizePath(unprefixedPath, locale);
+  const image = ogImageFor(unprefixedPath);
 
   // Lowercase `hreflang` for clean, unambiguous output (TanStack serializes head
   // link keys verbatim rather than through React's camelCase→attr normalization).
@@ -35,6 +37,9 @@ export function pageHead(pageNs: string, unprefixedPath: string, locale: Locale)
       { property: "og:description", content: description },
       { property: "og:url", content: canonical },
       { property: "og:locale", content: locale },
+      { property: "og:image", content: image },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: image },
     ],
     links: [{ rel: "canonical", href: canonical }, ...alternates],
   };

@@ -3,8 +3,8 @@ import { ArrowUpRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 // Single canonical application form used on the homepage (#apply) and /teach.
-// TODO(C1): wire a real submission endpoint + CV upload destination before launch.
-// Until then this only shows a client-side success state — nothing is sent or stored.
+// Submits to the canonical /api/submit endpoint (C1); shows the success state only on a
+// real delivery, and a retry-able error otherwise.
 
 // Order matters: used to focus the first invalid field on submit.
 const REQUIRED = ["name", "contact", "english", "location", "why"] as const;
@@ -12,9 +12,11 @@ const REQUIRED = ["name", "contact", "english", "location", "why"] as const;
 export function ApplyForm() {
   const { t } = useTranslation("common");
   const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [formError, setFormError] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const next: Record<string, string> = {};
@@ -23,13 +25,55 @@ export function ApplyForm() {
         next[name] = t("form.requiredError", { field: t(`applyForm.errorFields.${name}`) });
       }
     }
+    // Client-side CV guard (server re-checks).
+    const cv = data.get("cv");
+    if (cv instanceof File && cv.size > 0) {
+      const name = cv.name.toLowerCase();
+      if (![".pdf", ".doc", ".docx"].some((ext) => name.endsWith(ext)))
+        next.cv = t("form.cvTypeError");
+      else if (cv.size > 5 * 1024 * 1024) next.cv = t("form.cvSizeError");
+    }
     setErrors(next);
-    const firstInvalid = REQUIRED.find((n) => next[n]);
+    const firstInvalid = [...REQUIRED, "cv"].find((n) => next[n]);
     if (firstInvalid) {
       document.getElementById(firstInvalid)?.focus();
       return;
     }
-    setSubmitted(true);
+
+    setFormError("");
+    setSending(true);
+    data.set("formType", "apply");
+    try {
+      const res = await fetch("/api/submit", { method: "POST", body: data });
+      if (res.ok) {
+        setSubmitted(true);
+        return;
+      }
+      if (res.status === 422) {
+        const body = (await res.json().catch(() => null)) as {
+          errors?: Record<string, string>;
+        } | null;
+        if (body?.errors) {
+          const mapped: Record<string, string> = {};
+          for (const [field, code] of Object.entries(body.errors)) {
+            mapped[field] =
+              code === "invalid_type"
+                ? t("form.cvTypeError")
+                : code === "too_large"
+                  ? t("form.cvSizeError")
+                  : t("form.requiredError", { field: t(`applyForm.errorFields.${field}`, field) });
+          }
+          setErrors(mapped);
+          document.getElementById(Object.keys(mapped)[0])?.focus();
+          return;
+        }
+      }
+      setFormError(t("form.submitError"));
+    } catch {
+      setFormError(t("form.submitError"));
+    } finally {
+      setSending(false);
+    }
   }
 
   function clearError(name: string) {
@@ -110,17 +154,31 @@ export function ApplyForm() {
           name="cv"
           type="file"
           accept=".pdf,.doc,.docx"
+          aria-invalid={errors.cv ? true : undefined}
+          aria-describedby={errors.cv ? "cv-error" : undefined}
+          onInput={() => clearError("cv")}
           className="mt-3 block w-full text-sm text-slate-body file:me-4 file:rounded-full file:border-0 file:bg-ink file:px-6 file:py-3 file:text-xs file:uppercase file:tracking-[0.18em] file:text-ivory hover:file:bg-ink-soft"
         />
+        {errors.cv && (
+          <p id="cv-error" role="alert" className="mt-2 text-sm font-medium text-error">
+            {errors.cv}
+          </p>
+        )}
       </div>
 
       <div className="md:col-span-2 flex flex-wrap items-center justify-between gap-4">
         <p className="max-w-md text-sm text-slate-body leading-relaxed">{t("applyForm.consent")}</p>
-        <button type="submit" className="btn-primary">
-          {`${t("cta.applyToTeach")} `}
-          <ArrowUpRight size={16} aria-hidden />
+        <button type="submit" className="btn-primary" disabled={sending}>
+          {sending ? t("form.submitting") : `${t("cta.applyToTeach")} `}
+          {!sending && <ArrowUpRight size={16} aria-hidden />}
         </button>
       </div>
+
+      {formError && (
+        <p role="alert" className="md:col-span-2 text-sm font-medium text-error">
+          {formError}
+        </p>
+      )}
     </form>
   );
 }

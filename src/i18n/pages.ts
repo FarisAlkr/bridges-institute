@@ -15,6 +15,7 @@ const PAGE_META: Record<
   "/contribute": { ns: "contribute", changefreq: "monthly", priority: "0.7" },
   "/contact": { ns: "contact", changefreq: "monthly", priority: "0.7" },
   "/accessibility": { ns: "accessibility", changefreq: "yearly", priority: "0.3" },
+  "/privacy": { ns: "privacy", changefreq: "yearly", priority: "0.3" },
 };
 
 export const PAGES = PAGE_PATHS.map((path) => ({ path, ...PAGE_META[path] }));

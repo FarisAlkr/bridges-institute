@@ -10,6 +10,7 @@ export const PAGE_PATHS = [
   "/contribute",
   "/contact",
   "/accessibility",
+  "/privacy",
 ] as const;
 
 export const LOCALE_CODES = ["en", "he", "ar"] as const;
