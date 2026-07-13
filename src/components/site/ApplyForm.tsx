@@ -31,7 +31,7 @@ export function ApplyForm() {
       const name = cv.name.toLowerCase();
       if (![".pdf", ".doc", ".docx"].some((ext) => name.endsWith(ext)))
         next.cv = t("form.cvTypeError");
-      else if (cv.size > 5 * 1024 * 1024) next.cv = t("form.cvSizeError");
+      else if (cv.size > 3 * 1024 * 1024) next.cv = t("form.cvSizeError");
     }
     setErrors(next);
     const firstInvalid = [...REQUIRED, "cv"].find((n) => next[n]);

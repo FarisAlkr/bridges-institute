@@ -46,7 +46,7 @@
     "submitting": "Sending…",
     "submitError": "Something went wrong sending your submission. Please try again, or email us directly.",
     "cvTypeError": "Please upload a PDF or Word document.",
-    "cvSizeError": "That file is too large (max 5 MB)."
+    "cvSizeError": "That file is too large (max 3 MB)."
   },
   "applyForm": {
     "labels": {
