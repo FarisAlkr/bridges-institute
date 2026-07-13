@@ -2,6 +2,12 @@ import { useTranslation } from "react-i18next";
 import { Reveal } from "@/components/site/Reveal";
 import { TodoPlaceholder } from "@/components/site/TodoPlaceholder";
 
+// ⚠ BASELINE DRAFT — NOT FINALIZED LEGAL TEXT.
+// This privacy policy is an authored baseline that describes what the forms collect.
+// It REQUIRES client/legal review before launch. The legal entity / data controller,
+// the retention period, and the processor list are visible "to confirm" placeholders
+// (see TodoPlaceholder blocks below and docs/redesign/provenance.md). Do not treat the
+// rendered copy as final. Content strings live in src/i18n/en/privacy.json.
 export function Privacy() {
   const { t } = useTranslation(["privacy", "common"]);
   const collectItems = t("collect.items", { returnObjects: true }) as string[];
