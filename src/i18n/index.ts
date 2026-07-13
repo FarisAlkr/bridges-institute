@@ -25,6 +25,7 @@ export const NAMESPACES = [
   "contact",
   "contribute",
   "accessibility",
+  "privacy",
 ] as const;
 export const DEFAULT_NS = "common";
 

@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeachRouteImport } from './routes/teach'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SchoolsRouteImport } from './routes/schools'
+import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ContributeRouteImport } from './routes/contribute'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
@@ -19,8 +20,10 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as LocaleRouteRouteImport } from './routes/$locale/route'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as LocaleIndexRouteImport } from './routes/$locale/index'
+import { Route as ApiSubmitRouteImport } from './routes/api/submit'
 import { Route as LocaleTeachRouteImport } from './routes/$locale/teach'
 import { Route as LocaleSchoolsRouteImport } from './routes/$locale/schools'
+import { Route as LocalePrivacyRouteImport } from './routes/$locale/privacy'
 import { Route as LocaleContributeRouteImport } from './routes/$locale/contribute'
 import { Route as LocaleContactRouteImport } from './routes/$locale/contact'
 import { Route as LocaleAccessibilityRouteImport } from './routes/$locale/accessibility'
@@ -39,6 +42,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const SchoolsRoute = SchoolsRouteImport.update({
   id: '/schools',
   path: '/schools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContributeRoute = ContributeRouteImport.update({
@@ -76,6 +84,11 @@ const LocaleIndexRoute = LocaleIndexRouteImport.update({
   path: '/',
   getParentRoute: () => LocaleRouteRoute,
 } as any)
+const ApiSubmitRoute = ApiSubmitRouteImport.update({
+  id: '/api/submit',
+  path: '/api/submit',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LocaleTeachRoute = LocaleTeachRouteImport.update({
   id: '/teach',
   path: '/teach',
@@ -84,6 +97,11 @@ const LocaleTeachRoute = LocaleTeachRouteImport.update({
 const LocaleSchoolsRoute = LocaleSchoolsRouteImport.update({
   id: '/schools',
   path: '/schools',
+  getParentRoute: () => LocaleRouteRoute,
+} as any)
+const LocalePrivacyRoute = LocalePrivacyRouteImport.update({
+  id: '/privacy',
+  path: '/privacy',
   getParentRoute: () => LocaleRouteRoute,
 } as any)
 const LocaleContributeRoute = LocaleContributeRouteImport.update({
@@ -114,6 +132,7 @@ export interface FileRoutesByFullPath {
   '/accessibility': typeof AccessibilityRoute
   '/contact': typeof ContactRoute
   '/contribute': typeof ContributeRoute
+  '/privacy': typeof PrivacyRoute
   '/schools': typeof SchoolsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/teach': typeof TeachRoute
@@ -121,8 +140,10 @@ export interface FileRoutesByFullPath {
   '/$locale/accessibility': typeof LocaleAccessibilityRoute
   '/$locale/contact': typeof LocaleContactRoute
   '/$locale/contribute': typeof LocaleContributeRoute
+  '/$locale/privacy': typeof LocalePrivacyRoute
   '/$locale/schools': typeof LocaleSchoolsRoute
   '/$locale/teach': typeof LocaleTeachRoute
+  '/api/submit': typeof ApiSubmitRoute
   '/$locale/': typeof LocaleIndexRoute
 }
 export interface FileRoutesByTo {
@@ -131,6 +152,7 @@ export interface FileRoutesByTo {
   '/accessibility': typeof AccessibilityRoute
   '/contact': typeof ContactRoute
   '/contribute': typeof ContributeRoute
+  '/privacy': typeof PrivacyRoute
   '/schools': typeof SchoolsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/teach': typeof TeachRoute
@@ -138,8 +160,10 @@ export interface FileRoutesByTo {
   '/$locale/accessibility': typeof LocaleAccessibilityRoute
   '/$locale/contact': typeof LocaleContactRoute
   '/$locale/contribute': typeof LocaleContributeRoute
+  '/$locale/privacy': typeof LocalePrivacyRoute
   '/$locale/schools': typeof LocaleSchoolsRoute
   '/$locale/teach': typeof LocaleTeachRoute
+  '/api/submit': typeof ApiSubmitRoute
   '/$locale': typeof LocaleIndexRoute
 }
 export interface FileRoutesById {
@@ -150,6 +174,7 @@ export interface FileRoutesById {
   '/accessibility': typeof AccessibilityRoute
   '/contact': typeof ContactRoute
   '/contribute': typeof ContributeRoute
+  '/privacy': typeof PrivacyRoute
   '/schools': typeof SchoolsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/teach': typeof TeachRoute
@@ -157,8 +182,10 @@ export interface FileRoutesById {
   '/$locale/accessibility': typeof LocaleAccessibilityRoute
   '/$locale/contact': typeof LocaleContactRoute
   '/$locale/contribute': typeof LocaleContributeRoute
+  '/$locale/privacy': typeof LocalePrivacyRoute
   '/$locale/schools': typeof LocaleSchoolsRoute
   '/$locale/teach': typeof LocaleTeachRoute
+  '/api/submit': typeof ApiSubmitRoute
   '/$locale/': typeof LocaleIndexRoute
 }
 export interface FileRouteTypes {
@@ -170,6 +197,7 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/contact'
     | '/contribute'
+    | '/privacy'
     | '/schools'
     | '/sitemap.xml'
     | '/teach'
@@ -177,8 +205,10 @@ export interface FileRouteTypes {
     | '/$locale/accessibility'
     | '/$locale/contact'
     | '/$locale/contribute'
+    | '/$locale/privacy'
     | '/$locale/schools'
     | '/$locale/teach'
+    | '/api/submit'
     | '/$locale/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -187,6 +217,7 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/contact'
     | '/contribute'
+    | '/privacy'
     | '/schools'
     | '/sitemap.xml'
     | '/teach'
@@ -194,8 +225,10 @@ export interface FileRouteTypes {
     | '/$locale/accessibility'
     | '/$locale/contact'
     | '/$locale/contribute'
+    | '/$locale/privacy'
     | '/$locale/schools'
     | '/$locale/teach'
+    | '/api/submit'
     | '/$locale'
   id:
     | '__root__'
@@ -205,6 +238,7 @@ export interface FileRouteTypes {
     | '/accessibility'
     | '/contact'
     | '/contribute'
+    | '/privacy'
     | '/schools'
     | '/sitemap.xml'
     | '/teach'
@@ -212,8 +246,10 @@ export interface FileRouteTypes {
     | '/$locale/accessibility'
     | '/$locale/contact'
     | '/$locale/contribute'
+    | '/$locale/privacy'
     | '/$locale/schools'
     | '/$locale/teach'
+    | '/api/submit'
     | '/$locale/'
   fileRoutesById: FileRoutesById
 }
@@ -224,9 +260,11 @@ export interface RootRouteChildren {
   AccessibilityRoute: typeof AccessibilityRoute
   ContactRoute: typeof ContactRoute
   ContributeRoute: typeof ContributeRoute
+  PrivacyRoute: typeof PrivacyRoute
   SchoolsRoute: typeof SchoolsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TeachRoute: typeof TeachRoute
+  ApiSubmitRoute: typeof ApiSubmitRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -250,6 +288,13 @@ declare module '@tanstack/react-router' {
       path: '/schools'
       fullPath: '/schools'
       preLoaderRoute: typeof SchoolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy': {
+      id: '/privacy'
+      path: '/privacy'
+      fullPath: '/privacy'
+      preLoaderRoute: typeof PrivacyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contribute': {
@@ -301,6 +346,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LocaleIndexRouteImport
       parentRoute: typeof LocaleRouteRoute
     }
+    '/api/submit': {
+      id: '/api/submit'
+      path: '/api/submit'
+      fullPath: '/api/submit'
+      preLoaderRoute: typeof ApiSubmitRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/$locale/teach': {
       id: '/$locale/teach'
       path: '/teach'
@@ -313,6 +365,13 @@ declare module '@tanstack/react-router' {
       path: '/schools'
       fullPath: '/$locale/schools'
       preLoaderRoute: typeof LocaleSchoolsRouteImport
+      parentRoute: typeof LocaleRouteRoute
+    }
+    '/$locale/privacy': {
+      id: '/$locale/privacy'
+      path: '/privacy'
+      fullPath: '/$locale/privacy'
+      preLoaderRoute: typeof LocalePrivacyRouteImport
       parentRoute: typeof LocaleRouteRoute
     }
     '/$locale/contribute': {
@@ -351,6 +410,7 @@ interface LocaleRouteRouteChildren {
   LocaleAccessibilityRoute: typeof LocaleAccessibilityRoute
   LocaleContactRoute: typeof LocaleContactRoute
   LocaleContributeRoute: typeof LocaleContributeRoute
+  LocalePrivacyRoute: typeof LocalePrivacyRoute
   LocaleSchoolsRoute: typeof LocaleSchoolsRoute
   LocaleTeachRoute: typeof LocaleTeachRoute
   LocaleIndexRoute: typeof LocaleIndexRoute
@@ -361,6 +421,7 @@ const LocaleRouteRouteChildren: LocaleRouteRouteChildren = {
   LocaleAccessibilityRoute: LocaleAccessibilityRoute,
   LocaleContactRoute: LocaleContactRoute,
   LocaleContributeRoute: LocaleContributeRoute,
+  LocalePrivacyRoute: LocalePrivacyRoute,
   LocaleSchoolsRoute: LocaleSchoolsRoute,
   LocaleTeachRoute: LocaleTeachRoute,
   LocaleIndexRoute: LocaleIndexRoute,
@@ -377,9 +438,11 @@ const rootRouteChildren: RootRouteChildren = {
   AccessibilityRoute: AccessibilityRoute,
   ContactRoute: ContactRoute,
   ContributeRoute: ContributeRoute,
+  PrivacyRoute: PrivacyRoute,
   SchoolsRoute: SchoolsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TeachRoute: TeachRoute,
+  ApiSubmitRoute: ApiSubmitRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

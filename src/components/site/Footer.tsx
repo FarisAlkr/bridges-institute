@@ -95,6 +95,9 @@ export function Footer() {
             <LocaleLink to="/accessibility" className="link-underline hover:text-ivory">
               {t("footer.accessibility")}
             </LocaleLink>
+            <LocaleLink to="/privacy" className="link-underline hover:text-ivory">
+              {t("footer.privacy")}
+            </LocaleLink>
             <span>{t("footer.location")}</span>
           </div>
         </div>

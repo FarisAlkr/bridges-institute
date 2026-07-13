@@ -1,0 +1,58 @@
+{
+  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Hebrew. Do not machine-translate.",
+  "hero": {
+    "eyebrow": "Privacy",
+    "title": "Privacy Policy",
+    "intro": "This policy explains what personal information Bridges Institute collects through this website, why we collect it, and the choices you have. We collect only what we need to review teaching applications and respond to enquiries."
+  },
+  "collect": {
+    "title": "What we collect",
+    "intro": "We collect the information you choose to give us through our forms:",
+    "items": [
+      "Application form: your name, phone or email, English background, location, your reason for applying, and an optional CV file.",
+      "Contact form: your name, email, organization, subject, and message.",
+      "Basic technical data your browser sends (such as IP address and device type), used only to keep the site secure and working."
+    ]
+  },
+  "use": {
+    "title": "How we use it",
+    "items": [
+      "To review your application and contact you about teaching with Bridges.",
+      "To respond to partnership, program and general enquiries.",
+      "To keep records of our correspondence with you.",
+      "We do not sell your personal information, and we do not use it for advertising."
+    ]
+  },
+  "sharing": {
+    "title": "Where it goes",
+    "body": "Form submissions are delivered to the Bridges Institute team and stored with the service providers that host our site, email and file storage. Uploaded CVs are stored securely and shared only with the people involved in reviewing applications. We ask our providers to protect your information and to use it only on our behalf.",
+    "processorsLabel": "Service providers & data-processing agreements",
+    "processorsNote": "Confirm the exact hosting / email / CV-storage providers and that data-processing terms are in place. (to confirm)"
+  },
+  "retention": {
+    "title": "How long we keep it",
+    "body": "We keep applications and enquiries for as long as needed to consider them and for a reasonable period afterwards, then delete or anonymise them.",
+    "periodLabel": "Retention period",
+    "periodNote": "Confirm the specific retention period for applications and CVs (e.g. 12 or 24 months). (to confirm)"
+  },
+  "rights": {
+    "title": "Your rights",
+    "body": "You can ask us to see, correct, or delete the personal information we hold about you, or to stop using it. Contact us using the details below and we will respond."
+  },
+  "contact": {
+    "title": "Contact us about privacy",
+    "body": "For any question about this policy or your information:",
+    "emailLabel": "Email:",
+    "address": "Address: Yehuda HaNachtom 10, Be'er Sheva, Israel.",
+    "controllerLabel": "Data controller",
+    "controllerNote": "Confirm the legal entity responsible for this data and a privacy contact name/role. (to confirm)"
+  },
+  "updated": {
+    "title": "Last updated",
+    "date": "13 July 2026"
+  },
+  "meta": {
+    "title": "Privacy Policy — Bridges Institute",
+    "description": "How Bridges Institute collects, uses, stores, and protects the personal information you share through our application and contact forms."
+  }
+}

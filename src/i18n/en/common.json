@@ -30,6 +30,7 @@
     "explore": "Explore",
     "follow": "Follow",
     "accessibility": "Accessibility",
+    "privacy": "Privacy",
     "rights": "© {{year}} — All Rights Reserved to Bridges Institute by Mubadalah Group",
     "location": "Be'er Sheva · Negev · Israel"
   },
@@ -40,7 +41,11 @@
   "form": {
     "optional": "(optional)",
     "requiredError": "{{field}} is required.",
-    "emailError": "Enter a valid email address."
+    "emailError": "Enter a valid email address.",
+    "submitting": "Sending…",
+    "submitError": "Something went wrong sending your submission. Please try again, or email us directly.",
+    "cvTypeError": "Please upload a PDF or Word document.",
+    "cvSizeError": "That file is too large (max 5 MB)."
   },
   "applyForm": {
     "labels": {

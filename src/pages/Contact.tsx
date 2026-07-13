@@ -9,9 +9,11 @@ const REQUIRED_NAMES = ["name", "email", "message"] as const;
 export function Contact() {
   const { t } = useTranslation(["contact", "common"]);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [formError, setFormError] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const data = new FormData(e.currentTarget);
     const next: Record<string, string> = {};
@@ -30,7 +32,39 @@ export function Contact() {
       document.getElementById(first)?.focus();
       return;
     }
-    setSent(true);
+
+    setFormError("");
+    setSending(true);
+    data.set("formType", "contact");
+    try {
+      const res = await fetch("/api/submit", { method: "POST", body: data });
+      if (res.ok) {
+        setSent(true);
+        return;
+      }
+      if (res.status === 422) {
+        const body = (await res.json().catch(() => null)) as {
+          errors?: Record<string, string>;
+        } | null;
+        if (body?.errors) {
+          const mapped: Record<string, string> = {};
+          for (const [field, code] of Object.entries(body.errors)) {
+            mapped[field] =
+              code === "invalid_email"
+                ? t("common:form.emailError")
+                : t("common:form.requiredError", { field: t(`form.${field}`, field) });
+          }
+          setErrors(mapped);
+          document.getElementById(Object.keys(mapped)[0])?.focus();
+          return;
+        }
+      }
+      setFormError(t("common:form.submitError"));
+    } catch {
+      setFormError(t("common:form.submitError"));
+    } finally {
+      setSending(false);
+    }
   }
 
   function clearError(name: string) {
@@ -181,9 +215,18 @@ export function Contact() {
                       error={errors.message}
                       onClear={clearError}
                     />
-                    <button type="submit" className="btn-primary justify-self-start mt-2">
-                      {t("form.submit")}
+                    <button
+                      type="submit"
+                      className="btn-primary justify-self-start mt-2"
+                      disabled={sending}
+                    >
+                      {sending ? t("common:form.submitting") : t("form.submit")}
                     </button>
+                    {formError && (
+                      <p role="alert" className="text-sm font-medium text-error">
+                        {formError}
+                      </p>
+                    )}
                   </form>
                 )}
               </div>
