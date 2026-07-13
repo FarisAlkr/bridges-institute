@@ -2,17 +2,32 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 
 // Single canonical submission endpoint for both the application (ApplyForm) and the
-// contact form (C1). It validates server-side, then forwards the submission — including
-// the optional CV file — to a configured destination. It returns success ONLY when the
-// submission was actually delivered; it never fakes a success on a hiring form.
+// contact form (C1). It validates server-side, then delivers the submission to an
+// email/automation webhook. It returns success ONLY when delivery actually
+// succeeded; it never fakes a success on a hiring form.
 //
-// Destination is provider-agnostic via env, so no provider is hard-coded:
-//   SUBMISSIONS_WEBHOOK_URL   — receives the multipart form (fields + CV) via POST.
-//                               Point it at your backend, an automation (Zapier/Make/
-//                               n8n), or a form service. The CV file is included, so
-//                               "CV destination" is wherever the webhook routes it.
-// If it isn't set, the endpoint responds 503 { ok:false, error:"not_configured" } so the
-// UI shows a clear failure rather than silently dropping an application.
+// Destination is provider-agnostic via env (set in Vercel, never hard-coded):
+//   SUBMISSIONS_WEBHOOK_URL — an email/automation webhook (Make / Zapier / Resend, etc.)
+//   that turns the payload into an email to the Bridges inbox.
+//
+// We POST a JSON payload (not raw multipart) so nothing is dropped by the receiver:
+//   {
+//     formType: "apply" | "contact",
+//     subject:  string,                    // ready-to-use email subject
+//     text:     string,                    // ready-to-use plain-text body (all fields)
+//     fields:   { [name]: string },        // structured fields for mapping
+//     cv: null | {                         // apply only; null if no CV uploaded
+//       filename, contentType, sizeBytes,
+//       base64                             // full file bytes — decode to a real attachment
+//     },
+//     receivedAt: ISO string
+//   }
+// The CV is embedded as base64 so it always arrives (multipart file parts get dropped by
+// some webhook receivers). The automation decodes cv.base64 into an email attachment (or
+// uploads it and links to it) — a real attachment or working link, not dropped.
+//
+// If the env var is unset, the endpoint responds 503 { ok:false, error:"not_configured" }
+// so the UI shows a clear failure rather than silently dropping an application.
 //
 // NOTE: server routes run on Vercel's function layer, not the static output — confirm
 // that layer is active on the final domain (see open-questions C4b).
@@ -20,7 +35,9 @@ import type {} from "@tanstack/react-start";
 const APPLY_REQUIRED = ["name", "contact", "english", "location", "why"];
 const CONTACT_REQUIRED = ["name", "email", "message"];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const MAX_CV_BYTES = 5 * 1024 * 1024; // 5 MB
+// Kept under Vercel's ~4.5 MB request-body limit (with headroom for the other fields +
+// multipart overhead) so the upload itself isn't rejected before this handler runs.
+const MAX_CV_BYTES = 4 * 1024 * 1024; // 4 MB
 const ALLOWED_CV_EXT = [".pdf", ".doc", ".docx"];
 
 function json(body: unknown, status = 200) {
@@ -59,15 +76,58 @@ export const Route = createFileRoute("/api/submit")({
 
         // Validate the optional CV.
         const cv = form.get("cv");
-        if (formType === "apply" && cv instanceof File && cv.size > 0) {
-          const name = cv.name.toLowerCase();
+        const hasCv = formType === "apply" && cv instanceof File && cv.size > 0;
+        if (hasCv) {
+          const name = (cv as File).name.toLowerCase();
           if (!ALLOWED_CV_EXT.some((ext) => name.endsWith(ext))) errors.cv = "invalid_type";
-          else if (cv.size > MAX_CV_BYTES) errors.cv = "too_large";
+          else if ((cv as File).size > MAX_CV_BYTES) errors.cv = "too_large";
         }
 
         if (Object.keys(errors).length > 0) {
           return json({ ok: false, errors }, 422);
         }
+
+        // --- Build the JSON payload ---
+        const fields: Record<string, string> = {};
+        for (const [key, value] of form.entries()) {
+          if (key === "cv" || key === "formType") continue;
+          if (typeof value === "string" && value.trim()) fields[key] = value;
+        }
+
+        let cvPayload: {
+          filename: string;
+          contentType: string;
+          sizeBytes: number;
+          base64: string;
+        } | null = null;
+        if (hasCv) {
+          const file = cv as File;
+          const buf = Buffer.from(await file.arrayBuffer());
+          cvPayload = {
+            filename: file.name,
+            contentType: file.type || "application/octet-stream",
+            sizeBytes: file.size,
+            base64: buf.toString("base64"),
+          };
+        }
+
+        const who = fields.name ?? fields.contact ?? fields.email ?? "";
+        const subject =
+          formType === "apply"
+            ? `New teaching application${who ? ` — ${who}` : ""}`
+            : `New contact message${who ? ` — ${who}` : ""}`;
+        const text = Object.entries(fields)
+          .map(([k, v]) => `${k}: ${v}`)
+          .join("\n");
+
+        const payload = {
+          formType,
+          subject,
+          text,
+          fields,
+          cv: cvPayload,
+          receivedAt: new Date().toISOString(),
+        };
 
         // --- Deliver ---
         const webhook = process.env.SUBMISSIONS_WEBHOOK_URL;
@@ -78,8 +138,11 @@ export const Route = createFileRoute("/api/submit")({
         }
 
         try {
-          // Forward the full multipart payload (fields + CV) to the destination.
-          const res = await fetch(webhook, { method: "POST", body: form });
+          const res = await fetch(webhook, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
           if (!res.ok) {
             console.error(`[submit] destination responded ${res.status}`);
             return json({ ok: false, error: "delivery_failed" }, 502);

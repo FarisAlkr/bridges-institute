@@ -26,7 +26,7 @@
     "title": "Where it goes",
     "body": "Form submissions are delivered to the Bridges Institute team and stored with the service providers that host our site, email and file storage. Uploaded CVs are stored securely and shared only with the people involved in reviewing applications. We ask our providers to protect your information and to use it only on our behalf.",
     "processorsLabel": "Service providers & data-processing agreements",
-    "processorsNote": "Confirm the exact hosting / email / CV-storage providers and that data-processing terms are in place. (to confirm)"
+    "processorsNote": "Confirm the exact providers and that data-processing terms are in place: the site host; and the email/automation webhook that delivers each application (all fields + the CV) to our inbox — e.g. Make, Zapier or Resend (name the actual one). Applicant data and CVs pass through this provider. (to confirm)"
   },
   "retention": {
     "title": "How long we keep it",
