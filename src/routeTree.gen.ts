@@ -16,7 +16,15 @@ import { Route as ContributeRouteImport } from './routes/contribute'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AccessibilityRouteImport } from './routes/accessibility'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as LocaleRouteRouteImport } from './routes/$locale/route'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as LocaleIndexRouteImport } from './routes/$locale/index'
+import { Route as LocaleTeachRouteImport } from './routes/$locale/teach'
+import { Route as LocaleSchoolsRouteImport } from './routes/$locale/schools'
+import { Route as LocaleContributeRouteImport } from './routes/$locale/contribute'
+import { Route as LocaleContactRouteImport } from './routes/$locale/contact'
+import { Route as LocaleAccessibilityRouteImport } from './routes/$locale/accessibility'
+import { Route as LocaleAboutRouteImport } from './routes/$locale/about'
 
 const TeachRoute = TeachRouteImport.update({
   id: '/teach',
@@ -53,14 +61,55 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocaleRouteRoute = LocaleRouteRouteImport.update({
+  id: '/$locale',
+  path: '/$locale',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LocaleIndexRoute = LocaleIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => LocaleRouteRoute,
+} as any)
+const LocaleTeachRoute = LocaleTeachRouteImport.update({
+  id: '/teach',
+  path: '/teach',
+  getParentRoute: () => LocaleRouteRoute,
+} as any)
+const LocaleSchoolsRoute = LocaleSchoolsRouteImport.update({
+  id: '/schools',
+  path: '/schools',
+  getParentRoute: () => LocaleRouteRoute,
+} as any)
+const LocaleContributeRoute = LocaleContributeRouteImport.update({
+  id: '/contribute',
+  path: '/contribute',
+  getParentRoute: () => LocaleRouteRoute,
+} as any)
+const LocaleContactRoute = LocaleContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => LocaleRouteRoute,
+} as any)
+const LocaleAccessibilityRoute = LocaleAccessibilityRouteImport.update({
+  id: '/accessibility',
+  path: '/accessibility',
+  getParentRoute: () => LocaleRouteRoute,
+} as any)
+const LocaleAboutRoute = LocaleAboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => LocaleRouteRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/$locale': typeof LocaleRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/contact': typeof ContactRoute
@@ -68,6 +117,13 @@ export interface FileRoutesByFullPath {
   '/schools': typeof SchoolsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/teach': typeof TeachRoute
+  '/$locale/about': typeof LocaleAboutRoute
+  '/$locale/accessibility': typeof LocaleAccessibilityRoute
+  '/$locale/contact': typeof LocaleContactRoute
+  '/$locale/contribute': typeof LocaleContributeRoute
+  '/$locale/schools': typeof LocaleSchoolsRoute
+  '/$locale/teach': typeof LocaleTeachRoute
+  '/$locale/': typeof LocaleIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -78,10 +134,18 @@ export interface FileRoutesByTo {
   '/schools': typeof SchoolsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/teach': typeof TeachRoute
+  '/$locale/about': typeof LocaleAboutRoute
+  '/$locale/accessibility': typeof LocaleAccessibilityRoute
+  '/$locale/contact': typeof LocaleContactRoute
+  '/$locale/contribute': typeof LocaleContributeRoute
+  '/$locale/schools': typeof LocaleSchoolsRoute
+  '/$locale/teach': typeof LocaleTeachRoute
+  '/$locale': typeof LocaleIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/$locale': typeof LocaleRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/accessibility': typeof AccessibilityRoute
   '/contact': typeof ContactRoute
@@ -89,11 +153,19 @@ export interface FileRoutesById {
   '/schools': typeof SchoolsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/teach': typeof TeachRoute
+  '/$locale/about': typeof LocaleAboutRoute
+  '/$locale/accessibility': typeof LocaleAccessibilityRoute
+  '/$locale/contact': typeof LocaleContactRoute
+  '/$locale/contribute': typeof LocaleContributeRoute
+  '/$locale/schools': typeof LocaleSchoolsRoute
+  '/$locale/teach': typeof LocaleTeachRoute
+  '/$locale/': typeof LocaleIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/$locale'
     | '/about'
     | '/accessibility'
     | '/contact'
@@ -101,6 +173,13 @@ export interface FileRouteTypes {
     | '/schools'
     | '/sitemap.xml'
     | '/teach'
+    | '/$locale/about'
+    | '/$locale/accessibility'
+    | '/$locale/contact'
+    | '/$locale/contribute'
+    | '/$locale/schools'
+    | '/$locale/teach'
+    | '/$locale/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -111,9 +190,17 @@ export interface FileRouteTypes {
     | '/schools'
     | '/sitemap.xml'
     | '/teach'
+    | '/$locale/about'
+    | '/$locale/accessibility'
+    | '/$locale/contact'
+    | '/$locale/contribute'
+    | '/$locale/schools'
+    | '/$locale/teach'
+    | '/$locale'
   id:
     | '__root__'
     | '/'
+    | '/$locale'
     | '/about'
     | '/accessibility'
     | '/contact'
@@ -121,10 +208,18 @@ export interface FileRouteTypes {
     | '/schools'
     | '/sitemap.xml'
     | '/teach'
+    | '/$locale/about'
+    | '/$locale/accessibility'
+    | '/$locale/contact'
+    | '/$locale/contribute'
+    | '/$locale/schools'
+    | '/$locale/teach'
+    | '/$locale/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LocaleRouteRoute: typeof LocaleRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
   AccessibilityRoute: typeof AccessibilityRoute
   ContactRoute: typeof ContactRoute
@@ -185,6 +280,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$locale': {
+      id: '/$locale'
+      path: '/$locale'
+      fullPath: '/$locale'
+      preLoaderRoute: typeof LocaleRouteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -192,11 +294,85 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/$locale/': {
+      id: '/$locale/'
+      path: '/'
+      fullPath: '/$locale/'
+      preLoaderRoute: typeof LocaleIndexRouteImport
+      parentRoute: typeof LocaleRouteRoute
+    }
+    '/$locale/teach': {
+      id: '/$locale/teach'
+      path: '/teach'
+      fullPath: '/$locale/teach'
+      preLoaderRoute: typeof LocaleTeachRouteImport
+      parentRoute: typeof LocaleRouteRoute
+    }
+    '/$locale/schools': {
+      id: '/$locale/schools'
+      path: '/schools'
+      fullPath: '/$locale/schools'
+      preLoaderRoute: typeof LocaleSchoolsRouteImport
+      parentRoute: typeof LocaleRouteRoute
+    }
+    '/$locale/contribute': {
+      id: '/$locale/contribute'
+      path: '/contribute'
+      fullPath: '/$locale/contribute'
+      preLoaderRoute: typeof LocaleContributeRouteImport
+      parentRoute: typeof LocaleRouteRoute
+    }
+    '/$locale/contact': {
+      id: '/$locale/contact'
+      path: '/contact'
+      fullPath: '/$locale/contact'
+      preLoaderRoute: typeof LocaleContactRouteImport
+      parentRoute: typeof LocaleRouteRoute
+    }
+    '/$locale/accessibility': {
+      id: '/$locale/accessibility'
+      path: '/accessibility'
+      fullPath: '/$locale/accessibility'
+      preLoaderRoute: typeof LocaleAccessibilityRouteImport
+      parentRoute: typeof LocaleRouteRoute
+    }
+    '/$locale/about': {
+      id: '/$locale/about'
+      path: '/about'
+      fullPath: '/$locale/about'
+      preLoaderRoute: typeof LocaleAboutRouteImport
+      parentRoute: typeof LocaleRouteRoute
+    }
   }
 }
 
+interface LocaleRouteRouteChildren {
+  LocaleAboutRoute: typeof LocaleAboutRoute
+  LocaleAccessibilityRoute: typeof LocaleAccessibilityRoute
+  LocaleContactRoute: typeof LocaleContactRoute
+  LocaleContributeRoute: typeof LocaleContributeRoute
+  LocaleSchoolsRoute: typeof LocaleSchoolsRoute
+  LocaleTeachRoute: typeof LocaleTeachRoute
+  LocaleIndexRoute: typeof LocaleIndexRoute
+}
+
+const LocaleRouteRouteChildren: LocaleRouteRouteChildren = {
+  LocaleAboutRoute: LocaleAboutRoute,
+  LocaleAccessibilityRoute: LocaleAccessibilityRoute,
+  LocaleContactRoute: LocaleContactRoute,
+  LocaleContributeRoute: LocaleContributeRoute,
+  LocaleSchoolsRoute: LocaleSchoolsRoute,
+  LocaleTeachRoute: LocaleTeachRoute,
+  LocaleIndexRoute: LocaleIndexRoute,
+}
+
+const LocaleRouteRouteWithChildren = LocaleRouteRoute._addFileChildren(
+  LocaleRouteRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LocaleRouteRoute: LocaleRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   AccessibilityRoute: AccessibilityRoute,
   ContactRoute: ContactRoute,

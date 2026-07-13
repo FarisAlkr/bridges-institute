@@ -1,0 +1,74 @@
+{
+  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Arabic. Do not machine-translate.",
+  "hero": {
+    "eyebrow": "Schools & Institutions",
+    "headline": "Programs designed for the <em>classrooms</em> you already have.",
+    "aside": "Whether you serve thirty students or three thousand, we shape our programs around your school's rhythm — not the other way around."
+  },
+  "programsSection": {
+    "eyebrow": "Our Programs",
+    "title": "Six ways to work together."
+  },
+  "programs": [
+    {
+      "title": "In-School English Immersion",
+      "body": "Weekly, ongoing classes inside the school day — taught fully in English by a native speaker.",
+      "scope": "Grades 3–12 · Year-long"
+    },
+    {
+      "title": "After-School Enrichment",
+      "body": "Small-group sessions focused on conversation, games, and confidence-building.",
+      "scope": "All ages · Semester-based"
+    },
+    {
+      "title": "English Camps & Intensives",
+      "body": "Vacation-week programs that pack months of practice into days of immersion.",
+      "scope": "Children & teens · 1–2 weeks"
+    },
+    {
+      "title": "Teacher Co-Teaching",
+      "body": "Native English speakers paired with local teachers to co-design lessons and model live conversation.",
+      "scope": "Custom · Ongoing"
+    },
+    {
+      "title": "Community Center Programs",
+      "body": "Open-access classes hosted at municipal and community partners — serving Arab and Jewish neighborhoods alike.",
+      "scope": "All ages · Year-round"
+    },
+    {
+      "title": "Bespoke Partnerships",
+      "body": "Custom programs designed with your school's curriculum, calendar, and goals in mind.",
+      "scope": "Tailored · By request"
+    }
+  ],
+  "process": {
+    "eyebrow": "How We Begin",
+    "title": "A simple, considered process.",
+    "steps": [
+      {
+        "title": "Discovery Call",
+        "body": "We listen first — your students, your goals, your constraints."
+      },
+      {
+        "title": "Program Design",
+        "body": "We propose a shape and pace tailored to your school."
+      },
+      {
+        "title": "Teacher Match",
+        "body": "We pair you with native educators who fit your community."
+      },
+      {
+        "title": "Launch & Iterate",
+        "body": "We begin, measure, and refine — together, every term."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to bring Bridges into your classrooms?",
+    "button": "Partner With Us"
+  },
+  "meta": {
+    "title": "Schools & Institutions — Bridges Institute",
+    "description": "Programs for schools, community centers, and municipalities across the Negev. Native English-speaking educators delivering measurable, joyful results."
+  }
+}

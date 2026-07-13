@@ -1,0 +1,39 @@
+{
+  "hero": {
+    "eyebrow": "Contact & Partnerships",
+    "headline": "Let's <em>talk.</em>",
+    "subheadline": "Whether you're a school exploring a program, a partner exploring a collaboration, or simply curious — we'd love to hear from you."
+  },
+  "visit": "Visit",
+  "addressLine1": "Yehuda HaNachtom 10",
+  "addressLine2": "Be'er Sheva, Israel",
+  "email": "Email",
+  "follow": "Follow",
+  "form": {
+    "heading": "Send a Message",
+    "name": "Name",
+    "email": "Email",
+    "organization": "Organization",
+    "subject": "Subject",
+    "message": "Message",
+    "selectPlaceholder": "Select…",
+    "subjectOptions": {
+      "general": "General Enquiry",
+      "partnership": "Partnership",
+      "schools": "Programs for Schools",
+      "press": "Press"
+    },
+    "submit": "Send Message",
+    "successTitle": "Thank you — message received.",
+    "successBody": "We'll be in touch shortly."
+  },
+  "map": {
+    "eyebrow": "Find Us",
+    "title": "In the heart of Be'er Sheva.",
+    "iframeTitle": "Bridges Institute on the map"
+  },
+  "meta": {
+    "title": "Contact & Partnerships — Bridges Institute",
+    "description": "Get in touch with Bridges Institute in Be'er Sheva. Partnerships, programs, and general enquiries."
+  }
+}

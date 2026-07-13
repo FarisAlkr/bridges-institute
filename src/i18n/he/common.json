@@ -1,0 +1,85 @@
+{
+  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Hebrew. Do not machine-translate.",
+  "brand": "Bridges",
+  "contactEmail": "info@bridgesinstitute.org",
+  "skipToContent": "Skip to content",
+  "cta": {
+    "applyToTeach": "Apply to Teach"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "schools": "Schools",
+    "teach": "Teach",
+    "contribute": "Contribute",
+    "contact": "Contact",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "primaryLabel": "Primary",
+    "mobileLabel": "Mobile",
+    "languageLabel": "Language"
+  },
+  "footer": {
+    "tagline": "Building bridges through language, confidence, and connection.",
+    "blurb": "English learning through action, confidence, and real communication — across the Negev since {{year}}.",
+    "visit": "Visit",
+    "addressLine1": "Yehuda HaNachtom 10",
+    "addressLine2": "Be'er Sheva, Israel",
+    "recognized": "Recognized",
+    "recognizedBody": "Israeli Ministry of Education",
+    "gefen": "GEFEN — Program No. {{program}}",
+    "explore": "Explore",
+    "follow": "Follow",
+    "accessibility": "Accessibility",
+    "rights": "© {{year}} — All Rights Reserved to Bridges Institute by Mubadalah Group",
+    "location": "Be'er Sheva · Negev · Israel"
+  },
+  "social": {
+    "facebook": "Facebook",
+    "instagram": "Instagram"
+  },
+  "form": {
+    "optional": "(optional)",
+    "requiredError": "{{field}} is required.",
+    "emailError": "Enter a valid email address."
+  },
+  "applyForm": {
+    "labels": {
+      "name": "Name",
+      "contact": "Phone or email",
+      "english": "Your English background",
+      "location": "Location",
+      "why": "Why do you want to teach with Bridges?"
+    },
+    "errorFields": {
+      "name": "Name",
+      "contact": "Phone or email",
+      "english": "Your English background",
+      "location": "Location",
+      "why": "Why do you want to teach with Bridges"
+    },
+    "placeholders": {
+      "english": "e.g. native speaker, near-native, studied/lived abroad…",
+      "location": "Which Negev town or area?",
+      "why": "One line is enough."
+    },
+    "cv": "CV",
+    "consent": "This is paid work, not volunteering. By applying, you agree to be contacted about your application.",
+    "thankYou": "Thank you",
+    "successTitle": "Your application is in.",
+    "successBody": "We read every application ourselves. We'll be in touch to set up a short conversation."
+  },
+  "applyHow": {
+    "eyebrow": "How to apply",
+    "title": "Three steps to teaching with Bridges.",
+    "intro": "A short form beats emailing a CV into the void. Fill it in and we'll take it from there.",
+    "steps": [
+      "Fill in the short form below — name, phone or email, English background, location, and one line on why you want to teach with Bridges.",
+      "Have a short conversation with us.",
+      "If it's a good fit, join a Bridges teaching placement."
+    ]
+  },
+  "todo": {
+    "toConfirm": "To confirm"
+  }
+}

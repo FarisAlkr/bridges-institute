@@ -30,7 +30,9 @@ Resolve with the client. Sections depending on these must **not** ship with inve
 | C2 | **Placeholder phone** `+972 (0) 00 000 0000` in footer/contact. | Replace with real number. |
 | C3 | **TikTok link** points to generic `tiktok.com`, not a profile. | Fix or remove. |
 | C4 | **Custom domain** — site is on `bridges-institute.vercel.app` but email is `@bridgesinstitute.org`. | Point real domain before launch. |
-| C5 | Homepage **`og:image`** missing (About/Teach have one). | Add for link previews. |
+| C4a | **i18n hreflang/canonical are root-relative** (Phase 3). `hreflang`/`canonical`/`og:url` and the sitemap emit root-relative URLs because the production domain is unconfirmed (C4). Google prefers **absolute** URLs for hreflang. | When the custom domain goes live, set a `SITE_URL` and prefix these to absolute. Revisit at domain switch — do not let it slip. |
+| C4b | **Sitemap + `/en`→canonical redirect assume Vercel's routing layer is active** (Phase 3). `sitemap.xml` is a server handler and the `/en`→canonical 301 lives in `vercel.json` `redirects`; a pure-static `dist/client` serve won't run either. The in-app `$locale` guard still redirects `/en` on client navigation, but a cold hit on `/en/about` needs the edge redirect. | Confirm at deploy that the Vercel routing layer (redirects + server handler) is active on the final domain. |
+| C5 | Homepage **`og:image`** missing — and as of Phase 3 the shared `pageHead()` doesn't emit `og:image`, so **About/Teach no longer have one either** (previously they did). | Add a per-page/default `og:image` in `pageHead()` for all pages + locales. |
 | C6 | **Privacy** — forms collect personal data + CVs; no privacy policy linked. | Add a basic policy page (pairs with the accessibility statement). |
 
 ## Decisions Faris owns (not the client)

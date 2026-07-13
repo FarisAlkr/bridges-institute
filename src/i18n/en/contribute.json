@@ -1,0 +1,43 @@
+{
+  "hero": {
+    "eyebrow": "Contribute",
+    "headline": "A small gift goes a <em>long way</em> in a classroom that's listening.",
+    "subheadline": "Bridges runs on partnerships — with the Ministry of Education, with municipalities, and with individuals and foundations who believe that language is opportunity. Your support translates directly into classroom hours."
+  },
+  "ways": {
+    "eyebrow": "Ways to Give",
+    "title": "Find the gift that fits.",
+    "items": [
+      {
+        "title": "Sponsor a Classroom",
+        "body": "Underwrite a full year of native English instruction for a single classroom of students.",
+        "amount": "From ₪18,000"
+      },
+      {
+        "title": "Fund a Teacher",
+        "body": "Bring one additional native English-speaking educator to the Negev for a semester.",
+        "amount": "From ₪36,000"
+      },
+      {
+        "title": "Support a Student",
+        "body": "Cover one student's enrollment in an after-school or camp program.",
+        "amount": "From ₪600"
+      },
+      {
+        "title": "General Support",
+        "body": "Every contribution, of any size, sustains the program and reaches a student.",
+        "amount": "Any amount"
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Get In Touch",
+    "title": "Speak with our partnerships team.",
+    "body": "We'll walk you through current needs, sponsorship structures, and how your gift can be directed.",
+    "button": "Contact Us"
+  },
+  "meta": {
+    "title": "Contribute — Bridges Institute",
+    "description": "Support a decade of English-language education in the Negev. Donate, sponsor a classroom, or get involved with Bridges Institute."
+  }
+}

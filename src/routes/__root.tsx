@@ -4,14 +4,18 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useRouterState,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
-import { type ReactNode } from "react";
+import { type ReactNode, useEffect, useState } from "react";
+import { I18nextProvider, useTranslation } from "react-i18next";
 
 import appCss from "../styles.css?url";
 import { Nav } from "../components/site/Nav";
 import { Footer } from "../components/site/Footer";
+import { createI18n, dirFor } from "../i18n";
+import { localeFromPath } from "../i18n/routing";
 
 function NotFoundComponent() {
   return (
@@ -23,7 +27,9 @@ function NotFoundComponent() {
           The page you're looking for doesn't exist or has been moved.
         </p>
         <div className="mt-8">
-          <Link to="/" className="btn-primary">Return Home</Link>
+          <Link to="/" className="btn-primary">
+            Return Home
+          </Link>
         </div>
       </div>
     </div>
@@ -42,10 +48,20 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
           Something went wrong on our end. You can try again or head home.
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <button onClick={() => { router.invalidate(); reset(); }} className="btn-primary">
+          <button
+            onClick={() => {
+              router.invalidate();
+              reset();
+            }}
+            className="btn-primary"
+          >
             Try again
           </button>
-          <a href="/" className="btn-primary" style={{ background: "transparent", color: "var(--ink)" }}>
+          <a
+            href="/"
+            className="btn-primary"
+            style={{ background: "transparent", color: "var(--ink)" }}
+          >
             Go home
           </a>
         </div>
@@ -60,15 +76,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Bridges Institute — English through action, confidence & connection" },
-      { name: "description", content: "Authentic, immersive English programs led by native English-speaking educators. Serving Arab and Jewish communities across the Negev since 2014." },
+      {
+        name: "description",
+        content:
+          "Authentic, immersive English programs led by native English-speaking educators. Serving Arab and Jewish communities across the Negev since 2014.",
+      },
       { name: "author", content: "Bridges Institute" },
       { property: "og:site_name", content: "Bridges Institute" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Bridges Institute — English through action, confidence & connection" },
-      { property: "og:description", content: "Authentic, immersive English programs led by native English-speaking educators. Serving Arab and Jewish communities across the Negev since 2014." },
+      {
+        property: "og:title",
+        content: "Bridges Institute — English through action, confidence & connection",
+      },
+      {
+        property: "og:description",
+        content:
+          "Authentic, immersive English programs led by native English-speaking educators. Serving Arab and Jewish communities across the Negev since 2014.",
+      },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Bridges Institute — English through action, confidence & connection" },
-      { name: "twitter:description", content: "Authentic, immersive English programs led by native English-speaking educators. Serving Arab and Jewish communities across the Negev since 2014." },
+      {
+        name: "twitter:title",
+        content: "Bridges Institute — English through action, confidence & connection",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Authentic, immersive English programs led by native English-speaking educators. Serving Arab and Jewish communities across the Negev since 2014.",
+      },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
@@ -87,9 +121,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  // lang/dir are baked into each prerendered locale's HTML.
+  const locale = useRouterState({ select: (s) => localeFromPath(s.location.pathname) });
   return (
-    <html lang="en">
-      <head><HeadContent /></head>
+    <html lang={locale} dir={dirFor(locale)}>
+      <head>
+        <HeadContent />
+      </head>
       <body>
         {children}
         <Scripts />
@@ -100,19 +138,38 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const locale = useRouterState({ select: (s) => localeFromPath(s.location.pathname) });
+  // Fresh i18next instance per SSR request (never a shared singleton for rendering),
+  // so concurrent /en, /he and /ar renders can't leak language or mismatch on hydrate.
+  // Stable across the client session; changeLanguage handles client-side locale nav.
+  const [i18n] = useState(() => createI18n(locale));
+  useEffect(() => {
+    if (i18n.language !== locale) i18n.changeLanguage(locale);
+  }, [i18n, locale]);
   return (
     <QueryClientProvider client={queryClient}>
+      <I18nextProvider i18n={i18n} defaultNS="common">
+        <AppShell />
+      </I18nextProvider>
+    </QueryClientProvider>
+  );
+}
+
+function AppShell() {
+  const { t } = useTranslation("common");
+  return (
+    <>
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-ivory"
+        className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-ink focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-ivory"
       >
-        Skip to content
+        {t("skipToContent")}
       </a>
       <Nav />
       <main id="main">
         <Outlet />
       </main>
       <Footer />
-    </QueryClientProvider>
+    </>
   );
 }
