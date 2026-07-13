@@ -35,9 +35,15 @@ import type {} from "@tanstack/react-start";
 const APPLY_REQUIRED = ["name", "contact", "english", "location", "why"];
 const CONTACT_REQUIRED = ["name", "email", "message"];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-// Kept under Vercel's ~4.5 MB request-body limit (with headroom for the other fields +
-// multipart overhead) so the upload itself isn't rejected before this handler runs.
-const MAX_CV_BYTES = 4 * 1024 * 1024; // 4 MB
+// Effective end-to-end cap on the RAW file. Two size limits bind the chain:
+//  1. Inbound (browser → this function) is raw multipart: must stay under Vercel's
+//     ~4.5 MB request-body limit.
+//  2. Outbound (this function → webhook) is JSON with the CV base64-encoded, which is
+//     ~33% larger than the raw file; it must stay under the webhook receiver's limit
+//     (Make / Zapier / Resend, typically a few MB).
+// 3 MB raw → ~3.1 MB inbound and ~4.0 MB outbound JSON — both comfortably safe. This is
+// the largest real file that reliably makes it all the way to the inbox.
+const MAX_CV_BYTES = 3 * 1024 * 1024; // 3 MB (raw); ~4.0 MB once base64-encoded outbound
 const ALLOWED_CV_EXT = [".pdf", ".doc", ".docx"];
 
 function json(body: unknown, status = 200) {
