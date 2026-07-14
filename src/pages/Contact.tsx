@@ -1,8 +1,9 @@
 import { useState, type FormEvent } from "react";
-import { Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import { Mail, MapPin, Phone, Facebook, Instagram } from "lucide-react";
 import { Trans, useTranslation } from "react-i18next";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/site-config";
 
 const REQUIRED_NAMES = ["name", "email", "message"] as const;
 
@@ -126,6 +127,20 @@ export function Contact() {
                     className="link-underline font-display text-lg sm:text-xl md:text-2xl text-ink break-all"
                   >
                     {t("common:contactEmail")}
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={150}>
+              <div>
+                <div className="eyebrow">{t("phone")}</div>
+                <div className="mt-5 flex gap-4 items-center">
+                  <Phone aria-hidden className="text-brass-deep shrink-0" size={20} />
+                  <a
+                    href={PHONE_HREF}
+                    className="link-underline font-display text-lg sm:text-xl md:text-2xl text-ink"
+                  >
+                    {PHONE_DISPLAY}
                   </a>
                 </div>
               </div>

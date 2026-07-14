@@ -1,6 +1,7 @@
 import { LocaleLink } from "./LocaleLink";
 import { Facebook, Instagram } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { PHONE_DISPLAY, PHONE_HREF } from "@/site-config";
 
 const exploreLinks = [
   { to: "/about", key: "nav.about" },
@@ -40,6 +41,11 @@ export function Footer() {
               {t("footer.addressLine1")}
               <br />
               {t("footer.addressLine2")}
+            </p>
+            <p className="mt-3 text-sm text-ivory/80">
+              <a href={PHONE_HREF} className="link-underline hover:text-ivory">
+                {PHONE_DISPLAY}
+              </a>
             </p>
             <div className="hairline my-6 w-12" />
             <div className="eyebrow text-brass">{t("footer.recognized")}</div>
