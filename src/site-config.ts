@@ -15,3 +15,8 @@ export function absoluteUrl(path: string): string {
   if (/^https?:\/\//.test(path)) return path;
   return `${SITE_URL}${path.startsWith("/") ? "" : "/"}${path}`;
 }
+
+// Contact phone (client-confirmed). Displayed in international form for the
+// English-speaking audience; the tel: link is E.164 so it dials from anywhere.
+export const PHONE_DISPLAY = "+972 58-686-8850";
+export const PHONE_HREF = "tel:+972586868850";

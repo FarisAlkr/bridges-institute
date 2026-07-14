@@ -215,7 +215,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* §6 — WHAT YOU NEED TO APPLY (blocked — visible placeholders, nothing invented) */}
+      {/* §6 — WHAT YOU NEED TO APPLY (Hebrew + quals + schedule confirmed; location to confirm) */}
       <section className="bg-cream py-16 md:py-24">
         <div className="container-editorial">
           <SectionHeader
@@ -223,26 +223,50 @@ export function Home() {
             title={t("requirements.title")}
             intro={t("requirements.intro")}
           />
-          <div className="mt-10 grid gap-4 md:mt-12 md:grid-cols-2">
-            <TodoPlaceholder
-              label={t("requirements.hebrewLabel")}
-              note={t("requirements.hebrewNote")}
-            />
-            <TodoPlaceholder
-              label={t("requirements.qualificationsLabel")}
-              note={t("requirements.qualificationsNote")}
-            />
-            <TodoPlaceholder
-              label={t("requirements.scheduleLabel")}
-              note={t("requirements.scheduleNote")}
-            />
+
+          {/* No Hebrew required — the headline draw */}
+          <Reveal>
+            <div className="mt-10 rounded-2xl border border-brass-deep/40 bg-ivory p-7 md:mt-12 md:p-10">
+              <p className="font-display text-3xl leading-tight text-ink md:text-4xl">
+                {t("requirements.noHebrewTitle")}
+              </p>
+              <p className="mt-4 max-w-2xl text-slate-body leading-relaxed">
+                {t("requirements.noHebrewBody")}
+              </p>
+            </div>
+          </Reveal>
+
+          {/* Other confirmed essentials */}
+          <div className="mt-8 grid gap-x-10 gap-y-8 md:grid-cols-2">
+            <Reveal>
+              <div className="border-t border-border pt-5">
+                <h3 className="font-display text-xl text-ink md:text-2xl">
+                  {t("requirements.qualsTitle")}
+                </h3>
+                <p className="mt-2 text-slate-body leading-relaxed">
+                  {t("requirements.qualsBody")}
+                </p>
+              </div>
+            </Reveal>
+            <Reveal delay={80}>
+              <div className="border-t border-border pt-5">
+                <h3 className="font-display text-xl text-ink md:text-2xl">
+                  {t("requirements.scheduleTitle")}
+                </h3>
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Still to confirm */}
+          <div className="mt-8 max-w-xl">
             <TodoPlaceholder
               label={t("requirements.locationLabel")}
               note={t("requirements.locationNote")}
             />
           </div>
+
           <Reveal delay={120}>
-            <p className="mt-6 font-medium text-ink">{t("requirements.paid")}</p>
+            <p className="mt-8 font-medium text-ink">{t("requirements.paid")}</p>
           </Reveal>
         </div>
       </section>
