@@ -11,6 +11,7 @@ import photoPictureCards from "@/assets/classroom-picture-cards.jpg";
 import photoOneToOne from "@/assets/classroom-one-to-one.jpg";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
+import { StatCounter } from "@/components/site/StatCounter";
 import { ApplyForm } from "@/components/site/ApplyForm";
 import { TodoPlaceholder } from "@/components/site/TodoPlaceholder";
 
@@ -90,37 +91,21 @@ export function Home() {
         </div>
       </section>
 
-      {/* §2 — TRUST BAR */}
-      <section className="bg-ink text-ivory">
-        <div className="container-editorial py-6 md:py-7">
-          <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-center text-sm md:text-base">
-            <TrustItem>{t("trust.since", { year: 2014 })}</TrustItem>
-            <TrustItem>{t("trust.gefen", { program: "9003" })}</TrustItem>
-            <TrustItem>
-              <Trans
-                t={t}
-                i18nKey="trust.students"
-                count={11000}
-                components={{ b: <strong className="font-semibold text-brass" /> }}
-              />
-            </TrustItem>
-            <TrustItem>
-              <Trans
-                t={t}
-                i18nKey="trust.schools"
-                count={50}
-                components={{ b: <strong className="font-semibold text-brass" /> }}
-              />
-            </TrustItem>
-            <TrustItem last>
-              <Trans
-                t={t}
-                i18nKey="trust.teachers"
-                count={22}
-                components={{ b: <strong className="font-semibold text-brass" /> }}
-              />
-            </TrustItem>
-          </ul>
+      {/* §2 — TRUST BAR: credentials line + dominant count-up stats */}
+      <section className="bg-ink text-ivory py-12 md:py-16">
+        <div className="container-editorial">
+          <p className="mx-auto max-w-3xl text-center text-sm leading-relaxed text-ivory/70 md:text-base">
+            {t("trust.since", { year: 2014 })}
+            <span aria-hidden className="mx-2 text-brass/60">
+              ·
+            </span>
+            {t("trust.gefen", { program: "9003" })}
+          </p>
+          <div className="mt-8 grid grid-cols-1 gap-10 sm:grid-cols-3 md:mt-12">
+            <StatCounter value={11000} suffix="+" label={t("trust.studentsLabel")} />
+            <StatCounter value={50} suffix="+" label={t("trust.schoolsLabel")} />
+            <StatCounter value={22} label={t("trust.teachersLabel")} />
+          </div>
         </div>
       </section>
 
@@ -361,18 +346,5 @@ export function Home() {
         </div>
       </section>
     </>
-  );
-}
-
-function TrustItem({ children, last }: { children: React.ReactNode; last?: boolean }) {
-  return (
-    <li className="flex items-center gap-x-5 text-ivory/85">
-      <span>{children}</span>
-      {!last && (
-        <span aria-hidden className="text-brass/60">
-          ·
-        </span>
-      )}
-    </li>
   );
 }
