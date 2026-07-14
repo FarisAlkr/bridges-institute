@@ -9,12 +9,9 @@
   "trust": {
     "since": "Serving the Negev since {{year}}",
     "gefen": "Recognized by the Israeli Ministry of Education, GEFEN Program No. {{program}}",
-    "students_one": "<b>{{count, number}}</b> student",
-    "students_other": "<b>{{count, number}}+</b> students",
-    "schools_one": "<b>{{count, number}}</b> school & institution",
-    "schools_other": "<b>{{count, number}}+</b> schools & institutions",
-    "teachers_one": "<b>{{count, number}}</b> native English-speaking teacher",
-    "teachers_other": "<b>{{count, number}}</b> native English-speaking teachers"
+    "studentsLabel": "Students",
+    "schoolsLabel": "Schools & institutions",
+    "teachersLabel": "Native English-speaking teachers"
   },
   "why": {
     "eyebrow": "Why teach with Bridges",
