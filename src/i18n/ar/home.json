@@ -1,121 +1,121 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Arabic. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "Teach with Bridges · The Negev",
-    "headline": "Teach English that students are finally <em>brave enough to speak.</em>",
-    "subheadline": "Bridges Institute brings English-speaking teachers into schools across the Negev to lead active speaking lessons — movement, games, stories, role-play and real conversation.",
-    "imageAlt": "A teacher leading an active English speaking lesson with students in the Negev",
-    "seeHowWeTeach": "See How We Teach"
+    "eyebrow": "علّم مع Bridges · النقب",
+    "headline": "علّم الإنجليزية التي يجرؤ الطلاب أخيرًا <em>على التحدث بها.</em>",
+    "subheadline": "يجلب معهد جسور معلمين ناطقين بالإنجليزية إلى المدارس في أنحاء النقب لقيادة دروس محادثة نشِطة — حركة وألعاب وقصص وتمثيل أدوار ومحادثة حقيقية.",
+    "imageAlt": "معلمة تقود درس محادثة إنجليزية نشِطًا مع طلاب في النقب",
+    "seeHowWeTeach": "شاهد كيف نُدرّس"
   },
   "trust": {
-    "since": "Serving the Negev since {{year}}",
-    "gefen": "Recognized by the Israeli Ministry of Education, GEFEN Program No. {{program}}",
-    "studentsLabel": "Students",
-    "schoolsLabel": "Schools & institutions",
-    "teachersLabel": "Native English-speaking teachers"
+    "since": "نخدم النقب منذ {{year}}",
+    "gefen": "معتمَدون من وزارة التعليم الإسرائيلية، برنامج GEFEN رقم {{program}}",
+    "studentsLabel": "طالب وطالبة",
+    "schoolsLabel": "مدرسة ومؤسسة",
+    "teachersLabel": "معلمًا ناطقًا بالإنجليزية كلغة أم"
   },
   "why": {
-    "eyebrow": "Why teach with Bridges",
-    "title": "Meaningful work, with real support behind it.",
+    "eyebrow": "لماذا التدريس مع Bridges",
+    "title": "عمل ذو معنى، ومن خلفه دعم حقيقي.",
     "points": {
       "meaning": {
-        "title": "Real meaning",
-        "body": "You help kids who freeze up in English actually open their mouths."
+        "title": "معنى حقيقي",
+        "body": "تساعد أطفالًا يتجمّدون أمام الإنجليزية على أن يفتحوا أفواههم فعلًا."
       },
       "active": {
-        "title": "Active classrooms",
-        "body": "You're on your feet: games, stories, role-play, movement. Not reading from a textbook."
+        "title": "صفوف نشِطة",
+        "body": "تكون واقفًا على قدميك: ألعاب وقصص وتمثيل أدوار وحركة. لا قراءة من كتاب."
       },
       "support": {
-        "title": "Support and structure",
-        "body": "Teachers get lesson frameworks, activities and routines. You bring the energy; we provide the structure."
+        "title": "دعم وبنية",
+        "body": "يحصل المعلمون على أطر للدروس وأنشطة وروتين. أنت تجلب الطاقة، ونحن نوفّر البنية."
       },
       "personality": {
-        "title": "Room for personality",
-        "body": "Warmth, presence and reliability matter here. Teachers bring themselves into the room."
+        "title": "مساحة للشخصية",
+        "body": "الدفء والحضور والموثوقية مهمة هنا. المعلمون يجلبون أنفسهم إلى الغرفة."
       }
     }
   },
   "job": {
-    "eyebrow": "What the job actually is",
-    "title": "A lesson at Bridges, step by step.",
-    "quote": "Confidence first. Accuracy follows. Students speak first; we polish later.",
+    "eyebrow": "ما هي الوظيفة فعلًا",
+    "title": "درس في Bridges، خطوة بخطوة.",
+    "quote": "الثقة أولًا. الدقة تتبع. الطلاب يتحدثون أولًا، ونحن نصقل لاحقًا.",
     "flow": [
-      "Students first listen and respond with their bodies before they're asked to speak.",
-      "They repeat useful words and phrases out loud, together.",
-      "Then they play, act, choose, answer and talk.",
-      "Younger students: TPR, pictures, objects, rhythm, movement, stories.",
-      "Older students: opinions, role-play, interviews, real-life situations, conversation tasks.",
-      "Every student leaves the room having used English out loud."
+      "يستمع الطلاب أولًا ويستجيبون بأجسادهم قبل أن يُطلب منهم التحدث.",
+      "يكررون كلمات وعبارات مفيدة بصوت عالٍ، معًا.",
+      "ثم يلعبون ويمثّلون ويختارون ويجيبون ويتحدثون.",
+      "الطلاب الأصغر: الاستجابة الجسدية الكاملة (TPR)، صور، أشياء، إيقاع، حركة، قصص.",
+      "الطلاب الأكبر: آراء، تمثيل أدوار، مقابلات، مواقف من الحياة الواقعية، مهام محادثة.",
+      "كل طالب يغادر الغرفة وقد استخدم الإنجليزية بصوت عالٍ."
     ]
   },
   "fit": {
-    "eyebrow": "Who we're looking for",
-    "title": "An honest picture — so you can tell if this is you.",
-    "caption": "Who is a good fit to teach with Bridges, and who is probably not.",
-    "goodHeading": "Good fit",
-    "badHeading": "Probably not the right fit",
+    "eyebrow": "من نبحث عنه",
+    "title": "صورة صادقة — لتعرف إن كان هذا يناسبك.",
+    "caption": "من يناسب التدريس مع Bridges، ومن على الأرجح لا يناسب.",
+    "goodHeading": "مناسب",
+    "badHeading": "على الأرجح غير مناسب",
     "rows": [
       {
-        "good": "Confident, fluent or near-native English",
-        "bad": "Wants quiet, textbook-only teaching"
+        "good": "إنجليزية واثقة، طليقة أو شبه أصلية",
+        "bad": "يريد تدريسًا هادئًا من الكتاب فقط"
       },
       {
-        "good": "Comfortable leading a room of children or teens",
-        "bad": "Dislikes movement, noise, games or group energy"
+        "good": "مرتاح في قيادة صفّ من الأطفال أو المراهقين",
+        "bad": "لا يحب الحركة أو الضجيج أو الألعاب أو طاقة المجموعة"
       },
       {
-        "good": "Warm, responsible and reliable",
-        "bad": "Uncomfortable leading and managing a class"
+        "good": "دافئ، مسؤول وموثوق",
+        "bad": "غير مرتاح في قيادة الصف وإدارته"
       },
       {
-        "good": "Enjoys active teaching — speaking, movement, games",
-        "bad": "Unreliable with schedule or communication"
+        "good": "يستمتع بالتدريس النشِط — تحدُّث، حركة، ألعاب",
+        "bad": "غير منضبط في المواعيد أو التواصل"
       },
       {
-        "good": "Understands many students are nervous and need confidence first",
-        "bad": "Only wants to teach grammar from a book"
+        "good": "يدرك أن كثيرًا من الطلاب متوترون ويحتاجون الثقة أولًا",
+        "bad": "يريد فقط تدريس القواعد من كتاب"
       }
     ]
   },
   "requirements": {
-    "eyebrow": "What you need to apply",
-    "title": "What you need to apply",
-    "intro": "The questions people ask most — answered honestly. One detail below is still being finalised.",
-    "noHebrewTitle": "No Hebrew required.",
-    "noHebrewBody": "Lessons run in English — you don't need Hebrew to teach with Bridges.",
-    "qualsTitle": "No degree or teaching certificate required.",
-    "qualsBody": "We welcome fluent, capable, energetic people who love working with children. Teaching experience is a plus, not a must.",
-    "scheduleTitle": "Part-time and full-time positions available.",
-    "locationLabel": "Location",
-    "locationNote": "Which Negev towns/areas, and is your own transport needed? (open-questions A4)",
-    "paid": "This is paid work, not volunteering."
+    "eyebrow": "ما تحتاجه للتقديم",
+    "title": "ما تحتاجه للتقديم",
+    "intro": "الأسئلة الأكثر تكرارًا — بإجابات صادقة. تفصيل واحد أدناه ما زال قيد التحديد.",
+    "noHebrewTitle": "لا حاجة للعبرية.",
+    "noHebrewBody": "الدروس تُعطى بالإنجليزية — لا تحتاج العبرية للتدريس مع Bridges.",
+    "qualsTitle": "لا حاجة لشهادة جامعية أو شهادة تدريس.",
+    "qualsBody": "نرحّب بأشخاص طليقين، قادرين ومفعمين بالطاقة يحبون العمل مع الأطفال. خبرة التدريس ميزة، لا شرط.",
+    "scheduleTitle": "وظائف بدوام جزئي وكامل متاحة.",
+    "locationLabel": "الموقع",
+    "locationNote": "أي مدن/مناطق في النقب، وهل تحتاج وسيلة نقل خاصة؟ (open-questions A4)",
+    "paid": "هذا عمل مأجور، وليس تطوعًا."
   },
   "photos": {
-    "eyebrow": "Inside the classroom",
-    "title": "Real lessons, in real Negev schools.",
-    "caption": "Caption to confirm with the client.",
+    "eyebrow": "داخل الصف",
+    "title": "دروس حقيقية، في مدارس حقيقية بالنقب.",
+    "caption": "التعليق التوضيحي بانتظار تأكيد العميل.",
     "alt": [
-      "A teacher leading young students in an active floor game with balloons and letter cards",
-      "A teacher leading a speaking lesson at the whiteboard as students follow along",
-      "A Bridges teacher and students smiling together during a small-group lesson",
-      "A teacher and students around a table playing a picture-card vocabulary game",
-      "A teacher helping a student one-on-one at a laptop in the school library"
+      "معلمة تقود طلابًا صغارًا في لعبة حركية على الأرض ببالونات وبطاقات حروف",
+      "معلمة تقود درس محادثة عند اللوح بينما يتابع الطلاب",
+      "معلمة من Bridges وطلاب يبتسمون معًا خلال درس لمجموعة صغيرة",
+      "معلمة وطلاب حول طاولة يلعبون لعبة مفردات ببطاقات مصوّرة",
+      "معلمة تساعد طالبًا بشكل فردي على حاسوب محمول في مكتبة المدرسة"
     ],
-    "videoLabel": "Optional 30–60s classroom video",
-    "videoNote": "If a real clip exists, embed it here with captions/transcript. Asset from client (open-questions B2)."
+    "videoLabel": "فيديو صفّي اختياري من 30–60 ثانية",
+    "videoNote": "إن وُجد مقطع حقيقي، ضَعه هنا مع تعليقات/نص مكتوب. أصل من العميل (open-questions B2)."
   },
   "apply": {
-    "closing": "Ready to teach with Bridges? Help students in the Negev find their voice in English."
+    "closing": "مستعد للتدريس مع Bridges؟ ساعد طلاب النقب على إيجاد صوتهم بالإنجليزية."
   },
   "schools": {
-    "eyebrow": "For schools",
-    "body": "Bridges Institute brings English-speaking teachers into schools and learning centers across the Negev. Our programs help students build spoken English confidence through active, communication-based lessons.",
-    "gefen": "Recognized under the Israeli Ministry of Education's GEFEN framework, Program No. 9003.",
-    "cta": "Bring Bridges to Your School"
+    "eyebrow": "للمدارس",
+    "body": "يجلب معهد جسور معلمين ناطقين بالإنجليزية إلى المدارس ومراكز التعلّم في أنحاء النقب. تساعد برامجنا الطلاب على بناء الثقة بالإنجليزية المحكية عبر دروس نشِطة قائمة على التواصل.",
+    "gefen": "معتمَدون ضمن إطار GEFEN التابع لوزارة التعليم الإسرائيلية، برنامج رقم 9003.",
+    "cta": "أحضِر Bridges إلى مدرستك"
   },
   "meta": {
-    "title": "Teach English in the Negev — Bridges Institute",
-    "description": "Bridges Institute hires English-speaking teachers to lead active speaking lessons in schools across the Negev — movement, games, stories, role-play and real conversation. Apply to teach."
+    "title": "علّم الإنجليزية في النقب — معهد جسور",
+    "description": "يوظّف معهد جسور معلمين ناطقين بالإنجليزية لقيادة دروس محادثة نشِطة في مدارس النقب — حركة وألعاب وقصص وتمثيل أدوار ومحادثة حقيقية. قدِّم للتدريس."
   }
 }

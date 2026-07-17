@@ -1,90 +1,90 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Arabic. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "brand": "Bridges",
   "contactEmail": "info@bridgesinstitute.org",
-  "skipToContent": "Skip to content",
+  "skipToContent": "تخطَّ إلى المحتوى",
   "cta": {
-    "applyToTeach": "Apply to Teach"
+    "applyToTeach": "قدِّم للتدريس"
   },
   "nav": {
-    "home": "Home",
-    "about": "About",
-    "schools": "Schools",
-    "teach": "Teach",
-    "contribute": "Contribute",
-    "contact": "Contact",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu",
-    "primaryLabel": "Primary",
-    "mobileLabel": "Mobile",
-    "languageLabel": "Language"
+    "home": "الرئيسية",
+    "about": "من نحن",
+    "schools": "المدارس",
+    "teach": "التدريس",
+    "contribute": "المساهمة",
+    "contact": "تواصل معنا",
+    "openMenu": "افتح القائمة",
+    "closeMenu": "أغلق القائمة",
+    "primaryLabel": "رئيسية",
+    "mobileLabel": "الجوّال",
+    "languageLabel": "اللغة"
   },
   "footer": {
-    "tagline": "Building bridges through language, confidence, and connection.",
-    "blurb": "English learning through action, confidence, and real communication — across the Negev since {{year}}.",
-    "visit": "Visit",
-    "addressLine1": "Yehuda HaNachtom 10",
-    "addressLine2": "Be'er Sheva, Israel",
-    "recognized": "Recognized",
-    "recognizedBody": "Israeli Ministry of Education",
-    "gefen": "GEFEN — Program No. {{program}}",
-    "explore": "Explore",
-    "follow": "Follow",
-    "accessibility": "Accessibility",
-    "privacy": "Privacy",
-    "rights": "© {{year}} — All Rights Reserved to Bridges Institute by Mubadalah Group",
-    "location": "Be'er Sheva · Negev · Israel"
+    "tagline": "نبني الجسور عبر اللغة والثقة والتواصل.",
+    "blurb": "تعلُّم الإنجليزية بالحركة والثقة والتواصل الحقيقي — في النقب منذ {{year}}.",
+    "visit": "زورونا",
+    "addressLine1": "يهودا هنَحتوم 10",
+    "addressLine2": "بئر السبع، إسرائيل",
+    "recognized": "معتمَدون",
+    "recognizedBody": "وزارة التعليم الإسرائيلية",
+    "gefen": "GEFEN — البرنامج رقم {{program}}",
+    "explore": "استكشف",
+    "follow": "تابعونا",
+    "accessibility": "إمكانية الوصول",
+    "privacy": "الخصوصية",
+    "rights": "© {{year}} — جميع الحقوق محفوظة لمعهد جسور من مجموعة مبادلة",
+    "location": "بئر السبع · النقب · إسرائيل"
   },
   "social": {
-    "facebook": "Facebook",
-    "instagram": "Instagram"
+    "facebook": "فيسبوك",
+    "instagram": "إنستغرام"
   },
   "form": {
-    "optional": "(optional)",
-    "requiredError": "{{field}} is required.",
-    "emailError": "Enter a valid email address.",
-    "submitting": "Sending…",
-    "submitError": "Something went wrong sending your submission. Please try again, or email us directly.",
-    "cvTypeError": "Please upload a PDF or Word document.",
-    "cvSizeError": "That file is too large (max 3 MB)."
+    "optional": "(اختياري)",
+    "requiredError": "{{field}} — حقل مطلوب.",
+    "emailError": "أدخل بريدًا إلكترونيًا صحيحًا.",
+    "submitting": "جارٍ الإرسال…",
+    "submitError": "حدث خطأ أثناء إرسال طلبك. يُرجى المحاولة مرة أخرى أو مراسلتنا عبر البريد مباشرةً.",
+    "cvTypeError": "يُرجى رفع ملف PDF أو Word.",
+    "cvSizeError": "الملف كبير جدًا (بحد أقصى 3 ميغابايت)."
   },
   "applyForm": {
     "labels": {
-      "name": "Name",
-      "contact": "Phone or email",
-      "english": "Your English background",
-      "location": "Location",
-      "why": "Why do you want to teach with Bridges?"
+      "name": "الاسم",
+      "contact": "الهاتف أو البريد الإلكتروني",
+      "english": "خلفيتك في الإنجليزية",
+      "location": "الموقع",
+      "why": "لماذا تريد التدريس مع Bridges؟"
     },
     "errorFields": {
-      "name": "Name",
-      "contact": "Phone or email",
-      "english": "Your English background",
-      "location": "Location",
-      "why": "Why do you want to teach with Bridges"
+      "name": "الاسم",
+      "contact": "الهاتف أو البريد الإلكتروني",
+      "english": "خلفيتك في الإنجليزية",
+      "location": "الموقع",
+      "why": "لماذا تريد التدريس مع Bridges"
     },
     "placeholders": {
-      "english": "e.g. native speaker, near-native, studied/lived abroad…",
-      "location": "Which Negev town or area?",
-      "why": "One line is enough."
+      "english": "مثال: متحدث أصلي، شبه أصلي، درست/عشت في الخارج…",
+      "location": "أي مدينة أو منطقة في النقب؟",
+      "why": "سطر واحد يكفي."
     },
-    "cv": "CV",
-    "consent": "This is paid work, not volunteering. By applying, you agree to be contacted about your application.",
-    "thankYou": "Thank you",
-    "successTitle": "Your application is in.",
-    "successBody": "We read every application ourselves. We'll be in touch to set up a short conversation."
+    "cv": "السيرة الذاتية",
+    "consent": "هذا عمل مأجور، وليس تطوعًا. بتقديمك الطلب فإنك توافق على أن نتواصل معك بشأنه.",
+    "thankYou": "شكرًا لك",
+    "successTitle": "تم استلام طلبك.",
+    "successBody": "نقرأ كل طلب بأنفسنا، وسنتواصل معك لترتيب محادثة قصيرة."
   },
   "applyHow": {
-    "eyebrow": "How to apply",
-    "title": "Three steps to teaching with Bridges.",
-    "intro": "A short form beats emailing a CV into the void. Fill it in and we'll take it from there.",
+    "eyebrow": "كيفية التقديم",
+    "title": "ثلاث خطوات للتدريس مع Bridges.",
+    "intro": "نموذج قصير خيرٌ من إرسال سيرة ذاتية بلا رد. املأه وسنتولّى الباقي.",
     "steps": [
-      "Fill in the short form below — name, phone or email, English background, location, and one line on why you want to teach with Bridges.",
-      "Have a short conversation with us.",
-      "If it's a good fit, join a Bridges teaching placement."
+      "املأ النموذج القصير أدناه — الاسم، الهاتف أو البريد، خلفيتك في الإنجليزية، الموقع، وسطر واحد عن سبب رغبتك في التدريس مع Bridges.",
+      "أجرِ معنا محادثة قصيرة.",
+      "إن كان التوافق جيدًا، انضمّ إلى فريق تدريس في Bridges."
     ]
   },
   "todo": {
-    "toConfirm": "To confirm"
+    "toConfirm": "بانتظار التأكيد"
   }
 }

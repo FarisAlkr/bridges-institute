@@ -1,14 +1,14 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Arabic. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "Teach with Bridges",
-    "headline": "Apply to teach with <em>Bridges.</em>",
-    "subheadline": "We bring English-speaking teachers into schools across the Negev to lead active speaking lessons — movement, games, stories, role-play and real conversation.",
-    "imageAlt": "A Bridges teacher leading a lesson"
+    "eyebrow": "علّم مع Bridges",
+    "headline": "قدِّم للتدريس مع <em>Bridges.</em>",
+    "subheadline": "نجلب معلمين ناطقين بالإنجليزية إلى المدارس في أنحاء النقب لقيادة دروس محادثة نشِطة — حركة وألعاب وقصص وتمثيل أدوار ومحادثة حقيقية.",
+    "imageAlt": "معلمة من Bridges تقود درسًا"
   },
-  "fullPicture": "Want the full picture first? <a>See how we teach and who we're looking for</a>.",
+  "fullPicture": "تريد الصورة الكاملة أولًا؟ <a>شاهد كيف نُدرّس ومن نبحث عنه</a>.",
   "meta": {
-    "title": "Apply to Teach — Bridges Institute",
-    "description": "Apply to teach English with Bridges Institute — active speaking lessons in schools across the Negev. A short form, a short conversation, then a teaching placement."
+    "title": "قدِّم للتدريس — معهد جسور",
+    "description": "قدِّم لتدريس الإنجليزية مع معهد جسور — دروس محادثة نشِطة في مدارس النقب. نموذج قصير، محادثة قصيرة، ثم فرصة تدريس."
   }
 }

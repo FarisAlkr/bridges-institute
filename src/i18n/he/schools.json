@@ -1,74 +1,74 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Hebrew. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "Schools & Institutions",
-    "headline": "Programs designed for the <em>classrooms</em> you already have.",
-    "aside": "Whether you serve thirty students or three thousand, we shape our programs around your school's rhythm — not the other way around."
+    "eyebrow": "בתי ספר ומוסדות",
+    "headline": "תוכניות שתוכננו <em>לכיתות</em> שכבר יש לכם.",
+    "aside": "בין אם אתם משרתים שלושים תלמידים או שלושת אלפים, אנחנו מעצבים את התוכניות סביב הקצב של בית הספר שלכם — לא להפך."
   },
   "programsSection": {
-    "eyebrow": "Our Programs",
-    "title": "Six ways to work together."
+    "eyebrow": "התוכניות שלנו",
+    "title": "שש דרכים לעבוד יחד."
   },
   "programs": [
     {
-      "title": "In-School English Immersion",
-      "body": "Weekly, ongoing classes inside the school day — taught fully in English by a native speaker.",
-      "scope": "Grades 3–12 · Year-long"
+      "title": "הטמעת אנגלית בתוך בית הספר",
+      "body": "שיעורים שבועיים ומתמשכים בתוך יום הלימודים — נלמדים כולם באנגלית בידי דובר שפת אם.",
+      "scope": "כיתות ג׳–י״ב · שנתי"
     },
     {
-      "title": "After-School Enrichment",
-      "body": "Small-group sessions focused on conversation, games, and confidence-building.",
-      "scope": "All ages · Semester-based"
+      "title": "העשרה אחרי הלימודים",
+      "body": "מפגשי קבוצה קטנה המתמקדים בשיחה, משחקים ובניית ביטחון.",
+      "scope": "כל הגילים · סמסטריאלי"
     },
     {
-      "title": "English Camps & Intensives",
-      "body": "Vacation-week programs that pack months of practice into days of immersion.",
-      "scope": "Children & teens · 1–2 weeks"
+      "title": "קייטנות ואינטנסיבים באנגלית",
+      "body": "תוכניות שבוע-חופשה שדוחסות חודשי תרגול לימים של הטמעה.",
+      "scope": "ילדים ונוער · 1–2 שבועות"
     },
     {
-      "title": "Teacher Co-Teaching",
-      "body": "Native English speakers paired with local teachers to co-design lessons and model live conversation.",
-      "scope": "Custom · Ongoing"
+      "title": "הוראה משותפת עם מורים",
+      "body": "דוברי אנגלית כשפת אם בזוגיות עם מורים מקומיים לתכנון משותף של שיעורים ולהדגמת שיחה חיה.",
+      "scope": "מותאם · מתמשך"
     },
     {
-      "title": "Community Center Programs",
-      "body": "Open-access classes hosted at municipal and community partners — serving Arab and Jewish neighborhoods alike.",
-      "scope": "All ages · Year-round"
+      "title": "תוכניות במרכזים קהילתיים",
+      "body": "שיעורים בגישה פתוחה המתארחים אצל שותפים עירוניים וקהילתיים — משרתים שכונות ערביות ויהודיות כאחד.",
+      "scope": "כל הגילים · כל השנה"
     },
     {
-      "title": "Bespoke Partnerships",
-      "body": "Custom programs designed with your school's curriculum, calendar, and goals in mind.",
-      "scope": "Tailored · By request"
+      "title": "שותפויות בהתאמה אישית",
+      "body": "תוכניות מותאמות שנבנות סביב תוכנית הלימודים, הלוח והמטרות של בית הספר שלכם.",
+      "scope": "מותאם אישית · לפי בקשה"
     }
   ],
   "process": {
-    "eyebrow": "How We Begin",
-    "title": "A simple, considered process.",
+    "eyebrow": "איך מתחילים",
+    "title": "תהליך פשוט ומחושב.",
     "steps": [
       {
-        "title": "Discovery Call",
-        "body": "We listen first — your students, your goals, your constraints."
+        "title": "שיחת היכרות",
+        "body": "קודם מקשיבים — התלמידים שלכם, המטרות, האילוצים."
       },
       {
-        "title": "Program Design",
-        "body": "We propose a shape and pace tailored to your school."
+        "title": "עיצוב התוכנית",
+        "body": "אנחנו מציעים צורה וקצב המותאמים לבית הספר שלכם."
       },
       {
-        "title": "Teacher Match",
-        "body": "We pair you with native educators who fit your community."
+        "title": "התאמת מורה",
+        "body": "אנחנו מזווגים אתכם עם מורים דוברי שפת אם שמתאימים לקהילה שלכם."
       },
       {
-        "title": "Launch & Iterate",
-        "body": "We begin, measure, and refine — together, every term."
+        "title": "השקה ושיפור",
+        "body": "מתחילים, מודדים ומשפרים — יחד, בכל מחצית."
       }
     ]
   },
   "cta": {
-    "title": "Ready to bring Bridges into your classrooms?",
-    "button": "Partner With Us"
+    "title": "מוכנים להביא את Bridges לכיתות שלכם?",
+    "button": "היו שותפים שלנו"
   },
   "meta": {
-    "title": "Schools & Institutions — Bridges Institute",
-    "description": "Programs for schools, community centers, and municipalities across the Negev. Native English-speaking educators delivering measurable, joyful results."
+    "title": "בתי ספר ומוסדות — מכון Bridges",
+    "description": "תוכניות לבתי ספר, מרכזים קהילתיים ורשויות ברחבי הנגב. מורים דוברי אנגלית כשפת אם המביאים תוצאות מדידות ומשמחות."
   }
 }

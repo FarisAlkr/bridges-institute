@@ -1,47 +1,47 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Arabic. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "Accessibility",
-    "title": "Accessibility Statement",
-    "intro": "Bridges Institute is committed to making its website usable for everyone, including people with disabilities. We treat accessibility as an ongoing responsibility, built into the site itself rather than added on afterwards."
+    "eyebrow": "إمكانية الوصول",
+    "title": "بيان إمكانية الوصول",
+    "intro": "يلتزم معهد جسور بجعل موقعه قابلًا للاستخدام من الجميع، بمن فيهم ذوو الإعاقة. نتعامل مع إمكانية الوصول كمسؤولية مستمرة، مبنية في الموقع نفسه لا مُضافة لاحقًا."
   },
   "standard": {
-    "title": "The standard we follow",
-    "body": "We aim to conform to <b>Israeli Standard IS 5568</b>, which is based on the Web Content Accessibility Guidelines (<b>WCAG 2.0</b>) at <b>Level AA</b>."
+    "title": "المعيار الذي نتبعه",
+    "body": "نهدف إلى الامتثال لـ<b>المعيار الإسرائيلي IS 5568</b>، المبني على إرشادات إتاحة محتوى الويب (<b>WCAG 2.0</b>) عند <b>المستوى AA</b>."
   },
   "done": {
-    "title": "What we have done",
+    "title": "ما الذي أنجزناه",
     "items": [
-      "Semantic headings and landmark regions (header, navigation, main, footer).",
-      "A “skip to content” link and full keyboard operability, with a visible focus indicator on every interactive element.",
-      "Text alternatives for meaningful images; decorative images are hidden from screen readers.",
-      "Form fields with real, associated labels.",
-      "Colour contrast checked against AA thresholds, including the brand gold on light backgrounds.",
-      "Respect for the operating system’s “reduce motion” preference."
+      "عناوين دلالية ومناطق معالم (رأس الصفحة، التنقل، المحتوى الرئيسي، التذييل).",
+      "رابط «تخطَّ إلى المحتوى» وتشغيل كامل بلوحة المفاتيح، مع مؤشر تركيز مرئي على كل عنصر تفاعلي.",
+      "بدائل نصية للصور ذات المعنى؛ والصور الزخرفية مخفية عن قارئات الشاشة.",
+      "حقول نماذج بتسميات حقيقية ومرتبطة.",
+      "فحص تباين الألوان مقابل عتبات AA، بما في ذلك الذهبي على الخلفيات الفاتحة.",
+      "احترام تفضيل «تقليل الحركة» في نظام التشغيل."
     ]
   },
   "ongoing": {
-    "title": "Ongoing work",
-    "body": "Accessibility is never finished. We continue to test and improve, and this statement will be published in Hebrew and Arabic as part of the site’s multilingual rollout.",
-    "todoLabel": "Hebrew & Arabic versions of this statement",
-    "todoNote": "To be published alongside the multilingual rollout — reviewed by a real speaker, not machine-translated."
+    "title": "عمل مستمر",
+    "body": "إمكانية الوصول لا تنتهي أبدًا. نواصل الاختبار والتحسين، وسيُنشر هذا البيان بالعبرية والعربية ضمن الإطلاق متعدد اللغات للموقع.",
+    "todoLabel": "النسختان العبرية والعربية من هذا البيان",
+    "todoNote": "ستُنشران مع الإطلاق متعدد اللغات — مراجَعتان من متحدث حقيقي، لا مترجَمتان آليًا."
   },
   "report": {
-    "title": "Reporting an accessibility problem",
-    "body": "If you come across a barrier on this site, please tell us and we will do our best to put it right.",
-    "emailLabel": "Email:",
-    "address": "Address: Yehuda HaNachtom 10, Be'er Sheva, Israel.",
-    "coordinatorLabel": "Accessibility coordinator",
-    "coordinatorNote": "Name and role of the person responsible for accessibility — to confirm with the client.",
-    "phoneLabel": "Phone for accessibility requests",
-    "phoneNote": "Direct phone number for accessibility enquiries — to confirm with the client."
+    "title": "الإبلاغ عن مشكلة في إمكانية الوصول",
+    "body": "إن واجهت عائقًا في هذا الموقع، أخبِرنا وسنبذل قصارى جهدنا لإصلاحه.",
+    "emailLabel": "البريد الإلكتروني:",
+    "address": "العنوان: يهودا هنَحتوم 10، بئر السبع، إسرائيل.",
+    "coordinatorLabel": "منسّق إمكانية الوصول",
+    "coordinatorNote": "اسم ودور الشخص المسؤول عن إمكانية الوصول — بانتظار التأكيد من العميل.",
+    "phoneLabel": "هاتف لطلبات إمكانية الوصول",
+    "phoneNote": "رقم هاتف مباشر لاستفسارات إمكانية الوصول — بانتظار التأكيد من العميل."
   },
   "reviewed": {
-    "title": "Last reviewed",
-    "date": "12 July 2026"
+    "title": "آخر مراجعة",
+    "date": "12 يوليو 2026"
   },
   "meta": {
-    "title": "Accessibility Statement — Bridges Institute",
-    "description": "Bridges Institute's accessibility statement — our commitment to Israeli Standard 5568 / WCAG 2.0 Level AA, and how to report an accessibility problem."
+    "title": "بيان إمكانية الوصول — معهد جسور",
+    "description": "بيان إمكانية الوصول لمعهد جسور — التزامنا بالمعيار الإسرائيلي 5568 / WCAG 2.0 المستوى AA، وكيفية الإبلاغ عن مشكلة في إمكانية الوصول."
   }
 }

@@ -1,90 +1,90 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Hebrew. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "brand": "Bridges",
   "contactEmail": "info@bridgesinstitute.org",
-  "skipToContent": "Skip to content",
+  "skipToContent": "דלג לתוכן",
   "cta": {
-    "applyToTeach": "Apply to Teach"
+    "applyToTeach": "הגישו מועמדות להוראה"
   },
   "nav": {
-    "home": "Home",
-    "about": "About",
-    "schools": "Schools",
-    "teach": "Teach",
-    "contribute": "Contribute",
-    "contact": "Contact",
-    "openMenu": "Open menu",
-    "closeMenu": "Close menu",
-    "primaryLabel": "Primary",
-    "mobileLabel": "Mobile",
-    "languageLabel": "Language"
+    "home": "בית",
+    "about": "אודות",
+    "schools": "בתי ספר",
+    "teach": "הוראה",
+    "contribute": "תרומה",
+    "contact": "צור קשר",
+    "openMenu": "פתח תפריט",
+    "closeMenu": "סגור תפריט",
+    "primaryLabel": "ראשי",
+    "mobileLabel": "נייד",
+    "languageLabel": "שפה"
   },
   "footer": {
-    "tagline": "Building bridges through language, confidence, and connection.",
-    "blurb": "English learning through action, confidence, and real communication — across the Negev since {{year}}.",
-    "visit": "Visit",
-    "addressLine1": "Yehuda HaNachtom 10",
-    "addressLine2": "Be'er Sheva, Israel",
-    "recognized": "Recognized",
-    "recognizedBody": "Israeli Ministry of Education",
-    "gefen": "GEFEN — Program No. {{program}}",
-    "explore": "Explore",
-    "follow": "Follow",
-    "accessibility": "Accessibility",
-    "privacy": "Privacy",
-    "rights": "© {{year}} — All Rights Reserved to Bridges Institute by Mubadalah Group",
-    "location": "Be'er Sheva · Negev · Israel"
+    "tagline": "בונים גשרים דרך שפה, ביטחון וחיבור.",
+    "blurb": "לימוד אנגלית מתוך פעולה, ביטחון ותקשורת אמיתית — ברחבי הנגב משנת {{year}}.",
+    "visit": "בקרו אותנו",
+    "addressLine1": "יהודה הנחתום 10",
+    "addressLine2": "באר שבע, ישראל",
+    "recognized": "מוכּרים",
+    "recognizedBody": "משרד החינוך",
+    "gefen": "גפ״ן — תוכנית מס׳ {{program}}",
+    "explore": "ניווט",
+    "follow": "עקבו אחרינו",
+    "accessibility": "נגישות",
+    "privacy": "פרטיות",
+    "rights": "© {{year}} — כל הזכויות שמורות למכון Bridges מבית קבוצת Mubadalah",
+    "location": "באר שבע · הנגב · ישראל"
   },
   "social": {
-    "facebook": "Facebook",
-    "instagram": "Instagram"
+    "facebook": "פייסבוק",
+    "instagram": "אינסטגרם"
   },
   "form": {
-    "optional": "(optional)",
-    "requiredError": "{{field}} is required.",
-    "emailError": "Enter a valid email address.",
-    "submitting": "Sending…",
-    "submitError": "Something went wrong sending your submission. Please try again, or email us directly.",
-    "cvTypeError": "Please upload a PDF or Word document.",
-    "cvSizeError": "That file is too large (max 3 MB)."
+    "optional": "(רשות)",
+    "requiredError": "{{field}} — שדה חובה.",
+    "emailError": "יש להזין כתובת אימייל תקינה.",
+    "submitting": "שולח…",
+    "submitError": "משהו השתבש בשליחת הטופס. נסו שוב, או שלחו לנו אימייל ישירות.",
+    "cvTypeError": "יש להעלות קובץ PDF או Word.",
+    "cvSizeError": "הקובץ גדול מדי (עד 3 MB)."
   },
   "applyForm": {
     "labels": {
-      "name": "Name",
-      "contact": "Phone or email",
-      "english": "Your English background",
-      "location": "Location",
-      "why": "Why do you want to teach with Bridges?"
+      "name": "שם",
+      "contact": "טלפון או אימייל",
+      "english": "רקע האנגלית שלך",
+      "location": "מיקום",
+      "why": "למה תרצו ללמד ב-Bridges?"
     },
     "errorFields": {
-      "name": "Name",
-      "contact": "Phone or email",
-      "english": "Your English background",
-      "location": "Location",
-      "why": "Why do you want to teach with Bridges"
+      "name": "שם",
+      "contact": "טלפון או אימייל",
+      "english": "רקע האנגלית שלך",
+      "location": "מיקום",
+      "why": "למה תרצו ללמד ב-Bridges"
     },
     "placeholders": {
-      "english": "e.g. native speaker, near-native, studied/lived abroad…",
-      "location": "Which Negev town or area?",
-      "why": "One line is enough."
+      "english": "לדוגמה: דובר שפת אם, כמעט שפת אם, למדתי/גרתי בחו״ל…",
+      "location": "באיזו עיר או אזור בנגב?",
+      "why": "שורה אחת מספיקה."
     },
-    "cv": "CV",
-    "consent": "This is paid work, not volunteering. By applying, you agree to be contacted about your application.",
-    "thankYou": "Thank you",
-    "successTitle": "Your application is in.",
-    "successBody": "We read every application ourselves. We'll be in touch to set up a short conversation."
+    "cv": "קורות חיים",
+    "consent": "זו עבודה בשכר, לא התנדבות. בהגשת המועמדות אתם מאשרים שניצור עמכם קשר בנוגע אליה.",
+    "thankYou": "תודה",
+    "successTitle": "המועמדות התקבלה.",
+    "successBody": "אנחנו קוראים כל פנייה בעצמנו, וניצור קשר לתיאום שיחה קצרה."
   },
   "applyHow": {
-    "eyebrow": "How to apply",
-    "title": "Three steps to teaching with Bridges.",
-    "intro": "A short form beats emailing a CV into the void. Fill it in and we'll take it from there.",
+    "eyebrow": "איך מגישים",
+    "title": "שלושה צעדים להוראה ב-Bridges.",
+    "intro": "טופס קצר עדיף על שליחת קורות חיים לתהום. מלאו אותו ואנחנו נמשיך מכאן.",
     "steps": [
-      "Fill in the short form below — name, phone or email, English background, location, and one line on why you want to teach with Bridges.",
-      "Have a short conversation with us.",
-      "If it's a good fit, join a Bridges teaching placement."
+      "מלאו את הטופס הקצר למטה — שם, טלפון או אימייל, רקע האנגלית שלכם, מיקום, ושורה אחת על הסיבה שאתם רוצים ללמד ב-Bridges.",
+      "נקיים אתכם שיחה קצרה.",
+      "אם יש התאמה, תצטרפו לצוות הוראה של Bridges."
     ]
   },
   "todo": {
-    "toConfirm": "To confirm"
+    "toConfirm": "לאישור"
   }
 }

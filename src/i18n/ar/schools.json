@@ -1,74 +1,74 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Arabic. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "Schools & Institutions",
-    "headline": "Programs designed for the <em>classrooms</em> you already have.",
-    "aside": "Whether you serve thirty students or three thousand, we shape our programs around your school's rhythm — not the other way around."
+    "eyebrow": "المدارس والمؤسسات",
+    "headline": "برامج مصمَّمة <em>للصفوف</em> التي لديك بالفعل.",
+    "aside": "سواء كنت تخدم ثلاثين طالبًا أو ثلاثة آلاف، نصمّم برامجنا حول إيقاع مدرستك — لا العكس."
   },
   "programsSection": {
-    "eyebrow": "Our Programs",
-    "title": "Six ways to work together."
+    "eyebrow": "برامجنا",
+    "title": "ست طرق للعمل معًا."
   },
   "programs": [
     {
-      "title": "In-School English Immersion",
-      "body": "Weekly, ongoing classes inside the school day — taught fully in English by a native speaker.",
-      "scope": "Grades 3–12 · Year-long"
+      "title": "انغماس إنجليزي داخل المدرسة",
+      "body": "حصص أسبوعية مستمرة ضمن اليوم الدراسي — تُدرَّس بالإنجليزية بالكامل على يد متحدث أصلي.",
+      "scope": "الصفوف 3–12 · على مدار العام"
     },
     {
-      "title": "After-School Enrichment",
-      "body": "Small-group sessions focused on conversation, games, and confidence-building.",
-      "scope": "All ages · Semester-based"
+      "title": "إثراء بعد الدوام",
+      "body": "جلسات لمجموعات صغيرة تركّز على المحادثة والألعاب وبناء الثقة.",
+      "scope": "لكل الأعمار · حسب الفصل"
     },
     {
-      "title": "English Camps & Intensives",
-      "body": "Vacation-week programs that pack months of practice into days of immersion.",
-      "scope": "Children & teens · 1–2 weeks"
+      "title": "مخيمات ودورات إنجليزية مكثّفة",
+      "body": "برامج أسبوع العطلة تكثّف أشهرًا من التدريب في أيام من الانغماس.",
+      "scope": "أطفال ومراهقون · 1–2 أسبوع"
     },
     {
-      "title": "Teacher Co-Teaching",
-      "body": "Native English speakers paired with local teachers to co-design lessons and model live conversation.",
-      "scope": "Custom · Ongoing"
+      "title": "تدريس مشترك مع المعلمين",
+      "body": "متحدثون أصليون بالإنجليزية يقترنون بمعلمين محليين لتصميم الدروس معًا ونمذجة المحادثة الحيّة.",
+      "scope": "مخصّص · مستمر"
     },
     {
-      "title": "Community Center Programs",
-      "body": "Open-access classes hosted at municipal and community partners — serving Arab and Jewish neighborhoods alike.",
-      "scope": "All ages · Year-round"
+      "title": "برامج المراكز المجتمعية",
+      "body": "حصص مفتوحة تُستضاف لدى شركاء بلديين ومجتمعيين — تخدم الأحياء العربية واليهودية على حدٍّ سواء.",
+      "scope": "لكل الأعمار · على مدار السنة"
     },
     {
-      "title": "Bespoke Partnerships",
-      "body": "Custom programs designed with your school's curriculum, calendar, and goals in mind.",
-      "scope": "Tailored · By request"
+      "title": "شراكات مصمَّمة خصيصًا",
+      "body": "برامج مخصّصة تُصمَّم بما يتوافق مع منهج مدرستك وتقويمها وأهدافها.",
+      "scope": "مُفصَّل · عند الطلب"
     }
   ],
   "process": {
-    "eyebrow": "How We Begin",
-    "title": "A simple, considered process.",
+    "eyebrow": "كيف نبدأ",
+    "title": "عملية بسيطة ومدروسة.",
     "steps": [
       {
-        "title": "Discovery Call",
-        "body": "We listen first — your students, your goals, your constraints."
+        "title": "مكالمة تعارف",
+        "body": "نستمع أولًا — طلابك، أهدافك، قيودك."
       },
       {
-        "title": "Program Design",
-        "body": "We propose a shape and pace tailored to your school."
+        "title": "تصميم البرنامج",
+        "body": "نقترح شكلًا وإيقاعًا مصمَّمين لمدرستك."
       },
       {
-        "title": "Teacher Match",
-        "body": "We pair you with native educators who fit your community."
+        "title": "مطابقة المعلم",
+        "body": "نقرنك بمعلمين أصليين يناسبون مجتمعك."
       },
       {
-        "title": "Launch & Iterate",
-        "body": "We begin, measure, and refine — together, every term."
+        "title": "الإطلاق والتحسين",
+        "body": "نبدأ ونقيس ونحسّن — معًا، كل فصل."
       }
     ]
   },
   "cta": {
-    "title": "Ready to bring Bridges into your classrooms?",
-    "button": "Partner With Us"
+    "title": "مستعد لإحضار Bridges إلى صفوفك؟",
+    "button": "كن شريكًا معنا"
   },
   "meta": {
-    "title": "Schools & Institutions — Bridges Institute",
-    "description": "Programs for schools, community centers, and municipalities across the Negev. Native English-speaking educators delivering measurable, joyful results."
+    "title": "المدارس والمؤسسات — معهد جسور",
+    "description": "برامج للمدارس والمراكز المجتمعية والبلديات في أنحاء النقب. معلمون ناطقون بالإنجليزية كلغة أم يحققون نتائج ملموسة ومبهجة."
   }
 }

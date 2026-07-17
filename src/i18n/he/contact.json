@@ -1,41 +1,41 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Hebrew. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "Contact & Partnerships",
-    "headline": "Let's <em>talk.</em>",
-    "subheadline": "Whether you're a school exploring a program, a partner exploring a collaboration, or simply curious — we'd love to hear from you."
+    "eyebrow": "צור קשר ושותפויות",
+    "headline": "בואו <em>נדבר.</em>",
+    "subheadline": "בין אם אתם בית ספר שבוחן תוכנית, שותף שבוחן שיתוף פעולה, או פשוט סקרנים — נשמח לשמוע מכם."
   },
-  "visit": "Visit",
-  "addressLine1": "Yehuda HaNachtom 10",
-  "addressLine2": "Be'er Sheva, Israel",
-  "email": "Email",
-  "phone": "Phone",
-  "follow": "Follow",
+  "visit": "בקרו אותנו",
+  "addressLine1": "יהודה הנחתום 10",
+  "addressLine2": "באר שבע, ישראל",
+  "email": "אימייל",
+  "phone": "טלפון",
+  "follow": "עקבו אחרינו",
   "form": {
-    "heading": "Send a Message",
-    "name": "Name",
-    "email": "Email",
-    "organization": "Organization",
-    "subject": "Subject",
-    "message": "Message",
-    "selectPlaceholder": "Select…",
+    "heading": "שלחו הודעה",
+    "name": "שם",
+    "email": "אימייל",
+    "organization": "ארגון",
+    "subject": "נושא",
+    "message": "הודעה",
+    "selectPlaceholder": "בחרו…",
     "subjectOptions": {
-      "general": "General Enquiry",
-      "partnership": "Partnership",
-      "schools": "Programs for Schools",
-      "press": "Press"
+      "general": "פנייה כללית",
+      "partnership": "שותפות",
+      "schools": "תוכניות לבתי ספר",
+      "press": "עיתונות"
     },
-    "submit": "Send Message",
-    "successTitle": "Thank you — message received.",
-    "successBody": "We'll be in touch shortly."
+    "submit": "שליחת הודעה",
+    "successTitle": "תודה — ההודעה התקבלה.",
+    "successBody": "ניצור קשר בקרוב."
   },
   "map": {
-    "eyebrow": "Find Us",
-    "title": "In the heart of Be'er Sheva.",
-    "iframeTitle": "Bridges Institute on the map"
+    "eyebrow": "מצאו אותנו",
+    "title": "בלב באר שבע.",
+    "iframeTitle": "מכון Bridges על המפה"
   },
   "meta": {
-    "title": "Contact & Partnerships — Bridges Institute",
-    "description": "Get in touch with Bridges Institute in Be'er Sheva. Partnerships, programs, and general enquiries."
+    "title": "צור קשר ושותפויות — מכון Bridges",
+    "description": "צרו קשר עם מכון Bridges בבאר שבע. שותפויות, תוכניות ופניות כלליות."
   }
 }
