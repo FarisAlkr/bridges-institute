@@ -1,121 +1,121 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Hebrew. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "Teach with Bridges · The Negev",
-    "headline": "Teach English that students are finally <em>brave enough to speak.</em>",
-    "subheadline": "Bridges Institute brings English-speaking teachers into schools across the Negev to lead active speaking lessons — movement, games, stories, role-play and real conversation.",
-    "imageAlt": "A teacher leading an active English speaking lesson with students in the Negev",
-    "seeHowWeTeach": "See How We Teach"
+    "eyebrow": "ללמד עם Bridges · הנגב",
+    "headline": "לַמדו אנגלית שהתלמידים סוף-סוף <em>מעזים לדבר בה.</em>",
+    "subheadline": "מכון Bridges מביא מורים דוברי אנגלית לבתי ספר ברחבי הנגב כדי להוביל שיעורי דיבור פעילים — תנועה, משחקים, סיפורים, משחקי תפקידים ושיחה אמיתית.",
+    "imageAlt": "מורה מובילה שיעור דיבור אנגלית פעיל עם תלמידים בנגב",
+    "seeHowWeTeach": "ראו איך אנחנו מלמדים"
   },
   "trust": {
-    "since": "Serving the Negev since {{year}}",
-    "gefen": "Recognized by the Israeli Ministry of Education, GEFEN Program No. {{program}}",
-    "studentsLabel": "Students",
-    "schoolsLabel": "Schools & institutions",
-    "teachersLabel": "Native English-speaking teachers"
+    "since": "משרתים את הנגב משנת {{year}}",
+    "gefen": "מוכּרים על ידי משרד החינוך, תוכנית גפ״ן מס׳ {{program}}",
+    "studentsLabel": "תלמידים",
+    "schoolsLabel": "בתי ספר ומוסדות",
+    "teachersLabel": "מורים דוברי אנגלית כשפת אם"
   },
   "why": {
-    "eyebrow": "Why teach with Bridges",
-    "title": "Meaningful work, with real support behind it.",
+    "eyebrow": "למה ללמד עם Bridges",
+    "title": "עבודה משמעותית, עם תמיכה אמיתית מאחוריה.",
     "points": {
       "meaning": {
-        "title": "Real meaning",
-        "body": "You help kids who freeze up in English actually open their mouths."
+        "title": "משמעות אמיתית",
+        "body": "אתם עוזרים לילדים שנתקעים באנגלית באמת לפתוח את הפה."
       },
       "active": {
-        "title": "Active classrooms",
-        "body": "You're on your feet: games, stories, role-play, movement. Not reading from a textbook."
+        "title": "כיתות פעילות",
+        "body": "אתם על הרגליים: משחקים, סיפורים, משחקי תפקידים, תנועה. לא קריאה מתוך ספר."
       },
       "support": {
-        "title": "Support and structure",
-        "body": "Teachers get lesson frameworks, activities and routines. You bring the energy; we provide the structure."
+        "title": "תמיכה ומבנה",
+        "body": "המורים מקבלים מסגרות שיעור, פעילויות ושגרות. אתם מביאים את האנרגיה; אנחנו מספקים את המבנה."
       },
       "personality": {
-        "title": "Room for personality",
-        "body": "Warmth, presence and reliability matter here. Teachers bring themselves into the room."
+        "title": "מקום לאישיות",
+        "body": "חום, נוכחות ואמינות חשובים כאן. המורים מביאים את עצמם לחדר."
       }
     }
   },
   "job": {
-    "eyebrow": "What the job actually is",
-    "title": "A lesson at Bridges, step by step.",
-    "quote": "Confidence first. Accuracy follows. Students speak first; we polish later.",
+    "eyebrow": "מה התפקיד באמת",
+    "title": "שיעור ב-Bridges, צעד אחר צעד.",
+    "quote": "ביטחון קודם. הדיוק בא אחריו. התלמידים מדברים קודם; אנחנו מלטשים בהמשך.",
     "flow": [
-      "Students first listen and respond with their bodies before they're asked to speak.",
-      "They repeat useful words and phrases out loud, together.",
-      "Then they play, act, choose, answer and talk.",
-      "Younger students: TPR, pictures, objects, rhythm, movement, stories.",
-      "Older students: opinions, role-play, interviews, real-life situations, conversation tasks.",
-      "Every student leaves the room having used English out loud."
+      "התלמידים קודם מקשיבים ומגיבים בגופם לפני שמבקשים מהם לדבר.",
+      "הם חוזרים על מילים וביטויים שימושיים בקול, ביחד.",
+      "אחר כך הם משחקים, מציגים, בוחרים, עונים ומדברים.",
+      "תלמידים צעירים: TPR, תמונות, חפצים, קצב, תנועה, סיפורים.",
+      "תלמידים בוגרים: דעות, משחקי תפקידים, ראיונות, מצבים מהחיים, משימות שיחה.",
+      "כל תלמיד יוצא מהחדר אחרי שהשתמש באנגלית בקול."
     ]
   },
   "fit": {
-    "eyebrow": "Who we're looking for",
-    "title": "An honest picture — so you can tell if this is you.",
-    "caption": "Who is a good fit to teach with Bridges, and who is probably not.",
-    "goodHeading": "Good fit",
-    "badHeading": "Probably not the right fit",
+    "eyebrow": "את מי אנחנו מחפשים",
+    "title": "תמונה כנה — כדי שתדעו אם זה אתם.",
+    "caption": "מי מתאים ללמד ב-Bridges, ומי כנראה לא.",
+    "goodHeading": "מתאים",
+    "badHeading": "כנראה לא מתאים",
     "rows": [
       {
-        "good": "Confident, fluent or near-native English",
-        "bad": "Wants quiet, textbook-only teaching"
+        "good": "אנגלית בטוחה, שוטפת או כמעט שפת אם",
+        "bad": "רוצה הוראה שקטה מהספר בלבד"
       },
       {
-        "good": "Comfortable leading a room of children or teens",
-        "bad": "Dislikes movement, noise, games or group energy"
+        "good": "מרגיש בנוח להוביל חדר של ילדים או נוער",
+        "bad": "לא אוהב תנועה, רעש, משחקים או אנרגיית קבוצה"
       },
       {
-        "good": "Warm, responsible and reliable",
-        "bad": "Uncomfortable leading and managing a class"
+        "good": "חם, אחראי ואמין",
+        "bad": "לא בנוח בהובלת כיתה וניהולה"
       },
       {
-        "good": "Enjoys active teaching — speaking, movement, games",
-        "bad": "Unreliable with schedule or communication"
+        "good": "נהנה מהוראה פעילה — דיבור, תנועה, משחקים",
+        "bad": "לא אמין בלוח זמנים או בתקשורת"
       },
       {
-        "good": "Understands many students are nervous and need confidence first",
-        "bad": "Only wants to teach grammar from a book"
+        "good": "מבין שתלמידים רבים חוששים וזקוקים קודם לביטחון",
+        "bad": "רוצה רק ללמד דקדוק מתוך ספר"
       }
     ]
   },
   "requirements": {
-    "eyebrow": "What you need to apply",
-    "title": "What you need to apply",
-    "intro": "The questions people ask most — answered honestly. One detail below is still being finalised.",
-    "noHebrewTitle": "No Hebrew required.",
-    "noHebrewBody": "Lessons run in English — you don't need Hebrew to teach with Bridges.",
-    "qualsTitle": "No degree or teaching certificate required.",
-    "qualsBody": "We welcome fluent, capable, energetic people who love working with children. Teaching experience is a plus, not a must.",
-    "scheduleTitle": "Part-time and full-time positions available.",
-    "locationLabel": "Location",
-    "locationNote": "Which Negev towns/areas, and is your own transport needed? (open-questions A4)",
-    "paid": "This is paid work, not volunteering."
+    "eyebrow": "מה צריך כדי להגיש",
+    "title": "מה צריך כדי להגיש",
+    "intro": "השאלות הנפוצות ביותר — בתשובות כנות. פרט אחד למטה עדיין נסגר.",
+    "noHebrewTitle": "לא נדרשת עברית.",
+    "noHebrewBody": "השיעורים מתנהלים באנגלית — אין צורך בעברית כדי ללמד ב-Bridges.",
+    "qualsTitle": "לא נדרש תואר או תעודת הוראה.",
+    "qualsBody": "אנחנו מקבלים בברכה אנשים שוטפים, יכולים ומלאי אנרגיה שאוהבים לעבוד עם ילדים. ניסיון בהוראה הוא יתרון, לא חובה.",
+    "scheduleTitle": "משרות במשרה חלקית ומלאה זמינות.",
+    "locationLabel": "מיקום",
+    "locationNote": "אילו יישובים/אזורים בנגב, והאם נדרש רכב עצמאי? (open-questions A4)",
+    "paid": "זו עבודה בשכר, לא התנדבות."
   },
   "photos": {
-    "eyebrow": "Inside the classroom",
-    "title": "Real lessons, in real Negev schools.",
-    "caption": "Caption to confirm with the client.",
+    "eyebrow": "בתוך הכיתה",
+    "title": "שיעורים אמיתיים, בבתי ספר אמיתיים בנגב.",
+    "caption": "כיתוב לאישור מול הלקוח.",
     "alt": [
-      "A teacher leading young students in an active floor game with balloons and letter cards",
-      "A teacher leading a speaking lesson at the whiteboard as students follow along",
-      "A Bridges teacher and students smiling together during a small-group lesson",
-      "A teacher and students around a table playing a picture-card vocabulary game",
-      "A teacher helping a student one-on-one at a laptop in the school library"
+      "מורה מובילה תלמידים צעירים במשחק תנועה על הרצפה עם בלונים וכרטיסי אותיות",
+      "מורה מובילה שיעור דיבור ליד הלוח בזמן שהתלמידים עוקבים",
+      "מורה מ-Bridges ותלמידים מחייכים יחד במהלך שיעור בקבוצה קטנה",
+      "מורה ותלמידים סביב שולחן משחקים משחק אוצר מילים בכרטיסים מצוירים",
+      "מורה עוזרת לתלמיד אחד-על-אחד מול מחשב נייד בספריית בית הספר"
     ],
-    "videoLabel": "Optional 30–60s classroom video",
-    "videoNote": "If a real clip exists, embed it here with captions/transcript. Asset from client (open-questions B2)."
+    "videoLabel": "סרטון כיתה אופציונלי של 30–60 שניות",
+    "videoNote": "אם קיים קליפ אמיתי, שבצו אותו כאן עם כתוביות/תמלול. נכס מהלקוח (open-questions B2)."
   },
   "apply": {
-    "closing": "Ready to teach with Bridges? Help students in the Negev find their voice in English."
+    "closing": "מוכנים ללמד עם Bridges? עזרו לתלמידי הנגב למצוא את הקול שלהם באנגלית."
   },
   "schools": {
-    "eyebrow": "For schools",
-    "body": "Bridges Institute brings English-speaking teachers into schools and learning centers across the Negev. Our programs help students build spoken English confidence through active, communication-based lessons.",
-    "gefen": "Recognized under the Israeli Ministry of Education's GEFEN framework, Program No. 9003.",
-    "cta": "Bring Bridges to Your School"
+    "eyebrow": "לבתי ספר",
+    "body": "מכון Bridges מביא מורים דוברי אנגלית לבתי ספר ומרכזי למידה ברחבי הנגב. התוכניות שלנו עוזרות לתלמידים לבנות ביטחון באנגלית מדוברת דרך שיעורים פעילים מבוססי-תקשורת.",
+    "gefen": "מוכּרים במסגרת גפ״ן של משרד החינוך, תוכנית מס׳ 9003.",
+    "cta": "הביאו את Bridges לבית הספר שלכם"
   },
   "meta": {
-    "title": "Teach English in the Negev — Bridges Institute",
-    "description": "Bridges Institute hires English-speaking teachers to lead active speaking lessons in schools across the Negev — movement, games, stories, role-play and real conversation. Apply to teach."
+    "title": "ללמד אנגלית בנגב — מכון Bridges",
+    "description": "מכון Bridges מגייס מורים דוברי אנגלית להוביל שיעורי דיבור פעילים בבתי ספר ברחבי הנגב — תנועה, משחקים, סיפורים, משחקי תפקידים ושיחה אמיתית. הגישו מועמדות."
   }
 }
