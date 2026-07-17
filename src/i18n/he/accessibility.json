@@ -1,47 +1,47 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Hebrew. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "Accessibility",
-    "title": "Accessibility Statement",
-    "intro": "Bridges Institute is committed to making its website usable for everyone, including people with disabilities. We treat accessibility as an ongoing responsibility, built into the site itself rather than added on afterwards."
+    "eyebrow": "נגישות",
+    "title": "הצהרת נגישות",
+    "intro": "מכון Bridges מחויב להנגיש את האתר שלו לכולם, כולל אנשים עם מוגבלויות. אנחנו מתייחסים לנגישות כאחריות מתמשכת, הבנויה בתוך האתר עצמו ולא מתווספת בדיעבד."
   },
   "standard": {
-    "title": "The standard we follow",
-    "body": "We aim to conform to <b>Israeli Standard IS 5568</b>, which is based on the Web Content Accessibility Guidelines (<b>WCAG 2.0</b>) at <b>Level AA</b>."
+    "title": "התקן שאנחנו מקיימים",
+    "body": "אנו שואפים לעמוד ב<b>תקן הישראלי ת״י 5568</b>, המבוסס על הנחיות הנגישות לתכני web‏ (<b>WCAG 2.0</b>) ברמה <b>AA</b>."
   },
   "done": {
-    "title": "What we have done",
+    "title": "מה עשינו",
     "items": [
-      "Semantic headings and landmark regions (header, navigation, main, footer).",
-      "A “skip to content” link and full keyboard operability, with a visible focus indicator on every interactive element.",
-      "Text alternatives for meaningful images; decorative images are hidden from screen readers.",
-      "Form fields with real, associated labels.",
-      "Colour contrast checked against AA thresholds, including the brand gold on light backgrounds.",
-      "Respect for the operating system’s “reduce motion” preference."
+      "כותרות סמנטיות ואזורי ציון דרך (כותרת עליונה, ניווט, תוכן ראשי, כותרת תחתונה).",
+      "קישור «דלג לתוכן» ותפעול מלא במקלדת, עם חיווי מיקוד גלוי על כל רכיב אינטראקטיבי.",
+      "חלופות טקסט לתמונות בעלות משמעות; תמונות דקורטיביות מוסתרות מקוראי מסך.",
+      "שדות טופס עם תוויות אמיתיות ומקושרות.",
+      "בדיקת ניגודיות צבעים מול ספי AA, כולל הזהב על רקעים בהירים.",
+      "כיבוד העדפת «הפחתת תנועה» של מערכת ההפעלה."
     ]
   },
   "ongoing": {
-    "title": "Ongoing work",
-    "body": "Accessibility is never finished. We continue to test and improve, and this statement will be published in Hebrew and Arabic as part of the site’s multilingual rollout.",
-    "todoLabel": "Hebrew & Arabic versions of this statement",
-    "todoNote": "To be published alongside the multilingual rollout — reviewed by a real speaker, not machine-translated."
+    "title": "עבודה מתמשכת",
+    "body": "נגישות לעולם אינה מסתיימת. אנחנו ממשיכים לבדוק ולשפר, והצהרה זו תפורסם בעברית ובערבית כחלק מההשקה הרב-לשונית של האתר.",
+    "todoLabel": "הגרסאות בעברית ובערבית של הצהרה זו",
+    "todoNote": "יפורסמו לצד ההשקה הרב-לשונית — בבדיקת דובר אמיתי, לא בתרגום מכונה."
   },
   "report": {
-    "title": "Reporting an accessibility problem",
-    "body": "If you come across a barrier on this site, please tell us and we will do our best to put it right.",
-    "emailLabel": "Email:",
-    "address": "Address: Yehuda HaNachtom 10, Be'er Sheva, Israel.",
-    "coordinatorLabel": "Accessibility coordinator",
-    "coordinatorNote": "Name and role of the person responsible for accessibility — to confirm with the client.",
-    "phoneLabel": "Phone for accessibility requests",
-    "phoneNote": "Direct phone number for accessibility enquiries — to confirm with the client."
+    "title": "דיווח על בעיית נגישות",
+    "body": "אם נתקלתם בחסם באתר הזה, ספרו לנו ונעשה כמיטב יכולתנו לתקן.",
+    "emailLabel": "אימייל:",
+    "address": "כתובת: יהודה הנחתום 10, באר שבע, ישראל.",
+    "coordinatorLabel": "רכז נגישות",
+    "coordinatorNote": "שם ותפקיד האחראי על הנגישות — לאישור מול הלקוח.",
+    "phoneLabel": "טלפון לפניות נגישות",
+    "phoneNote": "מספר טלפון ישיר לפניות נגישות — לאישור מול הלקוח."
   },
   "reviewed": {
-    "title": "Last reviewed",
-    "date": "12 July 2026"
+    "title": "עודכן לאחרונה",
+    "date": "12 ביולי 2026"
   },
   "meta": {
-    "title": "Accessibility Statement — Bridges Institute",
-    "description": "Bridges Institute's accessibility statement — our commitment to Israeli Standard 5568 / WCAG 2.0 Level AA, and how to report an accessibility problem."
+    "title": "הצהרת נגישות — מכון Bridges",
+    "description": "הצהרת הנגישות של מכון Bridges — המחויבות שלנו לתקן הישראלי 5568 / WCAG 2.0 רמה AA, ואיך לדווח על בעיית נגישות."
   }
 }

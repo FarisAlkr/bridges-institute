@@ -1,58 +1,58 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Hebrew. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "Privacy",
-    "title": "Privacy Policy",
-    "intro": "This policy explains what personal information Bridges Institute collects through this website, why we collect it, and the choices you have. We collect only what we need to review teaching applications and respond to enquiries."
+    "eyebrow": "פרטיות",
+    "title": "מדיניות פרטיות",
+    "intro": "מדיניות זו מסבירה איזה מידע אישי מכון Bridges אוסף דרך אתר זה, מדוע אנחנו אוספים אותו, ואילו אפשרויות יש לכם. אנחנו אוספים רק את מה שנחוץ לבחינת מועמדויות להוראה ולמענה על פניות."
   },
   "collect": {
-    "title": "What we collect",
-    "intro": "We collect the information you choose to give us through our forms:",
+    "title": "מה אנחנו אוספים",
+    "intro": "אנחנו אוספים את המידע שאתם בוחרים לתת לנו דרך הטפסים:",
     "items": [
-      "Application form: your name, phone or email, English background, location, your reason for applying, and an optional CV file.",
-      "Contact form: your name, email, organization, subject, and message.",
-      "Basic technical data your browser sends (such as IP address and device type), used only to keep the site secure and working."
+      "טופס מועמדות: שמכם, טלפון או אימייל, רקע האנגלית שלכם, מיקום, סיבת הפנייה, וקובץ קורות חיים אופציונלי.",
+      "טופס יצירת קשר: שמכם, אימייל, ארגון, נושא והודעה.",
+      "נתונים טכניים בסיסיים שהדפדפן שולח (כמו כתובת IP וסוג מכשיר), המשמשים רק לשמירה על אבטחת האתר ותפקודו."
     ]
   },
   "use": {
-    "title": "How we use it",
+    "title": "איך אנחנו משתמשים בו",
     "items": [
-      "To review your application and contact you about teaching with Bridges.",
-      "To respond to partnership, program and general enquiries.",
-      "To keep records of our correspondence with you.",
-      "We do not sell your personal information, and we do not use it for advertising."
+      "לבחון את מועמדותכם וליצור עמכם קשר בנוגע להוראה ב-Bridges.",
+      "למענה על פניות שותפויות, תוכניות ופניות כלליות.",
+      "לשמירת תיעוד ההתכתבות שלנו איתכם.",
+      "אנחנו לא מוכרים את המידע האישי שלכם, ולא משתמשים בו לפרסום."
     ]
   },
   "sharing": {
-    "title": "Where it goes",
-    "body": "Form submissions are delivered to the Bridges Institute team and stored with the service providers that host our site, email and file storage. Uploaded CVs are stored securely and shared only with the people involved in reviewing applications. We ask our providers to protect your information and to use it only on our behalf.",
-    "processorsLabel": "Service providers & data-processing agreements",
-    "processorsNote": "Confirm the exact providers and that data-processing terms are in place: the site host; and the email/automation webhook that delivers each application (all fields + the CV) to our inbox — e.g. Make, Zapier or Resend (name the actual one). Applicant data and CVs pass through this provider. (to confirm)"
+    "title": "לאן זה מגיע",
+    "body": "הגשות טפסים נמסרות לצוות מכון Bridges ונשמרות אצל ספקי השירות המארחים את האתר, האימייל ואחסון הקבצים שלנו. קורות חיים שהועלו נשמרים באופן מאובטח ומשותפים רק עם המעורבים בבחינת המועמדויות. אנחנו מבקשים מהספקים שלנו להגן על המידע שלכם ולהשתמש בו רק בשמנו.",
+    "processorsLabel": "ספקי שירות והסכמי עיבוד נתונים",
+    "processorsNote": "אשרו את הספקים המדויקים ושתנאי עיבוד נתונים קיימים: מארח האתר; וובהוק האימייל/האוטומציה שמעביר כל מועמדות (כל השדות + קורות החיים) לתיבה שלנו — למשל Make, Zapier או Resend (ציינו את הספק בפועל). נתוני מועמדים וקורות חיים עוברים דרך ספק זה. (לאישור)"
   },
   "retention": {
-    "title": "How long we keep it",
-    "body": "We keep applications and enquiries for as long as needed to consider them and for a reasonable period afterwards, then delete or anonymise them.",
-    "periodLabel": "Retention period",
-    "periodNote": "Confirm the specific retention period for applications and CVs (e.g. 12 or 24 months). (to confirm)"
+    "title": "כמה זמן אנחנו שומרים",
+    "body": "אנחנו שומרים מועמדויות ופניות למשך הזמן הנדרש לבחינתן ולתקופה סבירה לאחר מכן, ואז מוחקים או הופכים אותן לאנונימיות.",
+    "periodLabel": "תקופת שמירה",
+    "periodNote": "אשרו את תקופת השמירה הספציפית למועמדויות ולקורות חיים (למשל 12 או 24 חודשים). (לאישור)"
   },
   "rights": {
-    "title": "Your rights",
-    "body": "You can ask us to see, correct, or delete the personal information we hold about you, or to stop using it. Contact us using the details below and we will respond."
+    "title": "הזכויות שלכם",
+    "body": "אתם יכולים לבקש לעיין במידע האישי שברשותנו עליכם, לתקן או למחוק אותו, או להפסיק את השימוש בו. צרו קשר בפרטים שלמטה ונענה."
   },
   "contact": {
-    "title": "Contact us about privacy",
-    "body": "For any question about this policy or your information:",
-    "emailLabel": "Email:",
-    "address": "Address: Yehuda HaNachtom 10, Be'er Sheva, Israel.",
-    "controllerLabel": "Data controller",
-    "controllerNote": "Confirm the legal entity responsible for this data and a privacy contact name/role. (to confirm)"
+    "title": "צרו קשר בנושא פרטיות",
+    "body": "לכל שאלה על מדיניות זו או על המידע שלכם:",
+    "emailLabel": "אימייל:",
+    "address": "כתובת: יהודה הנחתום 10, באר שבע, ישראל.",
+    "controllerLabel": "בעל השליטה בנתונים",
+    "controllerNote": "אשרו את הישות המשפטית האחראית על נתונים אלה ושם/תפקיד איש קשר לפרטיות. (לאישור)"
   },
   "updated": {
-    "title": "Last updated",
-    "date": "13 July 2026"
+    "title": "עודכן לאחרונה",
+    "date": "13 ביולי 2026"
   },
   "meta": {
-    "title": "Privacy Policy — Bridges Institute",
-    "description": "How Bridges Institute collects, uses, stores, and protects the personal information you share through our application and contact forms."
+    "title": "מדיניות פרטיות — מכון Bridges",
+    "description": "איך מכון Bridges אוסף, משתמש, שומר ומגן על המידע האישי שאתם משתפים דרך טפסי המועמדות ויצירת הקשר."
   }
 }

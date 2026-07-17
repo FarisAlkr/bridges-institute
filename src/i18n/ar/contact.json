@@ -1,41 +1,41 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Arabic. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "Contact & Partnerships",
-    "headline": "Let's <em>talk.</em>",
-    "subheadline": "Whether you're a school exploring a program, a partner exploring a collaboration, or simply curious — we'd love to hear from you."
+    "eyebrow": "تواصل وشراكات",
+    "headline": "دعنا <em>نتحدث.</em>",
+    "subheadline": "سواء كنت مدرسة تستكشف برنامجًا، أو شريكًا يستكشف تعاونًا، أو مجرد فضولي — يسعدنا أن نسمع منك."
   },
-  "visit": "Visit",
-  "addressLine1": "Yehuda HaNachtom 10",
-  "addressLine2": "Be'er Sheva, Israel",
-  "email": "Email",
-  "phone": "Phone",
-  "follow": "Follow",
+  "visit": "زورونا",
+  "addressLine1": "يهودا هنَحتوم 10",
+  "addressLine2": "بئر السبع، إسرائيل",
+  "email": "البريد الإلكتروني",
+  "phone": "الهاتف",
+  "follow": "تابعونا",
   "form": {
-    "heading": "Send a Message",
-    "name": "Name",
-    "email": "Email",
-    "organization": "Organization",
-    "subject": "Subject",
-    "message": "Message",
-    "selectPlaceholder": "Select…",
+    "heading": "أرسل رسالة",
+    "name": "الاسم",
+    "email": "البريد الإلكتروني",
+    "organization": "المؤسسة",
+    "subject": "الموضوع",
+    "message": "الرسالة",
+    "selectPlaceholder": "اختر…",
     "subjectOptions": {
-      "general": "General Enquiry",
-      "partnership": "Partnership",
-      "schools": "Programs for Schools",
-      "press": "Press"
+      "general": "استفسار عام",
+      "partnership": "شراكة",
+      "schools": "برامج للمدارس",
+      "press": "إعلام"
     },
-    "submit": "Send Message",
-    "successTitle": "Thank you — message received.",
-    "successBody": "We'll be in touch shortly."
+    "submit": "إرسال الرسالة",
+    "successTitle": "شكرًا — تم استلام رسالتك.",
+    "successBody": "سنتواصل معك قريبًا."
   },
   "map": {
-    "eyebrow": "Find Us",
-    "title": "In the heart of Be'er Sheva.",
-    "iframeTitle": "Bridges Institute on the map"
+    "eyebrow": "أين نحن",
+    "title": "في قلب بئر السبع.",
+    "iframeTitle": "معهد جسور على الخريطة"
   },
   "meta": {
-    "title": "Contact & Partnerships — Bridges Institute",
-    "description": "Get in touch with Bridges Institute in Be'er Sheva. Partnerships, programs, and general enquiries."
+    "title": "تواصل وشراكات — معهد جسور",
+    "description": "تواصل مع معهد جسور في بئر السبع. الشراكات والبرامج والاستفسارات العامة."
   }
 }

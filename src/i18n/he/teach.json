@@ -1,14 +1,14 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Hebrew. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "Teach with Bridges",
-    "headline": "Apply to teach with <em>Bridges.</em>",
-    "subheadline": "We bring English-speaking teachers into schools across the Negev to lead active speaking lessons — movement, games, stories, role-play and real conversation.",
-    "imageAlt": "A Bridges teacher leading a lesson"
+    "eyebrow": "ללמד עם Bridges",
+    "headline": "הגישו מועמדות ללמד עם <em>Bridges.</em>",
+    "subheadline": "אנחנו מביאים מורים דוברי אנגלית לבתי ספר ברחבי הנגב כדי להוביל שיעורי דיבור פעילים — תנועה, משחקים, סיפורים, משחקי תפקידים ושיחה אמיתית.",
+    "imageAlt": "מורה מ-Bridges מובילה שיעור"
   },
-  "fullPicture": "Want the full picture first? <a>See how we teach and who we're looking for</a>.",
+  "fullPicture": "רוצים קודם את התמונה המלאה? <a>ראו איך אנחנו מלמדים ואת מי אנחנו מחפשים</a>.",
   "meta": {
-    "title": "Apply to Teach — Bridges Institute",
-    "description": "Apply to teach English with Bridges Institute — active speaking lessons in schools across the Negev. A short form, a short conversation, then a teaching placement."
+    "title": "הגישו מועמדות להוראה — מכון Bridges",
+    "description": "הגישו מועמדות ללמד אנגלית עם מכון Bridges — שיעורי דיבור פעילים בבתי ספר ברחבי הנגב. טופס קצר, שיחה קצרה, ואז שיבוץ הוראה."
   }
 }

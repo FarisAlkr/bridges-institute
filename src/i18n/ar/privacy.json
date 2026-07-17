@@ -1,58 +1,58 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Arabic. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "Privacy",
-    "title": "Privacy Policy",
-    "intro": "This policy explains what personal information Bridges Institute collects through this website, why we collect it, and the choices you have. We collect only what we need to review teaching applications and respond to enquiries."
+    "eyebrow": "الخصوصية",
+    "title": "سياسة الخصوصية",
+    "intro": "توضّح هذه السياسة ما المعلومات الشخصية التي يجمعها معهد جسور عبر هذا الموقع، ولماذا نجمعها، والخيارات المتاحة لك. نجمع فقط ما نحتاجه لمراجعة طلبات التدريس والردّ على الاستفسارات."
   },
   "collect": {
-    "title": "What we collect",
-    "intro": "We collect the information you choose to give us through our forms:",
+    "title": "ما الذي نجمعه",
+    "intro": "نجمع المعلومات التي تختار تزويدنا بها عبر نماذجنا:",
     "items": [
-      "Application form: your name, phone or email, English background, location, your reason for applying, and an optional CV file.",
-      "Contact form: your name, email, organization, subject, and message.",
-      "Basic technical data your browser sends (such as IP address and device type), used only to keep the site secure and working."
+      "نموذج التقديم: اسمك، هاتفك أو بريدك، خلفيتك في الإنجليزية، موقعك، سبب تقديمك، وملف سيرة ذاتية اختياري.",
+      "نموذج التواصل: اسمك، بريدك، مؤسستك، الموضوع، والرسالة.",
+      "بيانات تقنية أساسية يرسلها متصفحك (مثل عنوان IP ونوع الجهاز)، تُستخدم فقط للحفاظ على أمان الموقع وعمله."
     ]
   },
   "use": {
-    "title": "How we use it",
+    "title": "كيف نستخدمها",
     "items": [
-      "To review your application and contact you about teaching with Bridges.",
-      "To respond to partnership, program and general enquiries.",
-      "To keep records of our correspondence with you.",
-      "We do not sell your personal information, and we do not use it for advertising."
+      "لمراجعة طلبك والتواصل معك بشأن التدريس مع Bridges.",
+      "للردّ على استفسارات الشراكات والبرامج والاستفسارات العامة.",
+      "للاحتفاظ بسجلات مراسلاتنا معك.",
+      "لا نبيع معلوماتك الشخصية، ولا نستخدمها للإعلانات."
     ]
   },
   "sharing": {
-    "title": "Where it goes",
-    "body": "Form submissions are delivered to the Bridges Institute team and stored with the service providers that host our site, email and file storage. Uploaded CVs are stored securely and shared only with the people involved in reviewing applications. We ask our providers to protect your information and to use it only on our behalf.",
-    "processorsLabel": "Service providers & data-processing agreements",
-    "processorsNote": "Confirm the exact providers and that data-processing terms are in place: the site host; and the email/automation webhook that delivers each application (all fields + the CV) to our inbox — e.g. Make, Zapier or Resend (name the actual one). Applicant data and CVs pass through this provider. (to confirm)"
+    "title": "إلى أين تذهب",
+    "body": "تُسلَّم نماذج الإرسال إلى فريق معهد جسور وتُخزَّن لدى مزوّدي الخدمة الذين يستضيفون موقعنا وبريدنا وتخزين ملفاتنا. تُخزَّن السير الذاتية المرفوعة بأمان وتُشارَك فقط مع المعنيين بمراجعة الطلبات. نطلب من مزوّدينا حماية معلوماتك واستخدامها بالنيابة عنا فقط.",
+    "processorsLabel": "مزوّدو الخدمة واتفاقيات معالجة البيانات",
+    "processorsNote": "أكِّد المزوّدين الدقيقين ووجود شروط معالجة البيانات: مستضيف الموقع؛ وخطاف البريد/الأتمتة الذي يوصل كل طلب (جميع الحقول + السيرة الذاتية) إلى بريدنا — مثل Make أو Zapier أو Resend (حدّد الفعلي). بيانات المتقدمين والسير الذاتية تمرّ عبر هذا المزوّد. (بانتظار التأكيد)"
   },
   "retention": {
-    "title": "How long we keep it",
-    "body": "We keep applications and enquiries for as long as needed to consider them and for a reasonable period afterwards, then delete or anonymise them.",
-    "periodLabel": "Retention period",
-    "periodNote": "Confirm the specific retention period for applications and CVs (e.g. 12 or 24 months). (to confirm)"
+    "title": "مدة احتفاظنا بها",
+    "body": "نحتفظ بالطلبات والاستفسارات للمدة اللازمة للنظر فيها ولفترة معقولة بعدها، ثم نحذفها أو نجعلها مجهولة الهوية.",
+    "periodLabel": "مدة الاحتفاظ",
+    "periodNote": "أكِّد مدة الاحتفاظ المحددة للطلبات والسير الذاتية (مثلًا 12 أو 24 شهرًا). (بانتظار التأكيد)"
   },
   "rights": {
-    "title": "Your rights",
-    "body": "You can ask us to see, correct, or delete the personal information we hold about you, or to stop using it. Contact us using the details below and we will respond."
+    "title": "حقوقك",
+    "body": "يمكنك أن تطلب الاطلاع على معلوماتك الشخصية التي بحوزتنا أو تصحيحها أو حذفها، أو التوقف عن استخدامها. تواصل معنا عبر التفاصيل أدناه وسنردّ."
   },
   "contact": {
-    "title": "Contact us about privacy",
-    "body": "For any question about this policy or your information:",
-    "emailLabel": "Email:",
-    "address": "Address: Yehuda HaNachtom 10, Be'er Sheva, Israel.",
-    "controllerLabel": "Data controller",
-    "controllerNote": "Confirm the legal entity responsible for this data and a privacy contact name/role. (to confirm)"
+    "title": "تواصل معنا بشأن الخصوصية",
+    "body": "لأي سؤال عن هذه السياسة أو معلوماتك:",
+    "emailLabel": "البريد الإلكتروني:",
+    "address": "العنوان: يهودا هنَحتوم 10، بئر السبع، إسرائيل.",
+    "controllerLabel": "المتحكم بالبيانات",
+    "controllerNote": "أكِّد الكيان القانوني المسؤول عن هذه البيانات واسم/دور جهة اتصال للخصوصية. (بانتظار التأكيد)"
   },
   "updated": {
-    "title": "Last updated",
-    "date": "13 July 2026"
+    "title": "آخر تحديث",
+    "date": "13 يوليو 2026"
   },
   "meta": {
-    "title": "Privacy Policy — Bridges Institute",
-    "description": "How Bridges Institute collects, uses, stores, and protects the personal information you share through our application and contact forms."
+    "title": "سياسة الخصوصية — معهد جسور",
+    "description": "كيف يجمع معهد جسور المعلومات الشخصية التي تشاركها عبر نماذج التقديم والتواصل، ويستخدمها ويخزّنها ويحميها."
   }
 }

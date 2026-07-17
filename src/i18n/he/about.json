@@ -1,83 +1,83 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Hebrew. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "About Bridges",
-    "headline": "A decade of building <em>bridges</em> across the Negev.",
-    "imageAlt": "A movement-based English class in the Negev"
+    "eyebrow": "אודות Bridges",
+    "headline": "עשור של בניית <em>גשרים</em> ברחבי הנגב.",
+    "imageAlt": "שיעור אנגלית מבוסס-תנועה בנגב"
   },
   "story": {
-    "eyebrow": "Since {{year}}",
-    "title": "Our Story",
-    "p1": "Bridges Institute was founded in 2014 with a quiet conviction: that English, taught with care and authenticity, can open lives. From a single classroom in Be'er Sheva, we have grown into a regional program serving thousands of students each year.",
-    "p2": "Today, we partner with the Israeli Ministry of Education, regional municipalities, schools, and community centers across the Negev — bringing native English-speaking educators from the United States into classrooms that span Arab and Jewish communities alike.",
-    "p3": "Every program we build is held to one standard: would a student walk away feeling more capable, more curious, and more connected than when they arrived?"
+    "eyebrow": "משנת {{year}}",
+    "title": "הסיפור שלנו",
+    "p1": "מכון Bridges נוסד בשנת 2014 מתוך אמונה שקטה: שאנגלית, כשמלמדים אותה בקפידה ובאותנטיות, יכולה לפתוח חיים. מכיתה אחת בבאר שבע, גדלנו לתוכנית אזורית המשרתת אלפי תלמידים מדי שנה.",
+    "p2": "כיום אנחנו שותפים למשרד החינוך, לרשויות אזוריות, לבתי ספר ולמרכזים קהילתיים ברחבי הנגב — ומביאים מורים דוברי אנגלית כשפת אם מארצות הברית לכיתות המשתרעות על פני קהילות ערביות ויהודיות כאחד.",
+    "p3": "כל תוכנית שאנחנו בונים נמדדת בסטנדרט אחד: האם התלמיד יוצא בתחושה שהוא מסוגל יותר, סקרן יותר ומחובר יותר מכפי שהיה כשהגיע?"
   },
   "mission": {
-    "eyebrow": "Mission",
-    "title": "To make English feel natural, useful, and possible — for every student.",
-    "body": "We meet students where they are. We move at the speed of their courage. We trust that fluency follows from confidence, not the other way around."
+    "eyebrow": "הייעוד",
+    "title": "לגרום לאנגלית להרגיש טבעית, שימושית ואפשרית — לכל תלמיד.",
+    "body": "אנחנו פוגשים את התלמידים היכן שהם. מתקדמים בקצב האומץ שלהם. ומאמינים ששטף נובע מביטחון, לא להפך."
   },
   "vision": {
-    "eyebrow": "Vision",
-    "title": "A generation of young people in Southern Israel who carry English as a second voice.",
-    "body": "English not as a school subject endured — but as an instrument of opportunity, friendship, and self-expression."
+    "eyebrow": "החזון",
+    "title": "דור של צעירים בדרום הארץ שנושאים את האנגלית כקול שני.",
+    "body": "אנגלית לא כמקצוע בית ספר שסובלים אותו — אלא ככלי להזדמנות, לחברוּת ולביטוי עצמי."
   },
   "difference": {
-    "eyebrow": "What We Do Differently",
-    "title": "The challenge — and our answer.",
-    "challengeHeading": "The Challenge",
+    "eyebrow": "מה אנחנו עושים אחרת",
+    "title": "האתגר — והתשובה שלנו.",
+    "challengeHeading": "האתגר",
     "challenge": [
-      "English taught primarily on paper, not in conversation.",
-      "Few opportunities to hear or speak with a native speaker.",
-      "A culture of correctness that quietly silences students.",
-      "Curricula disconnected from real-world use."
+      "אנגלית נלמדת בעיקר על הנייר, לא בשיחה.",
+      "מעט הזדמנויות לשמוע דובר שפת אם או לדבר איתו.",
+      "תרבות של דיוק שמשתיקה תלמידים בשקט.",
+      "תוכניות לימוד מנותקות מהשימוש היומיומי."
     ],
-    "approachHeading": "Our Approach",
+    "approachHeading": "הגישה שלנו",
     "approach": [
-      "Conversation-first, taught entirely in English.",
-      "Native English-speaking educators from the United States.",
-      "Movement, games, and storytelling as primary tools.",
-      "Cultural exchange built into every lesson."
+      "שיחה קודם, ומלמדים אותה כולה באנגלית.",
+      "מורים דוברי אנגלית כשפת אם מארצות הברית.",
+      "תנועה, משחקים וסיפור כאמצעים מרכזיים.",
+      "חילופי תרבות שזורים בכל שיעור."
     ]
   },
   "why": {
-    "eyebrow": "Why It Matters",
-    "title": "Why native English-speaking educators.",
-    "intro": "A native speaker is not a credential — it's an experience the classroom can feel.",
+    "eyebrow": "למה זה חשוב",
+    "title": "למה מורים דוברי אנגלית כשפת אם.",
+    "intro": "דובר שפת אם אינו תעודה — אלא חוויה שהכיתה מרגישה.",
     "items": [
       {
-        "title": "Authentic Pronunciation",
-        "body": "Students hear the language as it actually lives — its rhythm, its swallowed syllables, its music."
+        "title": "הגייה אותנטית",
+        "body": "התלמידים שומעים את השפה כפי שהיא חיה באמת — הקצב שלה, ההברות הנבלעות, המוזיקה שלה."
       },
       {
-        "title": "Natural Vocabulary",
-        "body": "Idiom, slang, and everyday phrasing that no textbook captures."
+        "title": "אוצר מילים טבעי",
+        "body": "ניבים, סלנג וניסוח יומיומי שאף ספר לא לוכד."
       },
       {
-        "title": "Real Listening Practice",
-        "body": "Ears tuned to the speed and texture of real-world conversation."
+        "title": "תרגול הקשבה אמיתי",
+        "body": "אוזניים מכוונות למהירות ולמרקם של שיחה אמיתית."
       },
       {
-        "title": "Confidence to Speak",
-        "body": "Students learn that being understood matters more than being perfect."
+        "title": "ביטחון לדבר",
+        "body": "התלמידים לומדים שלהיות מובנים חשוב יותר מלהיות מושלמים."
       },
       {
-        "title": "Cultural Exposure",
-        "body": "Stories, humor, and perspective from another part of the world."
+        "title": "חשיפה תרבותית",
+        "body": "סיפורים, הומור ונקודת מבט מחלק אחר של העולם."
       },
       {
-        "title": "A Living Connection",
-        "body": "English becomes a person you know — not a subject you take."
+        "title": "חיבור חי",
+        "body": "האנגלית הופכת לאדם שאתה מכיר — לא מקצוע שאתה לומד."
       }
     ]
   },
-  "galleryAlt": "Bridges classroom",
+  "galleryAlt": "כיתת Bridges",
   "cta": {
-    "title": "Want to bring Bridges to your school?",
-    "button": "Partner With Us"
+    "title": "רוצים להביא את Bridges לבית הספר שלכם?",
+    "button": "היו שותפים שלנו"
   },
   "meta": {
-    "title": "About — Bridges Institute",
-    "description": "Since 2014, Bridges Institute has partnered with the Ministry of Education, municipalities, schools, and community centers across the Negev to bring authentic English learning to every student."
+    "title": "אודות — מכון Bridges",
+    "description": "מאז 2014, מכון Bridges שותף למשרד החינוך, לרשויות, לבתי ספר ולמרכזים קהילתיים ברחבי הנגב כדי להביא לימוד אנגלית אותנטי לכל תלמיד."
   }
 }

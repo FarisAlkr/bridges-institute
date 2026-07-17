@@ -1,44 +1,44 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Arabic. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "Contribute",
-    "headline": "A small gift goes a <em>long way</em> in a classroom that's listening.",
-    "subheadline": "Bridges runs on partnerships — with the Ministry of Education, with municipalities, and with individuals and foundations who believe that language is opportunity. Your support translates directly into classroom hours."
+    "eyebrow": "التبرّع",
+    "headline": "هدية صغيرة تقطع <em>شوطًا طويلًا</em> في صفٍّ يُصغي.",
+    "subheadline": "يقوم Bridges على الشراكات — مع وزارة التعليم، ومع البلديات، ومع أفراد ومؤسسات يؤمنون بأن اللغة فرصة. دعمك يتحوّل مباشرةً إلى ساعات صفّية."
   },
   "ways": {
-    "eyebrow": "Ways to Give",
-    "title": "Find the gift that fits.",
+    "eyebrow": "طرق العطاء",
+    "title": "اختر الهدية التي تناسبك.",
     "items": [
       {
-        "title": "Sponsor a Classroom",
-        "body": "Underwrite a full year of native English instruction for a single classroom of students.",
-        "amount": "From ₪18,000"
+        "title": "ارعَ صفًّا",
+        "body": "تكفّل بعام كامل من تدريس الإنجليزية على يد متحدث أصلي لصفٍّ واحد من الطلاب.",
+        "amount": "ابتداءً من ₪18,000"
       },
       {
-        "title": "Fund a Teacher",
-        "body": "Bring one additional native English-speaking educator to the Negev for a semester.",
-        "amount": "From ₪36,000"
+        "title": "موّل معلمًا",
+        "body": "أحضِر معلمًا إضافيًا ناطقًا بالإنجليزية كلغة أم إلى النقب لفصل دراسي.",
+        "amount": "ابتداءً من ₪36,000"
       },
       {
-        "title": "Support a Student",
-        "body": "Cover one student's enrollment in an after-school or camp program.",
-        "amount": "From ₪600"
+        "title": "ادعم طالبًا",
+        "body": "غطِّ تسجيل طالب واحد في برنامج بعد الدوام أو مخيم.",
+        "amount": "ابتداءً من ₪600"
       },
       {
-        "title": "General Support",
-        "body": "Every contribution, of any size, sustains the program and reaches a student.",
-        "amount": "Any amount"
+        "title": "دعم عام",
+        "body": "كل مساهمة، مهما كان حجمها، تُديم البرنامج وتصل إلى طالب.",
+        "amount": "أي مبلغ"
       }
     ]
   },
   "cta": {
-    "eyebrow": "Get In Touch",
-    "title": "Speak with our partnerships team.",
-    "body": "We'll walk you through current needs, sponsorship structures, and how your gift can be directed.",
-    "button": "Contact Us"
+    "eyebrow": "تواصل معنا",
+    "title": "تحدّث مع فريق الشراكات لدينا.",
+    "body": "سنرشدك إلى الاحتياجات الحالية وهياكل الرعاية وكيف يمكن توجيه هديتك.",
+    "button": "اتصل بنا"
   },
   "meta": {
-    "title": "Contribute — Bridges Institute",
-    "description": "Support a decade of English-language education in the Negev. Donate, sponsor a classroom, or get involved with Bridges Institute."
+    "title": "التبرّع — معهد جسور",
+    "description": "ادعم عقدًا من تعليم اللغة الإنجليزية في النقب. تبرّع، أو ارعَ صفًّا، أو شارك مع معهد جسور."
   }
 }

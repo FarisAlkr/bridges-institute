@@ -1,83 +1,83 @@
 {
-  "_status": "NEEDS TRANSLATION — English fallback values; replace with real Arabic. Do not machine-translate.",
+  "_status": "AI-DRAFTED (first pass) — pending Faris (native) review before launch. Adjust freely. All {{tokens}} and <tags> preserved; EN remains the source of truth.",
   "hero": {
-    "eyebrow": "About Bridges",
-    "headline": "A decade of building <em>bridges</em> across the Negev.",
-    "imageAlt": "A movement-based English class in the Negev"
+    "eyebrow": "عن Bridges",
+    "headline": "عقدٌ من بناء <em>الجسور</em> في أنحاء النقب.",
+    "imageAlt": "صف إنجليزي قائم على الحركة في النقب"
   },
   "story": {
-    "eyebrow": "Since {{year}}",
-    "title": "Our Story",
-    "p1": "Bridges Institute was founded in 2014 with a quiet conviction: that English, taught with care and authenticity, can open lives. From a single classroom in Be'er Sheva, we have grown into a regional program serving thousands of students each year.",
-    "p2": "Today, we partner with the Israeli Ministry of Education, regional municipalities, schools, and community centers across the Negev — bringing native English-speaking educators from the United States into classrooms that span Arab and Jewish communities alike.",
-    "p3": "Every program we build is held to one standard: would a student walk away feeling more capable, more curious, and more connected than when they arrived?"
+    "eyebrow": "منذ {{year}}",
+    "title": "قصتنا",
+    "p1": "تأسس معهد جسور عام 2014 بقناعة هادئة: أن الإنجليزية، حين تُدرَّس بعناية وأصالة، قادرة على فتح الآفاق. من صفٍّ واحد في بئر السبع، نمونا إلى برنامج إقليمي يخدم آلاف الطلاب كل عام.",
+    "p2": "اليوم، نتشارك مع وزارة التعليم الإسرائيلية والبلديات الإقليمية والمدارس والمراكز المجتمعية في أنحاء النقب — جالبين معلمين ناطقين بالإنجليزية كلغة أم من الولايات المتحدة إلى صفوف تضمّ المجتمعين العربي واليهودي على حدٍّ سواء.",
+    "p3": "كل برنامج نبنيه يخضع لمعيار واحد: هل يغادر الطالب وهو يشعر بأنه أكثر قدرة وفضولًا وارتباطًا مما كان عند وصوله؟"
   },
   "mission": {
-    "eyebrow": "Mission",
-    "title": "To make English feel natural, useful, and possible — for every student.",
-    "body": "We meet students where they are. We move at the speed of their courage. We trust that fluency follows from confidence, not the other way around."
+    "eyebrow": "رسالتنا",
+    "title": "أن نجعل الإنجليزية تبدو طبيعية ومفيدة وممكنة — لكل طالب.",
+    "body": "نلتقي بالطلاب حيث هم. نتقدّم بسرعة شجاعتهم. ونثق بأن الطلاقة تنبع من الثقة، لا العكس."
   },
   "vision": {
-    "eyebrow": "Vision",
-    "title": "A generation of young people in Southern Israel who carry English as a second voice.",
-    "body": "English not as a school subject endured — but as an instrument of opportunity, friendship, and self-expression."
+    "eyebrow": "رؤيتنا",
+    "title": "جيلٌ من الشباب في جنوب إسرائيل يحملون الإنجليزية كصوتٍ ثانٍ.",
+    "body": "الإنجليزية ليست مادة مدرسية تُحتمَل — بل أداة للفرص والصداقة والتعبير عن الذات."
   },
   "difference": {
-    "eyebrow": "What We Do Differently",
-    "title": "The challenge — and our answer.",
-    "challengeHeading": "The Challenge",
+    "eyebrow": "ما الذي نفعله بشكل مختلف",
+    "title": "التحدي — وجوابنا عليه.",
+    "challengeHeading": "التحدي",
     "challenge": [
-      "English taught primarily on paper, not in conversation.",
-      "Few opportunities to hear or speak with a native speaker.",
-      "A culture of correctness that quietly silences students.",
-      "Curricula disconnected from real-world use."
+      "الإنجليزية تُدرَّس أساسًا على الورق، لا في المحادثة.",
+      "فرص قليلة لسماع متحدث أصلي أو التحدث معه.",
+      "ثقافة التصحيح التي تُسكت الطلاب بهدوء.",
+      "مناهج منفصلة عن الاستخدام الواقعي."
     ],
-    "approachHeading": "Our Approach",
+    "approachHeading": "نهجنا",
     "approach": [
-      "Conversation-first, taught entirely in English.",
-      "Native English-speaking educators from the United States.",
-      "Movement, games, and storytelling as primary tools.",
-      "Cultural exchange built into every lesson."
+      "المحادثة أولًا، وتُدرَّس بالإنجليزية بالكامل.",
+      "معلمون ناطقون بالإنجليزية كلغة أم من الولايات المتحدة.",
+      "الحركة والألعاب ورواية القصص كأدوات أساسية.",
+      "تبادل ثقافي مدمج في كل درس."
     ]
   },
   "why": {
-    "eyebrow": "Why It Matters",
-    "title": "Why native English-speaking educators.",
-    "intro": "A native speaker is not a credential — it's an experience the classroom can feel.",
+    "eyebrow": "لماذا يهم",
+    "title": "لماذا معلمون ناطقون بالإنجليزية كلغة أم.",
+    "intro": "المتحدث الأصلي ليس شهادة — بل تجربة يشعر بها الصف.",
     "items": [
       {
-        "title": "Authentic Pronunciation",
-        "body": "Students hear the language as it actually lives — its rhythm, its swallowed syllables, its music."
+        "title": "نطق أصيل",
+        "body": "يسمع الطلاب اللغة كما تعيش فعلًا — إيقاعها، ومقاطعها المبتلعة، وموسيقاها."
       },
       {
-        "title": "Natural Vocabulary",
-        "body": "Idiom, slang, and everyday phrasing that no textbook captures."
+        "title": "مفردات طبيعية",
+        "body": "تعابير ولهجة دارجة وصياغة يومية لا يلتقطها أي كتاب."
       },
       {
-        "title": "Real Listening Practice",
-        "body": "Ears tuned to the speed and texture of real-world conversation."
+        "title": "تدريب استماع حقيقي",
+        "body": "آذان مضبوطة على سرعة المحادثة الواقعية ونسيجها."
       },
       {
-        "title": "Confidence to Speak",
-        "body": "Students learn that being understood matters more than being perfect."
+        "title": "الثقة في التحدث",
+        "body": "يتعلم الطلاب أن كونهم مفهومين أهم من كونهم مثاليين."
       },
       {
-        "title": "Cultural Exposure",
-        "body": "Stories, humor, and perspective from another part of the world."
+        "title": "انفتاح ثقافي",
+        "body": "قصص وفكاهة ووجهة نظر من جزء آخر من العالم."
       },
       {
-        "title": "A Living Connection",
-        "body": "English becomes a person you know — not a subject you take."
+        "title": "صلة حيّة",
+        "body": "تصبح الإنجليزية شخصًا تعرفه — لا مادة تدرسها."
       }
     ]
   },
-  "galleryAlt": "Bridges classroom",
+  "galleryAlt": "صف Bridges",
   "cta": {
-    "title": "Want to bring Bridges to your school?",
-    "button": "Partner With Us"
+    "title": "تريد أن تحضر Bridges إلى مدرستك؟",
+    "button": "كن شريكًا معنا"
   },
   "meta": {
-    "title": "About — Bridges Institute",
-    "description": "Since 2014, Bridges Institute has partnered with the Ministry of Education, municipalities, schools, and community centers across the Negev to bring authentic English learning to every student."
+    "title": "من نحن — معهد جسور",
+    "description": "منذ 2014، يتشارك معهد جسور مع وزارة التعليم والبلديات والمدارس والمراكز المجتمعية في أنحاء النقب لجلب تعلُّم إنجليزي أصيل لكل طالب."
   }
 }

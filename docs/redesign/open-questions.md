@@ -20,7 +20,7 @@ Resolve with the client. Sections depending on these must **not** ship with inve
 | B2 | Optional **30–60s classroom video** (with captions/transcript). | §7 |
 | B3 | **2–3 real teacher quotes** (only if real — no fabrication). | optional social proof |
 | B4 | ~~Confirm **trust-bar numbers** are final: 11,000+ students, 50+ schools, 22 native teachers.~~ | ✅ **DONE.** Client confirmed valid: 11,000+ students · 50+ schools & institutions · 22 native English-speaking teachers. §2 numbers stand as-is. |
-| B5 | **HE + AR translations** of approved copy (real speaker, not machine). Faris can supply. | i18n Phase 3–4 |
+| B5 | **HE + AR translations** of approved copy (real speaker, not machine). | **AI-DRAFTED (all 9 namespaces, AR + HE).** First-pass authored translations, marked in each file's `_status` as pending Faris (native) review before launch. NOT machine-final — Faris reviews/adjusts, then they are locked. Process note: stop auto-regenerating stubs for AR/HE (would overwrite the drafts). |
 
 ## C. Technical confirmations (from prior site review — still open)
 
