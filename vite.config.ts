@@ -3,6 +3,7 @@ import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import viteReact from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import tsConfigPaths from "vite-tsconfig-paths";
+import { nitro } from "nitro/vite";
 import { enumerateLocalePaths } from "./src/i18n/page-list";
 
 export default defineConfig({
@@ -21,6 +22,9 @@ export default defineConfig({
         autoStaticPathsDiscovery: true,
       },
     }),
+    // Compiles the server (SSR + /api/* + sitemap handlers) into deployable output.
+    // On Vercel this emits the Build Output API so the server runs as a Function.
+    nitro(),
     viteReact(),
   ],
 });
