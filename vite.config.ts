@@ -11,7 +11,8 @@ export default defineConfig({
     tsConfigPaths(),
     tailwindcss(),
     tanstackStart({
-      customViteReactPlugin: true,
+      // The React plugin is always caller-supplied (viteReact() below); the plugin no
+      // longer accepts a flag for it.
       server: { entry: "server" },
       // Explicitly enumerate every page × {en, he, ar} so the /he and /ar static
       // trees are emitted deterministically, not left to link-crawling.
