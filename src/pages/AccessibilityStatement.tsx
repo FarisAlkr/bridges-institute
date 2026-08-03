@@ -1,6 +1,7 @@
 import { Trans, useTranslation } from "react-i18next";
 import { Reveal } from "@/components/site/Reveal";
 import { TodoPlaceholder } from "@/components/site/TodoPlaceholder";
+import { CONTACT_EMAIL, CONTACT_EMAIL_HREF } from "@/site-config";
 
 export function AccessibilityStatement() {
   const { t } = useTranslation(["accessibility", "common"]);
@@ -58,11 +59,8 @@ export function AccessibilityStatement() {
             <ul className="mt-4 space-y-2 text-slate-body leading-relaxed">
               <li>
                 {t("report.emailLabel")}{" "}
-                <a
-                  href="mailto:info@bridgesinstitute.org"
-                  className="link-underline font-medium text-ink"
-                >
-                  {t("common:contactEmail")}
+                <a href={CONTACT_EMAIL_HREF} className="link-underline font-medium text-ink">
+                  {CONTACT_EMAIL}
                 </a>
               </li>
               <li>{t("report.address")}</li>

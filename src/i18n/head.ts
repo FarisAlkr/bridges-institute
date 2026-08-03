@@ -42,6 +42,11 @@ export function pageHead(pageNs: string, unprefixedPath: string, locale: Locale)
       { property: "og:image", content: image },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:image", content: image },
+      // X/Twitter prefers twitter:title/twitter:description over the og:* pair, so
+      // these must be set per page × locale too. Without them the root's generic
+      // English defaults win and every locale previews with the same English text.
+      { name: "twitter:title", content: title },
+      { name: "twitter:description", content: description },
     ],
     links: [{ rel: "canonical", href: canonical }, ...alternates],
   };

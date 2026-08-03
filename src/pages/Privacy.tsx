@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Reveal } from "@/components/site/Reveal";
 import { TodoPlaceholder } from "@/components/site/TodoPlaceholder";
+import { CONTACT_EMAIL, CONTACT_EMAIL_HREF } from "@/site-config";
 
 // ⚠ BASELINE DRAFT — NOT FINALIZED LEGAL TEXT.
 // This privacy policy is an authored baseline that describes what the forms collect.
@@ -87,11 +88,8 @@ export function Privacy() {
             <ul className="mt-4 space-y-2 text-slate-body leading-relaxed">
               <li>
                 {t("contact.emailLabel")}{" "}
-                <a
-                  href="mailto:info@bridgesinstitute.org"
-                  className="link-underline font-medium text-ink"
-                >
-                  {t("common:contactEmail")}
+                <a href={CONTACT_EMAIL_HREF} className="link-underline font-medium text-ink">
+                  {CONTACT_EMAIL}
                 </a>
               </li>
               <li>{t("contact.address")}</li>

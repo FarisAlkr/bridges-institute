@@ -20,3 +20,14 @@ export function absoluteUrl(path: string): string {
 // English-speaking audience; the tel: link is E.164 so it dials from anywhere.
 export const PHONE_DISPLAY = "+972 58-686-8850";
 export const PHONE_HREF = "tel:+972586868850";
+
+// ⚠ GO-LIVE: still the PLACEHOLDER address (open-questions C2) — the client has not
+// created the inbox yet, and the domain question is open (C4). Change this ONE line
+// once the real address is confirmed.
+//
+// It lives here rather than in the i18n catalogs because an address is not
+// translatable copy — it was identical in en/he/ar, and holding it in three catalogs
+// plus three literal mailto: hrefs meant six places to update, with nothing stopping
+// the displayed address and the linked one from drifting apart.
+export const CONTACT_EMAIL = "info@bridgesinstitute.org";
+export const CONTACT_EMAIL_HREF = `mailto:${CONTACT_EMAIL}`;

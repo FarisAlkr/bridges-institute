@@ -3,7 +3,7 @@ import { Mail, MapPin, Phone, Facebook, Instagram } from "lucide-react";
 import { Trans, useTranslation } from "react-i18next";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import { PHONE_DISPLAY, PHONE_HREF } from "@/site-config";
+import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/site-config";
 
 const REQUIRED_NAMES = ["name", "email", "message"] as const;
 
@@ -123,10 +123,10 @@ export function Contact() {
                 <div className="mt-5 flex gap-4 items-center">
                   <Mail aria-hidden className="text-brass-deep shrink-0" size={20} />
                   <a
-                    href="mailto:info@bridgesinstitute.org"
+                    href={CONTACT_EMAIL_HREF}
                     className="link-underline font-display text-lg sm:text-xl md:text-2xl text-ink break-all"
                   >
-                    {t("common:contactEmail")}
+                    {CONTACT_EMAIL}
                   </a>
                 </div>
               </div>
