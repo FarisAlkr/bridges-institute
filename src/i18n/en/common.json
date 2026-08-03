@@ -85,5 +85,16 @@
   },
   "todo": {
     "toConfirm": "To confirm"
+  },
+  "notFound": {
+    "eyebrow": "Page not found",
+    "body": "The page you're looking for doesn't exist or has been moved.",
+    "cta": "Return home"
+  },
+  "errorPage": {
+    "title": "This page didn't load",
+    "body": "Something went wrong on our end. You can try again or head home.",
+    "retry": "Try again",
+    "home": "Go home"
   }
 }
