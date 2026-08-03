@@ -14,36 +14,14 @@ import { I18nextProvider, useTranslation } from "react-i18next";
 import appCss from "../styles.css?url";
 import { Nav } from "../components/site/Nav";
 import { Footer } from "../components/site/Footer";
+import { NotFound } from "../components/site/NotFound";
 import { createI18n, dirFor, metaT } from "../i18n";
 import { localeFromPath, withLocale } from "../i18n/routing";
 
-// Locale-prefixed paths are computed at runtime; the router resolves the string href,
-// so the compile-time route-id typing is satisfied with a cast at the call site.
-type ToProp = Parameters<typeof Link>[0]["to"];
-
-// These two screens can render in place of RootComponent, i.e. without the
+// This screen can render in place of RootComponent, i.e. without the
 // <I18nextProvider> it mounts. metaT() takes an explicit locale and needs no React
-// context, so they stay localized either way (useTranslation would fall back to an
-// uninitialized instance and render raw keys).
-
-function NotFoundComponent() {
-  const locale = useRouterState({ select: (s) => localeFromPath(s.location.pathname) });
-  const t = metaT(locale, "common");
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-ivory px-4">
-      <div className="max-w-md text-center">
-        <div className="eyebrow justify-center">{t("notFound.eyebrow")}</div>
-        <h1 className="mt-4 font-display text-7xl text-ink">404</h1>
-        <p className="mt-4 text-slate-body">{t("notFound.body")}</p>
-        <div className="mt-8">
-          <Link to={withLocale("/", locale) as ToProp} className="btn-primary">
-            {t("notFound.cta")}
-          </Link>
-        </div>
-      </div>
-    </div>
-  );
-}
+// context, so it stays localized either way (useTranslation would fall back to an
+// uninitialized instance and render raw keys). Same reasoning in NotFound.
 
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
@@ -125,7 +103,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   }),
   shellComponent: RootShell,
   component: RootComponent,
-  notFoundComponent: NotFoundComponent,
+  notFoundComponent: NotFound,
   errorComponent: ErrorComponent,
 });
 
