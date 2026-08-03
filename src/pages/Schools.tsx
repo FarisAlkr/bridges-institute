@@ -76,7 +76,7 @@ export function Schools() {
                 <div>
                   <div className="font-display text-brass text-4xl">0{i + 1}</div>
                   <div className="hairline my-6 w-12" />
-                  <h4 className="font-display text-xl text-ivory">{s.title}</h4>
+                  <h3 className="font-display text-xl text-ivory">{s.title}</h3>
                   <p className="mt-3 text-ivory/70 text-sm leading-relaxed">{s.body}</p>
                 </div>
               </Reveal>

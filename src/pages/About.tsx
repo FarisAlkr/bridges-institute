@@ -139,7 +139,7 @@ export function About() {
               <Reveal key={item.title} delay={i * 60}>
                 <div className="border-t border-ink/15 pt-6">
                   <div className="font-display text-brass-deep">0{i + 1}</div>
-                  <h4 className="mt-3 font-display text-2xl text-ink">{item.title}</h4>
+                  <h3 className="mt-3 font-display text-2xl text-ink">{item.title}</h3>
                   <p className="mt-3 text-slate-body leading-relaxed">{item.body}</p>
                 </div>
               </Reveal>
