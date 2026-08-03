@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TeachRouteImport } from './routes/teach'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as SchoolsRouteImport } from './routes/schools'
+import { Route as RobotsDottxtRouteImport } from './routes/robots[.]txt'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as ContributeRouteImport } from './routes/contribute'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -42,6 +43,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const SchoolsRoute = SchoolsRouteImport.update({
   id: '/schools',
   path: '/schools',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RobotsDottxtRoute = RobotsDottxtRouteImport.update({
+  id: '/robots.txt',
+  path: '/robots.txt',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -133,6 +139,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/contribute': typeof ContributeRoute
   '/privacy': typeof PrivacyRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/schools': typeof SchoolsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/teach': typeof TeachRoute
@@ -153,6 +160,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/contribute': typeof ContributeRoute
   '/privacy': typeof PrivacyRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/schools': typeof SchoolsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/teach': typeof TeachRoute
@@ -175,6 +183,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/contribute': typeof ContributeRoute
   '/privacy': typeof PrivacyRoute
+  '/robots.txt': typeof RobotsDottxtRoute
   '/schools': typeof SchoolsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/teach': typeof TeachRoute
@@ -198,6 +207,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/contribute'
     | '/privacy'
+    | '/robots.txt'
     | '/schools'
     | '/sitemap.xml'
     | '/teach'
@@ -218,6 +228,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/contribute'
     | '/privacy'
+    | '/robots.txt'
     | '/schools'
     | '/sitemap.xml'
     | '/teach'
@@ -239,6 +250,7 @@ export interface FileRouteTypes {
     | '/contact'
     | '/contribute'
     | '/privacy'
+    | '/robots.txt'
     | '/schools'
     | '/sitemap.xml'
     | '/teach'
@@ -261,6 +273,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ContributeRoute: typeof ContributeRoute
   PrivacyRoute: typeof PrivacyRoute
+  RobotsDottxtRoute: typeof RobotsDottxtRoute
   SchoolsRoute: typeof SchoolsRoute
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   TeachRoute: typeof TeachRoute
@@ -288,6 +301,13 @@ declare module '@tanstack/react-router' {
       path: '/schools'
       fullPath: '/schools'
       preLoaderRoute: typeof SchoolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robots.txt': {
+      id: '/robots.txt'
+      path: '/robots.txt'
+      fullPath: '/robots.txt'
+      preLoaderRoute: typeof RobotsDottxtRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -439,6 +459,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ContributeRoute: ContributeRoute,
   PrivacyRoute: PrivacyRoute,
+  RobotsDottxtRoute: RobotsDottxtRoute,
   SchoolsRoute: SchoolsRoute,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   TeachRoute: TeachRoute,
