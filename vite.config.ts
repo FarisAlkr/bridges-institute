@@ -7,6 +7,13 @@ import { nitro } from "nitro/vite";
 import { enumerateLocalePaths } from "./src/i18n/page-list";
 
 export default defineConfig({
+  // Baked into the client AND server bundles as the same literal, so the prerendered
+  // footer year can't disagree with the hydrated one (a `new Date()` in the component
+  // would mismatch on New Year, and the static HTML would go stale until a redeploy).
+  // Refreshes on every deploy.
+  define: {
+    __BUILD_YEAR__: JSON.stringify(new Date().getFullYear()),
+  },
   plugins: [
     tsConfigPaths(),
     tailwindcss(),

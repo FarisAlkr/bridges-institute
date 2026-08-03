@@ -96,7 +96,7 @@ export function Footer() {
 
         <div className="hairline mt-12 md:mt-16 opacity-30" />
         <div className="mt-6 md:mt-8 flex flex-col md:flex-row md:items-center justify-between gap-3 md:gap-4 text-[0.65rem] sm:text-xs uppercase tracking-[0.18em] text-ivory/50">
-          <span>{t("footer.rights", { year: new Date().getFullYear() })}</span>
+          <span>{t("footer.rights", { year: __BUILD_YEAR__ })}</span>
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <LocaleLink to="/accessibility" className="link-underline hover:text-ivory">
               {t("footer.accessibility")}
