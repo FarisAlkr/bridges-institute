@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { HoneypotField } from "./HoneypotField";
 
 // Single canonical application form used on the homepage (#apply) and /teach.
 // Submits to the canonical /api/submit endpoint (C1); shows the success state only on a
@@ -101,6 +102,7 @@ export function ApplyForm() {
 
   return (
     <form onSubmit={handleSubmit} noValidate className="grid gap-6 md:grid-cols-2">
+      <HoneypotField />
       <ApplyField
         label={t("applyForm.labels.name")}
         name="name"

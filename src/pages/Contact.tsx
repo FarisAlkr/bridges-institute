@@ -3,6 +3,7 @@ import { Mail, MapPin, Phone, Facebook, Instagram } from "lucide-react";
 import { Trans, useTranslation } from "react-i18next";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
+import { HoneypotField } from "@/components/site/HoneypotField";
 import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/site-config";
 
 const REQUIRED_NAMES = ["name", "email", "message"] as const;
@@ -189,6 +190,7 @@ export function Contact() {
                     noValidate
                     className="mt-6 md:mt-8 grid gap-5 md:gap-6"
                   >
+                    <HoneypotField />
                     <div className="grid gap-6 md:grid-cols-2">
                       <Input
                         label={t("form.name")}

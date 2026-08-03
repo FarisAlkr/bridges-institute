@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
+import { HONEYPOT_FIELD } from "@/lib/form-protection";
 
 // Single canonical submission endpoint for both the application (ApplyForm) and the
 // contact form (C1). It validates server-side, then delivers the submission to an
@@ -53,15 +54,79 @@ function json(body: unknown, status = 200) {
   });
 }
 
+// --- Abuse controls ---------------------------------------------------------------
+// This is a public endpoint that relays into the client's inbox, so it needs a floor of
+// protection against bots and bursts. Deliberately NO timing heuristics or CAPTCHA:
+// on a hiring form, silently losing one real application costs more than receiving
+// some spam, and both of those techniques trade false negatives for false positives.
+
+// Best-effort in-memory limiter. Fluid Compute reuses instances across concurrent
+// requests, so this reliably blunts a burst from a single source — it is not a
+// distributed guarantee across all instances and is not intended as one.
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const recentHits = new Map<string, number[]>();
+
+function clientIp(request: Request): string {
+  // Vercel sets x-forwarded-for; the client address is the first entry.
+  const forwarded = request.headers.get("x-forwarded-for");
+  return forwarded?.split(",")[0]?.trim() || "unknown";
+}
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const cutoff = now - RATE_LIMIT_WINDOW_MS;
+
+  // Prune expired entries so the map cannot grow unbounded on a long-lived instance.
+  for (const [key, times] of recentHits) {
+    const kept = times.filter((t) => t > cutoff);
+    if (kept.length) recentHits.set(key, kept);
+    else recentHits.delete(key);
+  }
+
+  const times = recentHits.get(ip) ?? [];
+  if (times.length >= RATE_LIMIT_MAX) return true;
+  times.push(now);
+  recentHits.set(ip, times);
+  return false;
+}
+
+// Reject cross-site posts. A MISSING Origin header is allowed through on purpose:
+// some same-origin form posts omit it, and rejecting those would drop real
+// applications. This blocks the naive cross-origin case, nothing more.
+function isCrossSite(request: Request): boolean {
+  const origin = request.headers.get("origin");
+  if (!origin) return false;
+  try {
+    return new URL(origin).host !== new URL(request.url).host;
+  } catch {
+    return true;
+  }
+}
+
 export const Route = createFileRoute("/api/submit")({
   server: {
     handlers: {
       POST: async ({ request }: { request: Request }) => {
+        if (isCrossSite(request)) {
+          return json({ ok: false, error: "forbidden" }, 403);
+        }
+        if (isRateLimited(clientIp(request))) {
+          return json({ ok: false, error: "rate_limited" }, 429);
+        }
+
         let form: FormData;
         try {
           form = await request.formData();
         } catch {
           return json({ ok: false, error: "bad_request" }, 400);
+        }
+
+        // Honeypot: only a bot fills this. Answer 200 so it believes it succeeded and
+        // moves on instead of retrying, but deliver nothing.
+        if (String(form.get(HONEYPOT_FIELD) ?? "").trim()) {
+          console.warn("[submit] discarded a submission that tripped the honeypot");
+          return json({ ok: true });
         }
 
         const formType = String(form.get("formType") ?? "");
@@ -96,7 +161,7 @@ export const Route = createFileRoute("/api/submit")({
         // --- Build the JSON payload ---
         const fields: Record<string, string> = {};
         for (const [key, value] of form.entries()) {
-          if (key === "cv" || key === "formType") continue;
+          if (key === "cv" || key === "formType" || key === HONEYPOT_FIELD) continue;
           if (typeof value === "string" && value.trim()) fields[key] = value;
         }
 
