@@ -26,7 +26,14 @@ export default defineConfig({
       pages: enumerateLocalePaths().map((path) => ({ path })),
       prerender: {
         enabled: true,
-        crawlLinks: true,
+        // crawlLinks MUST stay off. The `pages` list above already covers every route ×
+        // locale, so crawling adds nothing — but it follows in-page anchors and treats
+        // them as routes, emitting /he#apply, /he#method, /#apply and so on. On Vercel
+        // the fragment is stripped when the output is written, so "/he#apply" lands as a
+        // FILE named `he`, which shadows the `he/index.html` directory: /he then served
+        // a 200 with a zero-byte body in production while /he/about was fine.
+        // Local preview did not reproduce it — only the Vercel build output did.
+        crawlLinks: false,
         autoStaticPathsDiscovery: true,
       },
     }),
