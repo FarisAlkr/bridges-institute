@@ -1,26 +1,33 @@
 # Open Questions & Blockers
 
-Resolve with the client. Sections depending on these must **not** ship with invented content — use visible `TODO` placeholders until confirmed.
+Resolve with the client. Sections depending on these must **not** ship with invented content.
+
+> **Update — client editor notes (`Bridges_Website_Notes_Final.docx`) received and applied.**
+> The client asked for **all** visible "to confirm" notes to be removed from the published
+> pages, so the `TodoPlaceholder` mechanism is retired (component and i18n key deleted).
+> Anything still unconfirmed is now simply **not stated** rather than flagged on the page.
+> Items reopened or reversed by those notes are marked **⟳ REVISED** below.
 
 ## A. Content the client must confirm (blocks §6 "What you need to apply")
 
 | # | Question | Why it matters |
 |---|---|---|
 | A1 | **Hebrew required**, or do lessons run in English? | ✅ **DONE.** Confirmed: **No Hebrew required** — lessons run in English. Stated prominently in §6 as the headline draw. |
-| A2 | **Qualifications** — degree/teaching certificate required, or are fluent, capable, energetic people welcome? | ✅ **DONE.** Confirmed: **no degree/certificate required** — fluent, capable, energetic people welcome. Wired into §6. |
-| A3 | **Schedule** — part/full-time, rough hours, school-year / summer / flexible? | ✅ **DONE (partial).** Confirmed: **part-time and full-time positions available** (wired into §6). Rough hours + term (school-year/summer/flexible) **not yet specified** — not invented; the line stands on its own. |
-| A4 | **Location** — which Negev towns/areas? Own transport needed? | ⚠ **STILL OPEN.** Remains a visible "to confirm" placeholder in §6 — the only blocked item left there. |
+| A2 | **Qualifications** — degree/teaching certificate required, or are fluent, capable, energetic people welcome? | ⟳ **REVISED — the earlier answer was reversed by the client.** A **recognised academic degree IS required**; applicants need **fluent or near-native English**; teaching and work with children are **an advantage**. Every "no degree required" sentence has been deleted site-wide. The client supplied this copy verbatim in EN/HE/AR; it lives in `common.requirements` and renders identically on the homepage, About and the apply page. |
+| A3 | **Schedule** — part/full-time, rough hours, school-year / summer / flexible? | ✅ **CLOSED.** The client replaced this with an approved roles paragraph (`common.roles`): a range of full-time and part-time roles, placements depending on current programme needs, details discussed individually with suitable candidates. Hours/term are deliberately **not** published. |
+| A4 | **Location** — which Negev towns/areas? Own transport needed? | ✅ **CLOSED — will not be published.** The client instructed: do not list individual school addresses or detailed working conditions on the website. Covered by the roles paragraph instead. Placeholder removed. |
 | A5 | Pay — confirmed **paid, not volunteer** (no figures needed). Confirm phrasing is OK to state. | Removes a common hesitation. |
 
 ## B. Assets needed from client
 
 | # | Asset | Used in |
 |---|---|---|
-| B1 | Photo **captions** for real classroom photos (e.g. "Movement-based lesson, 3rd grade"). | §7 — **§7 now uses REAL classroom photos** pulled from the client's site `bridges-eng.com` (downsized into `src/assets/classroom-*.jpg`), replacing the stock-looking gallery images. Alt text describes the real scenes; **captions still to-confirm** with the client. |
-| B2 | Optional **30–60s classroom video** (with captions/transcript). | §7 |
+| B1 | Photo **captions** for real classroom photos (e.g. "Movement-based lesson, 3rd grade"). | ✅ **CLOSED for now.** Client: run the photos **without captions** until final ones are approved. The temporary captions and the `<figcaption>` markup are removed. **Alt text stays** — it is screen-reader description, not visible caption copy, and removing it would break accessibility. If real captions arrive later, re-add them as `home.photos.caption`. |
+| B2 | Optional **30–60s classroom video** (with captions/transcript). | ✅ **CLOSED.** The "optional video" placeholder is removed at the client's request. Re-open only if a real clip is supplied. |
 | B3 | **2–3 real teacher quotes** (only if real — no fabrication). | optional social proof |
 | B4 | ~~Confirm **trust-bar numbers** are final: 11,000+ students, 50+ schools, 22 native teachers.~~ | ✅ **DONE.** Client confirmed valid: 11,000+ students · 50+ schools & institutions · 22 native English-speaking teachers. §2 numbers stand as-is. |
-| B5 | **HE + AR translations** of approved copy (real speaker, not machine). | **AI-DRAFTED (all 9 namespaces, AR + HE).** First-pass authored translations, marked in each file's `_status` as pending Faris (native) review before launch. NOT machine-final — Faris reviews/adjusts, then they are locked. Process note: stop auto-regenerating stubs for AR/HE (would overwrite the drafts). |
+| B5 | **HE + AR translations** of approved copy (real speaker, not machine). | **PARTLY CLIENT-SUPPLIED.** The **teacher-requirements paragraph is the client's own verbatim HE and AR text** — do not reword it. The client's six Hebrew and two Arabic corrections are applied. Everything else remains a **draft translation pending native review** (`_status` in each file). Process note: never auto-regenerate AR/HE — it would overwrite both the client's text and the drafts. |
+| B6 | **Newly drafted HE/AR strings** introduced by the client's English-only instructions — the roles paragraph, the teaching-materials sentence, the method quote and description, the new form labels (phone/email/degree/experience) and the success message. | ⚠ **NEEDS FARIS'S REVIEW.** The client gave these in English only, so the HE/AR are first-pass drafts written to match the surrounding catalogs. The requirements paragraph is exempt — that one is the client's own text. |
 
 ## C. Technical confirmations (from prior site review — still open)
 

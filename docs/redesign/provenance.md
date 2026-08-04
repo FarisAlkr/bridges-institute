@@ -14,6 +14,28 @@
 | **[PRE-EXISTING]** | Text already in the repo before this project (original "marketing site" commit). **Not written or verified here.** |
 | **[AUTHORED]** | Original prose written during the build for a page the brief asked us to create (Accessibility, Privacy). Flagged for review. |
 | **[I18N-STUB]** | HE/AR values are English fallbacks marked `NEEDS TRANSLATION` — never machine-translated. |
+| **[CLIENT-EDIT]** | Copy supplied or mandated by the client in `Bridges_Website_Notes_Final.docx` (the editor notes). Verbatim where the client wrote it out. **Highest authority — overrides [BRIEF] and [PRE-EXISTING].** |
+
+
+---
+
+## Client editor notes — applied (supersedes the rows below where they conflict)
+
+`Bridges_Website_Notes_Final.docx`. Where the client wrote copy out, it is used **verbatim**.
+
+| Content | Origin |
+|---|---|
+| Teacher requirements paragraph — **EN, HE and AR** | **[CLIENT-EDIT]** verbatim in all three languages. Lives once in `common.requirements`; rendered on homepage, About and apply page via the shared `Requirements` component. **Do not reword the HE/AR** — it is the client's own text, not a translation. |
+| Roles / placements paragraph | **[CLIENT-EDIT]** verbatim (EN). HE/AR are drafts — see open-questions B6. |
+| "Teaching materials are provided for the programme." | **[CLIENT-EDIT]** verbatim (EN). Replaces the earlier promise of frameworks/routines/structure, which the client asked not to make. |
+| Method pull-quote + description | **[CLIENT-EDIT]** verbatim (EN). |
+| Application success message | **[CLIENT-EDIT]** verbatim (EN), split across the eyebrow / title / body of the success panel. |
+| Hero headline (all locales) | **[CLIENT-EDIT]** — the client rewrote the Hebrew headline; EN and AR are aligned to it. Supersedes the earlier [BRIEF §1] headline. |
+| Six Hebrew corrections, two Arabic corrections | **[CLIENT-EDIT]** applied verbatim. Arabic brand is now consistently "Bridges", introduced once as "Bridges (جسور)". The metaphor الجسور in the tagline and About headline is **not** the brand and was deliberately left alone. |
+| §6 qualifications block ("No degree or teaching certificate required") | **DELETED** at the client's instruction. |
+| "native English-speaking" / "from the United States" framing | **DELETED** site-wide at the client's instruction — the role is described by English level, education and teaching ability. |
+| Photo captions, "optional video", all "to confirm" placeholders | **DELETED** at the client's instruction. Photo **alt text is retained** — screen-reader description, not visible caption copy. |
+| New form fields (phone, email, degree, experience) + labels | **[CLIENT-EDIT]** for the questions asked; label wording is **[FRAMING]**. HE/AR labels are drafts — open-questions B6. |
 
 ---
 
