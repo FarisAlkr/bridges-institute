@@ -33,7 +33,11 @@ import { HONEYPOT_FIELD } from "@/lib/form-protection";
 // NOTE: server routes run on Vercel's function layer, not the static output — confirm
 // that layer is active on the final domain (see open-questions C4b).
 
-const APPLY_REQUIRED = ["name", "contact", "english", "location", "why"];
+// Mirrors REQUIRED in src/components/site/ApplyForm.tsx. Phone and email are separate
+// fields and the degree question is required, at the client's request; `experience` is
+// optional because the client treats teaching experience as an advantage, not a
+// condition.
+const APPLY_REQUIRED = ["name", "phone", "email", "english", "degree", "location", "why"];
 const CONTACT_REQUIRED = ["name", "email", "message"];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 // Effective end-to-end cap on the RAW file. Two size limits bind the chain:
@@ -140,10 +144,9 @@ export const Route = createFileRoute("/api/submit")({
         for (const field of required) {
           if (!String(form.get(field) ?? "").trim()) errors[field] = "required";
         }
-        if (formType === "contact") {
-          const email = String(form.get("email") ?? "").trim();
-          if (email && !errors.email && !EMAIL_RE.test(email)) errors.email = "invalid_email";
-        }
+        // Both forms now carry a dedicated email field.
+        const email = String(form.get("email") ?? "").trim();
+        if (email && !errors.email && !EMAIL_RE.test(email)) errors.email = "invalid_email";
 
         // Validate the optional CV.
         const cv = form.get("cv");
@@ -182,7 +185,7 @@ export const Route = createFileRoute("/api/submit")({
           };
         }
 
-        const who = fields.name ?? fields.contact ?? fields.email ?? "";
+        const who = fields.name ?? fields.email ?? fields.phone ?? "";
         const subject =
           formType === "apply"
             ? `New teaching application${who ? ` — ${who}` : ""}`

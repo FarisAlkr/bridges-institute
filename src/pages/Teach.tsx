@@ -4,6 +4,7 @@ import teachHero from "@/assets/teach-hero.jpg";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { ApplyForm } from "@/components/site/ApplyForm";
+import { Requirements } from "@/components/site/Requirements";
 
 export function Teach() {
   const { t } = useTranslation(["teach", "common"]);
@@ -38,6 +39,21 @@ export function Teach() {
               {t("hero.subheadline")}
             </p>
           </Reveal>
+        </div>
+      </section>
+
+      {/* Teacher requirements — the same client-approved copy as the homepage and the
+          About page, via the shared Requirements component. Stated before the form so
+          applicants read it first. */}
+      <section className="py-16 md:py-24">
+        <div className="container-editorial">
+          <SectionHeader
+            eyebrow={t("common:requirementsSection.eyebrow")}
+            title={t("common:requirementsSection.title")}
+          />
+          <div className="mt-10 md:mt-14">
+            <Requirements />
+          </div>
         </div>
       </section>
 

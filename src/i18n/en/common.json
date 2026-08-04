@@ -49,41 +49,57 @@
   "applyForm": {
     "labels": {
       "name": "Name",
-      "contact": "Phone or email",
+      "phone": "Phone number",
+      "email": "Email",
       "english": "Your English background",
+      "degree": "Academic degree",
+      "experience": "Teaching experience",
       "location": "Location",
       "why": "Why do you want to teach with Bridges?"
     },
     "errorFields": {
       "name": "Name",
-      "contact": "Phone or email",
+      "phone": "Phone number",
+      "email": "Email",
       "english": "Your English background",
+      "degree": "Academic degree",
       "location": "Location",
       "why": "Why do you want to teach with Bridges"
     },
     "placeholders": {
-      "english": "e.g. native speaker, near-native, studied/lived abroad…",
+      "english": "e.g. fluent, near-native, studied/lived abroad…",
+      "degree": "e.g. B.A. in English Literature",
+      "experience": "Teaching, or work with children — an advantage, not required.",
       "location": "Which Negev town or area?",
       "why": "One line is enough."
     },
     "cv": "CV",
     "consent": "This is paid work, not volunteering. By applying, you agree to be contacted about your application.",
     "thankYou": "Thank you",
-    "successTitle": "Your application is in.",
-    "successBody": "We read every application ourselves. We'll be in touch to set up a short conversation."
+    "successTitle": "We have received your application.",
+    "successBody": "If your background matches one of our current needs, the Bridges team will contact you."
+  },
+  "requirementsSection": {
+    "eyebrow": "Teacher requirements",
+    "title": "Who can apply."
+  },
+  "requirements": {
+    "title": "Education and English level",
+    "body": "A recognised academic degree is required. Applicants must have fluent or near-native English. Teaching experience and experience working with children are an advantage."
+  },
+  "roles": {
+    "title": "Roles and placements",
+    "body": "Bridges recruits qualified teachers for a range of full-time and part-time roles in schools across the Negev. Placements depend on current programme needs. Details are discussed individually with suitable candidates."
   },
   "applyHow": {
     "eyebrow": "How to apply",
     "title": "Three steps to teaching with Bridges.",
     "intro": "A short form beats emailing a CV into the void. Fill it in and we'll take it from there.",
     "steps": [
-      "Fill in the short form below — name, phone or email, English background, location, and one line on why you want to teach with Bridges.",
+      "Fill in the short form below — name, phone, email, English background, academic degree, location, and one line on why you want to teach with Bridges.",
       "Have a short conversation with us.",
       "If it's a good fit, join a Bridges teaching placement."
     ]
-  },
-  "todo": {
-    "toConfirm": "To confirm"
   },
   "notFound": {
     "eyebrow": "Page not found",

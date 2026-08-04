@@ -1,7 +1,6 @@
 import { Trans, useTranslation } from "react-i18next";
 import { Reveal } from "@/components/site/Reveal";
-import { TodoPlaceholder } from "@/components/site/TodoPlaceholder";
-import { CONTACT_EMAIL, CONTACT_EMAIL_HREF } from "@/site-config";
+import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/site-config";
 
 export function AccessibilityStatement() {
   const { t } = useTranslation(["accessibility", "common"]);
@@ -48,9 +47,6 @@ export function AccessibilityStatement() {
           <div>
             <h2 className="font-display text-2xl text-ink md:text-3xl">{t("ongoing.title")}</h2>
             <p className="mt-4 text-slate-body leading-relaxed">{t("ongoing.body")}</p>
-            <div className="mt-6">
-              <TodoPlaceholder label={t("ongoing.todoLabel")} note={t("ongoing.todoNote")} />
-            </div>
           </div>
 
           <div>
@@ -63,15 +59,14 @@ export function AccessibilityStatement() {
                   {CONTACT_EMAIL}
                 </a>
               </li>
+              <li>
+                {t("report.phoneLabel")}{" "}
+                <a href={PHONE_HREF} className="link-underline font-medium text-ink">
+                  {PHONE_DISPLAY}
+                </a>
+              </li>
               <li>{t("report.address")}</li>
             </ul>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <TodoPlaceholder
-                label={t("report.coordinatorLabel")}
-                note={t("report.coordinatorNote")}
-              />
-              <TodoPlaceholder label={t("report.phoneLabel")} note={t("report.phoneNote")} />
-            </div>
           </div>
 
           <div>

@@ -6,9 +6,10 @@ import g4 from "@/assets/gallery-4.jpg";
 import g5 from "@/assets/gallery-5.jpg";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
+import { Requirements } from "@/components/site/Requirements";
 
 export function About() {
-  const { t } = useTranslation("about");
+  const { t } = useTranslation(["about", "common"]);
   const challenge = t("difference.challenge", { returnObjects: true }) as string[];
   const approach = t("difference.approach", { returnObjects: true }) as string[];
   const whyItems = t("why.items", { returnObjects: true }) as { title: string; body: string }[];
@@ -144,6 +145,20 @@ export function About() {
                 </div>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Teacher requirements — the same client-approved copy as the homepage and the
+          apply page, via the shared Requirements component. */}
+      <section className="bg-cream py-16 md:py-24">
+        <div className="container-editorial">
+          <SectionHeader
+            eyebrow={t("common:requirementsSection.eyebrow")}
+            title={t("common:requirementsSection.title")}
+          />
+          <div className="mt-10 md:mt-14">
+            <Requirements />
           </div>
         </div>
       </section>

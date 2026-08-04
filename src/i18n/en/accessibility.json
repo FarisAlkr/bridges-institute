@@ -21,19 +21,14 @@
   },
   "ongoing": {
     "title": "Ongoing work",
-    "body": "Accessibility is never finished. We continue to test and improve, and this statement will be published in Hebrew and Arabic as part of the site’s multilingual rollout.",
-    "todoLabel": "Hebrew & Arabic versions of this statement",
-    "todoNote": "To be published alongside the multilingual rollout — reviewed by a real speaker, not machine-translated."
+    "body": "Accessibility is never finished. We continue to test and improve, and this statement will be published in Hebrew and Arabic as part of the site’s multilingual rollout."
   },
   "report": {
     "title": "Reporting an accessibility problem",
     "body": "If you come across a barrier on this site, please tell us and we will do our best to put it right.",
     "emailLabel": "Email:",
-    "address": "Address: Yehuda HaNachtom 10, Be'er Sheva, Israel.",
-    "coordinatorLabel": "Accessibility coordinator",
-    "coordinatorNote": "Name and role of the person responsible for accessibility — to confirm with the client.",
-    "phoneLabel": "Phone for accessibility requests",
-    "phoneNote": "Direct phone number for accessibility enquiries — to confirm with the client."
+    "phoneLabel": "Phone:",
+    "address": "Address: Yehuda HaNachtom 10, Be'er Sheva, Israel."
   },
   "reviewed": {
     "title": "Last reviewed",

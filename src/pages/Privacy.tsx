@@ -1,14 +1,16 @@
 import { useTranslation } from "react-i18next";
 import { Reveal } from "@/components/site/Reveal";
-import { TodoPlaceholder } from "@/components/site/TodoPlaceholder";
 import { CONTACT_EMAIL, CONTACT_EMAIL_HREF } from "@/site-config";
 
 // ⚠ BASELINE DRAFT — NOT FINALIZED LEGAL TEXT.
 // This privacy policy is an authored baseline that describes what the forms collect.
 // It REQUIRES client/legal review before launch. The legal entity / data controller,
 // the retention period, and the processor list are visible "to confirm" placeholders
-// (see TodoPlaceholder blocks below and docs/redesign/provenance.md). Do not treat the
 // rendered copy as final. Content strings live in src/i18n/en/privacy.json.
+//
+// The client asked for all "to confirm" notes to be removed from the published page, so
+// the controller, retention period and processor list are simply not stated rather than
+// flagged in the UI. They still need legal review before launch.
 export function Privacy() {
   const { t } = useTranslation(["privacy", "common"]);
   const collectItems = t("collect.items", { returnObjects: true }) as string[];
@@ -58,23 +60,11 @@ export function Privacy() {
           <div>
             <h2 className="font-display text-2xl text-ink md:text-3xl">{t("sharing.title")}</h2>
             <p className="mt-4 text-slate-body leading-relaxed">{t("sharing.body")}</p>
-            <div className="mt-6">
-              <TodoPlaceholder
-                label={t("sharing.processorsLabel")}
-                note={t("sharing.processorsNote")}
-              />
-            </div>
           </div>
 
           <div>
             <h2 className="font-display text-2xl text-ink md:text-3xl">{t("retention.title")}</h2>
             <p className="mt-4 text-slate-body leading-relaxed">{t("retention.body")}</p>
-            <div className="mt-6">
-              <TodoPlaceholder
-                label={t("retention.periodLabel")}
-                note={t("retention.periodNote")}
-              />
-            </div>
           </div>
 
           <div>
@@ -94,12 +84,6 @@ export function Privacy() {
               </li>
               <li>{t("contact.address")}</li>
             </ul>
-            <div className="mt-6">
-              <TodoPlaceholder
-                label={t("contact.controllerLabel")}
-                note={t("contact.controllerNote")}
-              />
-            </div>
           </div>
 
           <div>

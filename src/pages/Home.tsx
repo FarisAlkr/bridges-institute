@@ -13,7 +13,7 @@ import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { StatCounter } from "@/components/site/StatCounter";
 import { ApplyForm } from "@/components/site/ApplyForm";
-import { TodoPlaceholder } from "@/components/site/TodoPlaceholder";
+import { Requirements } from "@/components/site/Requirements";
 
 const whyKeys = ["meaning", "active", "support", "personality"] as const;
 const photoSrc = [photoYoungGame, photoSpeaking, photoSmallGroup, photoPictureCards, photoOneToOne];
@@ -134,7 +134,11 @@ export function Home() {
       <section id="method" className="scroll-mt-24 bg-cream py-16 md:py-24">
         <div className="container-editorial grid gap-10 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-5">
-            <SectionHeader eyebrow={t("job.eyebrow")} title={t("job.title")} />
+            <SectionHeader
+              eyebrow={t("job.eyebrow")}
+              title={t("job.title")}
+              intro={t("job.method")}
+            />
             <Reveal delay={160}>
               <blockquote className="mt-8 border-s-2 border-brass-deep ps-5 font-display text-xl italic leading-snug text-ink md:mt-10 md:text-2xl">
                 {t("job.quote")}
@@ -200,7 +204,9 @@ export function Home() {
         </div>
       </section>
 
-      {/* §6 — WHAT YOU NEED TO APPLY (Hebrew + quals + schedule confirmed; location to confirm) */}
+      {/* §6 — WHAT YOU NEED TO APPLY. The requirements and roles copy is client-approved
+          and lives in the shared `common` namespace so the homepage, About and the apply
+          page state it identically — the client asked for exactly that. */}
       <section className="bg-cream py-16 md:py-24">
         <div className="container-editorial">
           <SectionHeader
@@ -221,33 +227,8 @@ export function Home() {
             </div>
           </Reveal>
 
-          {/* Other confirmed essentials */}
-          <div className="mt-8 grid gap-x-10 gap-y-8 md:grid-cols-2">
-            <Reveal>
-              <div className="border-t border-border pt-5">
-                <h3 className="font-display text-xl text-ink md:text-2xl">
-                  {t("requirements.qualsTitle")}
-                </h3>
-                <p className="mt-2 text-slate-body leading-relaxed">
-                  {t("requirements.qualsBody")}
-                </p>
-              </div>
-            </Reveal>
-            <Reveal delay={80}>
-              <div className="border-t border-border pt-5">
-                <h3 className="font-display text-xl text-ink md:text-2xl">
-                  {t("requirements.scheduleTitle")}
-                </h3>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Still to confirm */}
-          <div className="mt-8 max-w-xl">
-            <TodoPlaceholder
-              label={t("requirements.locationLabel")}
-              note={t("requirements.locationNote")}
-            />
+          <div className="mt-8">
+            <Requirements />
           </div>
 
           <Reveal delay={120}>
@@ -256,31 +237,25 @@ export function Home() {
         </div>
       </section>
 
-      {/* §7 — REAL CLASSROOM PHOTOS (captions awaiting client) */}
+      {/* §7 — REAL CLASSROOM PHOTOS. Deliberately uncaptioned: the client asked for the
+          photos to run without captions until final ones are approved. Alt text stays —
+          it describes the scene for screen readers and is not visible caption copy. */}
       <section className="py-16 md:py-24">
         <div className="container-editorial">
           <SectionHeader eyebrow={t("photos.eyebrow")} title={t("photos.title")} />
           <div className="mt-10 grid grid-cols-12 gap-3 md:mt-14 md:gap-6">
             {photoSrc.map((src, i) => (
               <Reveal key={i} delay={i * 60} className={photoSpan[i]}>
-                <figure className="h-full w-full">
-                  <div className="h-full w-full overflow-hidden rounded-xl">
-                    <img
-                      src={src}
-                      alt={photoAlts[i]}
-                      loading="lazy"
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <figcaption className="mt-2 text-xs text-slate-body">
-                    {t("photos.caption")}
-                  </figcaption>
-                </figure>
+                <div className="h-full w-full overflow-hidden rounded-xl">
+                  <img
+                    src={src}
+                    alt={photoAlts[i]}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
               </Reveal>
             ))}
-          </div>
-          <div className="mt-6 max-w-xl">
-            <TodoPlaceholder label={t("photos.videoLabel")} note={t("photos.videoNote")} />
           </div>
         </div>
       </section>

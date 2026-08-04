@@ -66,7 +66,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Authentic, immersive English programs led by native English-speaking educators. Serving Arab and Jewish communities across the Negev since 2014.",
+          "Authentic, immersive English programs led by qualified English-speaking teachers. Serving Arab and Jewish communities across the Negev since 2014.",
       },
       { name: "author", content: "Bridges Institute" },
       { property: "og:site_name", content: "Bridges Institute" },
@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Authentic, immersive English programs led by native English-speaking educators. Serving Arab and Jewish communities across the Negev since 2014.",
+          "Authentic, immersive English programs led by qualified English-speaking teachers. Serving Arab and Jewish communities across the Negev since 2014.",
       },
       { name: "twitter:card", content: "summary_large_image" },
       {
@@ -88,7 +88,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "twitter:description",
         content:
-          "Authentic, immersive English programs led by native English-speaking educators. Serving Arab and Jewish communities across the Negev since 2014.",
+          "Authentic, immersive English programs led by qualified English-speaking teachers. Serving Arab and Jewish communities across the Negev since 2014.",
       },
     ],
     links: [

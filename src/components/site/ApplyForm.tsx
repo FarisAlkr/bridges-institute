@@ -7,8 +7,14 @@ import { HoneypotField } from "./HoneypotField";
 // Submits to the canonical /api/submit endpoint (C1); shows the success state only on a
 // real delivery, and a retry-able error otherwise.
 
-// Order matters: used to focus the first invalid field on submit.
-const REQUIRED = ["name", "contact", "english", "location", "why"] as const;
+// Order matters: used to focus the first invalid field on submit. Mirrors
+// APPLY_REQUIRED in src/routes/api/submit.ts, which re-validates server-side.
+//
+// Phone and email are separate fields, and the degree question is required, at the
+// client's request. `experience` is deliberately NOT required: the client describes
+// teaching experience as an advantage rather than a condition.
+const REQUIRED = ["name", "phone", "email", "english", "degree", "location", "why"] as const;
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function ApplyForm() {
   const { t } = useTranslation("common");
@@ -26,6 +32,8 @@ export function ApplyForm() {
         next[name] = t("form.requiredError", { field: t(`applyForm.errorFields.${name}`) });
       }
     }
+    const email = String(data.get("email") ?? "").trim();
+    if (email && !next.email && !EMAIL_RE.test(email)) next.email = t("form.emailError");
     // Client-side CV guard (server re-checks).
     const cv = data.get("cv");
     if (cv instanceof File && cv.size > 0) {
@@ -62,7 +70,11 @@ export function ApplyForm() {
                 ? t("form.cvTypeError")
                 : code === "too_large"
                   ? t("form.cvSizeError")
-                  : t("form.requiredError", { field: t(`applyForm.errorFields.${field}`, field) });
+                  : code === "invalid_email"
+                    ? t("form.emailError")
+                    : t("form.requiredError", {
+                        field: t(`applyForm.errorFields.${field}`, field),
+                      });
           }
           setErrors(mapped);
           document.getElementById(Object.keys(mapped)[0])?.focus();
@@ -112,11 +124,21 @@ export function ApplyForm() {
         onClear={clearError}
       />
       <ApplyField
-        label={t("applyForm.labels.contact")}
-        name="contact"
+        label={t("applyForm.labels.phone")}
+        name="phone"
+        type="tel"
+        autoComplete="tel"
+        required
+        error={errors.phone}
+        onClear={clearError}
+      />
+      <ApplyField
+        label={t("applyForm.labels.email")}
+        name="email"
+        type="email"
         autoComplete="email"
         required
-        error={errors.contact}
+        error={errors.email}
         onClear={clearError}
       />
       <ApplyField
@@ -125,6 +147,22 @@ export function ApplyForm() {
         placeholder={t("applyForm.placeholders.english")}
         required
         error={errors.english}
+        onClear={clearError}
+      />
+      <ApplyField
+        label={t("applyForm.labels.degree")}
+        name="degree"
+        placeholder={t("applyForm.placeholders.degree")}
+        required
+        error={errors.degree}
+        onClear={clearError}
+      />
+      <ApplyField
+        label={t("applyForm.labels.experience")}
+        name="experience"
+        placeholder={t("applyForm.placeholders.experience")}
+        optionalLabel={t("form.optional")}
+        error={errors.experience}
         onClear={clearError}
       />
       <ApplyField
@@ -192,6 +230,7 @@ function ApplyField({
   required,
   placeholder,
   autoComplete,
+  optionalLabel,
   error,
   onClear,
 }: {
@@ -201,6 +240,7 @@ function ApplyField({
   required?: boolean;
   placeholder?: string;
   autoComplete?: string;
+  optionalLabel?: string;
   error?: string;
   onClear: (name: string) => void;
 }) {
@@ -211,6 +251,9 @@ function ApplyField({
       <label htmlFor={name} className="eyebrow block">
         {label}
         {required && <span className="text-brass-deep"> *</span>}
+        {optionalLabel && (
+          <span className="normal-case tracking-normal text-slate-body"> {optionalLabel}</span>
+        )}
       </label>
       <input
         id={name}
