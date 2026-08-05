@@ -10,7 +10,8 @@
     "items": [
       "Application form: your name, phone or email, English background, location, your reason for applying, and an optional CV file.",
       "Contact form: your name, email, organization, subject, and message.",
-      "Basic technical data your browser sends (such as IP address and device type), used only to keep the site secure and working."
+      "Basic technical data your browser sends (such as IP address and device type), used only to keep the site secure and working.",
+      "Anonymous, cookie-free page-view statistics — which pages are opened and roughly from where — so we can see which parts of the site are useful. This cannot identify you."
     ]
   },
   "use": {

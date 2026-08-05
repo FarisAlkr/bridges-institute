@@ -10,6 +10,8 @@ import {
 } from "@tanstack/react-router";
 import { type ReactNode, useEffect, useState } from "react";
 import { I18nextProvider, useTranslation } from "react-i18next";
+// Generic React entry point, not the /next one — this is TanStack Start.
+import { Analytics } from "@vercel/analytics/react";
 
 import appCss from "../styles.css?url";
 import { Nav } from "../components/site/Nav";
@@ -117,6 +119,10 @@ function RootShell({ children }: { children: ReactNode }) {
       </head>
       <body>
         {children}
+        {/* Cookieless page-view counts (Vercel Web Analytics). No cookies and no
+            cross-site identifier, so it needs no consent banner — but it IS disclosed
+            in the privacy policy, because the page promises to say what we collect. */}
+        <Analytics />
         <Scripts />
       </body>
     </html>
