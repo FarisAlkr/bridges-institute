@@ -3,15 +3,27 @@ import type {} from "@tanstack/react-start";
 import { HONEYPOT_FIELD } from "@/lib/form-protection";
 
 // Single canonical submission endpoint for both the application (ApplyForm) and the
-// contact form (C1). It validates server-side, then delivers the submission to an
-// email/automation webhook. It returns success ONLY when delivery actually
-// succeeded; it never fakes a success on a hiring form.
+// contact form (C1). It validates server-side, then delivers the submission by email.
+// It returns success ONLY when delivery actually succeeded; it never fakes a success on
+// a hiring form.
 //
-// Destination is provider-agnostic via env (set in Vercel, never hard-coded):
-//   SUBMISSIONS_WEBHOOK_URL — an email/automation webhook (Make / Zapier / Resend, etc.)
-//   that turns the payload into an email to the Bridges inbox.
+// Two delivery paths, chosen by which env vars are set (never hard-coded):
 //
-// We POST a JSON payload (not raw multipart) so nothing is dropped by the receiver:
+//   1. RESEND_API_KEY + SUBMISSIONS_TO_EMAIL  [preferred]
+//      Sends the email directly through Resend, attaching the CV here in code. Optional
+//      SUBMISSIONS_FROM_EMAIL overrides the sender once a domain is verified in Resend.
+//
+//   2. SUBMISSIONS_WEBHOOK_URL  [fallback]
+//      POSTs the JSON payload below to a Make/Zapier-style automation, which then has to
+//      base64-decode the CV itself. Kept so an existing automation keeps working.
+//
+// Path 1 is preferred precisely because the attachment is built here, under test, rather
+// than depending on a receiver elsewhere decoding cv.base64 correctly.
+//
+// Neither configured → 503 not_configured, so the UI shows a clear failure rather than
+// silently dropping an application.
+//
+// The webhook payload (path 2):
 //   {
 //     formType: "apply" | "contact",
 //     subject:  string,                    // ready-to-use email subject
@@ -26,12 +38,6 @@ import { HONEYPOT_FIELD } from "@/lib/form-protection";
 // The CV is embedded as base64 so it always arrives (multipart file parts get dropped by
 // some webhook receivers). The automation decodes cv.base64 into an email attachment (or
 // uploads it and links to it) — a real attachment or working link, not dropped.
-//
-// If the env var is unset, the endpoint responds 503 { ok:false, error:"not_configured" }
-// so the UI shows a clear failure rather than silently dropping an application.
-//
-// NOTE: server routes run on Vercel's function layer, not the static output — confirm
-// that layer is active on the final domain (see open-questions C4b).
 
 // Mirrors REQUIRED in src/components/site/ApplyForm.tsx. Phone and email are separate
 // fields and the degree question is required, at the client's request; `experience` is
@@ -93,6 +99,70 @@ function isRateLimited(ip: string): boolean {
   times.push(now);
   recentHits.set(ip, times);
   return false;
+}
+
+// --- Delivery via Resend -----------------------------------------------------------
+//
+// Sender address. Resend will only send from a domain verified in the Resend dashboard;
+// until bridges-institute.com is verified there, `onboarding@resend.dev` is the one
+// address it accepts — and it can then only deliver to the Resend account owner's own
+// email. That is enough to prove the pipeline end to end. Once the domain is verified,
+// set SUBMISSIONS_FROM_EMAIL to something like
+// "Bridges Institute <applications@bridges-institute.com>" and it sends to anyone.
+const DEFAULT_FROM = "Bridges Institute <onboarding@resend.dev>";
+
+type SubmissionPayload = {
+  formType: string;
+  subject: string;
+  text: string;
+  fields: Record<string, string>;
+  cv: { filename: string; contentType: string; sizeBytes: number; base64: string } | null;
+  receivedAt: string;
+};
+
+// Returns true only on a real accepted send.
+async function deliverViaResend(
+  apiKey: string,
+  to: string,
+  payload: SubmissionPayload,
+): Promise<boolean> {
+  const applicant = payload.fields.email;
+  const body: Record<string, unknown> = {
+    from: process.env.SUBMISSIONS_FROM_EMAIL || DEFAULT_FROM,
+    // Comma-separated list is supported, so one env var can fan out to several people.
+    to: to
+      .split(",")
+      .map((a) => a.trim())
+      .filter(Boolean),
+    subject: payload.subject,
+    text: `${payload.text}\n\nReceived: ${payload.receivedAt}`,
+  };
+  // Replying to the notification then answers the applicant directly.
+  if (applicant && EMAIL_RE.test(applicant)) body.reply_to = applicant;
+  // Resend takes attachment bytes as base64 in `content` — the same bytes we already
+  // read off the upload, so the CV arrives as a real file with no decode step in
+  // between. This is what the webhook route could never guarantee.
+  if (payload.cv) {
+    body.attachments = [{ filename: payload.cv.filename, content: payload.cv.base64 }];
+  }
+
+  try {
+    const res = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    });
+    if (!res.ok) {
+      // Resend explains refusals (unverified domain, bad recipient) in the body — log it,
+      // it is the difference between a 5-second fix and an afternoon.
+      console.error(`[submit] resend responded ${res.status}: ${await res.text()}`);
+      return false;
+    }
+    return true;
+  } catch (err) {
+    console.error("[submit] resend delivery error", err);
+    return false;
+  }
 }
 
 // Reject cross-site posts. A MISSING Origin header is allowed through on purpose:
@@ -204,10 +274,27 @@ export const Route = createFileRoute("/api/submit")({
         };
 
         // --- Deliver ---
+        // Resend first when configured, because the CV attachment is then built here,
+        // in code we test, instead of relying on a webhook receiver to base64-decode it
+        // correctly. The webhook path stays as a fallback so an existing Make/Zapier
+        // setup keeps working. Neither configured → 503, never a fake success.
+        const resendKey = process.env.RESEND_API_KEY;
         const webhook = process.env.SUBMISSIONS_WEBHOOK_URL;
+
+        if (resendKey) {
+          const to = process.env.SUBMISSIONS_TO_EMAIL;
+          if (!to) {
+            console.error("[submit] RESEND_API_KEY is set but SUBMISSIONS_TO_EMAIL is not");
+            return json({ ok: false, error: "not_configured" }, 503);
+          }
+          const delivered = await deliverViaResend(resendKey, to, payload);
+          if (!delivered) return json({ ok: false, error: "delivery_failed" }, 502);
+          return json({ ok: true });
+        }
+
         if (!webhook) {
           // No destination configured — fail loudly rather than drop the submission.
-          console.error("[submit] SUBMISSIONS_WEBHOOK_URL is not set; submission not delivered");
+          console.error("[submit] no delivery destination configured; submission not delivered");
           return json({ ok: false, error: "not_configured" }, 503);
         }
 
