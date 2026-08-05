@@ -8,7 +8,7 @@
 
 This is not a redesign. The site already looks good. The change is **purpose**: the homepage now speaks **first to teachers we want to hire**. Schools, partners, parents and donors still matter, but they are a **secondary path lower down the page**.
 
-**The test:** a good English-speaking teacher lands on the site and thinks — *I understand the work, I can picture myself doing it, this looks organized, and I know exactly how to apply.*
+**The test:** a good English-speaking teacher lands on the site and thinks — _I understand the work, I can picture myself doing it, this looks organized, and I know exactly how to apply._
 
 ## Main message (guides the whole page)
 
@@ -33,12 +33,12 @@ This is not a redesign. The site already looks good. The change is **purpose**: 
 
 ## How to use these docs
 
-| File | What it's for |
-|---|---|
-| `README.md` | This north-star brief. |
-| `homepage.md` | Section-by-section homepage spec, in order, with approved copy inline. The build target. |
-| `i18n.md` | Language + RTL requirements. Contains an **architecture decision that needs approval before coding**. |
-| `accessibility.md` | Israeli Standard 5568 / WCAG 2.0 AA checklist. |
+| File                | What it's for                                                                                                 |
+| ------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `README.md`         | This north-star brief.                                                                                        |
+| `homepage.md`       | Section-by-section homepage spec, in order, with approved copy inline. The build target.                      |
+| `i18n.md`           | Language + RTL requirements. Contains an **architecture decision that needs approval before coding**.         |
+| `accessibility.md`  | Israeli Standard 5568 / WCAG 2.0 AA checklist.                                                                |
 | `open-questions.md` | **Blockers.** Content to confirm with the client + assets needed. Resolve or mark before those sections ship. |
 
 ## Definition of done (client's launch checklist)

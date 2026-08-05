@@ -42,7 +42,7 @@ Four points. Plain, not poetic. Minimal/no icons — short headline + one line e
 - **Support and structure** — Teachers get lesson frameworks, activities and routines. You bring the energy; we provide the structure.
 - **Room for personality** — Warmth, presence and reliability matter here. Teachers bring themselves into the room.
 
-## 4. What the job actually is  *(combines old "what a lesson looks like" + "how we teach" — this is the ONLY method section)*
+## 4. What the job actually is _(combines old "what a lesson looks like" + "how we teach" — this is the ONLY method section)_
 
 Plain and concrete. Helps a teacher self-select.
 
@@ -54,28 +54,29 @@ Plain and concrete. Helps a teacher self-select.
 - Every student leaves the room having used English out loud.
 
 **Key method line (pull-quote):**
+
 > Confidence first. Accuracy follows. Students speak first; we polish later.
 
-## 5. Who we're looking for  *(two-column: good fit / not the right fit)*
+## 5. Who we're looking for _(two-column: good fit / not the right fit)_
 
 Keep this — it filters wrong applicants before the interview.
 
-| Good fit | Probably not the right fit |
-|---|---|
-| Confident, fluent or near-native English | Wants quiet, textbook-only teaching |
-| Comfortable leading a room of children or teens | Dislikes movement, noise, games or group energy |
-| Warm, responsible and reliable | Uncomfortable leading and managing a class |
-| Enjoys active teaching — speaking, movement, games | Unreliable with schedule or communication |
-| Understands many students are nervous and need confidence first | Only wants to teach grammar from a book |
+| Good fit                                                        | Probably not the right fit                      |
+| --------------------------------------------------------------- | ----------------------------------------------- |
+| Confident, fluent or near-native English                        | Wants quiet, textbook-only teaching             |
+| Comfortable leading a room of children or teens                 | Dislikes movement, noise, games or group energy |
+| Warm, responsible and reliable                                  | Uncomfortable leading and managing a class      |
+| Enjoys active teaching — speaking, movement, games              | Unreliable with schedule or communication       |
+| Understands many students are nervous and need confidence first | Only wants to teach grammar from a book         |
 
-## 6. What you need to apply  ⚠ BLOCKED — see `open-questions.md`
+## 6. What you need to apply ⚠ BLOCKED — see `open-questions.md`
 
 Short requirements box. Good candidates don't apply when they can't tell if they qualify — so this must be **accurate**, not guessed. Until the client confirms, render each line as a visible `TODO` placeholder, not invented text:
 
-- Hebrew requirement — *TO CONFIRM.* If not required, state prominently: **"No Hebrew required."** (major selling point)
-- Qualifications — *TO CONFIRM* (degree/cert vs. fluent+capable+energetic)
-- Schedule — *TO CONFIRM* (part/full-time, rough hours, school-year/summer/flexible)
-- Location — *TO CONFIRM* (which Negev towns; own transport needed?)
+- Hebrew requirement — _TO CONFIRM._ If not required, state prominently: **"No Hebrew required."** (major selling point)
+- Qualifications — _TO CONFIRM_ (degree/cert vs. fluent+capable+energetic)
+- Schedule — _TO CONFIRM_ (part/full-time, rough hours, school-year/summer/flexible)
+- Location — _TO CONFIRM_ (which Negev towns; own transport needed?)
 - **This is paid work, not volunteering** — state clearly. (confirmed; pay figures not required)
 
 ## 7. Real classroom photos, with captions
@@ -89,6 +90,7 @@ Short requirements box. Good candidates don't apply when they can't tell if they
 Simple, mobile-friendly. A **short on-page form beats "email us your CV."**
 
 Three steps:
+
 1. Fill in a short form — name, phone/email, English background, location, one line on why you want to teach with Bridges.
 2. Have a short conversation with us.
 3. If it's a good fit, join a Bridges teaching placement.
@@ -97,6 +99,7 @@ Three steps:
 ⚠ **The form must actually submit** (endpoint/email/storage) and show a success state — verify end-to-end on mobile. CV upload needs a real destination. See `open-questions.md`.
 
 **Final CTA block:**
+
 > **Ready to teach with Bridges?** Help students in the Negev find their voice in English.
 > Button: **Apply to Teach**
 
