@@ -52,108 +52,116 @@ export function Nav() {
   const solid = scrolled || !isHome || open;
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        solid ? "bg-ivory/95 backdrop-blur border-b border-border" : "bg-transparent"
-      }`}
-    >
-      <div className="container-editorial flex h-20 items-center justify-between">
-        <Link to={applyTo} className="flex items-center gap-3 group">
-          <span
-            aria-hidden
-            className={`inline-block h-8 w-8 rounded-full border ${
-              solid ? "border-ink" : "border-ivory"
-            } relative`}
-          >
-            <span className="absolute inset-1.5 rounded-full bg-brass" />
-          </span>
-          <span
-            className={`font-display text-xl tracking-tight ${solid ? "text-ink" : "text-ivory"}`}
-          >
-            {t("brand")}
-            <span className="text-brass">.</span>
-          </span>
-        </Link>
-
-        <nav aria-label={t("nav.primaryLabel")} className="hidden lg:flex items-center gap-9">
-          {links.map((l) => {
-            const active = unprefixed === l.to;
-            return (
-              <Link
-                key={l.to}
-                to={withLocale(l.to, locale) as ToProp}
-                className={`link-underline text-sm tracking-wide transition-colors ${
-                  solid ? "text-ink" : "text-ivory"
-                } ${active ? "font-medium" : ""}`}
-              >
-                {t(l.key)}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <div className="hidden lg:flex items-center gap-5">
-          <LanguageSwitcher tone={solid ? "solid" : "onDark"} />
-          <Link
-            to={applyTo}
-            hash="apply"
-            className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs uppercase tracking-[0.18em] transition ${
-              solid
-                ? "bg-ink text-ivory hover:bg-ink-soft"
-                : "border border-ivory/60 text-ivory hover:bg-ivory hover:text-ink"
-            }`}
-          >
-            {t("cta.applyToTeach")}
+    <>
+      <header
+        className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
+          solid ? "bg-ivory/95 backdrop-blur border-b border-border" : "bg-transparent"
+        }`}
+      >
+        <div className="container-editorial flex h-20 items-center justify-between">
+          <Link to={applyTo} className="flex items-center gap-3 group">
+            <span
+              aria-hidden
+              className={`inline-block h-8 w-8 rounded-full border ${
+                solid ? "border-ink" : "border-ivory"
+              } relative`}
+            >
+              <span className="absolute inset-1.5 rounded-full bg-brass" />
+            </span>
+            <span
+              className={`font-display text-xl tracking-tight ${solid ? "text-ink" : "text-ivory"}`}
+            >
+              {t("brand")}
+              <span className="text-brass">.</span>
+            </span>
           </Link>
-        </div>
 
-        <button
-          onClick={() => setOpen((v) => !v)}
-          className={`lg:hidden p-2 ${solid ? "text-ink" : "text-ivory"}`}
-          aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
-          aria-expanded={open}
-          aria-controls="mobile-menu"
-        >
-          {open ? <X size={22} aria-hidden /> : <Menu size={22} aria-hidden />}
-        </button>
-      </div>
-
-      {open && (
-        <div id="mobile-menu" className="lg:hidden border-t border-border bg-ivory">
-          <nav
-            aria-label={t("nav.mobileLabel")}
-            className="container-editorial flex flex-col py-6 gap-1"
-          >
-            {links.map((l) => (
-              <Link
-                key={l.to}
-                to={withLocale(l.to, locale) as ToProp}
-                className="py-3 text-ink text-lg font-display border-b border-border/60"
-              >
-                {t(l.key)}
-              </Link>
-            ))}
-            <div className="mt-4 flex items-center justify-between">
-              <Link to={applyTo} hash="apply" className="btn-primary self-start">
-                {t("cta.applyToTeach")}
-              </Link>
-              <LanguageSwitcher tone="solid" />
-            </div>
+          <nav aria-label={t("nav.primaryLabel")} className="hidden lg:flex items-center gap-9">
+            {links.map((l) => {
+              const active = unprefixed === l.to;
+              return (
+                <Link
+                  key={l.to}
+                  to={withLocale(l.to, locale) as ToProp}
+                  className={`link-underline text-sm tracking-wide transition-colors ${
+                    solid ? "text-ink" : "text-ivory"
+                  } ${active ? "font-medium" : ""}`}
+                >
+                  {t(l.key)}
+                </Link>
+              );
+            })}
           </nav>
-        </div>
-      )}
 
-      {/* Sticky mobile Apply action — keeps "Apply to Teach" within reach on small screens. */}
+          <div className="hidden lg:flex items-center gap-5">
+            <LanguageSwitcher tone={solid ? "solid" : "onDark"} />
+            <Link
+              to={applyTo}
+              hash="apply"
+              className={`inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-xs uppercase tracking-[0.18em] transition ${
+                solid
+                  ? "bg-ink text-ivory hover:bg-ink-soft"
+                  : "border border-ivory/60 text-ivory hover:bg-ivory hover:text-ink"
+              }`}
+            >
+              {t("cta.applyToTeach")}
+            </Link>
+          </div>
+
+          <button
+            onClick={() => setOpen((v) => !v)}
+            className={`lg:hidden p-2 ${solid ? "text-ink" : "text-ivory"}`}
+            aria-label={open ? t("nav.closeMenu") : t("nav.openMenu")}
+            aria-expanded={open}
+            aria-controls="mobile-menu"
+          >
+            {open ? <X size={22} aria-hidden /> : <Menu size={22} aria-hidden />}
+          </button>
+        </div>
+
+        {open && (
+          <div id="mobile-menu" className="lg:hidden border-t border-border bg-ivory">
+            <nav
+              aria-label={t("nav.mobileLabel")}
+              className="container-editorial flex flex-col py-6 gap-1"
+            >
+              {links.map((l) => (
+                <Link
+                  key={l.to}
+                  to={withLocale(l.to, locale) as ToProp}
+                  className="py-3 text-ink text-lg font-display border-b border-border/60"
+                >
+                  {t(l.key)}
+                </Link>
+              ))}
+              <div className="mt-4 flex items-center justify-between">
+                <Link to={applyTo} hash="apply" className="btn-primary self-start">
+                  {t("cta.applyToTeach")}
+                </Link>
+                <LanguageSwitcher tone="solid" />
+              </div>
+            </nav>
+          </div>
+        )}
+      </header>
+
+      {/* Sticky mobile Apply action — keeps "Apply to Teach" within reach on small screens.
+          It MUST stay OUTSIDE <header>. The header carries `backdrop-blur`, and an element
+          with a backdrop-filter becomes the containing block for its fixed-position
+          descendants — so nested here, `bottom-0` resolved to the bottom of the 80px
+          header instead of the viewport and the bar jumped up under the navbar the moment
+          the blur switched on (immediately on every non-home page).
+          Padding accounts for the iOS home indicator so the label is never under it. */}
       {!open && (
         <Link
           to={applyTo}
           hash="apply"
-          className="lg:hidden fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-2 bg-brass px-5 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-ink shadow-[0_-4px_20px_rgba(0,0,0,0.18)]"
+          className="lg:hidden fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-2 bg-brass px-5 pt-3.5 pb-[calc(0.875rem+env(safe-area-inset-bottom))] text-xs font-semibold uppercase tracking-[0.18em] text-ink shadow-[0_-4px_20px_rgba(0,0,0,0.18)]"
         >
           {`${t("cta.applyToTeach")} `}
           <ArrowUpRight size={16} aria-hidden />
         </Link>
       )}
-    </header>
+    </>
   );
 }
