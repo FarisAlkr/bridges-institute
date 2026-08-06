@@ -70,15 +70,7 @@ export function Home() {
           </Reveal>
           <Reveal delay={360}>
             <div className="mt-8 flex flex-wrap gap-3 md:mt-10 md:gap-4">
-              <a
-                href="#apply"
-                className="btn-primary"
-                style={{
-                  background: "var(--brass)",
-                  borderColor: "var(--brass)",
-                  color: "var(--ink)",
-                }}
-              >
+              <a href="#apply" className="btn-gold cta-gold">
                 {`${t("common:cta.applyToTeach")} `}
                 <ArrowUpRight size={16} aria-hidden />
               </a>

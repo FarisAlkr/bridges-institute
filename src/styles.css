@@ -49,13 +49,20 @@
   --radius: 0.5rem;
 
   /* Brand palette */
-  --ink: oklch(0.22 0.04 256);          /* deep navy #0E1B2C */
+  --ink: oklch(0.22 0.04 256); /* deep navy #0E1B2C */
   --ink-soft: oklch(0.32 0.04 256);
-  --brass: oklch(0.74 0.11 82);         /* warm brass #C8A24B — gold on navy */
+  --brass: oklch(0.74 0.11 82); /* warm brass #C8A24B — gold on navy */
   --brass-soft: oklch(0.84 0.07 82);
-  --brass-deep: #836417;                /* AA-safe dark gold for text on light (≈5:1 on ivory) */
-  --error: #b3261e;                     /* AA-safe error red on light (≈6:1 on ivory) */
-  --ivory: oklch(0.965 0.012 85);       /* #F7F4EC */
+  /* Metallic sheen for the primary CTA only (see the `cta-gold` utility).
+     These two bracket --brass rather than replacing it, so the button still reads as
+     the brand gold. Both were chosen against the navy label: the highlight is 11.3:1
+     and the depth 5.9:1, so the DARKEST point of the gradient still clears AA (4.5:1)
+     with margin. Do NOT reach for --brass-deep here — it is 3.1:1 on navy and fails. */
+  --brass-highlight: oklch(0.86 0.075 88);
+  --brass-depth: oklch(0.68 0.115 78);
+  --brass-deep: #836417; /* AA-safe dark gold for text on light (≈5:1 on ivory) */
+  --error: #b3261e; /* AA-safe error red on light (≈6:1 on ivory) */
+  --ivory: oklch(0.965 0.012 85); /* #F7F4EC */
   --cream: oklch(0.985 0.008 85);
   --slate-body: oklch(0.42 0.02 256);
 
@@ -87,8 +94,12 @@
 }
 
 @layer base {
-  * { border-color: var(--color-border); }
-  html { scroll-behavior: smooth; }
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
     background-color: var(--color-background);
     color: var(--slate-body);
@@ -96,13 +107,20 @@
     font-feature-settings: "ss01", "cv11";
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4, h5 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
     font-family: var(--font-display);
     color: var(--ink);
     font-weight: 400;
     letter-spacing: -0.02em;
   }
-  ::selection { background: var(--brass); color: var(--ink); }
+  ::selection {
+    background: var(--brass);
+    color: var(--ink);
+  }
 
   /* Visible keyboard focus on every interactive element (WCAG 2.4.7).
      Deep gold reads on both light and dark backgrounds. */
@@ -115,13 +133,19 @@
 
 /* Respect reduced-motion: no reveal/scroll animation, content shown immediately. */
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, ::before, ::after {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  ::before,
+  ::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  .reveal { opacity: 1 !important; }
+  .reveal {
+    opacity: 1 !important;
+  }
 }
 
 @utility container-editorial {
@@ -129,8 +153,79 @@
   margin-inline: auto;
   padding-inline: 1.25rem;
   max-width: 80rem;
-  @media (min-width: 640px) { padding-inline: 1.5rem; }
-  @media (min-width: 1024px) { padding-inline: 2rem; }
+  @media (min-width: 640px) {
+    padding-inline: 1.5rem;
+  }
+  @media (min-width: 1024px) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Primary "Apply to Teach" CTA — brushed-gold rather than flat.
+   A diagonal sheen plus a hairline top highlight, the way light catches metal. No
+   animation on purpose: a moving shine reads cheap and would need a reduced-motion
+   escape hatch. Used by the hero button and the sticky mobile bar so the site's most
+   important control looks identical in both places. */
+@utility cta-gold {
+  background-image: linear-gradient(
+    135deg,
+    var(--brass-highlight) 0%,
+    var(--brass) 46%,
+    var(--brass-depth) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.5),
+    inset 0 -1px 0 rgb(0 0 0 / 0.08);
+}
+
+/* Pill shape for the gold CTA. Deliberately NOT btn-primary + overrides: btn-primary's
+   hover flips the background to transparent, and the old inline styles silently beat
+   that rule, so the hero button had no working hover at all. Brightening on hover keeps
+   the sheen intact and moves contrast the safe way — lighter gold against the navy
+   label reads higher, never lower. */
+@utility btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.9rem 1.6rem;
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  transition: filter 0.3s ease;
+  &:hover {
+    filter: brightness(1.05);
+  }
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+/* Sticky mobile bar: same sheen, plus an upward shadow lifting it off the content
+   behind. It restates the insets because box-shadow is a single property — it cannot be
+   composed with cta-gold's. MUST stay defined after cta-gold: same specificity, so
+   source order decides the winner. */
+@utility cta-gold-bar {
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.5),
+    inset 0 -1px 0 rgb(0 0 0 / 0.08),
+    0 -4px 20px rgb(0 0 0 / 0.18);
+}
+
+/* Mirror the sheen in RTL so the light falls from the same side as the reading
+   direction — same reasoning as the underline wipe below. */
+[dir="rtl"] .cta-gold {
+  background-image: linear-gradient(
+    225deg,
+    var(--brass-highlight) 0%,
+    var(--brass) 46%,
+    var(--brass-depth) 100%
+  );
 }
 
 @utility hairline {
@@ -165,8 +260,14 @@
   border-radius: 9999px;
   transition: all 0.3s ease;
   border: 1px solid var(--ink);
-  &:hover { background: transparent; color: var(--ink); }
-  &:disabled { opacity: 0.6; pointer-events: none; }
+  &:hover {
+    background: transparent;
+    color: var(--ink);
+  }
+  &:disabled {
+    opacity: 0.6;
+    pointer-events: none;
+  }
 }
 
 @utility btn-ghost {
@@ -184,7 +285,11 @@
   border-radius: 9999px;
   border: 1px solid rgba(247, 244, 236, 0.6);
   transition: all 0.3s ease;
-  &:hover { background: var(--ivory); color: var(--ink); border-color: var(--ivory); }
+  &:hover {
+    background: var(--ivory);
+    color: var(--ink);
+    border-color: var(--ivory);
+  }
 }
 
 @utility link-underline {
@@ -192,24 +297,45 @@
   &::after {
     content: "";
     position: absolute;
-    inset-inline-start: 0; bottom: -2px;
-    width: 100%; height: 1px;
+    inset-inline-start: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
     background: currentColor;
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.4s ease;
   }
-  &:hover::after { transform: scaleX(1); transform-origin: left; }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
 }
 
 @keyframes reveal-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-.reveal { opacity: 0; }
-.reveal.in-view { animation: reveal-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.reveal {
+  opacity: 0;
+}
+.reveal.in-view {
+  animation: reveal-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
 
 /* RTL: mirror the underline wipe and directional icons (never the logo or photos). */
-[dir="rtl"] .link-underline::after { transform-origin: left; }
-[dir="rtl"] .link-underline:hover::after { transform-origin: right; }
-[dir="rtl"] .lucide-arrow-up-right { transform: scaleX(-1); }
+[dir="rtl"] .link-underline::after {
+  transform-origin: left;
+}
+[dir="rtl"] .link-underline:hover::after {
+  transform-origin: right;
+}
+[dir="rtl"] .lucide-arrow-up-right {
+  transform: scaleX(-1);
+}

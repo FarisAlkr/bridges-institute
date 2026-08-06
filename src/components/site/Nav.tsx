@@ -156,7 +156,7 @@ export function Nav() {
         <Link
           to={applyTo}
           hash="apply"
-          className="lg:hidden fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-2 bg-brass px-5 pt-3.5 pb-[calc(0.875rem+env(safe-area-inset-bottom))] text-xs font-semibold uppercase tracking-[0.18em] text-ink shadow-[0_-4px_20px_rgba(0,0,0,0.18)]"
+          className="cta-gold cta-gold-bar lg:hidden fixed inset-x-0 bottom-0 z-40 flex items-center justify-center gap-2 px-5 pt-3.5 pb-[calc(0.875rem+env(safe-area-inset-bottom))] text-xs font-semibold uppercase tracking-[0.18em] text-ink"
         >
           {`${t("cta.applyToTeach")} `}
           <ArrowUpRight size={16} aria-hidden />
