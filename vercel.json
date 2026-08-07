@@ -3,6 +3,8 @@
   "buildCommand": "npm run build",
   "redirects": [
     { "source": "/en", "destination": "/", "permanent": true },
-    { "source": "/en/:path*", "destination": "/:path*", "permanent": true }
+    { "source": "/en/:path*", "destination": "/:path*", "permanent": true },
+    { "source": "/apply-now", "destination": "/teach", "permanent": true },
+    { "source": "/contact-partnership", "destination": "/contact", "permanent": true }
   ]
 }

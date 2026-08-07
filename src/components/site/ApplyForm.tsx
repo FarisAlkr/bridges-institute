@@ -1,7 +1,8 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { ArrowUpRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { HoneypotField } from "./HoneypotField";
+import { ELAPSED_FIELD } from "@/lib/form-protection";
 
 // Single canonical application form used on the homepage (#apply) and /teach.
 // Submits to the canonical /api/submit endpoint (C1); shows the success state only on a
@@ -22,6 +23,13 @@ export function ApplyForm() {
   const [sending, setSending] = useState(false);
   const [formError, setFormError] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  // When the form first appeared on screen. Set in an effect, never during render, so
+  // the prerendered HTML carries no build-time timestamp. The server is sent the elapsed
+  // duration rather than two clocks to compare, so a wrong device clock cannot matter.
+  const shownAt = useRef<number | null>(null);
+  useEffect(() => {
+    shownAt.current = Date.now();
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -52,6 +60,7 @@ export function ApplyForm() {
     setFormError("");
     setSending(true);
     data.set("formType", "apply");
+    if (shownAt.current !== null) data.set(ELAPSED_FIELD, String(Date.now() - shownAt.current));
     try {
       const res = await fetch("/api/submit", { method: "POST", body: data });
       if (res.ok) {

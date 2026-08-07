@@ -1,6 +1,11 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { HONEYPOT_FIELD } from "@/lib/form-protection";
+import {
+  ELAPSED_FIELD,
+  HONEYPOT_FIELD,
+  MIN_FILL_MS,
+  looksLikeRepeatedFiller,
+} from "@/lib/form-protection";
 
 // Single canonical submission endpoint for both the application (ApplyForm) and the
 // contact form (C1). It validates server-side, then delivers the submission by email.
@@ -203,6 +208,15 @@ export const Route = createFileRoute("/api/submit")({
           return json({ ok: true });
         }
 
+        // Submitted faster than a person can type. Only judged when the client actually
+        // reported a duration — a missing value is NOT treated as suspicious, so a
+        // genuine applicant is never rejected because the measurement failed to arrive.
+        const elapsed = Number(form.get(ELAPSED_FIELD));
+        if (Number.isFinite(elapsed) && elapsed > 0 && elapsed < MIN_FILL_MS) {
+          console.warn(`[submit] discarded a submission filled in ${elapsed}ms`);
+          return json({ ok: true });
+        }
+
         const formType = String(form.get("formType") ?? "");
         if (formType !== "apply" && formType !== "contact") {
           return json({ ok: false, error: "unknown_form_type" }, 400);
@@ -235,7 +249,17 @@ export const Route = createFileRoute("/api/submit")({
         const fields: Record<string, string> = {};
         for (const [key, value] of form.entries()) {
           if (key === "cv" || key === "formType" || key === HONEYPOT_FIELD) continue;
+          if (key === ELAPSED_FIELD) continue;
           if (typeof value === "string" && value.trim()) fields[key] = value;
+        }
+
+        // One token pasted into several unrelated free-text boxes. This is what the
+        // observed spam actually looked like — "Pranab" as the English background, the
+        // degree AND the reason for applying — and it is the signal the honeypot missed,
+        // because that bot renders the page properly and skips hidden inputs.
+        if (looksLikeRepeatedFiller(fields)) {
+          console.warn("[submit] discarded a submission with the same answer repeated");
+          return json({ ok: true });
         }
 
         let cvPayload: {

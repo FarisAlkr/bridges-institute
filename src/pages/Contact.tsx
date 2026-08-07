@@ -1,9 +1,10 @@
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { Mail, MapPin, Phone, Facebook, Instagram } from "lucide-react";
 import { Trans, useTranslation } from "react-i18next";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { HoneypotField } from "@/components/site/HoneypotField";
+import { ELAPSED_FIELD } from "@/lib/form-protection";
 import { CONTACT_EMAIL, CONTACT_EMAIL_HREF, PHONE_DISPLAY, PHONE_HREF } from "@/site-config";
 
 const REQUIRED_NAMES = ["name", "email", "message"] as const;
@@ -14,6 +15,12 @@ export function Contact() {
   const [sending, setSending] = useState(false);
   const [formError, setFormError] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  // See ApplyForm: elapsed time on screen, set in an effect so the prerendered HTML
+  // carries no build-time timestamp.
+  const shownAt = useRef<number | null>(null);
+  useEffect(() => {
+    shownAt.current = Date.now();
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -38,6 +45,7 @@ export function Contact() {
     setFormError("");
     setSending(true);
     data.set("formType", "contact");
+    if (shownAt.current !== null) data.set(ELAPSED_FIELD, String(Date.now() - shownAt.current));
     try {
       const res = await fetch("/api/submit", { method: "POST", body: data });
       if (res.ok) {
