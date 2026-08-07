@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { HoneypotField } from "./HoneypotField";
 import { ELAPSED_FIELD } from "@/lib/form-protection";
@@ -30,6 +30,16 @@ export function ApplyForm() {
   useEffect(() => {
     shownAt.current = Date.now();
   }, []);
+
+  // The confirmation panel is shorter than the form it replaces, so the page collapses
+  // under the reader and they can end up looking at whitespace below it — having just
+  // uploaded a CV with no idea whether it worked. Pull it into view.
+  const successRef = useRef<HTMLDivElement | null>(null);
+  useEffect(() => {
+    if (!submitted) return;
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    successRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+  }, [submitted]);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -109,9 +119,18 @@ export function ApplyForm() {
 
   if (submitted) {
     return (
-      <div className="rounded-2xl border border-brass-deep bg-ivory p-8 md:p-10 text-center">
-        <div className="eyebrow justify-center">{t("applyForm.thankYou")}</div>
-        <h3 className="mt-4 font-display text-2xl md:text-3xl text-ink">
+      // role="status" makes a screen reader announce this — the panel simply replacing
+      // the form is silent otherwise, so a non-sighted applicant got no confirmation at
+      // all that their application went through.
+      <div
+        ref={successRef}
+        role="status"
+        aria-live="polite"
+        className="rounded-2xl border border-brass-deep bg-ivory p-8 md:p-10 text-center"
+      >
+        <CheckCircle2 size={44} aria-hidden className="mx-auto text-brass-deep" strokeWidth={1.5} />
+        <div className="eyebrow justify-center mt-5">{t("applyForm.thankYou")}</div>
+        <h3 className="mt-3 font-display text-2xl md:text-3xl text-ink">
           {t("applyForm.successTitle")}
         </h3>
         <p className="mt-4 mx-auto max-w-md text-slate-body leading-relaxed">

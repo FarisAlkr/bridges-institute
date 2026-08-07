@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { Mail, MapPin, Phone, Facebook, Instagram } from "lucide-react";
+import { Mail, MapPin, Phone, Facebook, Instagram, CheckCircle2 } from "lucide-react";
 import { Trans, useTranslation } from "react-i18next";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
@@ -186,8 +186,16 @@ export function Contact() {
               <div className="rounded-2xl border border-border bg-cream p-6 sm:p-8 md:p-10">
                 <div className="eyebrow">{t("form.heading")}</div>
                 {sent ? (
-                  <div className="mt-8 text-center py-10">
-                    <h3 className="font-display text-2xl md:text-3xl text-ink">
+                  // role="status" so the confirmation is announced; swapping the form out
+                  // is silent to a screen reader otherwise.
+                  <div role="status" aria-live="polite" className="mt-8 text-center py-10">
+                    <CheckCircle2
+                      size={40}
+                      aria-hidden
+                      className="mx-auto text-brass-deep"
+                      strokeWidth={1.5}
+                    />
+                    <h3 className="mt-5 font-display text-2xl md:text-3xl text-ink">
                       {t("form.successTitle")}
                     </h3>
                     <p className="mt-3 text-slate-body">{t("form.successBody")}</p>
