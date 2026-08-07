@@ -3,9 +3,12 @@ import type {} from "@tanstack/react-start";
 import {
   ELAPSED_FIELD,
   HONEYPOT_FIELD,
+  LOCALE_FIELD,
   MIN_FILL_MS,
   looksLikeRepeatedFiller,
 } from "@/lib/form-protection";
+import { DEFAULT_LOCALE, isLocale, metaT, type Locale } from "@/i18n";
+import { SITE_URL } from "@/site-config";
 
 // Single canonical submission endpoint for both the application (ApplyForm) and the
 // contact form (C1). It validates server-side, then delivers the submission by email.
@@ -170,6 +173,49 @@ async function deliverViaResend(
   }
 }
 
+// Acknowledgement to the APPLICANT, in the language they filled the form in.
+//
+// The copy is the client's own approved success text, reused verbatim — including the
+// deliberately conditional "IF your background matches one of our current needs". This
+// email must not promise more than the on-screen confirmation does.
+//
+// Best-effort by design: it is sent only AFTER the application itself is safely
+// delivered, and a failure here is logged and swallowed. An applicant not receiving a
+// receipt is a small problem; an application failing because the receipt bounced is a
+// serious one.
+async function sendApplicantReceipt(
+  apiKey: string,
+  to: string,
+  locale: Locale,
+  replyTo: string | undefined,
+): Promise<void> {
+  const t = metaT(locale, "common");
+  const text = [
+    t("applyForm.thankYou"),
+    "",
+    t("applyForm.successTitle"),
+    t("applyForm.successBody"),
+    "",
+    `${t("brand")} — ${SITE_URL}`,
+  ].join("\n");
+
+  const body: Record<string, unknown> = {
+    from: process.env.SUBMISSIONS_FROM_EMAIL || DEFAULT_FROM,
+    to: [to],
+    subject: t("applyForm.emailSubject"),
+    text,
+  };
+  // A reply goes to the Bridges inbox, not into the void.
+  if (replyTo) body.reply_to = replyTo.split(",")[0]?.trim();
+
+  const res = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error(`resend ${res.status}: ${await res.text()}`);
+}
+
 // Reject cross-site posts. A MISSING Origin header is allowed through on purpose:
 // some same-origin form posts omit it, and rejecting those would drop real
 // applications. This blocks the naive cross-origin case, nothing more.
@@ -249,7 +295,7 @@ export const Route = createFileRoute("/api/submit")({
         const fields: Record<string, string> = {};
         for (const [key, value] of form.entries()) {
           if (key === "cv" || key === "formType" || key === HONEYPOT_FIELD) continue;
-          if (key === ELAPSED_FIELD) continue;
+          if (key === ELAPSED_FIELD || key === LOCALE_FIELD) continue;
           if (typeof value === "string" && value.trim()) fields[key] = value;
         }
 
@@ -313,6 +359,20 @@ export const Route = createFileRoute("/api/submit")({
           }
           const delivered = await deliverViaResend(resendKey, to, payload);
           if (!delivered) return json({ ok: false, error: "delivery_failed" }, 502);
+
+          // Only now that the application is safely delivered, acknowledge to the
+          // applicant. Deliberately not awaited into the response contract: if this
+          // throws, the application still succeeded and the user still sees success.
+          const applicantEmail = fields.email;
+          if (formType === "apply" && applicantEmail && EMAIL_RE.test(applicantEmail)) {
+            const rawLocale = String(form.get(LOCALE_FIELD) ?? "");
+            const locale = isLocale(rawLocale) ? rawLocale : DEFAULT_LOCALE;
+            try {
+              await sendApplicantReceipt(resendKey, applicantEmail, locale, to);
+            } catch (err) {
+              console.error("[submit] applicant receipt failed (application WAS delivered)", err);
+            }
+          }
           return json({ ok: true });
         }
 

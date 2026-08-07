@@ -15,6 +15,10 @@ export const HONEYPOT_LABEL = "Company";
 // affect it.
 export const ELAPSED_FIELD = "_ms";
 
+// The language the form was filled in, so the applicant's confirmation email comes back
+// in that language. Underscore-prefixed like the others: internal, never shown.
+export const LOCALE_FIELD = "_locale";
+
 // Anything faster than this was not typed by a person. The apply form has eight required
 // fields; filling them in under three seconds is not physically possible, and browser
 // autofill cannot produce the free-text ones (English background, degree, why). Kept

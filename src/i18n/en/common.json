@@ -77,7 +77,8 @@
     "consent": "This is paid work, not volunteering. By applying, you agree to be contacted about your application.",
     "thankYou": "Thank you",
     "successTitle": "We have received your application.",
-    "successBody": "If your background matches one of our current needs, the Bridges team will contact you."
+    "successBody": "If your background matches one of our current needs, the Bridges team will contact you.",
+    "emailSubject": "We have received your application — Bridges Institute"
   },
   "requirementsSection": {
     "eyebrow": "Teacher requirements",

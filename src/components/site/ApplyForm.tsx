@@ -2,7 +2,7 @@ import { useEffect, useRef, useState, type FormEvent } from "react";
 import { ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { HoneypotField } from "./HoneypotField";
-import { ELAPSED_FIELD } from "@/lib/form-protection";
+import { ELAPSED_FIELD, LOCALE_FIELD } from "@/lib/form-protection";
 
 // Single canonical application form used on the homepage (#apply) and /teach.
 // Submits to the canonical /api/submit endpoint (C1); shows the success state only on a
@@ -18,7 +18,7 @@ const REQUIRED = ["name", "phone", "email", "english", "degree", "location", "wh
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export function ApplyForm() {
-  const { t } = useTranslation("common");
+  const { t, i18n } = useTranslation("common");
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [formError, setFormError] = useState("");
@@ -70,6 +70,9 @@ export function ApplyForm() {
     setFormError("");
     setSending(true);
     data.set("formType", "apply");
+    // Which language the applicant actually filled in, so their confirmation email comes
+    // back in that language rather than defaulting to English.
+    data.set(LOCALE_FIELD, i18n.language);
     if (shownAt.current !== null) data.set(ELAPSED_FIELD, String(Date.now() - shownAt.current));
     try {
       const res = await fetch("/api/submit", { method: "POST", body: data });
