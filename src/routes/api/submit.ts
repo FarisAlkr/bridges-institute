@@ -72,6 +72,41 @@ function json(body: unknown, status = 200) {
   });
 }
 
+// The form carries method="post" action="/api/submit" so that a submit landing before
+// hydration — or with JS blocked — still delivers instead of leaking the applicant's
+// answers into a GET query string. Those submissions are real browser navigations, so
+// they must be answered with a page, not with JSON. fetch() sends `Accept: */*`, a
+// browser navigation sends `text/html`, which is what separates the two paths.
+function wantsHtml(request: Request): boolean {
+  return (request.headers.get("accept") ?? "").includes("text/html");
+}
+
+function escapeHtml(s: string): string {
+  return s.replace(
+    /[&<>"']/g,
+    (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c] as string,
+  );
+}
+
+// Minimal self-contained confirmation for the no-JS path, in the applicant's language.
+// Deliberately plain: it exists so nobody is ever shown raw JSON after applying.
+function htmlResponse(locale: Locale, title: string, body: string, status = 200) {
+  const t = metaT(locale, "common");
+  const dir = locale === "en" ? "ltr" : "rtl";
+  return new Response(
+    `<!doctype html><html lang="${locale}" dir="${dir}"><head><meta charset="utf-8">` +
+      `<meta name="viewport" content="width=device-width,initial-scale=1">` +
+      `<title>${escapeHtml(title)}</title>` +
+      `<style>body{margin:0;display:grid;place-items:center;min-height:100vh;` +
+      `font:16px/1.6 system-ui,sans-serif;background:#f7f4ee;color:#1c1b18;padding:24px}` +
+      `main{max-width:34rem;text-align:center}h1{font-size:1.5rem;margin:0 0 .75rem}` +
+      `a{color:#8a6a2f}</style></head><body><main><h1>${escapeHtml(title)}</h1>` +
+      `<p>${escapeHtml(body)}</p><p><a href="${SITE_URL}">${escapeHtml(t("brand"))}</a></p>` +
+      `</main></body></html>`,
+    { status, headers: { "Content-Type": "text/html; charset=utf-8" } },
+  );
+}
+
 // --- Abuse controls ---------------------------------------------------------------
 // This is a public endpoint that relays into the client's inbox, so it needs a floor of
 // protection against bots and bursts. Deliberately NO timing heuristics or CAPTCHA:
@@ -173,36 +208,53 @@ async function deliverViaResend(
   }
 }
 
-// Acknowledgement to the APPLICANT, in the language they filled the form in.
+// Acknowledgement to the SENDER — applicant or contact enquiry alike — in the language
+// they filled the form in.
 //
-// The copy is the client's own approved success text, reused verbatim — including the
-// deliberately conditional "IF your background matches one of our current needs". This
-// email must not promise more than the on-screen confirmation does.
+// The copy is the client's own approved success text for that form, reused verbatim —
+// including the deliberately conditional "IF your background matches one of our current
+// needs" on the apply side. This email must not promise more than the on-screen
+// confirmation does, so each form's receipt repeats its own success panel and nothing more.
 //
-// Best-effort by design: it is sent only AFTER the application itself is safely
-// delivered, and a failure here is logged and swallowed. An applicant not receiving a
-// receipt is a small problem; an application failing because the receipt bounced is a
+// Best-effort by design: it is sent only AFTER the submission itself is safely
+// delivered, and a failure here is logged and swallowed. A sender not receiving a
+// receipt is a small problem; a submission failing because the receipt bounced is a
 // serious one.
-async function sendApplicantReceipt(
+async function sendSubmitterReceipt(
   apiKey: string,
   to: string,
   locale: Locale,
+  formType: "apply" | "contact",
   replyTo: string | undefined,
 ): Promise<void> {
   const t = metaT(locale, "common");
-  const text = [
-    t("applyForm.thankYou"),
-    "",
-    t("applyForm.successTitle"),
-    t("applyForm.successBody"),
-    "",
-    `${t("brand")} — ${SITE_URL}`,
-  ].join("\n");
+  const signature = `${t("brand")} — ${SITE_URL}`;
+
+  // Apply copy lives in `common` (shared by the homepage and /teach forms); the contact
+  // form's success copy lives in its own page namespace.
+  const c = metaT(locale, "contact");
+  const { subject, text } =
+    formType === "apply"
+      ? {
+          subject: t("applyForm.emailSubject"),
+          text: [
+            t("applyForm.thankYou"),
+            "",
+            t("applyForm.successTitle"),
+            t("applyForm.successBody"),
+            "",
+            signature,
+          ].join("\n"),
+        }
+      : {
+          subject: c("form.emailSubject"),
+          text: [c("form.successTitle"), c("form.successBody"), "", signature].join("\n"),
+        };
 
   const body: Record<string, unknown> = {
     from: process.env.SUBMISSIONS_FROM_EMAIL || DEFAULT_FROM,
     to: [to],
-    subject: t("applyForm.emailSubject"),
+    subject,
     text,
   };
   // A reply goes to the Bridges inbox, not into the void.
@@ -268,6 +320,17 @@ export const Route = createFileRoute("/api/submit")({
           return json({ ok: false, error: "unknown_form_type" }, 400);
         }
 
+        // Needed here (not just at receipt time) so the no-JS HTML replies are in the
+        // language the applicant actually filled the form in.
+        const rawLocale = String(form.get(LOCALE_FIELD) ?? "");
+        const locale = isLocale(rawLocale) ? rawLocale : DEFAULT_LOCALE;
+        const asHtml = wantsHtml(request);
+        const tc = metaT(locale, "common");
+        const ok = () =>
+          asHtml
+            ? htmlResponse(locale, tc("applyForm.successTitle"), tc("applyForm.successBody"))
+            : json({ ok: true });
+
         // --- Server-side validation (mirrors the client) ---
         const required = formType === "apply" ? APPLY_REQUIRED : CONTACT_REQUIRED;
         const errors: Record<string, string> = {};
@@ -278,16 +341,22 @@ export const Route = createFileRoute("/api/submit")({
         const email = String(form.get("email") ?? "").trim();
         if (email && !errors.email && !EMAIL_RE.test(email)) errors.email = "invalid_email";
 
-        // Validate the optional CV.
+        // The CV is mandatory on the apply form at the client's request. The contact form
+        // has no CV field, so this only ever applies to applications.
         const cv = form.get("cv");
         const hasCv = formType === "apply" && cv instanceof File && cv.size > 0;
-        if (hasCv) {
+        if (formType === "apply" && !hasCv) {
+          errors.cv = "required";
+        } else if (hasCv) {
           const name = (cv as File).name.toLowerCase();
           if (!ALLOWED_CV_EXT.some((ext) => name.endsWith(ext))) errors.cv = "invalid_type";
           else if ((cv as File).size > MAX_CV_BYTES) errors.cv = "too_large";
         }
 
         if (Object.keys(errors).length > 0) {
+          if (asHtml) {
+            return htmlResponse(locale, tc("form.errorTitle"), tc("form.submitError"), 422);
+          }
           return json({ ok: false, errors }, 422);
         }
 
@@ -305,7 +374,7 @@ export const Route = createFileRoute("/api/submit")({
         // because that bot renders the page properly and skips hidden inputs.
         if (looksLikeRepeatedFiller(fields)) {
           console.warn("[submit] discarded a submission with the same answer repeated");
-          return json({ ok: true });
+          return ok();
         }
 
         let cvPayload: {
@@ -358,22 +427,26 @@ export const Route = createFileRoute("/api/submit")({
             return json({ ok: false, error: "not_configured" }, 503);
           }
           const delivered = await deliverViaResend(resendKey, to, payload);
-          if (!delivered) return json({ ok: false, error: "delivery_failed" }, 502);
+          if (!delivered)
+            return asHtml
+              ? htmlResponse(locale, tc("form.errorTitle"), tc("form.submitError"), 502)
+              : json({ ok: false, error: "delivery_failed" }, 502);
 
-          // Only now that the application is safely delivered, acknowledge to the
-          // applicant. Deliberately not awaited into the response contract: if this
-          // throws, the application still succeeded and the user still sees success.
-          const applicantEmail = fields.email;
-          if (formType === "apply" && applicantEmail && EMAIL_RE.test(applicantEmail)) {
+          // Only now that the submission is safely delivered, acknowledge to the sender —
+          // both forms, so nobody is left wondering whether it arrived. Deliberately not
+          // awaited into the response contract: if this throws, the submission still
+          // succeeded and the user still sees success.
+          const senderEmail = fields.email;
+          if (senderEmail && EMAIL_RE.test(senderEmail)) {
             const rawLocale = String(form.get(LOCALE_FIELD) ?? "");
             const locale = isLocale(rawLocale) ? rawLocale : DEFAULT_LOCALE;
             try {
-              await sendApplicantReceipt(resendKey, applicantEmail, locale, to);
+              await sendSubmitterReceipt(resendKey, senderEmail, locale, formType, to);
             } catch (err) {
-              console.error("[submit] applicant receipt failed (application WAS delivered)", err);
+              console.error(`[submit] ${formType} receipt failed (submission WAS delivered)`, err);
             }
           }
-          return json({ ok: true });
+          return ok();
         }
 
         if (!webhook) {
@@ -390,14 +463,18 @@ export const Route = createFileRoute("/api/submit")({
           });
           if (!res.ok) {
             console.error(`[submit] destination responded ${res.status}`);
-            return json({ ok: false, error: "delivery_failed" }, 502);
+            return asHtml
+              ? htmlResponse(locale, tc("form.errorTitle"), tc("form.submitError"), 502)
+              : json({ ok: false, error: "delivery_failed" }, 502);
           }
         } catch (err) {
           console.error("[submit] delivery error", err);
-          return json({ ok: false, error: "delivery_failed" }, 502);
+          return asHtml
+            ? htmlResponse(locale, tc("form.errorTitle"), tc("form.submitError"), 502)
+            : json({ ok: false, error: "delivery_failed" }, 502);
         }
 
-        return json({ ok: true });
+        return ok();
       },
     },
   },

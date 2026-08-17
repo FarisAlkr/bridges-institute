@@ -23,6 +23,8 @@ export function ApplyForm() {
   const [sending, setSending] = useState(false);
   const [formError, setFormError] = useState("");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  // Filename for the custom upload control below — the native one is hidden.
+  const [cvName, setCvName] = useState("");
   // When the form first appeared on screen. Set in an effect, never during render, so
   // the prerendered HTML carries no build-time timestamp. The server is sent the elapsed
   // duration rather than two clocks to compare, so a wrong device clock cannot matter.
@@ -52,9 +54,11 @@ export function ApplyForm() {
     }
     const email = String(data.get("email") ?? "").trim();
     if (email && !next.email && !EMAIL_RE.test(email)) next.email = t("form.emailError");
-    // Client-side CV guard (server re-checks).
+    // The CV is mandatory at the client's request; the server re-checks all three rules.
     const cv = data.get("cv");
-    if (cv instanceof File && cv.size > 0) {
+    if (!(cv instanceof File) || cv.size === 0) {
+      next.cv = t("form.requiredError", { field: t("applyForm.cv") });
+    } else {
       const name = cv.name.toLowerCase();
       if (![".pdf", ".doc", ".docx"].some((ext) => name.endsWith(ext)))
         next.cv = t("form.cvTypeError");
@@ -144,8 +148,23 @@ export function ApplyForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="grid gap-6 md:grid-cols-2">
+    // method/action/encType matter even though handleSubmit intercepts every normal
+    // submit: without them the HTML default is GET to the current page, so a submit that
+    // happens before hydration — or with JS blocked — would put the applicant's name,
+    // phone, email and free-text answers into the query string, and from there into
+    // browser history, access logs and the Referer header, while the CV silently never
+    // uploaded. With them, that same fallback is a real multipart POST to the endpoint.
+    <form
+      onSubmit={handleSubmit}
+      method="post"
+      action="/api/submit"
+      encType="multipart/form-data"
+      noValidate
+      className="grid gap-6 md:grid-cols-2"
+    >
       <HoneypotField />
+      {/* Tells the no-JS fallback POST which form it is; the JS path sets it too. */}
+      <input type="hidden" name="formType" value="apply" />
       <ApplyField
         label={t("applyForm.labels.name")}
         name="name"
@@ -216,20 +235,56 @@ export function ApplyForm() {
       </div>
 
       <div className="md:col-span-2">
-        <label htmlFor="cv" className="eyebrow block">
-          {`${t("applyForm.cv")} `}
-          <span className="normal-case tracking-normal text-slate-body">{t("form.optional")}</span>
+        {/* Two <label for="cv"> elements would otherwise concatenate into the accessible
+            name ("CV * Upload CV"), so the input is named from this one explicitly. The
+            asterisk is decorative — `required` is what conveys requiredness to a screen
+            reader, and read aloud "star" is just noise. */}
+        <label htmlFor="cv" id="cv-label" className="eyebrow block">
+          {t("applyForm.cv")}
+          <span aria-hidden="true" className="text-brass-deep">
+            {" *"}
+          </span>
         </label>
-        <input
-          id="cv"
-          name="cv"
-          type="file"
-          accept=".pdf,.doc,.docx"
-          aria-invalid={errors.cv ? true : undefined}
-          aria-describedby={errors.cv ? "cv-error" : undefined}
-          onInput={() => clearError("cv")}
-          className="mt-3 block w-full text-sm text-slate-body file:me-4 file:rounded-full file:border-0 file:bg-ink file:px-6 file:py-3 file:text-xs file:uppercase file:tracking-[0.18em] file:text-ivory hover:file:bg-ink-soft"
-        />
+        {/* The browser's own file button and "no file chosen" text are labelled in the
+            OS/browser language, which put Hebrew chrome on the English page. The real
+            input is hidden from sight but still focusable, and this label is the visible
+            control — `peer` carries its focus ring so keyboard users can see it. */}
+        <div className="mt-3 flex flex-wrap items-center gap-4">
+          <input
+            id="cv"
+            name="cv"
+            type="file"
+            accept=".pdf,.doc,.docx"
+            required
+            aria-labelledby="cv-label"
+            aria-invalid={errors.cv ? true : undefined}
+            aria-describedby={errors.cv ? "cv-hint cv-error" : "cv-hint"}
+            onChange={(e) => {
+              clearError("cv");
+              setCvName(e.currentTarget.files?.[0]?.name ?? "");
+            }}
+            className="sr-only peer"
+          />
+          {/* Deliberately reproduces the old `file:` pseudo-element styling, so replacing
+              the native control changed the language and nothing about the look. NOT
+              btn-ghost: that is ivory-on-transparent for dark sections, and this form sits
+              on an ivory panel. `peer-focus` rather than `peer-focus-visible` because the
+              ring must also appear when validation moves focus here programmatically. */}
+          <label
+            htmlFor="cv"
+            className="inline-flex cursor-pointer items-center rounded-full bg-ink px-6 py-3 text-xs uppercase tracking-[0.18em] text-ivory transition hover:bg-ink-soft peer-focus:ring-2 peer-focus:ring-brass-deep peer-focus:ring-offset-2 peer-focus:ring-offset-ivory"
+          >
+            {t("form.uploadCv")}
+          </label>
+          {/* The native control announces the chosen filename by itself; since it is
+              hidden, this stands in for that announcement. */}
+          <span aria-live="polite" className="text-sm text-slate-body">
+            {cvName || t("form.noFileSelected")}
+          </span>
+        </div>
+        <p id="cv-hint" className="mt-2 text-sm text-slate-body">
+          {t("form.cvHint")}
+        </p>
         {errors.cv && (
           <p id="cv-error" role="alert" className="mt-2 text-sm font-medium text-error">
             {errors.cv}
@@ -238,7 +293,10 @@ export function ApplyForm() {
       </div>
 
       <div className="md:col-span-2 flex flex-wrap items-center justify-between gap-4">
-        <p className="max-w-md text-sm text-slate-body leading-relaxed">{t("applyForm.consent")}</p>
+        <div className="max-w-md space-y-3">
+          <p className="text-sm text-slate-body leading-relaxed">{t("applyForm.consent")}</p>
+          <p className="text-sm text-slate-body leading-relaxed">{t("applyForm.responseNotice")}</p>
+        </div>
         <button type="submit" className="btn-primary" disabled={sending}>
           {sending ? t("form.submitting") : `${t("cta.applyToTeach")} `}
           {!sending && <ArrowUpRight size={16} aria-hidden />}
@@ -281,7 +339,12 @@ function ApplyField({
     <div>
       <label htmlFor={name} className="eyebrow block">
         {label}
-        {required && <span className="text-brass-deep"> *</span>}
+        {/* Decorative: `required` on the input is what a screen reader announces. */}
+        {required && (
+          <span aria-hidden="true" className="text-brass-deep">
+            {" *"}
+          </span>
+        )}
         {optionalLabel && (
           <span className="normal-case tracking-normal text-slate-body"> {optionalLabel}</span>
         )}
