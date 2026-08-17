@@ -1,8 +1,15 @@
 import { useEffect, useRef, useState, type FormEvent } from "react";
-import { ArrowUpRight, CheckCircle2 } from "lucide-react";
+import { ArrowUpRight, CheckCircle2, Upload } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { HoneypotField } from "./HoneypotField";
-import { ELAPSED_FIELD, LOCALE_FIELD } from "@/lib/form-protection";
+import {
+  ALLOWED_CV_EXT,
+  CV_ACCEPT,
+  ELAPSED_FIELD,
+  LOCALE_FIELD,
+  MAX_CV_BYTES,
+  MAX_CV_MB,
+} from "@/lib/form-protection";
 
 // Single canonical application form used on the homepage (#apply) and /teach.
 // Submits to the canonical /api/submit endpoint (C1); shows the success state only on a
@@ -60,9 +67,8 @@ export function ApplyForm() {
       next.cv = t("form.requiredError", { field: t("applyForm.cv") });
     } else {
       const name = cv.name.toLowerCase();
-      if (![".pdf", ".doc", ".docx"].some((ext) => name.endsWith(ext)))
-        next.cv = t("form.cvTypeError");
-      else if (cv.size > 3 * 1024 * 1024) next.cv = t("form.cvSizeError");
+      if (!ALLOWED_CV_EXT.some((ext) => name.endsWith(ext))) next.cv = t("form.cvTypeError");
+      else if (cv.size > MAX_CV_BYTES) next.cv = t("form.cvSizeError", { max: MAX_CV_MB });
     }
     setErrors(next);
     const firstInvalid = [...REQUIRED, "cv"].find((n) => next[n]);
@@ -95,7 +101,7 @@ export function ApplyForm() {
               code === "invalid_type"
                 ? t("form.cvTypeError")
                 : code === "too_large"
-                  ? t("form.cvSizeError")
+                  ? t("form.cvSizeError", { max: MAX_CV_MB })
                   : code === "invalid_email"
                     ? t("form.emailError")
                     : t("form.requiredError", {
@@ -234,7 +240,9 @@ export function ApplyForm() {
         />
       </div>
 
-      <div className="md:col-span-2">
+      {/* The CV is required, so it gets its own panel rather than sitting as one more
+          row among the text fields — an applicant who misses it cannot submit at all. */}
+      <div className="md:col-span-2 rounded-2xl border border-brass/40 bg-cream/50 p-5 md:p-6">
         {/* Two <label for="cv"> elements would otherwise concatenate into the accessible
             name ("CV * Upload CV"), so the input is named from this one explicitly. The
             asterisk is decorative — `required` is what conveys requiredness to a screen
@@ -249,12 +257,12 @@ export function ApplyForm() {
             OS/browser language, which put Hebrew chrome on the English page. The real
             input is hidden from sight but still focusable, and this label is the visible
             control — `peer` carries its focus ring so keyboard users can see it. */}
-        <div className="mt-3 flex flex-wrap items-center gap-4">
+        <div className="mt-4 flex flex-wrap items-center gap-4">
           <input
             id="cv"
             name="cv"
             type="file"
-            accept=".pdf,.doc,.docx"
+            accept={CV_ACCEPT}
             required
             aria-labelledby="cv-label"
             aria-invalid={errors.cv ? true : undefined}
@@ -265,25 +273,25 @@ export function ApplyForm() {
             }}
             className="sr-only peer"
           />
-          {/* Deliberately reproduces the old `file:` pseudo-element styling, so replacing
-              the native control changed the language and nothing about the look. NOT
-              btn-ghost: that is ivory-on-transparent for dark sections, and this form sits
-              on an ivory panel. `peer-focus` rather than `peer-focus-visible` because the
-              ring must also appear when validation moves focus here programmatically. */}
+          {/* Same brushed-gold treatment as the hero's Apply CTA (btn-gold + cta-gold),
+              so the one required upload reads as a primary action. `peer-focus` rather
+              than `peer-focus-visible` because the ring must also appear when validation
+              moves focus here programmatically. */}
           <label
             htmlFor="cv"
-            className="inline-flex cursor-pointer items-center rounded-full bg-ink px-6 py-3 text-xs uppercase tracking-[0.18em] text-ivory transition hover:bg-ink-soft peer-focus:ring-2 peer-focus:ring-brass-deep peer-focus:ring-offset-2 peer-focus:ring-offset-ivory"
+            className="btn-gold cta-gold cursor-pointer peer-focus:ring-2 peer-focus:ring-brass-deep peer-focus:ring-offset-2 peer-focus:ring-offset-cream"
           >
+            <Upload size={16} aria-hidden />
             {t("form.uploadCv")}
           </label>
           {/* The native control announces the chosen filename by itself; since it is
               hidden, this stands in for that announcement. */}
-          <span aria-live="polite" className="text-sm text-slate-body">
+          <span aria-live="polite" className="text-sm font-medium text-ink/80">
             {cvName || t("form.noFileSelected")}
           </span>
         </div>
-        <p id="cv-hint" className="mt-2 text-sm text-slate-body">
-          {t("form.cvHint")}
+        <p id="cv-hint" className="mt-3 text-sm text-slate-body">
+          {t("form.cvHint", { max: MAX_CV_MB })}
         </p>
         {errors.cv && (
           <p id="cv-error" role="alert" className="mt-2 text-sm font-medium text-error">

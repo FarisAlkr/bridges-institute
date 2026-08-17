@@ -45,3 +45,31 @@ export function looksLikeRepeatedFiller(fields: Record<string, string>): boolean
   for (const n of counts.values()) if (n >= REPEAT_THRESHOLD) return true;
   return false;
 }
+
+// --- CV upload rules ---------------------------------------------------------------
+// Shared so the browser hint, the client-side guard and the server check can never
+// disagree — they were duplicated in two files and drifting was only a matter of time.
+
+// Formats a CV realistically arrives in. Kept to documents on purpose: a reviewer has
+// to be able to open and read it.
+export const ALLOWED_CV_EXT = [".pdf", ".doc", ".docx", ".odt", ".rtf", ".txt"];
+
+// The `accept` attribute filters the OS file picker. Extensions plus MIME types, because
+// some platforms match on one and some on the other.
+export const CV_ACCEPT = [
+  ...ALLOWED_CV_EXT,
+  "application/pdf",
+  "application/msword",
+  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "application/vnd.oasis.opendocument.text",
+  "application/rtf",
+  "text/plain",
+].join(",");
+
+// Raw upload cap. Two limits bind the chain and both have plenty of headroom here:
+// inbound (browser → function) is raw multipart against Vercel's 100 MB request-body
+// limit, and outbound (function → Resend/webhook) is JSON with the file base64-encoded,
+// which inflates it ~33% — 10 MB raw is ~13.3 MB outbound, well inside Resend's cap and
+// small enough that receiving mail servers will not bounce it.
+export const MAX_CV_MB = 10;
+export const MAX_CV_BYTES = MAX_CV_MB * 1024 * 1024;

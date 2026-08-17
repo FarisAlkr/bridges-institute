@@ -44,11 +44,11 @@
     "emailError": "יש להזין כתובת אימייל תקינה.",
     "submitting": "שולח…",
     "submitError": "משהו השתבש בשליחת הטופס. נסו שוב, או שלחו לנו אימייל ישירות.",
-    "cvTypeError": "יש להעלות קובץ PDF או Word.",
-    "cvSizeError": "הקובץ גדול מדי (עד 3 MB).",
+    "cvTypeError": "אנא העלו קובץ PDF, Word, ODT, RTF או טקסט.",
+    "cvSizeError": "הקובץ גדול מדי (עד {{max}} מ״ב).",
     "uploadCv": "העלאת קורות חיים",
     "noFileSelected": "לא נבחר קובץ.",
-    "cvHint": "PDF, DOC או DOCX — עד 3 מ״ב.",
+    "cvHint": "PDF, DOC, DOCX, ODT, RTF או TXT — עד {{max}} מ״ב.",
     "errorTitle": "משהו השתבש"
   },
   "applyForm": {
