@@ -37,3 +37,9 @@ dist-ssr
 *.sln
 *.sw?
 .env*
+
+# Client briefs and feedback documents kept in the working directory for reference.
+# This repository is public, so they must never be committed — they are the client's
+# business documents, not project source.
+/*.docx
+/*.pdf
