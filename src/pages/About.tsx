@@ -1,9 +1,12 @@
 import { LocaleLink } from "@/components/site/LocaleLink";
 import { Trans, useTranslation } from "react-i18next";
-import aboutHero from "@/assets/about-hero.jpg";
-import g2 from "@/assets/gallery-2.jpg";
-import g4 from "@/assets/gallery-4.jpg";
-import g5 from "@/assets/gallery-5.jpg";
+// Real photographs from Bridges classrooms in the Negev. The previous about-hero /
+// gallery-* images here were AI-generated stand-ins and were replaced on the client's
+// instruction — do not reintroduce them.
+import aboutHero from "@/assets/classroom-speaking-lesson.jpg";
+import g1 from "@/assets/classroom-young-game.jpg";
+import g2 from "@/assets/classroom-picture-cards.jpg";
+import g3 from "@/assets/classroom-small-group.jpg";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { Requirements } from "@/components/site/Requirements";
@@ -21,7 +24,7 @@ export function About() {
           src={aboutHero}
           alt={t("hero.imageAlt")}
           width={1600}
-          height={1000}
+          height={1200}
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/60 to-ink/95" />
@@ -166,7 +169,7 @@ export function About() {
       {/* Gallery */}
       <section className="py-20 md:py-32">
         <div className="container-editorial grid grid-cols-12 gap-3 md:gap-6">
-          {[g2, g4, g5].map((src, i) => (
+          {[g1, g2, g3].map((src, i) => (
             <Reveal
               key={i}
               delay={i * 100}

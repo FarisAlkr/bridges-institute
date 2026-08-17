@@ -2,7 +2,9 @@ import { LocaleLink } from "@/components/site/LocaleLink";
 import { Trans, useTranslation } from "react-i18next";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
-import g2 from "@/assets/gallery-2.jpg";
+// Decorative background behind the closing CTA. Real photograph from a Bridges
+// classroom — replaced the AI-generated gallery-2.jpg on the client's instruction.
+import ctaBackdrop from "@/assets/classroom-one-to-one.jpg";
 
 export function Schools() {
   const { t } = useTranslation("schools");
@@ -87,7 +89,7 @@ export function Schools() {
 
       <section className="relative py-20 md:py-32 overflow-hidden">
         <img
-          src={g2}
+          src={ctaBackdrop}
           alt=""
           aria-hidden
           className="absolute inset-0 h-full w-full object-cover opacity-30"

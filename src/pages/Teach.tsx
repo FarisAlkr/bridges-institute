@@ -1,6 +1,8 @@
 import { LocaleLink } from "@/components/site/LocaleLink";
 import { Trans, useTranslation } from "react-i18next";
-import teachHero from "@/assets/teach-hero.jpg";
+// Real photograph from a Bridges classroom in the Negev — replaced the AI-generated
+// teach-hero.jpg on the client's instruction. Do not reintroduce it.
+import teachHero from "@/assets/classroom-picture-cards.jpg";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeader } from "@/components/site/SectionHeader";
 import { ApplyForm } from "@/components/site/ApplyForm";
@@ -17,7 +19,7 @@ export function Teach() {
           src={teachHero}
           alt={t("hero.imageAlt")}
           width={1600}
-          height={1000}
+          height={1200}
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-ink/50 via-ink/55 to-ink/95" />
