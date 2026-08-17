@@ -63,7 +63,7 @@ Keep this — it filters wrong applicants before the interview.
 
 | Good fit                                                        | Probably not the right fit                      |
 | --------------------------------------------------------------- | ----------------------------------------------- |
-| Confident, fluent or near-native English                        | Wants quiet, textbook-only teaching             |
+| Confident, fluent or native English                             | Wants quiet, textbook-only teaching             |
 | Comfortable leading a room of children or teens                 | Dislikes movement, noise, games or group energy |
 | Warm, responsible and reliable                                  | Uncomfortable leading and managing a class      |
 | Enjoys active teaching — speaking, movement, games              | Unreliable with schedule or communication       |

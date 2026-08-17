@@ -2,13 +2,13 @@
   "hero": {
     "eyebrow": "Privacy",
     "title": "Privacy Policy",
-    "intro": "This policy explains what personal information Bridges Institute collects through this website, why we collect it, and the choices you have. We collect only what we need to review teaching applications and respond to enquiries."
+    "intro": "This policy explains what personal information Bridges Institute collects through this website, why we collect it, and the choices you have. We collect only what we need to review teaching applications and respond to inquiries."
   },
   "collect": {
     "title": "What we collect",
     "intro": "We collect the information you choose to give us through our forms:",
     "items": [
-      "Application form: your name, phone or email, English background, location, your reason for applying, and an optional CV file.",
+      "Application form: your name, phone number, email, English background, academic degree, teaching experience, location, your reason for applying, and a required CV file.",
       "Contact form: your name, email, organization, subject, and message.",
       "Basic technical data your browser sends (such as IP address and device type), used only to keep the site secure and working.",
       "Anonymous, cookie-free page-view statistics — which pages are opened and roughly from where — so we can see which parts of the site are useful. This cannot identify you."
@@ -18,7 +18,7 @@
     "title": "How we use it",
     "items": [
       "To review your application and contact you about teaching with Bridges.",
-      "To respond to partnership, program and general enquiries.",
+      "To respond to partnership, program and general inquiries.",
       "To keep records of our correspondence with you.",
       "We do not sell your personal information, and we do not use it for advertising."
     ]
@@ -29,7 +29,7 @@
   },
   "retention": {
     "title": "How long we keep it",
-    "body": "We keep applications and enquiries for as long as needed to consider them and for a reasonable period afterwards, then delete or anonymise them."
+    "body": "We keep applications and inquiries for as long as needed to consider them and for a reasonable period afterwards, then delete or anonymize them."
   },
   "rights": {
     "title": "Your rights",

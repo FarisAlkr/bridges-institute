@@ -23,7 +23,7 @@
     "visit": "Visit",
     "addressLine1": "Yehuda HaNachtom 10",
     "addressLine2": "Be'er Sheva, Israel",
-    "recognized": "Recognized",
+    "recognized": "Approved",
     "recognizedBody": "Israeli Ministry of Education",
     "gefen": "GEFEN — Program No. {{program}}",
     "explore": "Explore",
@@ -44,7 +44,11 @@
     "submitting": "Sending…",
     "submitError": "Something went wrong sending your submission. Please try again, or email us directly.",
     "cvTypeError": "Please upload a PDF or Word document.",
-    "cvSizeError": "That file is too large (max 3 MB)."
+    "cvSizeError": "That file is too large (max 3 MB).",
+    "uploadCv": "Upload CV",
+    "noFileSelected": "No file selected.",
+    "cvHint": "PDF, DOC or DOCX — maximum 3 MB.",
+    "errorTitle": "Something went wrong"
   },
   "applyForm": {
     "labels": {
@@ -64,10 +68,11 @@
       "english": "Your English background",
       "degree": "Academic degree",
       "location": "Location",
-      "why": "Why do you want to teach with Bridges"
+      "why": "Why do you want to teach with Bridges",
+      "cv": "CV"
     },
     "placeholders": {
-      "english": "e.g. fluent, near-native, studied/lived abroad…",
+      "english": "e.g. native speaker, studied/lived abroad…",
       "degree": "e.g. B.A. in English Literature",
       "experience": "Teaching, or work with children — an advantage, not required.",
       "location": "Which Negev town or area?",
@@ -76,9 +81,10 @@
     "cv": "CV",
     "consent": "This is paid work, not volunteering. By applying, you agree to be contacted about your application.",
     "thankYou": "Thank you",
-    "successTitle": "We have received your application.",
-    "successBody": "If your background matches one of our current needs, the Bridges team will contact you.",
-    "emailSubject": "We have received your application — Bridges Institute"
+    "successTitle": "Your application has been submitted successfully.",
+    "successBody": "If your qualifications match our current needs, our team will contact you regarding the next stage.",
+    "emailSubject": "We have received your application — Bridges Institute",
+    "responseNotice": "Applications are reviewed carefully. Only candidates whose qualifications match our current needs will be contacted for the next stage."
   },
   "requirementsSection": {
     "eyebrow": "Teacher requirements",
@@ -86,20 +92,20 @@
   },
   "requirements": {
     "title": "Education and English level",
-    "body": "A recognised academic degree is required. Applicants must have fluent or near-native English. Teaching experience and experience working with children are an advantage."
+    "body": "A recognized academic degree is required. Applicants must have fluent & native English language and demonstrate excellent spoken and written communication skills. Teaching experience and experience working with children are an advantage."
   },
   "roles": {
     "title": "Roles and placements",
-    "body": "Bridges recruits qualified teachers for a range of full-time and part-time roles in schools across the Negev. Placements depend on current programme needs. Details are discussed individually with suitable candidates."
+    "body": "Bridges recruits qualified teachers for a range of full-time and part-time roles in schools across the Negev. Placements depend on current program needs. Details are discussed individually with suitable candidates."
   },
   "applyHow": {
     "eyebrow": "How to apply",
     "title": "Three steps to teaching with Bridges.",
     "intro": "A short form beats emailing a CV into the void. Fill it in and we'll take it from there.",
     "steps": [
-      "Fill in the short form below — name, phone, email, English background, academic degree, location, and one line on why you want to teach with Bridges.",
-      "Have a short conversation with us.",
-      "If it's a good fit, join a Bridges teaching placement."
+      "Fill in the short form below — name, phone, email, English background, academic degree, location, one line on why you want to teach with Bridges, and your CV.",
+      "Complete a two-stage interview process with our team.",
+      "Successful candidates may proceed to onboarding and placement, subject to current program needs and completion of all required checks and documents."
     ]
   },
   "notFound": {

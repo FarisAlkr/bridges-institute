@@ -27,7 +27,8 @@
     },
     "submit": "إرسال الرسالة",
     "successTitle": "شكرًا — تم استلام رسالتك.",
-    "successBody": "سنتواصل معك قريبًا."
+    "successBody": "سنتواصل معك قريبًا.",
+    "emailSubject": "تسلّمنا رسالتك — Bridges"
   },
   "map": {
     "eyebrow": "أين نحن",

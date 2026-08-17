@@ -11,7 +11,7 @@
   "programs": [
     {
       "title": "In-School English Immersion",
-      "body": "Weekly, ongoing classes inside the school day — taught fully in English by an English-speaking teacher.",
+      "body": "Weekly, ongoing classes inside the school day — taught fully in English by a native English-speaking teacher.",
       "scope": "Grades 3–12 · Year-long"
     },
     {
@@ -26,12 +26,12 @@
     },
     {
       "title": "Teacher Co-Teaching",
-      "body": "English-speaking teachers paired with local teachers to co-design lessons and model live conversation.",
+      "body": "Native English-speaking teachers paired with local teachers to co-design lessons and model live conversation.",
       "scope": "Custom · Ongoing"
     },
     {
       "title": "Community Center Programs",
-      "body": "Open-access classes hosted at municipal and community partners — serving Arab and Jewish neighborhoods alike.",
+      "body": "Open-access classes hosted at municipal and community partners — serving Arab and Jewish societies alike.",
       "scope": "All ages · Year-round"
     },
     {
@@ -54,7 +54,7 @@
       },
       {
         "title": "Teacher Match",
-        "body": "We pair you with English-speaking teachers who fit your community."
+        "body": "We pair you with native English-speaking teachers who fit your community."
       },
       {
         "title": "Launch & Iterate",
@@ -68,6 +68,6 @@
   },
   "meta": {
     "title": "Schools & Institutions — Bridges Institute",
-    "description": "Programs for schools, community centers, and municipalities across the Negev. English-speaking teachers delivering measurable, joyful results."
+    "description": "Programs for schools, community centers, and municipalities across the Negev. Native English-speaking teachers delivering measurable, joyful results."
   }
 }

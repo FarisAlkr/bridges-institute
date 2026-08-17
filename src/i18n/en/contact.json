@@ -19,14 +19,15 @@
     "message": "Message",
     "selectPlaceholder": "Select…",
     "subjectOptions": {
-      "general": "General Enquiry",
+      "general": "General Inquiry",
       "partnership": "Partnership",
       "schools": "Programs for Schools",
       "press": "Press"
     },
     "submit": "Send Message",
     "successTitle": "Thank you — message received.",
-    "successBody": "We'll be in touch shortly."
+    "successBody": "We'll be in touch shortly.",
+    "emailSubject": "We have received your message — Bridges Institute"
   },
   "map": {
     "eyebrow": "Find Us",
@@ -35,6 +36,6 @@
   },
   "meta": {
     "title": "Contact & Partnerships — Bridges Institute",
-    "description": "Get in touch with Bridges Institute in Be'er Sheva. Partnerships, programs, and general enquiries."
+    "description": "Get in touch with Bridges Institute in Be'er Sheva. Partnerships, programs, and general inquiries."
   }
 }

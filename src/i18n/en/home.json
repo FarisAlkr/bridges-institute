@@ -2,16 +2,16 @@
   "hero": {
     "eyebrow": "Teach with Bridges · The Negev",
     "headline": "Help students speak English <em>with confidence.</em>",
-    "subheadline": "Bridges Institute brings qualified English-speaking teachers into schools across the Negev to lead active English lessons — movement, games, stories, role-play and real communication.",
+    "subheadline": "Bridges Institute employs qualified native English-speaking teachers in schools across the Negev to lead active English lessons — movement, games, stories, role-play and real communication.",
     "imageAlt": "A teacher leading an active English lesson with students in the Negev",
     "seeHowWeTeach": "See How We Teach"
   },
   "trust": {
     "since": "Working in the Negev since {{year}}",
-    "gefen": "Recognized by the Israeli Ministry of Education, GEFEN Program No. {{program}}",
+    "gefen": "Recognized and approved by the Israeli Ministry of Education",
     "studentsLabel": "Students",
     "schoolsLabel": "Schools & institutions",
-    "teachersLabel": "English-speaking teachers"
+    "teachersLabel": "Native English-speaking teachers"
   },
   "why": {
     "eyebrow": "Why teach with Bridges",
@@ -27,7 +27,7 @@
       },
       "support": {
         "title": "Teaching materials",
-        "body": "Teaching materials are provided for the programme."
+        "body": "Teaching materials are provided for the program."
       },
       "personality": {
         "title": "Room for personality",
@@ -57,8 +57,12 @@
     "badHeading": "Probably not the right fit",
     "rows": [
       {
-        "good": "Fluent or near-native English",
+        "good": "English as a first language, with native command of spoken and written English.",
         "bad": "Wants quiet, textbook-only teaching"
+      },
+      {
+        "good": "A degree in English language teaching, education, TESOL, or a related field is an advantage.",
+        "bad": "Not open to feedback or coaching."
       },
       {
         "good": "Comfortable leading a room of children or teens",
@@ -102,12 +106,12 @@
   },
   "schools": {
     "eyebrow": "For schools",
-    "body": "Bridges Institute brings English-speaking teachers into schools and learning centers across the Negev. Our programs help students build spoken English confidence through active, communication-based lessons.",
-    "gefen": "Recognized under the Israeli Ministry of Education's GEFEN framework, Program No. 9003.",
+    "body": "Bridges Institute employs native English-speaking teachers in schools and learning centers across the Negev. Our programs help students build spoken English confidence through active, communication-based lessons.",
+    "gefen": "Recognized and approved by the Israeli Ministry of Education.",
     "cta": "Bring Bridges to Your School"
   },
   "meta": {
     "title": "Teach English in the Negev — Bridges Institute",
-    "description": "Bridges Institute recruits qualified English-speaking teachers for full-time and part-time roles in schools across the Negev. A recognised academic degree and fluent or near-native English are required."
+    "description": "Bridges Institute employs qualified native English-speaking teachers in schools across the Negev and recruits for full-time and part-time roles. A recognized academic degree and native English are required."
   }
 }
